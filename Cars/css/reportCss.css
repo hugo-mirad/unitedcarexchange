@@ -1,0 +1,275 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background:#fff;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	margin:0;
+	padding:0;
+}
+.main{
+	width:560px;
+	background:#fff;
+	padding:0;
+	margin:0 auto;
+}
+.landingPage{
+	width:100%;
+	padding:20px;
+	height:auto;
+	background:#fffadb url(http://smartz.unitedcarexchange.com/images/landingBack.jpg) right top repeat-y;
+	margin:0 0 10px 0;
+	position:relative;
+	z-index:1;
+}
+.clear{
+	margin:0;
+	padding:0;
+	height:1px;
+	overflow:hidden;
+	clear:both;
+}
+.img{
+	border:none;
+	text-decoration:none;
+}
+.reportDate{
+	float:right;
+	margin:0 10px 0 0;
+	font-size:11px;
+	font-weight:bold;
+	color:#fff;
+	width:250px;
+	border:none;
+	text-align:right;
+}
+.reportDate div{
+	padding:50px 0 0 0;
+	text-align:left;
+	font-size:14px;
+	color:#fff;
+	font-weight:bold;
+	text-shadow:0 0 6px rgba(0,0,0,0.4);
+}
+.logo{
+	width:220px;
+	height:59px;
+	float:left;
+	text-align:left;
+	padding:0;
+	margin:10px 0 0 10px
+}
+.carHeadding{
+	font-size:18px;
+	font-weight:bold;
+	color:#fdffbc;
+	text-align:center;
+	padding:15px;
+	width:570px;
+	float:left;
+	margin:30px 0 0 -20px;
+	position:relative;
+	z-index:2;
+	background:url(http://smartz.unitedcarexchange.com/images/headBack1.jpg) 0 0 repeat-y;
+	border:#fff 1px solid;
+	text-shadow:0 0 6px rgba(0,0,0,0.4);
+}
+.carImg{
+	float:right;
+	margin:0 -20px 50px 0;
+	width:600px;
+	height:auto;
+	border:none;
+	overflow:hidden;
+}
+.carImg img{
+	width:600px;
+	overflow:hidden;
+}
+.copyright1{
+	font-size:12px;
+	text-align:left;
+	color:#fff;
+	float:right;
+	margin:30px 50px 50px 0;
+	width:200px;	
+	text-shadow:0 1px 1px rgba(0,0,0,0.4);
+	line-height:16px;
+}
+.copyright1 a, .footer a{
+	text-decoration:none;
+	color:#fff;
+	border-bottom:#666 1px  dotted;
+	line-height:24px;
+	text-shadow:0 1px 2px rgba(0,0,0,0.7);
+	
+}
+.copyright1 a:hover, .footer a:hover{
+	border:none;
+}
+.footer a{
+	color:#666;
+	text-shadow:0 1px 2px rgba(0,0,0,0.3);
+}
+.page{
+	width:100%;
+	padding:20px;
+	height:797px;
+	background:#fffadb;
+	margin:10px 0;
+	position:relative;
+	z-index:1;
+}
+.footer{
+	position:absolute;
+	bottom:0;
+	left:5%;
+	height:50px;
+	padding:20px 0 0 0;
+	text-align:center;
+	color:#666;
+	border-top:#a46401 1px solid;
+	width:90%;
+	text-shadow:0 1px 2px rgba(0,0,0,0.3);
+}
+.page .content{
+	width:90%;
+	margin:0 auto;
+}
+.page h3, .page h4 {
+	font-size:22px;
+	color:#FF6600;
+	text-align:left;
+	margin-bottom:10px;
+}
+
+.page h4{
+	font-size:16px;
+	margin:0 0 10px 0;
+}
+.table1{
+	margin:0;
+	padding:0;
+	font-size:12px;
+	color:#222;
+	width:100%;
+}
+.table1 td{
+	padding:4px 5px 10px 5px;
+	vertical-align:top;
+	text-align:left;
+	border:#fff 1px solid
+}
+.table1 td strong{
+	font-size:13px;
+}
+
+.grid{
+	width:auto;
+	padding:1px;
+	border:none;
+	background:#fff;
+}
+.grid th{
+	background:#76d8e8;
+	padding:10px;
+	color:#05676c;
+	font-size:15px;
+	font-weight:bold;
+	border:none;
+	text-align:left;
+	margin:0;
+}
+.grid td{
+	padding:7px 10px;
+	font-size:13px;
+	color:#333;
+	background:#c4eff6;
+	border:none;
+	text-align:center;
+}
+.grid td strong{
+	font-size:13px;
+	text-align:left;
+}
+
+
+/* Charts */
+.chart{
+	width:470px;
+	margin:20px 0 0 0;
+	padding:20px;
+	background:#fff;
+	position:relative;
+	z-index:10;
+	overflow:hidden;
+}
+.chart i{
+	float:right; text-align:right; color:#999;
+}
+#chart,#form_values {
+	width:560px;
+}
+#chart {
+	list-style:none;
+	border-left:dotted 1px #666;
+	border-bottom:dotted 1px #666;	
+	padding:0;
+	margin:0 0 10px 100px;
+	background:url(http://smartz.unitedcarexchange.com/images/gr.png) left bottom;
+}
+#chart li,#chart li span {
+	height:30px;	
+}
+#chart li .percent {
+	width:30px;
+	position: absolute;
+	top:0;
+	right:-40px;
+	text-align:right;
+}
+#chart li {
+	position: relative;
+	display:block;
+	height:30px;
+	width:320px;
+	margin:0 0 5px 5px;
+	text-align:left;
+	padding-left:0;
+}
+#chart li .bar {
+	width:0;
+}
+.red .bar {
+	background:#05676C;
+}
+.blue .bar {
+	background:#3396b2;
+}
+.yellow .bar {
+	background:#76D8E8;
+}
+.orange .bar {
+	background:orange;
+}
+.purple .bar {
+	background:purple;
+}
+.field {
+	padding:3px;
+	width:50px;
+	border:solid 1px #000;
+	float:left;
+	margin-right:5px;
+	color:#333;
+}
+.chart div{
+	width:120px;
+	padding-top:8px;
+	float:left;
+	font-weight:bold;
+	margin-left:-130px;
+	text-align:right;	
+	position:relative;
+	z-index:20;
+}

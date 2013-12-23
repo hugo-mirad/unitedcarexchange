@@ -1,0 +1,52 @@
+F:\VSS New Working\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+F:\VSS New Working\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+F:\VSS New Working\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+F:\VSS New Working\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+F:\VSS New Working\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+F:\VSS New Working\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+F:\VSS New Working\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+F:\VSS New Working\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+F:\VSS New Working\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+F:\VSS New Working\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+F:\VSS New Working\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+F:\VSS New Working\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+F:\VSS New Working\Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+F:\VSS New Working\Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+F:\VSS New Working\Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+F:\VSS New Working\Smartz\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+F:\VSS New Working\Smartz\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+F:\VSS New Working\Smartz\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+F:\VSS New Working\Smartz\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+F:\VSS New Working\Smartz\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+F:\VSS New Working\Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+F:\VSS New Working\Smartz\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+F:\VSS New Working\Smartz\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+F:\VSS New Working\Smartz\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+C:\Users\Din\Desktop\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+C:\Users\Din\Desktop\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+C:\Users\Din\Desktop\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+C:\Users\Din\Desktop\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+C:\Users\Din\Desktop\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Din\Desktop\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+C:\Users\Din\Desktop\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+E:\HmsWorks\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+E:\HmsWorks\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+E:\HmsWorks\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+E:\HmsWorks\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+E:\HmsWorks\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+E:\HmsWorks\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+E:\HmsWorks\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+D:\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+D:\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+D:\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+D:\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+D:\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+D:\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+D:\FolderSmartz\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+D:\PresentLiveSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+D:\PresentLiveSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+D:\PresentLiveSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+D:\PresentLiveSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+D:\PresentLiveSmartz\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+D:\PresentLiveSmartz\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+D:\PresentLiveSmartz\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
