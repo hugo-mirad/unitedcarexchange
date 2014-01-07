@@ -188,7 +188,7 @@ public partial class CustomerView : System.Web.UI.Page
                         //HylinkUCE.NavigateUrl = "http://unitedcarexchange.com/SearchCarDetails.aspx?Make=" + CarsDetails.Tables[0].Rows[0]["make"].ToString() + "&Model=" + CarsDetails.Tables[0].Rows[0]["model"].ToString() + "&ZipCode=0&WithinZip=5&C=4zVbl2Mc" + CarsDetails.Tables[0].Rows[0]["carId"].ToString();
 
                         string M1 = Make;
-                        if (M1 == "M & M") M1 = "WM";
+                        if (M1 == "W & M") M1 = "WM";
                         HylinkUCE.NavigateUrl = "http://unitedcarexchange.com/Buy-Sell-UsedCar/" + Year + "-" + M1 + "-" + Model + "-" + UniqueID;
                         HylinkUCE.Target = "blank";
 
