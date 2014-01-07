@@ -185,8 +185,11 @@ public partial class CustomerView : System.Web.UI.Page
                         Model = Model.Replace("/", "@");
                         Model = Model.Replace("&", "@");
                         //lblZip.Text == "" ? "0" : lblZip.Text 
-                        //HylinkUCE.NavigateUrl = "http://unitedcarexchange.com/SearchCarDetails.aspx?Make=" + CarsDetails.Tables[0].Rows[0]["make"].ToString() + "&Model=" + CarsDetails.Tables[0].Rows[0]["model"].ToString() + "&ZipCode=0&WithinZip=5&C=4zVbl2Mc" + CarsDetails.Tables[0].Rows[0]["carId"].ToString();                        
-                        HylinkUCE.NavigateUrl = "http://unitedcarexchange.com/Buy-Sell-UsedCar/" + Year + "-" + Make + "-" + Model + "-" + UniqueID;
+                        //HylinkUCE.NavigateUrl = "http://unitedcarexchange.com/SearchCarDetails.aspx?Make=" + CarsDetails.Tables[0].Rows[0]["make"].ToString() + "&Model=" + CarsDetails.Tables[0].Rows[0]["model"].ToString() + "&ZipCode=0&WithinZip=5&C=4zVbl2Mc" + CarsDetails.Tables[0].Rows[0]["carId"].ToString();
+
+                        string M1 = Make;
+                        if (M1 == "M & M") M1 = "WM";
+                        HylinkUCE.NavigateUrl = "http://unitedcarexchange.com/Buy-Sell-UsedCar/" + Year + "-" + M1 + "-" + Model + "-" + UniqueID;
                         HylinkUCE.Target = "blank";
 
                         if (CarsDetails.Tables[0].Rows[0]["mileage"].ToString() != "0.00")
