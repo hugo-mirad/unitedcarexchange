@@ -28,3 +28,8 @@ D:\PresentLiveSmartz\VSS New Smartz\Service\CarsInfo\BussinessInfo\bin\Debug\Car
 D:\PresentLiveSmartz\VSS New Smartz\Service\CarsInfo\BussinessInfo\obj\Debug\ResolveAssemblyReference.cache
 D:\PresentLiveSmartz\VSS New Smartz\Service\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.dll
 D:\PresentLiveSmartz\VSS New Smartz\Service\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.pdb
+D:\github\SmartzUCEClone\SmartzUCE\Service\CarsInfo\BussinessInfo\bin\Debug\CarsInfo.dll
+D:\github\SmartzUCEClone\SmartzUCE\Service\CarsInfo\BussinessInfo\bin\Debug\CarsInfo.pdb
+D:\github\SmartzUCEClone\SmartzUCE\Service\CarsInfo\BussinessInfo\obj\Debug\ResolveAssemblyReference.cache
+D:\github\SmartzUCEClone\SmartzUCE\Service\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.dll
+D:\github\SmartzUCEClone\SmartzUCE\Service\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.pdb

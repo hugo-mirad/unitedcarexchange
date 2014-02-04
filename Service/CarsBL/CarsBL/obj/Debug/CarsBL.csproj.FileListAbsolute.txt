@@ -50,10 +50,10 @@ D:\PresentLiveSmartz\VSS New Smartz\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
 D:\PresentLiveSmartz\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
 D:\PresentLiveSmartz\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
 D:\PresentLiveSmartz\VSS New Smartz\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+D:\github\SmartzUCEClone\SmartzUCE\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
 D:\github\SmartzUCEClone\SmartzUCE\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
 D:\github\SmartzUCEClone\SmartzUCE\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
 D:\github\SmartzUCEClone\SmartzUCE\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
 D:\github\SmartzUCEClone\SmartzUCE\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
-D:\github\SmartzUCEClone\SmartzUCE\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
 D:\github\SmartzUCEClone\SmartzUCE\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
 D:\github\SmartzUCEClone\SmartzUCE\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb

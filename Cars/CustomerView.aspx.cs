@@ -715,6 +715,7 @@ public partial class CustomerView : System.Web.UI.Page
             string PDDate = string.Empty;
             string LoginPassword = Session["RegPassword"].ToString();
             string LoginName = Session["RegUserName"].ToString();
+            lblMailTo.Text = LoginName;
             string UserDisName = Session["RegName"].ToString();
             string Year = Session["ViewCarYear"].ToString();
             string Model = Session["ViewCarModel"].ToString();
@@ -739,7 +740,6 @@ public partial class CustomerView : System.Web.UI.Page
                 text = format.SendRegistrationdetails(LoginUserID, LoginPassword, UserDisName, ref text, Link, TermsLink);
             }
             lblRegisMail.Text = text;
-            lblMailTo.Text = LoginName;
             txtEmailTo.Text = "";
             lblRegisMail.Visible = true;
             mpeViewregisterMail.Show();
@@ -887,6 +887,11 @@ public partial class CustomerView : System.Web.UI.Page
             string PDDate = string.Empty;
             string LoginPassword = Session["RegPassword"].ToString();
             string LoginName = Session["RegUserName"].ToString();
+            if (LoginName.Trim() == "")
+            {
+                LoginName = lblMailTo.Text.Trim();
+            }
+                       
             string UserDisName = Session["RegName"].ToString();
             string Year = Session["ViewCarYear"].ToString();
             string Model = Session["ViewCarModel"].ToString();
@@ -1574,27 +1579,15 @@ public partial class CustomerView : System.Web.UI.Page
             msg.Subject = "MultiSite";
             msg.IsBodyHtml = true;
             string text = string.Empty;
-
-
-
             //  text = format.SendMultiSitedetailsTesting(ref text, dtMutisite);
 
             msg.Body = text.ToString();
-
-
-
-
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
             smtp.Credentials = new System.Net.NetworkCredential("info@unitedcarexchange.com", "info*123*");
             smtp.EnableSsl = true;
             smtp.Send(msg);
-
-
-
-
-
         }
         catch (Exception ex)
         {
@@ -1609,6 +1602,7 @@ public partial class CustomerView : System.Web.UI.Page
             DataTable dtMutisite = MultiSite.Tables[4];
             if (dtMutisite.Rows.Count > 0)
             {
+                
                 clsMailFormats format = new clsMailFormats();
                 string text = string.Empty;
                 string LoginName = Session["RegUserName"].ToString();
@@ -1621,21 +1615,8 @@ public partial class CustomerView : System.Web.UI.Page
                 DataSet CarsDetails = (DataSet)Session["ViewCarDetailsDataset"];
                 string Carid = Session["ViewCarID"].ToString();
                 //text = format.SendMultiSitedetailsTesting(ref text, dtMutisite,CarsDetails);
-
+               
                 text = format.SendMultiListMail(ref text, dtMutisite, Carid, PackageName, UserDisName, UniqueID);
-
-
-                //if (Session["ViewPayStatus"].ToString() == "5")
-                //{
-                //    DateTime PostDate = Convert.ToDateTime(Session["ViewPDDate"].ToString());
-                //    PDDate = PostDate.ToString("MM/dd/yyyy");
-                //    text = text;
-                //}
-                //else
-                //{
-                //    text = text;
-                //}
-
 
                 lblMultiListMail.Text = text;
                 lblMailTo.Text = LoginName;
@@ -1650,10 +1631,6 @@ public partial class CustomerView : System.Web.UI.Page
                 lblErr.Text = "No active multisite listings are in place";
             }
 
-
-
-
-
         }
         catch (Exception ex)
         {
@@ -1664,11 +1641,9 @@ public partial class CustomerView : System.Web.UI.Page
 
     protected void btnSendListingMail_Click(object sender, EventArgs e)
     {
-
         Session.Timeout = 180;
         ResendMultiListingMail();
         MpeListMail.Hide();
-
         int CarID = Convert.ToInt32(Session["CustViewCarID"].ToString());
         int UID = Convert.ToInt32(Session[Constants.USER_ID].ToString());
         String UpdatedBy = Session[Constants.NAME].ToString();
@@ -1684,8 +1659,6 @@ public partial class CustomerView : System.Web.UI.Page
             txtOldIntNotes.Text = OldNotes;
             txtNewIntNotes.Text = "";
         }
-
-
         mpealteruser.Show();
         lblErr.Visible = true;
         lblErr.Text = "Email(s) successfully send";
@@ -1697,13 +1670,17 @@ public partial class CustomerView : System.Web.UI.Page
         try
         {
             clsMailFormats format = new clsMailFormats();
-
-
             MailMessage msg = new MailMessage();
 
-
-
-            string LoginName = Session["RegUserName"].ToString();
+            string LoginName = "";
+            if (Session["RegUserName"].ToString().Trim() != "")
+            {
+                LoginName = Session["RegUserName"].ToString();
+            }
+            else
+            {
+                LoginName = lblMultiSiteMailTo.Text.Trim();
+            }   
             msg.From = new MailAddress("info@unitedcarexchange.com");
             msg.To.Add(LoginName);
             string PDDate = string.Empty;
@@ -1715,12 +1692,9 @@ public partial class CustomerView : System.Web.UI.Page
             }
             msg.From = new MailAddress("info@unitedcarexchange.com");
             msg.Subject = "MultiSite";
-
             msg.IsBodyHtml = true;
             string ToEmail = lblMultiSiteMailTo.Text;
-
             msg.To.Add(ToEmail);
-
             if (txtEmailTo.Text != "")
             {
                 msg.CC.Add(txtEmailTo.Text);
@@ -1728,17 +1702,10 @@ public partial class CustomerView : System.Web.UI.Page
             msg.Bcc.Add("archive@unitedcarexchange.com");
             msg.Subject = "Multisite Listing Details From United Car Exchange For Car ID# " + Session["ViewCarID"].ToString();
             msg.IsBodyHtml = true;
-
-
+           
             msg.Body = lblMultiListMail.Text.ToString();
 
             SmtpClient smtp = new SmtpClient();
-            //smtp.Host = "smtp.gmail.com";
-            //smtp.Port = 587;
-            //smtp.Credentials = new System.Net.NetworkCredential("info@unitedcarexchange.com", "info*123*");
-            //smtp.EnableSsl = true;
-            //smtp.Send(msg);
-
             smtp.Host = "127.0.0.1";
             smtp.Port = 25;
             smtp.Send(msg);
