@@ -745,7 +745,6 @@ public partial class AbandonSalesSearch : System.Web.UI.Page
                 Session["SortDirec"] = "Ascending";
                 lnkPackageSort.Text = "Package &#8659";
             }
-
             lnkCarIDSort.Text = "Car ID &darr; &uarr;";
             lnkPostedSort.Text = "Posted Dt &darr; &uarr;";
             lnkAgentSort.Text = "Agent &darr; &uarr;";
@@ -1033,7 +1032,6 @@ public partial class AbandonSalesSearch : System.Web.UI.Page
     {
         string strTransaction = string.Empty;
         strTransaction = "<table width=\"120px\" id=\"SalesStatus\" style=\"display: block; background-color:#F3D9F6;border:2px;border-color:Black;height:60px \">";
-
         strTransaction += "<tr id=\"CampaignsBody3\">";
         strTransaction += "<td  style=\"padding-left:10px;\" >";
         strTransaction += "Active:";
@@ -1057,7 +1055,6 @@ public partial class AbandonSalesSearch : System.Web.UI.Page
         strTransaction += "</td>";
         strTransaction += "</tr>";
         strTransaction += "</table>";
-
         return strTransaction;
 
     }
