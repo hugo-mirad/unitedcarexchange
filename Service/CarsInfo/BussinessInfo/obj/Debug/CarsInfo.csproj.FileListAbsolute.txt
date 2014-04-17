@@ -1,0 +1,8 @@
+D:\VSS NEW SYSTEM\UCE\Service\CarsInfo\BussinessInfo\bin\Debug\CarsInfo.pdb
+D:\VSS NEW SYSTEM\UCE\Service\CarsInfo\BussinessInfo\obj\Debug\ResolveAssemblyReference.cache
+D:\VSS NEW SYSTEM\UCE\Service\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.dll
+D:\VSS NEW SYSTEM\UCE\Service\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.pdb
+C:\Users\padma\Desktop\Live\United-Car-Exchange-Jan082014\United-Car-Exchange-Jan082014\Service\CarsInfo\BussinessInfo\bin\Debug\CarsInfo.pdb
+C:\Users\padma\Desktop\Live\United-Car-Exchange-Jan082014\United-Car-Exchange-Jan082014\Service\CarsInfo\BussinessInfo\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\padma\Desktop\Live\United-Car-Exchange-Jan082014\United-Car-Exchange-Jan082014\Service\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.dll
+C:\Users\padma\Desktop\Live\United-Car-Exchange-Jan082014\United-Car-Exchange-Jan082014\Service\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.pdb

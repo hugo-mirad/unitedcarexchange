@@ -1,0 +1,25 @@
+
+<div style="min-width:650px;width:95%;margin:0; border-bottom: #ccc 3px solid; height:75px;">
+	<a href="http://www.unitedcarexchange.com/" target="_blank" style=" float:left "><img src="http://www.unitedcarexchange.com/images/logo2.png" style="width:200px; height:54px; border:none;" /></a>
+<b style=" float:right; ">Toll-free: <label style="color:#FF9900">888-786-8307</label>
+<strong>Working Hours: </strong>9 AM to 5 PM EST (<i style="font-size: 11px; color: #666">Mon-Fri</i>)
+</b>
+
+
+</div>
+<div style="min-width:650px; width:95%; margin:0 0 20px 0; font-family:Arial; font-size:12px; ">
+Dear ###Customer###,<br />
+This email is sent in response  for editing your preferences.  <br /> 
+To modify or edit your preferences  at any time, please visit http://www.unitedcarexchange.com/EmailPreferences.aspx?PreferID=####PreferencesID####.<br /> 
+Thank you for considering United Car Exchange as a potential online platform to connect car buyers and sellers.<br />            
+Team United Car Exchange,<br />http://www.unitedcarexchange.com<br />
+To UnSubscribe from email alerts please click http://www.unitedcarexchange.com/unsubscribe.aspx?PreferID=####PreferencesID####
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+/*!
+ * Auther      : Jyothirmayudu.CH
+ * Created on  : 8 Jan 2012
+ * Mail        : ch.jmayudu@gmail.com
+ * Discription : CSS for search criteria dropdowns
+ */
+.width-1{
+	width:130px;
+	float:left;
+	margin-right:7px;
+}
+.width-1 select{
+	padding:8px 6px 8px 2px;
+	border:#ccc 1px solid;
+	font-size:12px;
+	width:135px;
+}
+
+.width-1 select:hover, .width-1 select:focus, .width-1 input[type='text']:focus, .width-1 input[type='text']:hover{
+	border:1px solid #ffb619;
+}
+.width-1 span{
+	clear:both;
+	font-size:16px;
+	font-weight:bold;
+	color:#333333;
+	line-height:20px;
+}
+.width-1 input[type='text']{
+	padding:9px 7px;
+	border:#ccc 1px solid;
+	font-size:12px;
+	width:117px;
+}
+
+.customStyleSelectBox {
+/* Styles For Your Select Box */
+}
+
+.customStyleSelectBox.changed {
+/* You can use this if you want a different style after user has made a selection */
+}
+
+/* on the next line we add a down arrow on the right to indicate that it is a select box */
+.customStyleSelectBoxInner {
+	background:url(../images/select.gif) no-repeat center right;
+}

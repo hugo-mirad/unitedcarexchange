@@ -1,0 +1,11 @@
+/*======= index.html =======*/
+/*!
+ * Auther      : Jyothirmayudu.CH
+ * Created on  : 8 Jan 2012
+ * Mail        : ch.jmayudu@gmail.com
+ * Discription : CSS for whole website pages
+ */
+#page1 .col-1 {width: 141px; padding: 0 3px 0 0;}
+#page1 .col-2 {width: 141px; padding: 0 2px 0 0;}
+#page1 .col-3 {width: 141px; padding: 0 5px 0 0;}
+#page1 .col-4 {width: 146px;}

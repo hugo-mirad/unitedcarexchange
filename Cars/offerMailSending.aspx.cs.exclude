@@ -1,0 +1,145 @@
+﻿#region System References
+using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.Text;
+using System.Data;
+using System.Data.Common;
+using System.Linq;
+
+#endregion System References
+
+#region Application References
+using CarsInfo;
+#endregion Application References
+
+#region Microsoft Application Block References
+using Microsoft.Practices.EnterpriseLibrary.Data;
+using Microsoft.Practices.EnterpriseLibrary.Common;
+using Microsoft.Practices.EnterpriseLibrary.ExceptionHandling;
+using System.Net.Mail;
+
+#endregion Microsoft Application Block References
+
+public partial class offerMailSending : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+        }
+    }
+    protected void btnSend_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            string StrRep = txtEmailAddress.Text.Replace("\r", "");
+            string[] str12 = StrRep.Split('\n');
+            ArrayList str = new ArrayList();
+            foreach (string s in str12)
+                str.Add(s);
+
+            ArrayList strMatch = new ArrayList();
+
+
+
+            var sList = new ArrayList();
+
+            for (int i = 0; i < str.Count; i++)
+            {
+                if (sList.Contains(str[i].ToString().Trim()) == false)
+                {
+                    sList.Add(str[i].ToString().Trim());
+                }
+            }
+
+
+            for (int c = 0; c < sList.Count; c++)
+            {
+                if (sList[c].ToString().Trim() == "")
+                {
+                    sList.RemoveAt(c);
+                }
+            }
+            ArrayList sNewlist = new ArrayList();
+            for (int d = 0; d < sList.Count; d++)
+            {
+                string[] strNew = sList[d].ToString().Split(' ');
+
+                if (strNew.Length > 0)
+                {
+                    string sattach = string.Empty;
+                    for (int s = 0; s < strNew.Length; s++)
+                    {
+                        if (s == 0)
+                        {
+                            sattach = strNew[s].Trim();
+                        }
+                        else
+                        {
+                            sattach = sattach + " " + strNew[s].Trim();
+                        }
+                    }
+                    sNewlist.Add(sattach);
+                }
+                else
+                {
+                    sNewlist.Add(sList[d]);
+                }
+            }
+
+            str = sNewlist;
+            for (int i = 0; i < str.Count; i++)
+            {
+                string Username = str[i].ToString();                
+                SendOffermail(Username);
+            }          
+            mpealteruser.Show();
+            lblErr.Visible = true;
+            lblErr.Text = "Email(s) successfully send";
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+    private void SendOffermail(string Username)
+    {
+        try
+        {
+            clsMailFormats format = new clsMailFormats();
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress("carsales@UnitedCarExchange.com");
+            msg.To.Add(Username);
+            msg.Subject = "Best Way To Sell Your Car From United Car Exchange With Special Discounts";
+            msg.IsBodyHtml = true;
+            string text = string.Empty;
+            text = format.SendOffermaildetails(ref text);
+            msg.Body = text.ToString();
+            SmtpClient smtp = new SmtpClient();
+            //smtp.Host = "smtp.gmail.com";
+            //smtp.Port = 587;
+            //smtp.Credentials = new System.Net.NetworkCredential("satheesh.aakula@gmail.com", "hugomirad");
+            //smtp.EnableSsl = true;
+            //smtp.Send(msg);
+            smtp.Host = "127.0.0.1";
+            smtp.Port = 25;
+            smtp.Send(msg);           
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+    protected void btnYes_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Response.Redirect("offerMailSending.aspx");
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+﻿/*!
+ * Auther      : Jyothirmayudu.CH
+ * Created on  : 5 July 2012
+ * Mail        : ch.jmayudu@gmail.com
+ * Discription : CSS for Production Team
+ */
+ 
+
+.imgHolder{width:100%; position:relative; z-index:1; height:auto; padding:0;}
+            .imgHolder ul{ list-style:none; margin:0; padding:0 }
+            .imgHolder ul li{ float:left; margin:0 10px 10px 0; width:280px; height:auto; position:relative; z-index:5}
+            .imgHolder ul li img{ width:274px; height:auto; margin:0 auto; border:#ccc 1px solid; padding:2px; background:url(images/loading1.gif) center ni-repeat; }
+           .carID{ font-size:13px; font-weight:bold; }
+            .stock
+            {
+            	    display:none;
+            	    position:absolute; 
+            	    z-index:10; 
+            	    width:280px; 
+            	    padding:5px 0; 
+            	    color:#fff; font-size:15px; font-weight:bold; text-align:center;
+            	    left:0; bottom:10px;
+            	    background:url(images/content-back2.png) 0 0 repeat;
+            }
+           .proDet
+           {
+           	    width:100%;
+           	    display:none;
+           	}
+        .detailsDiv
+        {
+            width: 100%;
+            line-height:22px;
+        }
+        .Title
+        {
+            font-size: 16px;
+            color: #333;
+            margin-bottom:10px;
+        }
+        .Title span
+        {
+            color: #FF6600;
+        }
+        .detailsDiv strong
+        {
+            display: inline-block;
+            width: 100px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .url{ color:#ff9900;  font-weight:bold; }
+        .disc strong{ width:130px; }
+        .SellerNotes strong{ width:70px; }
