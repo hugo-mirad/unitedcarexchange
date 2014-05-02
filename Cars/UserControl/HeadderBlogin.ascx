@@ -131,8 +131,9 @@
 	function resetTimer(){
 	    if($.cookie('PrefCookie') == 'Pref'){
 	        subTimer = setInterval(function(){alertCall()}, 6000)
-	    }
-	}
+	  
+	  }
+	  }
 	
 	$(function(){	
 	   if($('#accountLi').length <= 0){
