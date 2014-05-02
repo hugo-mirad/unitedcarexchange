@@ -20,19 +20,19 @@
       
             var valid=true;  
             
-              if (document.getElementById('<%=ddlmakesp.ClientID%>').value == "Select") {
+              if (document.getElementById('<%=ddlmakesp.ClientID%>').value == "0") {
                 alert('Please select make')
                 valid = false;
                 document.getElementById('ddlmakesp').focus();
                 return valid;
             }
-            else   if (document.getElementById('<%=ddlmodelsp.ClientID%>').value == "Select") {
+            else   if (document.getElementById('<%=ddlmodelsp.ClientID%>').value == "0") {
                 alert('Please select model')
                 valid = false;
                 document.getElementById('ddlmodelsp').focus();
                 return valid;
             }
-               else   if (document.getElementById('<%=ddlyearp.ClientID%>').value == "Select") {
+               else   if (document.getElementById('<%=ddlyearp.ClientID%>').value == "0") {
                 alert('Please select year')
                 valid = false;
                 document.getElementById('ddlyearp').focus();
@@ -330,25 +330,25 @@
                         Personal Info</h3>
                 </div>
                 <div class="form-section">
-                <asp:UpdatePanel ID="u1" runat="server">
-                <ContentTemplate>
-                    <div class="form-group " id="Div1" runat="server">
-                        <label>
-                            First Name</label>
-                        <asp:TextBox ID="txtfnamep" runat="server" class="form-control"></asp:TextBox>
-                    </div>
-                    <div class="form-group ">
-                        <label>
-                            Last Name
-                        </label>
-                        <asp:TextBox ID="txtlastnamep" runat="server" class="form-control"></asp:TextBox>
-                    </div>
-                    <div class="form-group ">
-                        <label>
-                            Email <span class="star">*</span></label>
-                        <asp:TextBox ID="txtemail" runat="server" class="form-control"></asp:TextBox>
-                    </div>
-                    </ContentTemplate>
+                    <asp:UpdatePanel ID="u1" runat="server">
+                        <ContentTemplate>
+                            <div class="form-group " id="Div1" runat="server">
+                                <label>
+                                    First Name</label>
+                                <asp:TextBox ID="txtfnamep" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                            <div class="form-group ">
+                                <label>
+                                    Last Name
+                                </label>
+                                <asp:TextBox ID="txtlastnamep" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                            <div class="form-group ">
+                                <label>
+                                    Email <span class="star">*</span></label>
+                                <asp:TextBox ID="txtemail" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>
             </div>
@@ -363,15 +363,14 @@
                 </asp:UpdatePanel>
             </div>
             &nbsp; &nbsp;
-             <div style="float: right; width: 80px;">
+            <div style="float: right; width: 80px;">
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
-                <asp:Button ID="btncancelp" runat="server" Text="Cancel" class="btn btn-default "
+                        <asp:Button ID="btncancelp" runat="server" Text="Cancel" class="btn btn-default "
                             OnClick="btncancelp_click" />
-                             </ContentTemplate>
+                    </ContentTemplate>
                 </asp:UpdatePanel>
             </div>
-         
         </div>
     </div>
 </div>

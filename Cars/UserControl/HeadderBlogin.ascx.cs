@@ -94,7 +94,7 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
             sellLi.Visible = true;
         }
 
-       
+
         //string Pref="";
         //if (Request.Cookies["PrefCookie"] != null)
         //    {
@@ -151,7 +151,7 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
         try
         {
             Response.Cookies["Statuscookie"].Value = "false";
-            Response.Cookies["PrefCookie"].Value = "Pref";
+           // Response.Cookies["PrefCookie"].Value = "Pref";
             // Update Time of closing application
 
             string IPAddress = Request.Cookies["IpCookie"].Value;
@@ -474,23 +474,18 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
     protected void ddlmakesp_SelectedIndexChanged1(object sender, EventArgs e)
     {
         string Pref = "";
-        ddlmodelsp.Enabled = true;
+
         if (ddlmakesp.SelectedIndex > 0)
         {
+            ddlmodelsp.Enabled = true;
             GetModelsInfo(ddlmakesp.SelectedValue, ddlmodelsp);
         }
         else
         {
-            if (Request.Cookies["PrefCookie"] != null)
-            {
-                Pref = Request.Cookies["PrefCookie"].Value;
-            }
-            if (Pref != "Pref")
-            {
-                ddlmodelsp.Items.Clear();
-                ddlmodelsp.Items.Insert(0, new ListItem("Select", "0"));
+            ddlmodelsp.Items.Clear();
+            ddlmodelsp.Items.Insert(0, new ListItem("Select", "0"));
+            ddlmodelsp.Enabled = false;
 
-            }
         }
     }
     public void btnsubscr_click(object sender, EventArgs e)
@@ -519,7 +514,7 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
 
 
                 string[] result = Pref.Split('-');
-                ddlmodelsp.Items.Insert(0, new ListItem(result[1], "0"));
+                ddlmodelsp.Items.Insert(0, new ListItem(result[1], "1"));
 
 
 
@@ -535,10 +530,16 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
             }
             else
             {
-                ddlmakesp.SelectedIndex = 0;
-                ddlmodelsp.SelectedIndex = 0;
-                //ddlyearp.SelectedIndex = 0;
-                txtemail.Text = ""; txtfnamep.Text = ""; txtlastnamep.Text = "";
+                try
+                {
+                    ddlmakesp.SelectedIndex = 0;
+                    ddlmodelsp.Items.Clear();
+                    ddlmodelsp.Items.Insert(0, new ListItem("Select", "0"));
+                    ddlmodelsp.Enabled = false;
+                    ddlyearp.SelectedIndex = 0;
+                    txtemail.Text = ""; txtfnamep.Text = ""; txtlastnamep.Text = "";
+                }
+                catch { }
                 mpesubscribe.Show();
 
             }

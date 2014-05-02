@@ -1044,13 +1044,14 @@ public partial class SearchCarDetails : System.Web.UI.Page
             {
                 FillMakes();
                 FillWithin();
+                ddlmakesp.SelectedIndex = 0;
                 ddlmakesp.SelectedIndex = Convert.ToInt32(dsPerformLogin.Tables[0].Rows[0]["Makeid"].ToString());
                 ddlmodelsp.Items.Clear();
 
 
 
                 string[] result = Pref.Split('-');
-                ddlmodelsp.Items.Insert(0, new ListItem(result[1], "0"));
+                ddlmodelsp.Items.Insert(0, new ListItem(result[1], "1"));
 
 
 
@@ -1066,27 +1067,35 @@ public partial class SearchCarDetails : System.Web.UI.Page
             }
             else
             {
-                ddlmakesp.SelectedIndex = 0;
-                ddlmodelsp.SelectedIndex = 0;
-                //ddlyearp.SelectedIndex = 0;
-                txtemail.Text = ""; txtfnamep.Text = ""; txtlastnamep.Text = "";
+                try
+                {
+                    ddlmakesp.SelectedIndex = 0;
+                    ddlmodelsp.Items.Clear();
+                    ddlmodelsp.Items.Insert(0, new ListItem("Select", "0"));
+                    ddlmodelsp.Enabled = false;
+                    ddlyearp.SelectedIndex = 0;
+                    txtemail.Text = ""; txtfnamep.Text = ""; txtlastnamep.Text = "";
+                }
+                catch { }
                 mpesubscribe111.Show();
-            }
 
+            }
         }
-       
     }
     protected void ddlmakesp_SelectedIndexChanged1(object sender, EventArgs e)
     {
-        ddlmodelsp.Enabled = true;
+        string Pref = "";
+
         if (ddlmakesp.SelectedIndex > 0)
         {
+            ddlmodelsp.Enabled = true;
             GetModelsInfo(ddlmakesp.SelectedValue, ddlmodelsp);
         }
         else
         {
             ddlmodelsp.Items.Clear();
             ddlmodelsp.Items.Insert(0, new ListItem("Select", "0"));
+            ddlmodelsp.Enabled = false;
 
         }
     }
@@ -1218,6 +1227,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
 
             }
         }
+
     }
 
     public void btncancelp_click(object sender, EventArgs e)

@@ -593,8 +593,7 @@
                                                                 <%--<asp:TextBox ID="lblDescription" Enabled="false" style=" border:none; box-shadow:none; outline:none; background:#fff; " runat="server" TextMode="MultiLine" Rows="8" CssClass="form-control"
                                                                     ></asp:TextBox>--%>
                                                                 <p>
-                                                                    <asp:Label ID="lblDescription" runat="server" Text=""  TextMode="MultiLine" Rows="8" CssClass="form-control"
-                                                               style="border:none;"  onchange="updateCharCount(this,'sellingPointCharCount');" onkeyup="updateCharCount(this,'sellingPointCharCount','sellingPointSentence');">
+                                                                    <asp:Label ID="lblDescription" runat="server" Text=""  TextMode="MultiLine" Rows="8">
                                                                     </asp:Label></p>
                                                                 <div class="box30" style="display: none;">
                                                                     <h3 class="det-h2">
@@ -1683,19 +1682,19 @@
       
             var valid=true;  
             
-              if (document.getElementById('<%=ddlmakesp.ClientID%>').value == "Select") {
+              if (document.getElementById('<%=ddlmakesp.ClientID%>').value == "0") {
                 alert('Please select make')
                 valid = false;
                 document.getElementById('ddlmakesp').focus();
                 return valid;
             }
-            else   if (document.getElementById('<%=ddlmodelsp.ClientID%>').value == "Select") {
+            else   if (document.getElementById('<%=ddlmodelsp.ClientID%>').value == "0") {
                 alert('Please select model')
                 valid = false;
                 document.getElementById('ddlmodelsp').focus();
                 return valid;
             }
-               else   if (document.getElementById('<%=ddlyearp.ClientID%>').value == "Select") {
+               else   if (document.getElementById('<%=ddlyearp.ClientID%>').value == "0") {
                 alert('Please select year')
                 valid = false;
                 document.getElementById('ddlyearp').focus();
