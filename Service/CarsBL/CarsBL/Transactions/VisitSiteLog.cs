@@ -282,7 +282,7 @@ namespace CarsBL.Transactions
         }
 
 
-        public bool SaveSubInformation(int make,int model,int year,string firstname,string lastname,string email,string ip,DateTime dt)
+        public bool SaveSubInformation(int make,int model,int year,string firstname,string lastname,string email,string ip,DateTime dt,string Pref)
         {
             try
             {
@@ -303,6 +303,7 @@ namespace CarsBL.Transactions
                 dbDatabase.AddInParameter(dbCommand, "@email", System.Data.DbType.String, email);
                 dbDatabase.AddInParameter(dbCommand, "@ipcon", System.Data.DbType.String, ip);
                 dbDatabase.AddInParameter(dbCommand, "@eldate", System.Data.DbType.DateTime, dt);
+                dbDatabase.AddInParameter(dbCommand, "@Pref", System.Data.DbType.String, Pref);
 
 
 
@@ -316,6 +317,61 @@ namespace CarsBL.Transactions
                 throw ex;
 
             }
+        }
+        public DataSet RetriveSubInformation( string Pref)
+        {
+            bool returnValue = false;
+            string spNameString = string.Empty;
+            DataSet dsUserInfo = new DataSet();
+            Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+            spNameString = "USP_RetriveSubInformation";
+            DbCommand dbCommand = null;
+
+            try
+            {
+
+
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                dbDatabase.AddInParameter(dbCommand, "@Pref", System.Data.DbType.String, Pref);
+                dsUserInfo = dbDatabase.ExecuteDataSet(dbCommand);
+
+                //blnSuccess = objUserLog.SaveUserLog(UserLogInfo, ref lngReturn, "");
+                return dsUserInfo;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public DataSet RetriveSubInformation1(int uid)
+        {
+            bool returnValue = false;
+            string spNameString = string.Empty;
+            DataSet dsUserInfo = new DataSet();
+            Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+            spNameString = "USP_RetriveSubInformation1";
+            DbCommand dbCommand = null;
+
+            try
+            {
+
+
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                dbDatabase.AddInParameter(dbCommand, "@Pref", System.Data.DbType.String, uid);
+                dsUserInfo = dbDatabase.ExecuteDataSet(dbCommand);
+
+                //blnSuccess = objUserLog.SaveUserLog(UserLogInfo, ref lngReturn, "");
+                return dsUserInfo;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }

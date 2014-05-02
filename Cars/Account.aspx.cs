@@ -27,6 +27,7 @@ public partial class Account : System.Web.UI.Page
     public GeneralFunc objGeneralFunc = new GeneralFunc();
     protected void Page_Load(object sender, EventArgs e)
     {
+
         if (Session[Constants.NAME] == null)
         {
             Response.Redirect("Default.aspx");
@@ -36,7 +37,7 @@ public partial class Account : System.Web.UI.Page
 
             if (!IsPostBack)
             {
-
+                hdnSubAlert.Value = "true";
                 GeneralFunc.SetPageDefaults(Page);
                 Session["CurrentPage"] = "Account";
 
@@ -59,9 +60,9 @@ public partial class Account : System.Web.UI.Page
                 scrptmgr.Scripts.Add(objScriptReference);
 
 
-               lblUserName.Text = Session[Constants.NAME].ToString();                
+                lblUserName.Text = Session[Constants.NAME].ToString();                
                 int UID = Convert.ToInt32(Session[Constants.USER_ID].ToString());
-              //  int UID = 120;
+               //  int UID = 120;
 
                 dsDropDown = objdropdownBL.Usp_Get_DropDown();
 
@@ -629,8 +630,14 @@ public partial class Account : System.Web.UI.Page
             //file:///C:\Users\dhanunjay\Desktop\MobiCarz-ASP\Cars\CarImages\2009\Audi\A4\2009_Audi_A4_55915Thumb.jpg
             // ((Image)e.Item.FindControl("ImageName")).ImageUrl = @"~/CarImages/" + dsCarDetailsInfoSellerID.Tables[0].Rows[0]["yearofmake"].ToString() + "/" + dsCarDetailsInfoSellerID.Tables[3].Rows[0]["make"].ToString() + "/" + dsCarDetailsInfoSellerID.Tables[3].Rows[0]["model"].ToString() + "/" + dsCarDetailsInfoSellerID.Tables[1].Rows[0]["Pic0Name"].ToString();
             Image obj = (Image)e.Item.FindControl("ImageName");
+
+            if (dsUserInfoDetails1.Tables[1].Rows[0]["picturelocation"].ToString() != null || dsUserInfoDetails1.Tables[1].Rows[0]["picturelocation"].ToString() != "")
+
            //15-04-2014  obj.ImageUrl = "~/CarImages/" + dsUserInfoDetails1.Tables[1].Rows[0]["yearofmake"].ToString() + "/" + dsUserInfoDetails1.Tables[1].Rows[0]["make"].ToString() + "/" + dsUserInfoDetails1.Tables[1].Rows[0]["model"].ToString() + "/" + dsUserInfoDetails1.Tables[1].Rows[0]["PicName"].ToString();
-            obj.ImageUrl = "http://mobicarz.com/" + dsUserInfoDetails1.Tables[1].Rows[0]["picturelocation"].ToString() + "" + dsUserInfoDetails1.Tables[1].Rows[0]["PicName"].ToString();
+            obj.ImageUrl = "http://images.mobicarz.com/" + dsUserInfoDetails1.Tables[1].Rows[0]["picturelocation"].ToString() + "" + dsUserInfoDetails1.Tables[1].Rows[0]["PicName"].ToString();
+
+            if(obj.ImageUrl=="http://images.mobicarz.com/")
+                obj.ImageUrl = "http://images.mobicarz.com/images/MakeModelThumbs/" + dsUserInfoDetails1.Tables[1].Rows[0]["Make"].ToString() + "_" + dsUserInfoDetails1.Tables[1].Rows[0]["Model"].ToString()+".jpg";
 
 
             LinkButton lnkobj = (LinkButton)e.Item.FindControl("lnkurl");

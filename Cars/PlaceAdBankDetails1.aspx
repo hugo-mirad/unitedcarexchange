@@ -74,6 +74,7 @@
 </head>
 <body id="page1" onload="GetRecentListings()">
     <form id="form1" runat="server">
+    <asp:HiddenField ID="hdnSubAlert" runat="server" Value="true" />
     <cc1:ToolkitScriptManager ID="scrptmgr" runat="server">
     </cc1:ToolkitScriptManager>
     <asp:UpdateProgress ID="Progress" runat="server" AssociatedUpdatePanelID="updtpnlSave"

@@ -44,7 +44,7 @@
     <cc1:ToolkitScriptManager ID="scrptmgr" runat="server">
     </cc1:ToolkitScriptManager>
  
- 
+   <asp:HiddenField ID="hdnSubAlert" runat="server" Value="true" />
  <uc2:HeadderBlogin ID="HeadderBlogin1" runat="server" />
     
     
@@ -759,7 +759,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class=" form-section" runat="server" id="multiSiteListings" style="display: none;">
+                                            <div class=" form-section" runat="server" id="multiSiteListings">
                                                 <div class="block-title">
                                                     <h2>
                                                         Multi-site Listings</h2>

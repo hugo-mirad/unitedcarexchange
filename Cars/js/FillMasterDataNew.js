@@ -151,7 +151,7 @@ function CarsAdDisplay(CarsAdDetails) {
                     path = path.replace("\\", "/");
                 }
                 path = path.replace("//", "/");
-                thumb1 = "<img src='http://unitedcarexchange.com/" + path + "' class='thumbV' onclick='javascript:EncryptedCarID(" + resPath + ");' style='width:100%; height:auto' />";
+                thumb1 = "<img src='http://images.mobicarz.com/" + path + "' class='thumbV' onclick='javascript:EncryptedCarID(" + resPath + ");' style='width:100%; height:auto' />";
             } else {
                 var carMake = CarsAdDetails[i]['Make']['#text'];
                 var carModel = CarsAdDetails[i]['Model']['#text'];
@@ -166,7 +166,7 @@ function CarsAdDisplay(CarsAdDetails) {
                 var MakeModel = carMake + "_" + carModel;
                 MakeModel = MakeModel.replace(' ', '-');
                 MakeModel = MakeModel.replace('/', '@');
-                path = "http://unitedcarexchange.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
+                path = "http://images.mobicarz.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
 
 
       // --------          thumb1 = "<img src='" + path + "' class='thumbV' onclick='javascript:EncryptedCarID(" + resPath + ");' style='width:100%; height:auto' /><div class='stockPhoto2' >Stock Photo</div>";
@@ -264,7 +264,7 @@ function CarsAdDisplay(CarsAdDetails) {
                     path = path.replace("\\", "/");
                 }
                 path = path.replace("//", "/");
-                thumb1 = "<img src='http://unitedcarexchange.com/" + path + "' class='thumbH'  style=' width:100%; height:auto;'  />";
+                thumb1 = "<img src='http://images.mobicarz.com/" + path + "' class='thumbH'  style=' width:100%; height:auto;'  />";
             } else {
                 var carMake = CarsAdDetails[i]['Make']['#text'];
                 var carModel = CarsAdDetails[i]['Model']['#text'];
@@ -279,7 +279,7 @@ function CarsAdDisplay(CarsAdDetails) {
                 var MakeModel = carMake + "_" + carModel;
                 MakeModel = MakeModel.replace(' ', '-');
                 MakeModel = MakeModel.replace('/', '@');
-                path = "http://unitedcarexchange.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
+                path = "http://images.mobicarz.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
 
                 thumb1 = "<img src='" + path + "'  class='thumbH'  style=' width:100%; height:auto;' /><div class='stockPhoto3' >Stock Photo</div>";
 
@@ -374,7 +374,7 @@ function latestPostedCars(latestPosts) {
                         path = path.replace("\\", "/");
                     }
                     path = path.replace("//", "/");
-                    thumb1 = "<img src='http://unitedcarexchange.com/" + path + "' class='thumbH'  style='width:100%; height:auto'  />";
+                    thumb1 = "<img src='http://images.mobicarz.com/" + path + "' class='thumbH'  style='width:100%; height:auto'  />";
                 } else {
                     var carMake = latestPosts[i]['Make']['#text'];
                     var carModel = latestPosts[i]['Model']['#text'];
@@ -389,7 +389,7 @@ function latestPostedCars(latestPosts) {
                     var MakeModel = carMake + "_" + carModel;
                     MakeModel = MakeModel.replace(' ', '-');
                     MakeModel = MakeModel.replace('/', '@');
-                    path = "http://unitedcarexchange.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
+                    path = "http://images.mobicarz.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
 
                     thumb1 = "<img src='" + path + "'  class='thumbH'  style='width:100%; height:auto' /><div class='stockPhoto3' >Stock Photo</div>";
 
@@ -1379,7 +1379,7 @@ function SearchResultsDisplayFilter(SearchResultsArray) {
                         path = path.replace("\\", "/");
                     }
                     path = path.replace("//", "/");
-                    thumb1 = "<img src='http://unitedcarexchange.com/" + path + "' class='thumb'  style=' width:100%; height:auto;'   />";
+                    thumb1 = "<img src='http://images.mobicarz.com/" + path + "' class='thumb'  style=' width:100%; height:auto;'   />";
                 } else {
                     //path = "images/stockMakes/"+SearchResultsArray[i]['Make']['#text']+".jpg";
                     var carMake = SearchResultsArray[i]['Make']['#text'];
@@ -1395,7 +1395,7 @@ function SearchResultsDisplayFilter(SearchResultsArray) {
                     var MakeModel = carMake + "_" + carModel;
                     MakeModel = MakeModel.replace(' ', '-');
                     MakeModel = MakeModel.replace('/', '@');
-                    path = "http://unitedcarexchange.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
+                    path = "http://images.mobicarz.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
                     //console.log(path)
                     thumb1 = "<img src='" + path + "' class='thumb'  style='  width:100%; height:auto; ' /><div class='stockPhoto1' >Stock Photo</div>";
 
@@ -2349,7 +2349,7 @@ function CarsMatchedDataBinding(CarsAdDetails) {
                     path = path.replace("\\", "/");
                 }
                 path = path.replace("//", "/");
-                thumb1 = "<img src='http://unitedcarexchange.com/" + path + "' class='thumbV'  style='width:100%; height:auto' />";
+                thumb1 = "<img src='http://images.mobicarz.com/" + path + "' class='thumbV'  style='width:100%; height:auto' />";
             } else {
                 var carMake = CarsAdDetails[i]['Make']['#text'];
                 var carModel = CarsAdDetails[i]['Model']['#text'];
@@ -2364,7 +2364,7 @@ function CarsMatchedDataBinding(CarsAdDetails) {
                 var MakeModel = carMake + "_" + carModel;
                 MakeModel = MakeModel.replace(' ', '-');
                 MakeModel = MakeModel.replace('/', '@');
-                path = "http://unitedcarexchange.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
+                path = "http://images.mobicarz.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
 
 
                 thumb1 = "<img src='" + path + "' class='thumbV'  style='width:100%; height:auto' /><div class='stockPhoto2' >Stock Photo</div>";

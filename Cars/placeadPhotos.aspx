@@ -55,6 +55,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    
+    <asp:HiddenField ID="hdnSubAlert" runat="server" Value="true" />
     <cc1:ToolkitScriptManager ID="scrptmgr" runat="server">
     </cc1:ToolkitScriptManager>
     <uc2:HeadderBlogin ID="HeadderBlogin1" runat="server" />

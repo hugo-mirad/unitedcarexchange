@@ -23,6 +23,7 @@ using System.Data.SqlClient;
 
 public partial class SearchCarDetails : System.Web.UI.Page
 {
+    DropdownBL objdropdownBL = new DropdownBL();
     public GeneralFunc objGeneralFunc = new GeneralFunc();
     int p = 0;
 
@@ -36,6 +37,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
 
         if (Session[Constants.NAME] != null)
         {
+
             logoutLi.Visible = true;
             accountLi.Visible = true;
             reviewLi.Visible = false;
@@ -55,6 +57,10 @@ public partial class SearchCarDetails : System.Web.UI.Page
 
         if (!IsPostBack)
         {
+            FillMakes();
+            FillModels();
+            FillWithin();
+
             Session["CurrentPage"] = "Home";
             Session["PageName"] = "";
             Session["CurrentPageConfig"] = null;
@@ -131,6 +137,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
                                 DataSet rptAnswerQuestions = new DataSet();
                                 rptAnswerQuestions = objCarFeatures.GetFinalAnswers(carids);
                                 Session["DeleteDiscus"] = rptAnswerQuestions;
+                                Session["Discusins"] = rptAnswerQuestions;
                                 rptquestion.DataSource = rptAnswerQuestions;
                                 rptquestion.DataBind();
                             }
@@ -145,28 +152,109 @@ public partial class SearchCarDetails : System.Web.UI.Page
             }
         }
 
-       // string Make1 = Request.QueryString[Request.QueryString.Count - 1];
-       // string[] strCarid1 = Make1.Split('-');
+        //Cookie creation
+        // **************** New Code **************************** //
+
+        String strHostName = Request.UserHostAddress.ToString();
+        string strIp = System.Net.Dns.GetHostAddresses(strHostName).GetValue(0).ToString();
+
+        if (Request.Cookies["IpCookie"] == null)
+        {
+            HttpCookie statusCookie = new HttpCookie("IpCookie");
+            Response.Cookies["IpCookie"].Value = strIp;
+        }
+        else
+        {
 
 
-       // string urlscity = Session["urlcity"].ToString();
-       // string urlstate = Session["urlstate"].ToString();
-       // if (urlscity.Contains(" "))
-       //     urlscity = urlscity.Replace(" ", "");
-
-       // if (urlstate.Contains(" "))
-       //     urlstate = urlstate.Replace(" ", "");
-
-       //// Session["url"] = "url";
 
 
-       // string str = "usedcars/" + strCarid1[0].ToString() + "-" + strCarid1[1].ToString() + "-" + strCarid1[2].ToString() + "-" + urlscity.Trim() + "-" + urlstate.Trim() + "-" + strCarid1[3].ToString();
+        }
+        if (Request.Cookies["Zipcookie"] == null)
+        {
+            HttpCookie zipCookie = new HttpCookie("Zipcookie");
+            Response.Cookies["Zipcookie"].Value = "Zipcode";
+
+        }
+        else
+        {
+        }
+        if (Request.Cookies["Statuscookie"] == null)
+        {
+            HttpCookie statusCookie = new HttpCookie("Statuscookie");
+            Response.Cookies["Statuscookie"].Value = "false";
+        }
+        else
+        {
+
+
+            if (Convert.ToString(Request.Cookies["Statuscookie"].Value) != "false")
+            {
+                //Session[Constants.NAME] = "test";
+                DataSet dsPerformLogin = new DataSet();
+                string LogStatusDetails = Request.Cookies["Statuscookie"].Value;
+                string[] splitString = LogStatusDetails.Split(',');
+
+                //string LodSta = splitString[0].Trim();
+                //string Loduserid = splitString[1].Trim();
+                //string Lodpwd = splitString[2].Trim();
+                //Loduserid = DecryptPassword(Loduserid);
+                //Lodpwd = DecryptPassword(Lodpwd);
+
+                //dsPerformLogin = objUserregBL.PerformLogin(Loduserid, Lodpwd);
+                //Session[Constants.USER_ID] = dsPerformLogin.Tables[0].Rows[0]["UId"];
+                //Session[Constants.USER_NAME] = dsPerformLogin.Tables[0].Rows[0]["UserName"];
+                //Session[Constants.NAME] = dsPerformLogin.Tables[0].Rows[0]["Name"];
+                //Session[Constants.PhoneNumber] = dsPerformLogin.Tables[0].Rows[0]["PhoneNumber"];
+
+                //Session["PackageID"] = dsPerformLogin.Tables[0].Rows[0]["PackageID"];
+
+                //Response.Redirect("Account.aspx");
+            }
+        }
+
+        if (Request.Cookies["SearchCookie"] == null)
+        {
+            HttpCookie statusCookie = new HttpCookie("SearchCookie");
+            Response.Cookies["SearchCookie"].Value = "make-model-year";
+        }
+        else
+        {
+        }
+        if (Request.Cookies["PrefCookie"] == null)
+        {
+            HttpCookie statusCookie = new HttpCookie("PrefCookie");
+            Response.Cookies["PrefCookie"].Value = "Pref";
+            GeneralFunc.SaveCookieData("Zipcode", strIp, DateTime.Now, DateTime.Now, false, "General", null, "Zipcode");
+        }
+        else
+        {
+        }
+
+
+        // string Make1 = Request.QueryString[Request.QueryString.Count - 1];
+        // string[] strCarid1 = Make1.Split('-');
+
+
+        // string urlscity = Session["urlcity"].ToString();
+        // string urlstate = Session["urlstate"].ToString();
+        // if (urlscity.Contains(" "))
+        //     urlscity = urlscity.Replace(" ", "");
+
+        // if (urlstate.Contains(" "))
+        //     urlstate = urlstate.Replace(" ", "");
+
+        //// Session["url"] = "url";
+
+
+        // string str = "usedcars/" + strCarid1[0].ToString() + "-" + strCarid1[1].ToString() + "-" + strCarid1[2].ToString() + "-" + urlscity.Trim() + "-" + urlstate.Trim() + "-" + strCarid1[3].ToString();
 
 
         //  string str = "mobicarz/" + 3 + "/Product-details-of-" + 3 + ".aspx";
-      //  Response.Redirect(str);
+        //  Response.Redirect(str);
     }
 
+   
     private void SimialarCars(string MakeId, string ModelID, string zipcode, string Price)
     {
 
@@ -356,7 +444,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
 
                         path = path.Replace("//", "/");
                         //StockUrl = "http://www.mobicarz.com/" + path;
-                        StockUrl = "http://unitedcarexchange.com/" + path;
+                        StockUrl = "http://images.mobicarz.com/" + path;
 
                         //dsPicsNew.Tables[0].Rows[dsPicsNew.Tables[0].Rows.Count - 1]["PICPATH"] = path;
                     }
@@ -369,10 +457,10 @@ public partial class SearchCarDetails : System.Web.UI.Page
 
                     path = path.Replace("//", "/");
                     //path = "http://www.mobicarz.com/" + path;
-                    path = "http://unitedcarexchange.com/" + path;
+                    path = "http://images.mobicarz.com/" + path;
 
                     //if (path != "http://www.mobicarz.com//")
-                    if (path != "http://unitedcarexchange.com/")
+                    if (path != "http://images.mobicarz.com/")
                     {
 
                         dsPicsNew.Tables[0].Rows.Add();
@@ -928,6 +1016,8 @@ public partial class SearchCarDetails : System.Web.UI.Page
         try
         {
             Session.Abandon();
+            Session[Constants.NAME] = null;
+            Response.Cookies["Statuscookie"].Value = "false";
             Response.Redirect("Default.aspx");
         }
         catch (Exception ex)
@@ -935,5 +1025,220 @@ public partial class SearchCarDetails : System.Web.UI.Page
             throw ex;
         }
     }
+    public void btnsubscr_click(object sender, EventArgs e)
+    {
 
+        string Pref = "";
+
+        if (Request.Cookies["PrefCookie"].ToString() != "Pref")
+        {
+            VisitSiteLog objVisitSiteLog = new VisitSiteLog();
+            DataSet dsPerformLogin = new DataSet();
+            if (Request.Cookies["PrefCookie"] != null)
+            {
+                Pref = Request.Cookies["PrefCookie"].Value;
+            }
+
+            dsPerformLogin = objVisitSiteLog.RetriveSubInformation(Pref);
+            if (dsPerformLogin.Tables[0].Rows.Count > 0)
+            {
+                FillMakes();
+                FillWithin();
+                ddlmakesp.SelectedIndex = Convert.ToInt32(dsPerformLogin.Tables[0].Rows[0]["Makeid"].ToString());
+                ddlmodelsp.Items.Clear();
+
+
+
+                string[] result = Pref.Split('-');
+                ddlmodelsp.Items.Insert(0, new ListItem(result[1], "0"));
+
+
+
+                // ddlmodelsp.SelectedValue =dsPerformLogin.Tables[0].Rows[0]["ModelID"].ToString();
+                ddlyearp.SelectedValue = dsPerformLogin.Tables[0].Rows[0]["Year"].ToString();
+                txtfnamep.Text = dsPerformLogin.Tables[0].Rows[0]["FirstName"].ToString();
+                txtlastnamep.Text = dsPerformLogin.Tables[0].Rows[0]["LastName"].ToString();
+                txtemail.Text = dsPerformLogin.Tables[0].Rows[0]["Email"].ToString();
+                //ddlmakesp.SelectedIndex = 0;
+                //ddlmodelsp.SelectedIndex = 0;
+                //txtemail.Text = ""; txtfnamep.Text = ""; txtlastnamep.Text = "";
+                mpesubscribe111.Show();
+            }
+            else
+            {
+                ddlmakesp.SelectedIndex = 0;
+                ddlmodelsp.SelectedIndex = 0;
+                //ddlyearp.SelectedIndex = 0;
+                txtemail.Text = ""; txtfnamep.Text = ""; txtlastnamep.Text = "";
+                mpesubscribe111.Show();
+            }
+
+        }
+       
+    }
+    protected void ddlmakesp_SelectedIndexChanged1(object sender, EventArgs e)
+    {
+        ddlmodelsp.Enabled = true;
+        if (ddlmakesp.SelectedIndex > 0)
+        {
+            GetModelsInfo(ddlmakesp.SelectedValue, ddlmodelsp);
+        }
+        else
+        {
+            ddlmodelsp.Items.Clear();
+            ddlmodelsp.Items.Insert(0, new ListItem("Select", "0"));
+
+        }
+    }
+    private void FillWithin()
+    {
+
+        try
+        {
+            DataSet dsYears = new DataSet();
+            if (Session["CarsYears"] == null)
+            {
+                dsYears = objdropdownBL.GetYears();
+                Session["CarsYears"] = dsYears;
+            }
+            else
+            {
+                dsYears = Session["CarsYears"] as DataSet;
+            }
+            ddlyearp.DataSource = dsYears.Tables[0];
+            ddlyearp.DataTextField = "Year";
+            ddlyearp.DataValueField = "Year";
+            ddlyearp.DataBind();
+            ddlyearp.Items.Insert(0, new ListItem("Unspecified", "0"));
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
+    private void FillModels()
+    {
+
+        ModelBL objModelBL = new ModelBL();
+
+        var obj = new List<ModelsInfo>();
+
+        if (Cache["Model"] == null)
+        {
+            obj = (List<ModelsInfo>)objModelBL.GetModels("0");
+            Cache["Model"] = obj;
+        }
+        else
+        {
+            obj = (List<ModelsInfo>)Cache["Model"];
+        }
+
+    }
+    public void FillMakes()
+    {
+
+        try
+        {
+            var obj = new List<MakesInfo>();
+
+
+            MakesBL objMakesBL = new MakesBL();
+            if (Cache["Makes"] == null)
+            {
+                obj = (List<MakesInfo>)objMakesBL.GetMakes1();
+            }
+            else
+            {
+                obj = (List<MakesInfo>)Cache["Makes"];
+            }
+
+
+
+            Session["Makes"] = obj;
+
+
+            ddlmakesp.DataSource = obj;
+            ddlmakesp.DataTextField = "Make";
+            ddlmakesp.DataValueField = "MakeID";
+            ddlmakesp.DataBind();
+            ddlmakesp.Items.Insert(0, new ListItem("Select", "0"));
+
+
+
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+    private void GetModelsInfo(string MakeID, DropDownList DdlModel)
+    {
+        ModelBL objModelBL = new ModelBL();
+
+        var obj = new List<ModelsInfo>();
+
+        if (Cache["Model"] == null)
+        {
+            obj = (List<ModelsInfo>)objModelBL.GetModels("0");
+            Cache["Model"] = obj;
+        }
+        else
+        {
+            obj = (List<ModelsInfo>)Cache["Model"];
+        }
+
+        ddlmodelsp.Items.Clear();
+
+        ddlmodelsp.Items.Insert(0, new ListItem("Select", "0"));
+
+        ddlmodelsp.DataSource = obj.FindAll(p => p.MakeID == Convert.ToInt32(MakeID));
+        ddlmodelsp.DataTextField = "Model";
+        ddlmodelsp.DataValueField = "MakeModelID";
+        ddlmodelsp.DataBind();
+
+
+    }
+    public void btnSubok_click(object sender, EventArgs e)
+    {
+        if (ddlmakesp.SelectedValue != "Select")
+        {
+            if (ddlyearp.SelectedValue != "Select")
+            {
+
+                String strHostName = Request.UserHostAddress.ToString();
+                string strIp = System.Net.Dns.GetHostAddresses(strHostName).GetValue(0).ToString();
+
+                Response.Cookies["PrefCookie"].Value = ddlmakesp.SelectedItem + "- " + ddlmodelsp.SelectedItem + " -" + ddlyearp.Text;
+                Session["Pref"] = Response.Cookies["PrefCookie"].Value;
+                VisitSiteLog objVisitSiteLog = new VisitSiteLog();
+                objVisitSiteLog.SaveSubInformation(Convert.ToInt32(ddlmakesp.SelectedValue), Convert.ToInt32(ddlmodelsp.SelectedValue),
+                    Convert.ToInt32(ddlyearp.SelectedValue), txtfnamep.Text, txtlastnamep.Text, txtemail.Text, strIp, DateTime.Now, Session["Pref"].ToString());
+                //System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "EmailNAClick();", true);
+                mpesubscribe111.Hide();
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "alert('You are subscribed suceessfully for email alerts.');", true);
+
+            }
+        }
+    }
+
+    public void btncancelp_click(object sender, EventArgs e)
+    {
+        mpesubscribe111.Hide();
+        System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "resetTimer();", true);
+    }
+    protected void rptquestion_DataBinding(object sender, EventArgs e)
+    {
+      
+    }
+    protected void rptquestion_ItemDataBound1(object sender, DataListItemEventArgs e)
+    {
+        if ((e.Item.ItemType == ListItemType.Item) || (e.Item.ItemType == ListItemType.AlternatingItem))
+        {
+            DataSet dsTasks3 = (DataSet)Session["Discusins"];
+            Label lblPublishpostdate = (Label)e.Item.FindControl("lblPublishpostdate");
+            lblPublishpostdate.Text = dsTasks3.Tables[0].Rows[e.Item.ItemIndex]["DiscAnswerDate"].ToString();
+            if (dsTasks3.Tables[0].Rows[e.Item.ItemIndex]["PublishedDate"].ToString() != null)
+                lblPublishpostdate.Text += "  Published on: " + dsTasks3.Tables[0].Rows[e.Item.ItemIndex]["PublishedDate"].ToString();
+
+        }
+    }
 }

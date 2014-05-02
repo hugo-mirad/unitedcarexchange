@@ -20,26 +20,24 @@
       
             var valid=true;  
             
-              if (document.getElementById('<%=ddlmakesp.ClientID%>').value == "0") {
+              if (document.getElementById('<%=ddlmakesp.ClientID%>').value == "Select") {
                 alert('Please select make')
                 valid = false;
                 document.getElementById('ddlmakesp').focus();
                 return valid;
             }
-            else   if (document.getElementById('<%=ddlmodelsp.ClientID%>').value == "0") {
+            else   if (document.getElementById('<%=ddlmodelsp.ClientID%>').value == "Select") {
                 alert('Please select model')
                 valid = false;
                 document.getElementById('ddlmodelsp').focus();
                 return valid;
             }
-               else   if (document.getElementById('<%=ddlyearp.ClientID%>').value == "0") {
+               else   if (document.getElementById('<%=ddlyearp.ClientID%>').value == "Select") {
                 alert('Please select year')
                 valid = false;
                 document.getElementById('ddlyearp').focus();
                 return valid;
             }
-            
-            
             
             
             if (document.getElementById('<%= txtemail.ClientID %>').value.length < 1)
@@ -132,12 +130,16 @@
 	
 	function resetTimer(){
 	    if($.cookie('PrefCookie') == 'Pref'){
-	        subTimer = setInterval(function(){alertCall()}, 3000)
+	        subTimer = setInterval(function(){alertCall()}, 6000)
 	    }
 	}
 	
 	$(function(){	
-	    resetTimer();	
+	   if($('#accountLi').length <= 0){
+	        resetTimer();
+	    }
+	
+	    	
 	    
 	    $('#subScribUs1 .cls').live('click', function(){
 	        resetTimer();
@@ -327,6 +329,8 @@
                         Personal Info</h3>
                 </div>
                 <div class="form-section">
+                <asp:UpdatePanel ID="u1" runat="server">
+                <ContentTemplate>
                     <div class="form-group " id="Div1" runat="server">
                         <label>
                             First Name</label>
@@ -343,6 +347,8 @@
                             Email <span class="star">*</span></label>
                         <asp:TextBox ID="txtemail" runat="server" class="form-control"></asp:TextBox>
                     </div>
+                    </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
             </div>
         </div>

@@ -977,5 +977,26 @@ namespace CarsBL.Transactions
             }
         }
 
+
+        public DataSet GetMMY(string caruniqueid)
+        {
+            try
+            {
+                DataSet dsUsers = new DataSet();
+                string spNameString = string.Empty;
+                Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+                spNameString = "USp_GetMMY";
+                DbCommand dbCommand = null;
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                dbDatabase.AddInParameter(dbCommand, "@caruniquid", System.Data.DbType.String, caruniqueid);
+                dsUsers = dbDatabase.ExecuteDataSet(dbCommand);
+                return dsUsers;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

@@ -74,7 +74,28 @@ public partial class FileUploads : System.Web.UI.Page
             }
             string Filepath = "CarImages/" + Year + "/" + Make + "/" + Model + "/" + CarID + "/";
 
-            string FileNameFullPath = Server.MapPath("CarImages/" + Year + "/" + Make + "/" + Model + "/" + CarID);
+           
+
+
+            //string FileNameFullPath = "http://images.mobicarz.com/CommonImages";
+            string FileNameFullPath = @"C:/Inetpub/wwwroot/COMMONIMAGES/CarImages/" + Year + "/" + Make + "/" + Model + "/" + CarID;
+
+          
+
+            //string ipaddress = "C:/Inetpub/vhosts/http://66.23.236.151/";
+            //string a = ipaddress + Filepath;
+            //Uri test = new Uri(a);
+            //DirectoryInfo mydir = new DirectoryInfo(a);
+            //if (Directory.Exists(mydir.ToString()))
+            //{
+            //    uploads.SaveAs(a + "\\" + a);
+            //}
+            //else
+            //{
+            //    Directory.CreateDirectory(a);
+            //    uploads.SaveAs(a + a);
+            //}
+
 
             Session["k"] = k;
             string SelModel = Model.Replace(" ", "-");
@@ -90,14 +111,8 @@ public partial class FileUploads : System.Web.UI.Page
                 System.IO.Directory.CreateDirectory(FileNameFullPath);
             }
 
-
-
             uploads.SaveAs(FileNameSaveData);
-            
-
-
-
-
+           
             Bitmap oBitmap = default(Bitmap);
             oBitmap = new Bitmap(FileNameSaveData);
             Graphics oGraphic = default(Graphics);

@@ -16,7 +16,6 @@
         media="screen, projection" />
     <link rel="stylesheet" type="text/css" href="../libraries/pictopro-normal/pictopro-normal.css"
         media="screen, projection" />
-   
     <link rel="stylesheet" type="text/css" href="../js/jslider/jquery.slider.min.css"
         media="screen, projection" />
     <link href="../js/jslider/jquery.slider.min.css" rel="stylesheet" type="text/css"
@@ -34,20 +33,15 @@
     <script src="../assets/js/bootstrap.js"></script>
 
     <script src="../assets/js/cycle.js"></script>
-    
-    
-    
-    
+
     <!-- Magnific Popup core CSS file -->
-    <link href="../libraries/magicPopup/magnific-popup.css" rel="stylesheet" type="text/css" /> 
+    <link href="../libraries/magicPopup/magnific-popup.css" rel="stylesheet" type="text/css" />
     <!-- Magnific Popup core JS file -->
+
     <script src="../libraries/magicPopup/jquery.magnific-popup.js" type="text/javascript"></script>
-    
-    
 
-    
+    <script src="../assets/js/jquery.cookie.js" type="text/javascript"></script>
 
-    
     <%-- <script>
         $(function() {
             $('#spinner').show();
@@ -149,6 +143,18 @@
                             <!-- /.value -->
                         </div>
                         <!-- /.opening -->
+                        <div class="contact-item opening">
+                            <!-- /.label -->
+                            <div class="value">
+                                <asp:UpdatePanel ID="usub" runat="server">
+                                    <ContentTemplate>
+                                        <asp:Button ID="btnsubscr" runat="server" Text="Subscribe Now" Style="margin-bottom: 2px;
+                                            margin-left: 25px;" class="btn btn-danger  btn-xs " OnClick="btnsubscr_click" />
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
+                            <!-- /.value -->
+                        </div>
                     </div>
                     <!-- /.contact -->
                 </div>
@@ -374,14 +380,10 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-bottom: 20px;">
                                         <div class="row zoom-gallery">
-                                        
-                                           
                                             <asp:Repeater ID="Repeater2" runat="server">
-                                              
                                                 <ItemTemplate>
-                                                   <div class="picture-wrapper2 col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                                        <a   href='<%# DataBinder.Eval(Container.DataItem, "PICPATH")%>'
-                                                            runat="server" >
+                                                    <div class="picture-wrapper2 col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                        <a href='<%# DataBinder.Eval(Container.DataItem, "PICPATH")%>' runat="server">
                                                             <asp:Image ID="ImgURL" class="boxShadow1 img1 shelf-img" ImageUrl='<%# DataBinder.Eval(Container.DataItem, "PICPATH")%>'
                                                                 onerror="$(this).closest('div.picture-wrapper2').remove()" AlternateText='<%# DataBinder.Eval(Container.DataItem, "PIC")%>'
                                                                 runat="server" />
@@ -391,10 +393,7 @@
                                                 <FooterTemplate>
                                                 </FooterTemplate>
                                             </asp:Repeater>
-                                           
-                                            
-                                           <!--  <div class="loaderGal"></div>  -->
-                                            
+                                            <!--  <div class="loaderGal"></div>  -->
                                         </div>
                                         <!-- /.row -->
                                     </div>
@@ -591,8 +590,11 @@
                                                             </div>
                                                             <!-- /.row -->
                                                             <div class="info">
+                                                                <%--<asp:TextBox ID="lblDescription" Enabled="false" style=" border:none; box-shadow:none; outline:none; background:#fff; " runat="server" TextMode="MultiLine" Rows="8" CssClass="form-control"
+                                                                    ></asp:TextBox>--%>
                                                                 <p>
-                                                                    <asp:Label ID="lblDescription" runat="server" Text="">
+                                                                    <asp:Label ID="lblDescription" runat="server" Text=""  TextMode="MultiLine" Rows="8" CssClass="form-control"
+                                                               style="border:none;"  onchange="updateCharCount(this,'sellingPointCharCount');" onkeyup="updateCharCount(this,'sellingPointCharCount','sellingPointSentence');">
                                                                     </asp:Label></p>
                                                                 <div class="box30" style="display: none;">
                                                                     <h3 class="det-h2">
@@ -619,13 +621,15 @@
                                                                                 <p>
                                                                                     <table>
                                                                                         <tr>
-                                                                                            <td style=" width:105px; " ><label class="title">
-                                                                                        <%# DataBinder.Eval(Container.DataItem, "FeatureTypeName")%>:</label></td>
-                                                                                            <td><%# DataBinder.Eval(Container.DataItem, "FeatureName")%></td>
+                                                                                            <td style="width: 105px;">
+                                                                                                <label class="title">
+                                                                                                    <%# DataBinder.Eval(Container.DataItem, "FeatureTypeName")%>:</label>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <%# DataBinder.Eval(Container.DataItem, "FeatureName")%>
+                                                                                            </td>
                                                                                         </tr>
                                                                                     </table>
-                                                                                    
-                                                                                    
                                                                                 </p>
                                                                             </ItemTemplate>
                                                                         </asp:DataList>
@@ -670,53 +674,51 @@
                                     <!-- /.page-header -->
                                     <div class="row">
                                         <div class="col-md-12">
-                                          
                                             <div class="inner-block white">
-                                                  <!-- Ask Question Start -->
-                                                  <asp:UpdatePanel ID="up1" runat="server" >
-                                                     <ContentTemplate>
-                                                  <div class="row">
-                                                <div class="col-md-12 col-sm-12">
-                                                    <div class="ask">
-                                                        <div class="form-group ">
-                                                            <!-- txtCondition  -->
-                                                            <span id="oeFormsellingPointsContainer"><span id="sellingPointSentence" style="display: inline-block;
-                                                                margin: 0; font-weight: normal; font-size: 12px;"><span id="sellingPointCharCount">300</span>
-                                                                characters left</span>
-                                                                <asp:TextBox ID="txtAskQuest" runat="server" TextMode="MultiLine" Rows="4" CssClass="form-control"
-                                                                    onchange="updateCharCount300(this,'sellingPointCharCount');" onkeyup="updateCharCount300(this,'sellingPointCharCount','sellingPointSentence');"
-                                                                    MaxLength="300"></asp:TextBox>
-                                                            </span>
+                                                <!-- Ask Question Start -->
+                                                <asp:UpdatePanel ID="up1" runat="server">
+                                                    <ContentTemplate>
+                                                        <div class="row">
+                                                            <div class="col-md-12 col-sm-12">
+                                                                <div class="ask">
+                                                                    <div class="form-group ">
+                                                                        <!-- txtCondition  -->
+                                                                        <span id="oeFormsellingPointsContainer"><span id="sellingPointSentence" style="display: inline-block;
+                                                                            margin: 0; font-weight: normal; font-size: 12px;"><span id="sellingPointCharCount">300</span>
+                                                                            characters left</span>
+                                                                            <asp:TextBox ID="txtAskQuest" runat="server" TextMode="MultiLine" Rows="4" CssClass="form-control"
+                                                                                onchange="updateCharCount300(this,'sellingPointCharCount');" onkeyup="updateCharCount300(this,'sellingPointCharCount','sellingPointSentence');"
+                                                                                MaxLength="300"></asp:TextBox>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="form-group ">
+                                                                        <asp:Button ID="btnAskques" runat="server" OnClick="btnAskques_click" Text="Ask"
+                                                                            class="btn btn-primary2 btn-sm" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="form-group ">
-                                                            <asp:Button ID="btnAskques" runat="server" OnClick="btnAskques_click" Text="Ask"
-                                                                class="btn btn-primary2 btn-sm" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                                
-                                                </ContentTemplate>
-                                                  </asp:UpdatePanel>
-                                                
-                                                
-                                                
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
                                                 <!-- Ask Question End -->
                                                 <div class="row">
-                                                <div class="col-md-12 col-sm-12">
-                                                    <!-- Answers Start -->
-                                                    <dl>
-                                                        <asp:DataList ID="rptquestion" runat="server">                                                            
-                                                            <ItemTemplate>
-                                                                <strong style="color: #D9534F">
-                                                                    <%# DataBinder.Eval(Container.DataItem, "DiscQuestion")%>
-                                                                </strong></br>
-                                                                <%# DataBinder.Eval(Container.DataItem, "DiscAnswer")%>
-                                                            </ItemTemplate>
-                                                        </asp:DataList>
-                                                    </dl>
-                                                    <!-- Answers End -->
-                                                </div>
+                                                    <div class="col-md-12 col-sm-12">
+                                                        <!-- Answers Start -->
+                                                        <dl>
+                                                            <asp:DataList ID="rptquestion" runat="server" OnItemDataBound="rptquestion_ItemDataBound1">
+                                                                <ItemTemplate>
+                                                                    <div class="date">
+                                                                        Posted on<span class="glyphicon glyphicon-calendar"></span><asp:Label ID="lblPublishpostdate"
+                                                                            runat="server"></asp:Label></div>
+                                                                    <strong style="color: #D9534F">
+                                                                        <%# DataBinder.Eval(Container.DataItem, "DiscQuestion")%>
+                                                                    </strong>
+                                                                    <%# DataBinder.Eval(Container.DataItem, "DiscAnswer")%>
+                                                                </ItemTemplate>
+                                                            </asp:DataList>
+                                                        </dl>
+                                                        <!-- Answers End -->
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -727,231 +729,338 @@
                                         <div class="page-header-inner">
                                             <div class="heading">
                                                 <h2>
-                                                    Similiar cars</h2>
+                                                    Similiar cars
+                                                    <!-- /.heading -->
+                                                    <div class="line">
+                                                        <hr />
+                                                    </div>
+                                                    <!-- /.line -->
                                             </div>
-                                            <!-- /.heading -->
-                                            <div class="line">
-                                                <hr />
-                                            </div>
-                                            <!-- /.line -->
+                                            <!-- /.page-header-inner -->
                                         </div>
-                                        <!-- /.page-header-inner -->
+                                        <!-- /.page-header -->
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="inner-block white">
+                                                    <div class="grid-carousel" id="grid-carousel">
+                                                        <div class="contentLoader">
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.grid-carousel -->
+                                                </div>
+                                                <!-- /.inner-block -->
+                                            </div>
+                                            <!-- /.col-md-12 -->
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div id="grid-carousel-pager">
+                                                    <div class="prev">
+                                                    </div>
+                                                    <!-- /.prev -->
+                                                    <div class="next">
+                                                    </div>
+                                                    <!-- /.next -->
+                                                </div>
+                                                <!-- /.grid-carousel-pager -->
+                                            </div>
+                                            <!-- /.col-md-12 -->
+                                        </div>
+                                        <!-- /.row -->
                                     </div>
-                                    <!-- /.page-header -->
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="inner-block white">
-                                                <div class="grid-carousel" id="grid-carousel">
-                                                    <div class="contentLoader">
+                                    <!-- /.grid-block -->
+                                </div>
+                                <!-- /.col-md-12 -->
+                            </div>
+                            <!-- /.row -->
+                            <!-- /#main -->
+                        </div>
+                        <!-- /.col-md-12 -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container -->
+            </div>
+            <!-- /.section -->
+        </div>
+    </div>
+        <!-- /#content -->
+        <div id="footer">
+            <uc1:Footer ID="Footer1" runat="server" />
+        </div>
+        <!-- Contact Us Popup start-->
+        <cc1:ModalPopupExtender ID="MpeEmail" runat="server" PopupControlID="Loginholder1"
+            BackgroundCssClass="ModalPopupBG" TargetControlID="hdnEmail">
+        </cc1:ModalPopupExtender>
+        <asp:HiddenField ID="hdnEmail" runat="server" />
+        <div id="Loginholder1" class="alert" runat="server" style="display: none;">
+            <h4 id="H4">
+                Email the Seller -
+                <asp:Label ID="lblCartitle" runat="server"></asp:Label>
+                <asp:Button ID="btnNopay" class="cls" runat="server" Text="" BorderWidth="0" />
+                <!-- <div class="cls">
+            </div> -->
+            </h4>
+            <div id="login" class="data sendMail" style="font-size: 14px;">
+                <div>
+                    <div style="display: none;">
+                        <label>
+                            To:</label>
+                        <b>
+                            <asp:Label ID="lblSellarname2" runat="server" Visible="false"></asp:Label></b>
+                        <br />
+                        <asp:Label ID="lblSellarAddress" runat="server"></asp:Label></b>
+                        <br />
+                        <asp:Label ID="lblphone" runat="server"></asp:Label>
+                    </div>
+                    <div style="display: none;">
+                        <div style="margin-bottom: 0px; margin-top: 15px;">
+                            <label>
+                                From:
+                            </label>
+                        </div>
+                        <div class="clear">
+                            &nbsp;</div>
+                    </div>
+                    <div>
+                        <div id="leadFormHolder">
+                            <div id="leadFormContentDiv">
+                                <div>
+                                    <div id="Div1">
+                                        <div>
+                                            <div style="display: none;">
+                                                <p>
+                                                    Hello!<br>
+                                                    I'm writing from
+                                                    <asp:TextBox runat="server" ID="zipCode1" MaxLength="25" ToolTip="Zip or City" class="default-value form-control"
+                                                        Style="width: 90px; display: inline-block" />
+                                                    and I'm interested in the <strong></strong>you have listed on mobicarz.com for <strong>
+                                                        <asp:Label ID="lblPrice3" runat="server" class="detPrice"></asp:Label>
+                                                    </strong>.<br />
+                                                    I would like to know more about this vehicle.
+                                                    <div style="display: inline-block; margin-top: 15px;">
+                                                        <label>
+                                                            I can be reached by phone on</label>
+                                                        <a href="javascript:void(0);" tabindex="-1" style="display: none;"></a>
+                                                    </div>
+                                                </p>
+                                            </div>
+                                            <!-- First Name -->
+                                            <div class="form-section emailSeller">
+                                                <div class="form-group ">
+                                                    <div class="col-sm-6 col-md-6">
+                                                        <label>
+                                                            First name: <span class="star">*</span></label>
+                                                        <asp:TextBox ID="txtfirstName" size="8" runat="server" class="default-value form-control"
+                                                            MaxLength="50" /><a href="javascript:void(0);" tabindex="-1" style="display: none;"></a>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-6">
+                                                        <label>
+                                                            Last name:</label>
+                                                        <asp:TextBox runat="server" size="8" ID="txtlastName" class="default-value form-control"
+                                                            MaxLength="50" /><a href="javascript:void(0);" tabindex="-1" style="display: none;"></a>
+                                                    </div>
+                                                    <div class=" clear ">
                                                     </div>
                                                 </div>
-                                                <!-- /.grid-carousel -->
-                                            </div>
-                                            <!-- /.inner-block -->
-                                        </div>
-                                        <!-- /.col-md-12 -->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div id="grid-carousel-pager">
-                                                <div class="prev">
+                                                <div class="form-group ">
+                                                    <div class="col-sm-6 col-md-6">
+                                                        <label>
+                                                            Email: <span class="star">*</span></label>
+                                                        <asp:TextBox ID="txtcemail" alt="my email address*" MaxLength="253" size="20" runat="server"
+                                                            ToolTip="my email address*" Text="my email address" class="default-value form-control" />
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-6">
+                                                        <label>
+                                                            Phone: <span class="star">*</span></label>
+                                                        <asp:TextBox ID="txtPhone" value="" size="16" runat="server" alt="my phone number*"
+                                                            ToolTip="my phone number*" Text="my phone number" class="default-value sample4 form-control"
+                                                            MaxLength="10" />
+                                                    </div>
+                                                    <div class=" clear ">
+                                                    </div>
                                                 </div>
-                                                <!-- /.prev -->
-                                                <div class="next">
-                                                </div>
-                                                <!-- /.next -->
-                                            </div>
-                                            <!-- /.grid-carousel-pager -->
-                                        </div>
-                                        <!-- /.col-md-12 -->
-                                    </div>
-                                    <!-- /.row -->
-                                </div>
-                                <!-- /.grid-block -->
-                            </div>
-                            <!-- /.col-md-12 -->
-                        </div>
-                        <!-- /.row -->
-                        <!-- /#main -->
-                    </div>
-                    <!-- /.col-md-12 -->
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container -->
-        </div>
-        <!-- /.section -->
-    </div>
-    <!-- /#content -->
-    <div id="footer">
-        <uc1:Footer ID="Footer1" runat="server" />
-    </div>
-    <!-- Contact Us Popup start-->
-    <cc1:ModalPopupExtender ID="MpeEmail" runat="server" PopupControlID="Loginholder1"
-        BackgroundCssClass="ModalPopupBG" TargetControlID="hdnEmail">
-    </cc1:ModalPopupExtender>
-    <asp:HiddenField ID="hdnEmail" runat="server" />
-    <div id="Loginholder1" class="alert" runat="server" style="display: none;">
-        <h4 id="H4">
-            Email the Seller -
-            <asp:Label ID="lblCartitle" runat="server"></asp:Label>
-            <asp:Button ID="btnNopay" class="cls" runat="server" Text="" BorderWidth="0" />
-            <!-- <div class="cls">
-            </div> -->
-        </h4>
-        <div id="login" class="data sendMail" style="font-size: 14px;">
-            <div>
-                <div style="display: none;">
-                    <label>
-                        To:</label>
-                    <b>
-                        <asp:Label ID="lblSellarname2" runat="server" Visible="false"></asp:Label></b>
-                    <br />
-                    <asp:Label ID="lblSellarAddress" runat="server"></asp:Label></b>
-                    <br />
-                    <asp:Label ID="lblphone" runat="server"></asp:Label>
-                </div>
-                <div style="display: none;">
-                    <div style="margin-bottom: 0px; margin-top: 15px;">
-                        <label>
-                            From:
-                        </label>
-                    </div>
-                    <div class="clear">
-                        &nbsp;</div>
-                </div>
-                <div>
-                    <div id="leadFormHolder">
-                        <div id="leadFormContentDiv">
-                            <div>
-                                <div id="Div1">
-                                    <div>
-                                        <div style="display: none;">
-                                            <p>
-                                                Hello!<br>
-                                                I'm writing from
-                                                <asp:TextBox runat="server" ID="zipCode1" MaxLength="25" ToolTip="Zip or City" class="default-value form-control"
-                                                    Style="width: 90px; display: inline-block" />
-                                                and I'm interested in the <strong></strong>you have listed on mobicarz.com for <strong>
-                                                    <asp:Label ID="lblPrice3" runat="server" class="detPrice"></asp:Label>
-                                                </strong>.<br />
-                                                I would like to know more about this vehicle.
-                                                <div style="display: inline-block; margin-top: 15px;">
+                                                <div class="col-sm-12 col-md-12">
                                                     <label>
-                                                        I can be reached by phone on</label>
-                                                    <a href="javascript:void(0);" tabindex="-1" style="display: none;"></a>
+                                                        Provide Additional Comments:
+                                                    </label>
+                                                    <asp:TextBox ID="txtComments" runat="server" Text="Enter your message here" class="default-value form-control"
+                                                        TextMode="MultiLine"></asp:TextBox>
                                                 </div>
+                                            </div>
+                                            <br />
+                                            <!-- comments -->
+                                            <!-- Trade-IN fields -->
+                                            <p>
                                             </p>
                                         </div>
-                                        <!-- First Name -->
-                                        <div class="form-section emailSeller">
-                                            <div class="form-group ">
-                                                <div class="col-sm-6 col-md-6">
-                                                    <label>
-                                                        First name: <span class="star">*</span></label>
-                                                    <asp:TextBox ID="txtfirstName" size="8" runat="server" class="default-value form-control"
-                                                        MaxLength="50" /><a href="javascript:void(0);" tabindex="-1" style="display: none;"></a>
-                                                </div>
-                                                <div class="col-sm-6 col-md-6">
-                                                    <label>
-                                                        Last name:</label>
-                                                    <asp:TextBox runat="server" size="8" ID="txtlastName" class="default-value form-control"
-                                                        MaxLength="50" /><a href="javascript:void(0);" tabindex="-1" style="display: none;"></a>
-                                                </div>
-                                                <div class=" clear ">
-                                                </div>
-                                            </div>
-                                            <div class="form-group ">
-                                                <div class="col-sm-6 col-md-6">
-                                                    <label>
-                                                        Email: <span class="star">*</span></label>
-                                                    <asp:TextBox ID="txtcemail" alt="my email address*" MaxLength="253" size="20" runat="server"
-                                                        ToolTip="my email address*" Text="my email address" class="default-value form-control" />
-                                                </div>
-                                                <div class="col-sm-6 col-md-6">
-                                                    <label>
-                                                        Phone: <span class="star">*</span></label>
-                                                    <asp:TextBox ID="txtPhone" value="" size="16" runat="server" alt="my phone number*"
-                                                        ToolTip="my phone number*" Text="my phone number" class="default-value sample4 form-control"
-                                                        MaxLength="10" />
-                                                </div>
-                                                <div class=" clear ">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-12">
-                                                <label>
-                                                    Provide Additional Comments:
-                                                </label>
-                                                <asp:TextBox ID="txtComments" runat="server" Text="Enter your message here" class="default-value form-control"
-                                                    TextMode="MultiLine"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <br />
-                                        <!-- comments -->
-                                        <!-- Trade-IN fields -->
-                                        <p>
-                                        </p>
+                                        <!-- end message -->
                                     </div>
-                                    <!-- end message -->
+                                    <!-- end email -->
                                 </div>
-                                <!-- end email -->
+                            </div>
+                        </div>
+                        <div class="clear">
+                            &nbsp;</div>
+                    </div>
+                </div>
+                <div style="">
+                    <div style="width: 100px; float: left;">
+                        &nbsp;
+                    </div>
+                    <div style="width: 380px; float: left;">
+                        <div style="width: 60px; float: left">
+                            <asp:Button runat="server" ID="zipValBut" class="pull-left btn btn-primary2" Text="Ok"
+                                OnClientClick="javascript:return ValidateContact();" OnClick="zipValBut_Click" />
+                        </div>
+                        <div style="width: 90px; float: left">
+                            <input type="button" class="pull-left btn btn-default" id="btnCancelPW" value="Cancel"
+                                onclick="javascript:return cancel1();" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact Us Popup END-->
+        <!--Subscribe Us Popup start-->
+        <cc1:ModalPopupExtender ID="mpealert" runat="server" PopupControlID="alertholder"
+            TargetControlID="hdnfldalert" BackgroundCssClass="ModalPopupBG">
+        </cc1:ModalPopupExtender>
+        <asp:HiddenField ID="hdnfldalert" runat="server" />
+        <div id="alertholder" runat="server" style="display: none">
+            <div id="ZipVal" class="alert">
+                <h4 id="H1">
+                    Alert
+                    <asp:Button ID="Button1" class="cls" OnClick="btnOk1_Click" runat="server" Text=""
+                        BorderWidth="0" />
+                </h4>
+                <div class="data">
+                    <table style="width: 98%; margin: 0 auto">
+                        <tr>
+                            <td style="width: 95px;" colspan="2">
+                                <asp:UpdatePanel ID="updpanel" runat="server">
+                                    <ContentTemplate>
+                                        <asp:Label ID="lblAlertMsg" runat="server"></asp:Label>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 5px;" colspan="2">
+                                <div style="width: 34px; margin: 30px auto 0 auto">
+                                    <asp:Button ID="btnOk1" runat="server" class="btn btn-primary2" Text="Ok" OnClick="btnOk1_Click" /></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+           <!----  Subscribe popup-------------->
+        <cc1:ModalPopupExtender ID="mpesubscribe111" runat="server" PopupControlID="subScribUs111"
+            BackgroundCssClass="ModalPopupBG" TargetControlID="hdnSubscribe111" OkControlID="btnsubScribUs111">
+        </cc1:ModalPopupExtender>
+        <asp:HiddenField ID="hdnSubscribe111" runat="server" />
+        <div id="subScribUs111" class="alert" style="height: auto; padding-bottom: 15px;
+            max-width: 550px; width: 70%; display: none;">
+            <h4 id="">
+                Sign up to receive email alerts.
+                <asp:LinkButton ID="btnsubScribUs111" runat="server" class="cls" Text="" Style="border-width: 0px;"></asp:LinkButton>
+            </h4>
+            <div class="data">
+                <div class="row" style="color: #333;">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="title">
+                            <h3>
+                                Car Info</h3>
+                        </div>
+                        <div class="form-section">
+                            <div class="form-group " id="delearBox" runat="server">
+                                <label>
+                                    Make <span class="star">*</span></label>
+                                <asp:UpdatePanel ID="m1" runat="server">
+                                    <ContentTemplate>
+                                        <asp:DropDownList ID="ddlmakesp" class="form-control" runat="server" AutoPostBack="true"
+                                            OnSelectedIndexChanged="ddlmakesp_SelectedIndexChanged1">
+                                        </asp:DropDownList>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
+                            <div class="form-group ">
+                                <label>
+                                    Model <span class="star">*</span></label>
+                                <asp:UpdatePanel ID="mpu2" runat="server">
+                                    <ContentTemplate>
+                                        <asp:DropDownList ID="ddlmodelsp" class="form-control" runat="server" AutoPostBack="true"
+                                            Enabled="false">
+                                            <asp:ListItem>Select</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
+                            <div class="form-group ">
+                                <label>
+                                    Year <span class="star">*</span></label>
+                                <asp:UpdatePanel ID="upyeas" runat="server">
+                                    <ContentTemplate>
+                                        <asp:DropDownList ID="ddlyearp" class="form-control" runat="server">
+                                        </asp:DropDownList>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
                             </div>
                         </div>
                     </div>
-                    <div class="clear">
-                        &nbsp;</div>
-                </div>
-            </div>
-            <div style="">
-                <div style="width: 100px; float: left;">
-                    &nbsp;
-                </div>
-                <div style="width: 380px; float: left;">
-                    <div style="width: 60px; float: left">
-                        <asp:Button runat="server" ID="zipValBut" class="pull-left btn btn-primary2" Text="Ok"
-                            OnClientClick="javascript:return ValidateContact();" OnClick="zipValBut_Click" />
-                    </div>
-                    <div style="width: 90px; float: left">
-                        <input type="button" class="pull-left btn btn-default" id="btnCancelPW" value="Cancel"
-                            onclick="javascript:return cancel1();" /></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Contact Us Popup END-->
-    <!--Subscribe Us Popup start-->
-    <cc1:ModalPopupExtender ID="mpealert" runat="server" PopupControlID="alertholder"
-        TargetControlID="hdnfldalert" BackgroundCssClass="ModalPopupBG">
-    </cc1:ModalPopupExtender>
-    <asp:HiddenField ID="hdnfldalert" runat="server" />
-    <div id="alertholder" runat="server" style="display: none">
-        <div id="ZipVal" class="alert">
-            <h4 id="H1">
-                Alert
-                <asp:Button ID="Button1" class="cls" OnClick="btnOk1_Click" runat="server" Text=""
-                    BorderWidth="0" />
-            </h4>
-            <div class="data">
-                <table style="width: 98%; margin: 0 auto">
-                    <tr>
-                        <td style="width: 95px;" colspan="2">
-                            <asp:UpdatePanel ID="updpanel" runat="server">
-                                <ContentTemplate>
-                                    <asp:Label ID="lblAlertMsg" runat="server"></asp:Label>
-                                </ContentTemplate>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="title">
+                            <h3>
+                                Personal Info</h3>
+                        </div>
+                        <div class="form-section">
+                        <asp:UpdatePanel ID="U1" runat="server">
+                        <ContentTemplate>
+                            <div class="form-group " id="Div2" runat="server">
+                                <label>
+                                    First Name</label>
+                                <asp:TextBox ID="txtfnamep" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                            <div class="form-group ">
+                                <label>
+                                    Last Name
+                                </label>
+                                <asp:TextBox ID="txtlastnamep" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                            <div class="form-group ">
+                                <label>
+                                    Email <span class="star">*</span></label>
+                                <asp:TextBox ID="txtemail" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                            </ContentTemplate>
                             </asp:UpdatePanel>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-top: 5px;" colspan="2">
-                            <div style="width: 34px; margin: 30px auto 0 auto">
-                                <asp:Button ID="btnOk1" runat="server" class="btn btn-primary2" Text="Ok" OnClick="btnOk1_Click" /></div>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: right; margin: 10px 0;">
+                    <div style="float: right; width: 80px;">
+                        <asp:UpdatePanel ID="Supbtn" runat="server">
+                            <ContentTemplate>
+                                <asp:Button ID="btnSubok" runat="server" Text="Submit" class="btn btn-primary2 "
+                                    OnClientClick="return SendValidate();" OnClick="btnSubok_click" />
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </div>
+                    &nbsp; &nbsp;
+                    <div style="float: right; width: 80px;">
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
+                                <asp:Button ID="btncancelp" runat="server" Text="Cancel" class="btn btn-default "
+                                    OnClick="btncancelp_click" />
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+  
+     
     </form>
 
     <script src="../libraries/jquery.bxslider/jquery.bxslider.js"></script>
@@ -959,8 +1068,6 @@
     <script src="../libraries/easy-tabs/lib/jquery.easytabs.min.js"></script>
 
     <script src="../libraries/star-rating/jquery.rating.js"></script>
-
-   
 
     <script src="../js/jslider/jquery.slider.min.js" type="text/javascript"></script>
 
@@ -1568,6 +1675,144 @@
 	    return false;
 	} // END function updateCharCount300
 		
+    </script>
+
+    <script type="text/javascript">
+    function SendValidate()
+	  {  
+      
+            var valid=true;  
+            
+              if (document.getElementById('<%=ddlmakesp.ClientID%>').value == "Select") {
+                alert('Please select make')
+                valid = false;
+                document.getElementById('ddlmakesp').focus();
+                return valid;
+            }
+            else   if (document.getElementById('<%=ddlmodelsp.ClientID%>').value == "Select") {
+                alert('Please select model')
+                valid = false;
+                document.getElementById('ddlmodelsp').focus();
+                return valid;
+            }
+               else   if (document.getElementById('<%=ddlyearp.ClientID%>').value == "Select") {
+                alert('Please select year')
+                valid = false;
+                document.getElementById('ddlyearp').focus();
+                return valid;
+            }
+            
+            
+            
+            
+            if (document.getElementById('<%= txtemail.ClientID %>').value.length < 1)
+             {
+                alert("Please enter email address");
+                document.getElementById('<%= txtemail.ClientID %>').focus();
+                valid = false;
+            } 
+                else if (document.getElementById('<%= txtemail.ClientID %>').value.length < 1)
+             {
+                alert("Enter email address");
+                document.getElementById('<%= txtemail.ClientID %>').focus();
+                valid = false;
+            }    
+            
+             else if (echeck(document.getElementById('<%= txtemail.ClientID %>').value)==false)
+	        {
+		        document.getElementById('<%= txtemail.ClientID %>').value=""
+		        document.getElementById('<%= txtemail.ClientID %>').focus()
+		        valid=false;
+        		return valid;
+	        }                     
+            else if(document.getElementById("txtemail").value.length<1 && echeck(document.getElementById("txtemail").value)==false)
+            {
+                alert("Please enter the email address");               
+                valid=false;
+                document.getElementById("txtemail").focus();
+            } 
+         
+            return valid;
+        } 
+	function echeck(str) 
+    {
+
+		var at="@"
+		var dot="."
+		var lat=str.indexOf(at)
+		var lstr=str.length
+		var ldot=str.indexOf(dot)
+		if (str.indexOf(at)==-1){
+		   alert("Invalid E-mail ID")
+		   return false
+		}
+
+		if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==lstr){
+		   alert("Invalid E-mail ID")
+		   return false
+		}
+
+		if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || str.indexOf(dot)==lstr){
+		    alert("Invalid E-mail ID")
+		    return false
+		}
+
+		 if (str.indexOf(at,(lat+1))!=-1){
+		    alert("Invalid E-mail ID")
+		    return false
+		 }
+
+		 if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot){
+		    alert("Invalid E-mail ID")
+		    return false
+		 }
+
+		 if (str.indexOf(dot,(lat+2))==-1){
+		    alert("Invalid E-mail ID")
+		    return false
+		 }
+		
+		 if (str.indexOf(" ")!=-1){
+		    alert("Invalid E-mail ID")
+		    return false
+		 }
+
+ 		 return true					
+	}
+	
+	
+	
+	
+	var subTimer;
+	
+	
+	
+	function alertCall(){
+	    clearInterval(subTimer);
+	    $find('mpesubscribe111').show();
+	}
+	
+	
+	function resetTimer(){
+	    if($.cookie('PrefCookie') == 'Pref'){
+	        subTimer = setInterval(function(){alertCall()}, 6000)
+	    }
+	}
+	
+	$(function(){	
+	
+	    if($('#accountLi').length <= 0){
+	        resetTimer();
+	    }
+	    
+	    $('#subScribUs111 .cls').live('click', function(){
+	        resetTimer();
+	    })
+	    
+	})
+	
+	
+     
     </script>
 
 </body>

@@ -153,7 +153,7 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                     ImageName.Visible = true;
                     //ImageName.ImageUrl = "http://unitedcarexchange.com/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
                   //  ImageName.ImageUrl = "http://localhost:44251/Cars/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
-                    ImageName.ImageUrl = "http://www.mobicarz.com/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
+                    ImageName.ImageUrl = "http://www.images.mobicarz.com/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
                 }
                 else
                 {

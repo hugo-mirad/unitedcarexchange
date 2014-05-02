@@ -59,7 +59,7 @@
                             <div class="title">
                                 <h1>
                                     <asp:Label ID="lblUserName" runat="server"></asp:Label>
-                                    <span class=" semi ">Member since: <b>
+                                    <span class=" semi "><asp:Label ID="labcardeta" runat="server"></asp:Label> <b>
                                         <asp:Label ID="lblUserMemberDate" runat="server">
                                         </asp:Label></b></span></h1>
                             </div>

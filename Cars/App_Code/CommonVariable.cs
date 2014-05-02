@@ -13,7 +13,8 @@ public static class CommonVariable
     public static string ArchieveMail = System.Configuration.ConfigurationManager.AppSettings["ArchieveMail"].ToString().Trim();
     public static string ContactUsEMail = System.Configuration.ConfigurationManager.AppSettings["ContactUsEMail"].ToString().Trim();
     public static string ContactUsEMailCC = System.Configuration.ConfigurationManager.AppSettings["ContactUsEMailCC"].ToString().Trim();
-
+    public static string ImagesPath = System.Configuration.ConfigurationManager.AppSettings["Imagespath"].ToString().Trim();
+    
     
     
 }

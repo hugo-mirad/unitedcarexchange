@@ -25,7 +25,7 @@ public partial class _Default : System.Web.UI.Page
 
             //--------------------
 
-
+            Session[Constants.USER_ID] = null;
             //-------------------------------------
 
             GeneralFunc.SaveSiteVisit();
@@ -132,7 +132,7 @@ public partial class _Default : System.Web.UI.Page
 
                     Session["PackageID"] = dsPerformLogin.Tables[0].Rows[0]["PackageID"];
 
-                    Response.Redirect("Account.aspx");
+                    //Response.Redirect("Account.aspx");
                 }
             }
 

@@ -356,7 +356,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
 
                         path = path.Replace("//", "/");
                         //StockUrl = "http://www.mobicarz.com/" + path;
-                        StockUrl = "http://unitedcarexchange.com/" + path;
+                        StockUrl = "http://images.mobicarz.com/" + path;
 
                         //dsPicsNew.Tables[0].Rows[dsPicsNew.Tables[0].Rows.Count - 1]["PICPATH"] = path;
                     }
@@ -369,10 +369,10 @@ public partial class SearchCarDetails : System.Web.UI.Page
 
                     path = path.Replace("//", "/");
                     //path = "http://www.mobicarz.com/" + path;
-                    path = "http://unitedcarexchange.com/" + path;
+                    path = "http://images.mobicarz.com/" + path;
 
                     //if (path != "http://www.mobicarz.com//")
-                    if (path != "http://unitedcarexchange.com/")
+                    if (path != "http://images.mobicarz.com/")
                     {
 
                         dsPicsNew.Tables[0].Rows.Add();

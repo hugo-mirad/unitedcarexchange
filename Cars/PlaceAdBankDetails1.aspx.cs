@@ -30,6 +30,7 @@ public partial class PlaceAdBankDetails1 : System.Web.UI.Page
         {
             if (!IsPostBack)
             {
+                hdnSubAlert.Value = "true";
                 Session["CurrentPage"] = "Home";
                 Session["PageName"] = "";
                 Session["CurrentPageConfig"] = null;

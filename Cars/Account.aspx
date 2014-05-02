@@ -51,7 +51,8 @@
  
  <uc2:HeadderBlogin ID="HeadderBlogin1" runat="server" />
     
-    
+    <asp:HiddenField ID="hdnSubAlert" runat="server" Value="true" />
+
     <div id="content" class="pricing-page">
         <div id="page-heading">
             <div class="container">
@@ -135,7 +136,7 @@
                                                                 <td class="value">    
                                                                 
                                                               
-                                                                    <a href="Buy-Sell-UsedCar/<%#Eval("yearofmake") %>-<%#Eval("make") %>-<%#Eval("model") %>-<%#Eval("CaruniqueId") %>" target="_blank" >MobiCarz Link</a>
+                                                                    <a href="usedcars/<%#Eval("yearofmake") %>-<%#Eval("make") %>-<%#Eval("model") %>-<%#Eval("CaruniqueId") %>" target="_blank" >MobiCarz Link</a>
                                                                     <asp:LinkButton ID="lnkurl" runat="server" style=" display:none "  />
                                                                 </td>
                                                             </tr>
@@ -515,7 +516,12 @@
 
     <script type="text/javascript" src="libraries/flot/jquery.flot.time.js"></script>
 
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=true&amp;v=3.13"></script>
+    <script src="http://maps.googleapis
+    
+    
+    
+    
+    /maps/api/js?sensor=true&amp;v=3.13"></script>
 
     <script src="assets/js/carat.js"></script>
 

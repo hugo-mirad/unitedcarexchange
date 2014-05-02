@@ -117,7 +117,7 @@ public partial class CarAdsByMakeModel : System.Web.UI.Page
 
                 var path = obj[rowcount].PICLOC0.ToString() + "/" + obj[rowcount].PIC0.ToString();
                 path = path.Replace("//", "/");
-                StockUrl = "http://www.mobicarz.com/" + path;
+                StockUrl = "http://www.images.mobicarz.com/" + path;
             }
             Image imgSimliar = (Image)e.Item.FindControl("imgSimliar");
 

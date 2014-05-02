@@ -94,6 +94,22 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
             sellLi.Visible = true;
         }
 
+       
+        //string Pref="";
+        //if (Request.Cookies["PrefCookie"] != null)
+        //    {
+        //        Pref = Request.Cookies["PrefCookie"].Value;
+        //    }
+        //if (Pref == "Pref" && Session[Constants.NAME] != null)
+        //{
+        //    loginLi.Visible = false;
+        //    logoutLi.Visible = true;
+        //}
+        //else
+        //{
+        //    loginLi.Visible = false; ;
+        //    logoutLi.Visible = true;
+        //}
 
 
 
@@ -126,7 +142,7 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
         }
 
 
-    
+
     }
 
 
@@ -135,7 +151,7 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
         try
         {
             Response.Cookies["Statuscookie"].Value = "false";
-            Response.Cookies["PrefCookie"].Value="Pref";
+            Response.Cookies["PrefCookie"].Value = "Pref";
             // Update Time of closing application
 
             string IPAddress = Request.Cookies["IpCookie"].Value;
@@ -162,7 +178,7 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
             MakesBL objMakesBL = new MakesBL();
             if (Cache["Makes"] == null)
             {
-                obj = (List<MakesInfo>)objMakesBL.GetMakes();
+                obj = (List<MakesInfo>)objMakesBL.GetMakes1();
             }
             else
             {
@@ -187,8 +203,6 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
         {
         }
     }
-
-
     private void GetModelsInfo(string MakeID, DropDownList DdlModel)
     {
         ModelBL objModelBL = new ModelBL();
@@ -438,7 +452,7 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
         {
         }
     }
-  
+
     private void FillModels()
     {
 
@@ -459,6 +473,7 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
     }
     protected void ddlmakesp_SelectedIndexChanged1(object sender, EventArgs e)
     {
+        string Pref = "";
         ddlmodelsp.Enabled = true;
         if (ddlmakesp.SelectedIndex > 0)
         {
@@ -466,21 +481,68 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
         }
         else
         {
-            ddlmodelsp.Items.Clear();
-            ddlmodelsp.Items.Insert(0, new ListItem("Select", "0"));
+            if (Request.Cookies["PrefCookie"] != null)
+            {
+                Pref = Request.Cookies["PrefCookie"].Value;
+            }
+            if (Pref != "Pref")
+            {
+                ddlmodelsp.Items.Clear();
+                ddlmodelsp.Items.Insert(0, new ListItem("Select", "0"));
 
+            }
         }
     }
-
     public void btnsubscr_click(object sender, EventArgs e)
     {
-    
-      
-        ddlmakesp.SelectedIndex = 0;
-        ddlmodelsp.SelectedIndex = 0;
-        //ddlyearp.SelectedIndex = 0;
-        txtemail.Text = ""; txtfnamep.Text = ""; txtlastnamep.Text = "";
-        mpesubscribe.Show();
+
+        string Pref = "";
+
+        if (Request.Cookies["PrefCookie"].ToString() != "Pref")
+        {
+            VisitSiteLog objVisitSiteLog = new VisitSiteLog();
+            DataSet dsPerformLogin = new DataSet();
+            if (Request.Cookies["PrefCookie"] != null)
+            {
+                Pref = Request.Cookies["PrefCookie"].Value;
+            }
+
+            dsPerformLogin = objVisitSiteLog.RetriveSubInformation(Pref);
+            if (dsPerformLogin.Tables[0].Rows.Count > 0)
+            {
+                FillMakes();
+                FillWithin();
+                ddlmakesp.SelectedIndex = 0;
+                ddlmakesp.SelectedIndex = Convert.ToInt32(dsPerformLogin.Tables[0].Rows[0]["Makeid"].ToString());
+                ddlmodelsp.Items.Clear();
+
+
+
+                string[] result = Pref.Split('-');
+                ddlmodelsp.Items.Insert(0, new ListItem(result[1], "0"));
+
+
+
+                // ddlmodelsp.SelectedValue =dsPerformLogin.Tables[0].Rows[0]["ModelID"].ToString();
+                ddlyearp.SelectedValue = dsPerformLogin.Tables[0].Rows[0]["Year"].ToString();
+                txtfnamep.Text = dsPerformLogin.Tables[0].Rows[0]["FirstName"].ToString();
+                txtlastnamep.Text = dsPerformLogin.Tables[0].Rows[0]["LastName"].ToString();
+                txtemail.Text = dsPerformLogin.Tables[0].Rows[0]["Email"].ToString();
+                //ddlmakesp.SelectedIndex = 0;
+                //ddlmodelsp.SelectedIndex = 0;
+                //txtemail.Text = ""; txtfnamep.Text = ""; txtlastnamep.Text = "";
+                mpesubscribe.Show();
+            }
+            else
+            {
+                ddlmakesp.SelectedIndex = 0;
+                ddlmodelsp.SelectedIndex = 0;
+                //ddlyearp.SelectedIndex = 0;
+                txtemail.Text = ""; txtfnamep.Text = ""; txtlastnamep.Text = "";
+                mpesubscribe.Show();
+
+            }
+        }
     }
     public void btnSubok_click(object sender, EventArgs e)
     {
@@ -491,16 +553,16 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
 
                 String strHostName = Request.UserHostAddress.ToString();
                 string strIp = System.Net.Dns.GetHostAddresses(strHostName).GetValue(0).ToString();
-               
-                Response.Cookies["PrefCookie"].Value = ddlmakesp.SelectedItem + "- " + ddlmodelsp.SelectedItem + " -" + ddlyearp.Text;
 
+                Response.Cookies["PrefCookie"].Value = ddlmakesp.SelectedItem + "- " + ddlmodelsp.SelectedItem + " -" + ddlyearp.Text;
+                Session["Pref"] = Response.Cookies["PrefCookie"].Value;
                 VisitSiteLog objVisitSiteLog = new VisitSiteLog();
                 objVisitSiteLog.SaveSubInformation(Convert.ToInt32(ddlmakesp.SelectedValue), Convert.ToInt32(ddlmodelsp.SelectedValue),
-                    Convert.ToInt32(ddlyearp.SelectedValue), txtfnamep.Text, txtlastnamep.Text, txtemail.Text, strIp, DateTime.Now);
+                    Convert.ToInt32(ddlyearp.SelectedValue), txtfnamep.Text, txtlastnamep.Text, txtemail.Text, strIp, DateTime.Now, Session["Pref"].ToString());
                 //System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "EmailNAClick();", true);
                 mpesubscribe.Hide();
-                System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "alert('You are subscribed suceessfully.');", true);
-                
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "alert('You are subscribed suceessfully for email alerts.');", true);
+
             }
         }
     }

@@ -33,6 +33,19 @@ public partial class Reviews : System.Web.UI.Page
                 string carid = Session["CaruniqueId"].ToString();
 
 
+                try
+                {
+                    DropdownBL objdropdownBL = new DropdownBL();
+                    DataSet dsCarDetailsInfo = new DataSet();
+                    dsCarDetailsInfo = objdropdownBL.GetMMY(carid);
+
+                    lblUserMemberDate.Text = dsCarDetailsInfo.Tables[0].Rows[0]["make"].ToString() + "-" + dsCarDetailsInfo.Tables[0].Rows[0]["model"].ToString() + "-" + dsCarDetailsInfo.Tables[0].Rows[0]["yearOfMake"].ToString();
+
+                }
+                catch
+                {
+                }
+
                 //Questions
                 DataSet DiscusinsQuestion = new DataSet();
                 DiscusinsQuestion = objCarFeatures.GetCarDiscussions(carid);
@@ -82,7 +95,7 @@ public partial class Reviews : System.Web.UI.Page
             Discusins = objCarFeatures.GetCarDiscussionsByQuestionId(QuestionId);
             lblQuestAn.Text = Discusins.Tables[0].Rows[0]["DiscQuestion"].ToString();
             MdlAnswer.Show();
-           
+
         }
     }
     protected void rpt1_ItemDataBound(Object Sender, RepeaterItemEventArgs e)
@@ -105,7 +118,7 @@ public partial class Reviews : System.Web.UI.Page
         }
     }
 
-   // rptpublDisc
+    // rptpublDisc
     protected void rptpublDisc_ItemCommand(object source, RepeaterCommandEventArgs e)
     {
         if (e.CommandName == "PubDelete")

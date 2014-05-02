@@ -32,6 +32,7 @@ public partial class placeadPhotos : System.Web.UI.Page
             // if (!IsPostBack)
             // {
 
+            hdnSubAlert.Value = "true";
 
             lblpackagename2.Text = Session["PackgeName"].ToString();
             lblpckgprice.Text = Session["PackgePrice"].ToString();
@@ -121,7 +122,7 @@ public partial class placeadPhotos : System.Web.UI.Page
                 {
 
                     ImageName.Visible = true;
-                    ImageName.ImageUrl = "http://unitedcarexchange.com/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
+                    ImageName.ImageUrl = "http://images.mobicarz.com/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
                 }
                 else
                 {
@@ -142,6 +143,7 @@ public partial class placeadPhotos : System.Web.UI.Page
 
      // ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Only alert Message');", true);
         mdepEditSuccess.Show();
+       
       
     }
     protected void btnSave_Click(object sender, EventArgs e)

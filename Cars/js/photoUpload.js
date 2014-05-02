@@ -1,9 +1,9 @@
 ﻿var det;
 
-var siteURL = 'http://www.mobicarz.com/';
+var siteURL = 'http://images.mobicarz.com/';
 //var siteURL = 'http://localhost:44251/Cars/';
 
-var siteURLStock = 'http://www.unitedcarexchange.com/';
+var siteURLStock = 'http://images.mobicarz.com/';
 
 var imgCount = 0;  
 function productionPage(carDet) {

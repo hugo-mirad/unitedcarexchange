@@ -133,7 +133,7 @@ public partial class CSRPhotoUpload : System.Web.UI.Page
 
                     ImageName.Visible = true;
                     //ButtonName.Visible = true;
-                    ImageName.ImageUrl = "http://www.mobicarz.com/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
+                    ImageName.ImageUrl = "http://www.images.mobicarz.com/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
                 }
                 else
                 {

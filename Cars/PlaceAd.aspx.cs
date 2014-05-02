@@ -37,6 +37,9 @@ public partial class Registar : System.Web.UI.Page
         
         if (!IsPostBack)
         {
+
+
+            hdnSubAlert.Value = "true";
             Session["CurrentPage"] = "";
             Session["PageName"] = "";
             Session["CurrentPageConfig"] = null;

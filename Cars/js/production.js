@@ -75,7 +75,7 @@ var selectedCarDiscription = "";
                     var path = "'"+carDetails['PICLOC'+i]['#text']+"/"+carDetails['PIC'+i]['#text']+"'";  
                     var loaction = carDetails['PICLOC'+i]['#text'];
                     var img = carDetails['PIC'+i]['#text']
-                    path = 'http://www.mobicarz.com/' + loaction + img;
+                    path = 'http://images.mobicarz.com/' + loaction + img;
                     path = path.replace(' ', '%20');
                     path = path.replace(' ', '%20');
                     path = path.replace(' ', '%20');
@@ -89,7 +89,7 @@ var selectedCarDiscription = "";
                 }
             }
             if(imgCount >19 ){
-                var path2 = "'http://www.mobicarz.com/images/stockMakes/" + carDetails['Make']['#text'] + ".jpg'";
+                var path2 = "'http://images.mobicarz.com/images/stockMakes/" + carDetails['Make']['#text'] + ".jpg'";
                 var carMake = carDetails['Make']['#text'];			        
                 var carModel = carDetails['Model']['#text'];
                 
@@ -104,8 +104,8 @@ var selectedCarDiscription = "";
                 var MakeModel = carMake+"_"+carModel;			       
                 MakeModel = MakeModel.replace(' ','-');
                 MakeModel = MakeModel.replace('/','@');
-                path2 = "http://www.mobicarz.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
-                var path1 = "'http://www.mobicarz.com/images/no-image.jpg'";
+                path2 = "http://images.mobicarz.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
+                var path1 = "'http://images.mobicarz.com/images/no-image.jpg'";
                 
                 img1 += "<li><img  src="+path2+" /><div class='stock'>Stock Photo</div></li>";		              
                 $('div.imgHolder ul').empty().append(img1);
@@ -178,8 +178,8 @@ var selectedCarDiscription = "";
             }
 
             //Buy - Sell - UsedCar / 1991 - Volkswagen - Vanagon - 518445981658
-            //$('.link1').attr('href','http://www.mobicarz.com/SearchCarDetails.aspx?Make='+make+'&Model='+model+'&ZipCode='+Zip+'&WithinZip=5&C=l3tTlT66'+carID).attr('readonly','readonly');
-            $('.link1').attr('href', 'http://www.mobicarz.com/a1/' + year + '-' + make + '-' + UrlModel + '-' + carDetails['CarUniqueID']['#text']).attr('readonly', 'readonly');
+            //$('.link1').attr('href','http://images.mobicarz.com/SearchCarDetails.aspx?Make='+make+'&Model='+model+'&ZipCode='+Zip+'&WithinZip=5&C=l3tTlT66'+carID).attr('readonly','readonly');
+            $('.link1').attr('href', 'http://images.mobicarz.com/a1/' + year + '-' + make + '-' + UrlModel + '-' + carDetails['CarUniqueID']['#text']).attr('readonly', 'readonly');
             
             $('.url').empty().html(encodeURI($('.link1').attr('href')));           
             

@@ -36,5 +36,7 @@ namespace CarsBL
 
         public static DbConnection Connection;
         public static DbTransaction qcTransaction;
+
+
     }
 }
