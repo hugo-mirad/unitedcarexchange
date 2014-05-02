@@ -60,6 +60,8 @@ public partial class Login : System.Web.UI.Page
             }
 
 
+
+
         }
     }
 
@@ -94,6 +96,24 @@ public partial class Login : System.Web.UI.Page
 
                         CreateUserLog(1);
 
+                        //Setting pref Cookie
+                        string IsLogornot = "";
+                        try
+                        {
+                            IsLogornot = Session[Constants.USER_ID].ToString();
+                            VisitSiteLog objVisitSiteLog = new VisitSiteLog();
+                            DataSet dsPerformLogin1 = new DataSet();
+                            dsPerformLogin1 = objVisitSiteLog.RetriveSubInformation1(Convert.ToInt32(IsLogornot));
+                            if (Request.Cookies["PrefCookie"] == null)
+                            {
+
+                                Response.Cookies["PrefCookie"].Value = dsPerformLogin1.Tables[0].Rows[0]["make"].ToString() + "-" + dsPerformLogin1.Tables[0].Rows[0]["model"].ToString() + "-" + dsPerformLogin1.Tables[0].Rows[0]["Year"].ToString();
+                             
+                            }
+                        }
+                        catch { }
+                      
+                      
                         //Session["PackageID"] = dsPerformLogin.Tables[0].Rows[0]["PackageID"];
                         Response.Redirect("Dealer/Home.aspx");
 

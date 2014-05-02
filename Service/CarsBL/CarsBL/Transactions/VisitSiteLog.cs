@@ -360,7 +360,7 @@ namespace CarsBL.Transactions
 
 
                 dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
-                dbDatabase.AddInParameter(dbCommand, "@Pref", System.Data.DbType.String, uid);
+                dbDatabase.AddInParameter(dbCommand, "@UId", System.Data.DbType.String, uid);
                 dsUserInfo = dbDatabase.ExecuteDataSet(dbCommand);
 
                 //blnSuccess = objUserLog.SaveUserLog(UserLogInfo, ref lngReturn, "");

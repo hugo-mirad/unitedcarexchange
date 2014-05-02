@@ -1028,6 +1028,61 @@ public partial class SearchCarDetails : System.Web.UI.Page
     public void btnsubscr_click(object sender, EventArgs e)
     {
 
+        //string Pref = "";
+
+        //if (Request.Cookies["PrefCookie"].ToString() != "Pref")
+        //{
+        //    VisitSiteLog objVisitSiteLog = new VisitSiteLog();
+        //    DataSet dsPerformLogin = new DataSet();
+        //    if (Request.Cookies["PrefCookie"] != null)
+        //    {
+        //        Pref = Request.Cookies["PrefCookie"].Value;
+        //    }
+
+        //    dsPerformLogin = objVisitSiteLog.RetriveSubInformation(Pref);
+        //    if (dsPerformLogin.Tables[0].Rows.Count > 0)
+        //    {
+        //        FillMakes();
+        //        FillWithin();
+        //        ddlmakesp.SelectedIndex = 0;
+        //        ddlmakesp.SelectedIndex = Convert.ToInt32(dsPerformLogin.Tables[0].Rows[0]["Makeid"].ToString());
+        //        ddlmodelsp.Items.Clear();
+
+
+
+        //        string[] result = Pref.Split('-');
+        //        ddlmodelsp.Items.Insert(0, new ListItem(result[1], "1"));
+
+
+
+        //        // ddlmodelsp.SelectedValue =dsPerformLogin.Tables[0].Rows[0]["ModelID"].ToString();
+        //        ddlyearp.SelectedValue = dsPerformLogin.Tables[0].Rows[0]["Year"].ToString();
+        //        txtfnamep.Text = dsPerformLogin.Tables[0].Rows[0]["FirstName"].ToString();
+        //        txtlastnamep.Text = dsPerformLogin.Tables[0].Rows[0]["LastName"].ToString();
+        //        txtemail.Text = dsPerformLogin.Tables[0].Rows[0]["Email"].ToString();
+        //        //ddlmakesp.SelectedIndex = 0;
+        //        //ddlmodelsp.SelectedIndex = 0;
+        //        //txtemail.Text = ""; txtfnamep.Text = ""; txtlastnamep.Text = "";
+        //        mpesubscribe111.Show();
+        //    }
+        //    else
+        //    {
+        //        try
+        //        {
+        //            ddlmakesp.SelectedIndex = 0;
+        //            ddlmodelsp.Items.Clear();
+        //            ddlmodelsp.Items.Insert(0, new ListItem("Select", "0"));
+        //            ddlmodelsp.Enabled = false;
+        //            ddlyearp.SelectedIndex = 0;
+        //            txtemail.Text = ""; txtfnamep.Text = ""; txtlastnamep.Text = "";
+        //        }
+        //        catch { }
+        //        mpesubscribe111.Show();
+
+        //    }
+        //}
+
+
         string Pref = "";
 
         if (Request.Cookies["PrefCookie"].ToString() != "Pref")
@@ -1039,7 +1094,22 @@ public partial class SearchCarDetails : System.Web.UI.Page
                 Pref = Request.Cookies["PrefCookie"].Value;
             }
 
-            dsPerformLogin = objVisitSiteLog.RetriveSubInformation(Pref);
+            string IsLogornot = "";
+            try
+            {
+                IsLogornot = Session[Constants.USER_ID].ToString();
+
+            }
+            catch { }
+
+            if (IsLogornot == "")
+            {
+                dsPerformLogin = objVisitSiteLog.RetriveSubInformation(Pref);
+            }
+            else
+            {
+                dsPerformLogin = objVisitSiteLog.RetriveSubInformation1(Convert.ToInt32(IsLogornot));
+            }
             if (dsPerformLogin.Tables[0].Rows.Count > 0)
             {
                 FillMakes();
@@ -1049,10 +1119,16 @@ public partial class SearchCarDetails : System.Web.UI.Page
                 ddlmodelsp.Items.Clear();
 
 
+                if (IsLogornot == "")
+                {
+                    string[] result = Pref.Split('-');
+                    ddlmodelsp.Items.Insert(0, new ListItem(result[1], "1"));
 
-                string[] result = Pref.Split('-');
-                ddlmodelsp.Items.Insert(0, new ListItem(result[1], "1"));
-
+                }
+                else
+                {
+                    ddlmodelsp.Items.Insert(0, new ListItem(dsPerformLogin.Tables[0].Rows[0]["Makeid"].ToString(), "1"));
+                }
 
 
                 // ddlmodelsp.SelectedValue =dsPerformLogin.Tables[0].Rows[0]["ModelID"].ToString();

@@ -502,7 +502,22 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
                 Pref = Request.Cookies["PrefCookie"].Value;
             }
 
-            dsPerformLogin = objVisitSiteLog.RetriveSubInformation(Pref);
+            string IsLogornot="";
+            try
+            {
+                IsLogornot = Session[Constants.USER_ID].ToString();
+
+            }
+            catch { }
+
+            if (IsLogornot == "")
+            {
+                dsPerformLogin = objVisitSiteLog.RetriveSubInformation(Pref);
+            }
+            else
+            {
+                dsPerformLogin = objVisitSiteLog.RetriveSubInformation1(Convert.ToInt32(IsLogornot));
+            }
             if (dsPerformLogin.Tables[0].Rows.Count > 0)
             {
                 FillMakes();
@@ -512,10 +527,16 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
                 ddlmodelsp.Items.Clear();
 
 
+                if (IsLogornot == "")
+                {
+                    string[] result = Pref.Split('-');
+                    ddlmodelsp.Items.Insert(0, new ListItem(result[1], "1"));
 
-                string[] result = Pref.Split('-');
-                ddlmodelsp.Items.Insert(0, new ListItem(result[1], "1"));
-
+                }
+                else
+                {
+                    ddlmodelsp.Items.Insert(0, new ListItem(dsPerformLogin.Tables[0].Rows[0]["Makeid"].ToString(), "1"));
+                }
 
 
                 // ddlmodelsp.SelectedValue =dsPerformLogin.Tables[0].Rows[0]["ModelID"].ToString();
