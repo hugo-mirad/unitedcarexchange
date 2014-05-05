@@ -254,7 +254,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
         //  Response.Redirect(str);
     }
 
-   
+
     private void SimialarCars(string MakeId, string ModelID, string zipcode, string Price)
     {
 
@@ -788,8 +788,8 @@ public partial class SearchCarDetails : System.Web.UI.Page
             {
                 lblSellerNo.Text = GeneralFunc.FormatUsTelephoneNo(Convert.ToInt64(EmptyCheck(objCarInfo[0].Phone)));
                 lblSellerNo2.Text = GeneralFunc.FormatUsTelephoneNo(Convert.ToInt64(EmptyCheck(objCarInfo[0].Phone)));
-            }
 
+            }
 
             Session["CustEmail"] = EmptyCheck(objCarInfo[0].Email);
 
@@ -798,17 +798,15 @@ public partial class SearchCarDetails : System.Web.UI.Page
             if (objCarInfo[0].Fueltype != "Unspecified")
             {
                 lblFuelType.Text = EmptyCheck(objCarInfo[0].Fueltype);
+
             }
-
             lblSellerName.Text = EmptyCheck(objCarInfo[0].SellerName);
-
             zipcode.Value = EmptyCheck(objCarInfo[0].Zip.ToString());
 
 
 
 
             lblMake.Text = EmptyCheck(objCarInfo[0].Make);
-
             lblModel.Text = EmptyCheck(objCarInfo[0].Model);
 
             lblSubTitle.Text = EmptyCheck(objCarInfo[0].Make) + " " + EmptyCheck(objCarInfo[0].Model);
@@ -822,7 +820,6 @@ public partial class SearchCarDetails : System.Web.UI.Page
             }
 
 
-
             //For inline Adds Displaying data
             try
             {
@@ -831,31 +828,35 @@ public partial class SearchCarDetails : System.Web.UI.Page
                 if (Convert.ToInt32(Year) >= Convert.ToInt32(objCarInfo[0].YearOfMake.ToString()) && (Convert.ToInt32(Year) - 8) <= Convert.ToInt32(objCarInfo[0].YearOfMake.ToString()))
                 {
                     yearValid = true;
+
                 }
                 string Seller = objCarInfo[0].SellerType.ToString();
                 if (Seller == "Private Seller")
                 {
                     Sellertype = true;
+
                 }
                 if (Convert.ToInt32(objCarInfo[0].Price.ToString()) < 10000 && yearValid == true && Sellertype == true)
                 {
                     LinkAdd1.Visible = true;
                     linkAdd2.Visible = false;
                     LinkAdd3.Visible = false;
+
                 }
                 else if (Convert.ToInt32(objCarInfo[0].Price.ToString()) > 10000 && yearValid == true && Sellertype == true)
                 {
                     LinkAdd1.Visible = false;
                     linkAdd2.Visible = true;
                     LinkAdd3.Visible = true;
+
                 }
                 else
                 {
                     LinkAdd1.Visible = false;
                     linkAdd2.Visible = false;
                     LinkAdd3.Visible = false;
-                }
 
+                }
             }
             catch { }
 
@@ -971,11 +972,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
                     dlFeature.DataBind();
 
                 }
-
             }
-
-
-
             //SimialarCars(Hmake.Value, Hmodel.Value, HZip.Value, HPrice.Value);
         }
         else
@@ -1313,7 +1310,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
     }
     protected void rptquestion_DataBinding(object sender, EventArgs e)
     {
-      
+
     }
     protected void rptquestion_ItemDataBound1(object sender, DataListItemEventArgs e)
     {
