@@ -141,10 +141,10 @@ public partial class placeadPhotos : System.Web.UI.Page
     protected void btnContinue_Click(object sender, EventArgs e)
     {
 
-     // ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Only alert Message');", true);
+        // ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Only alert Message');", true);
         mdepEditSuccess.Show();
-       
-      
+
+
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
@@ -479,9 +479,7 @@ public partial class placeadPhotos : System.Web.UI.Page
         }
         catch (Exception ex)
         {
+
         }
     }
-
-
-
 }

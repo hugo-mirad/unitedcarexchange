@@ -893,9 +893,10 @@ public partial class SearchCarDetails : System.Web.UI.Page
                 lblTransMission.Text = EmptyCheck(objCarInfo[0].Transmission);
             }
 
-
+            string s11 = EmptyCheck(objCarInfo[0].Description.ToString());
 
             lblDescription.Text = Server.HtmlEncode(EmptyCheck(objCarInfo[0].Description));
+            lblDescription.Text = lblDescription.Text.Replace("\n", "<br/>");
             if (objCarInfo[0].DriveTrain != "Unspecified")
             {
                 lblDriveTrain.Text = EmptyCheck(objCarInfo[0].DriveTrain);

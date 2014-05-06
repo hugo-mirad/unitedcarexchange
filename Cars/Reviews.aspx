@@ -13,7 +13,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="#">
-   
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" media="screen, projection">
     <link rel="stylesheet" type="text/css" href="libraries/chosen/chosen.min.css" media="screen, projection">
     <link rel="stylesheet" type="text/css" href="libraries/pictopro-outline/pictopro-outline.css"
@@ -22,9 +21,7 @@
         media="screen, projection">
     <link rel="stylesheet" type="text/css" href="libraries/colorbox/colorbox.css" media="screen, projection">
     <link rel="stylesheet" type="text/css" href="js/jslider/jquery.slider.min.css" media="screen, projection">
-    
-     <link href="cssOld/jquery-ui.css" rel="stylesheet" type="text/css" />
-    
+    <link href="cssOld/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="assets/css/carat.css" media="screen, projection">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:100,400,700,400italic,700italic"
         rel="stylesheet" type="text/css" media="screen, projection">
@@ -44,6 +41,21 @@
         var LoadingPage = 10;
     </script>
 
+    <script type="text/javascript" language="javascript">
+     function ValidateVehicleType() {
+            var valid = true;
+
+            if (document.getElementById('lblanswerQyes').value.length < 1) {
+                 alert("Please fill the answer.")
+                document.getElementById('lblanswerQyes').focus()
+                valid = false;
+                return valid;
+
+            }
+
+        }
+</script>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -59,8 +71,10 @@
                             <div class="title">
                                 <h1>
                                     <asp:Label ID="lblUserName" runat="server"></asp:Label>
-                                    <span class=" semi "><asp:Label ID="labcardeta" runat="server"></asp:Label> <b>
-                                        <asp:Label ID="lblUserMemberDate" runat="server">
+                                    <span class=" semi ">
+                                        <asp:Label ID="labcardeta" runat="server"></asp:Label>
+                                        <b>
+                                            <asp:Label ID="lblUserMemberDate" runat="server">
                                         </asp:Label></b></span></h1>
                             </div>
                             <!-- /.title -->
@@ -187,7 +201,6 @@
     <div id="footer">
         <uc1:Footer ID="Footer1" runat="server" />
     </div>
-    
     <!-- Alerts Start  -->
     <cc1:ModalPopupExtender ID="MdlAnswer" runat="server" PopupControlID="divSelectPackage"
         BackgroundCssClass="ModalPopupBG" TargetControlID="hdnAnswer" CancelControlID="btnCancelSelPack">
@@ -207,10 +220,10 @@
                 </tr>
                 <tr>
                     <td>
-                      
                         <asp:UpdatePanel ID="UpdatePanel6" runat="server">
                             <ContentTemplate>
-                                <asp:TextBox ID="lblanswerQyes" runat="server" cssClass="form-control" TextMode="MultiLine" Style="height: 70px;"></asp:TextBox>
+                                <asp:TextBox ID="lblanswerQyes" runat="server" CssClass="form-control" TextMode="MultiLine"
+                                    Style="height: 70px;"></asp:TextBox>
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </td>
@@ -221,7 +234,7 @@
                             <asp:UpdatePanel ID="UpdatePanel4" runat="server">
                                 <ContentTemplate>
                                     <asp:Button ID="btnpublish" CssClass="btn btn-danger btn-sm" runat="server" Text="Pubish"
-                                        OnClick="btnpublish_click" />
+                                        OnClick="btnpublish_click" OnClientClick="return ValidateVehicleType();" />
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                         </div>
