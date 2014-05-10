@@ -311,7 +311,7 @@
                     <br />
                     <br />
                     <b>Customer Service</b><br />
-                    Phone: 888-786-8307
+                    Phone: xxx-xxx-xxxx
                     <br />
                     Working Hours: 9 AM to 5 PM EST (Mon-Fri)<br />
                 </td>

@@ -428,18 +428,19 @@ public partial class Login : System.Web.UI.Page
                     text = format.SendForgetPassword(LoginUserID, LoginPassword, ref text);
                     msg.Body = text.ToString();
                     SmtpClient smtp = new SmtpClient();
-                    smtp.Host = "smtp.gmail.com";
-                    smtp.Port = 587;
-                    smtp.Credentials = new System.Net.NetworkCredential("dhanunjay@datumglobal.net", "myhampy21");
-                    smtp.EnableSsl = true;
-                    smtp.Send(msg);
-                    //smtp.Host = "127.0.0.1";
-                    //smtp.Port = 25;
+                    //smtp.Host = "smtp.gmail.com";
+                    //smtp.Port = 587;
+                    //smtp.Credentials = new System.Net.NetworkCredential("padma@datumglobal.net", "");
+                    //smtp.EnableSsl = true;
                     //smtp.Send(msg);
+                    smtp.Host = "127.0.0.1";
+                    smtp.Port = 25;
+                    smtp.Send(msg);
                     mpeChangePW.Hide();
                     mpealteruser.Show();
                     lblErr.Visible = true;
                     lblErr.Text = "Password send to your mail id";
+
 
                 }
                 else

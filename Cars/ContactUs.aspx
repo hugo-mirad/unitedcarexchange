@@ -435,7 +435,7 @@
                                                                 <br />
                                                                 <h3>
                                                                     Customer Service</h3>
-                                                                <strong>Phone: </strong>888-786-8307
+                                                                <strong>Phone: </strong>xxx-xxx-xxxx
                                                                 <br />
                                                                 <strong>Working Hours: </strong>9 AM to 5 PM EST (<i style="font-size: 11px; color: #666">Mon-Fri</i>)
                                                             </p>

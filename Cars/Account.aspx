@@ -662,7 +662,7 @@
             <br />
             <br />
             <p class="pp">
-                To add a new package please contact our customer support #:888-786-8307
+                To add a new package please contact our customer support #:xxx-xxx-xxxx
             </p>
             <asp:UpdatePanel ID="UpdatePanel8" runat="server">
                 <ContentTemplate>

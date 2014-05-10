@@ -16,7 +16,7 @@
                     <img src="Offerimages/logo2.png" /></a></div>
             <div class="phoneNo">
                 <b>Questions? Call us!</b><br />
-                <strong>888-786-8307</strong><br />
+                <strong>xxx-xxx-xxxx</strong><br />
                 MON - FRI 9am - 5pm EST</div>
             <div class="agent">
                 <img src="Offerimages/women.png" /></div>

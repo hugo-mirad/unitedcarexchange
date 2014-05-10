@@ -593,7 +593,7 @@
                                                                 <%--<asp:TextBox ID="lblDescription" Enabled="false" style=" border:none; box-shadow:none; outline:none; background:#fff; " runat="server" TextMode="MultiLine" Rows="8" CssClass="form-control"
                                                                     ></asp:TextBox>--%>
                                                                 <p>
-                                                                    <asp:Label ID="lblDescription" runat="server" Text=""  TextMode="MultiLine" Rows="8">
+                                                                    <asp:Label ID="lblDescription" runat="server" Text="" TextMode="MultiLine" Rows="8">
                                                                     </asp:Label></p>
                                                                 <div class="box30" style="display: none;">
                                                                     <h3 class="det-h2">
@@ -783,283 +783,280 @@
             <!-- /.section -->
         </div>
     </div>
-        <!-- /#content -->
-        <div id="footer">
-            <uc1:Footer ID="Footer1" runat="server" />
-        </div>
-        <!-- Contact Us Popup start-->
-        <cc1:ModalPopupExtender ID="MpeEmail" runat="server" PopupControlID="Loginholder1"
-            BackgroundCssClass="ModalPopupBG" TargetControlID="hdnEmail">
-        </cc1:ModalPopupExtender>
-        <asp:HiddenField ID="hdnEmail" runat="server" />
-        <div id="Loginholder1" class="alert" runat="server" style="display: none;">
-            <h4 id="H4">
-                Email the Seller -
-                <asp:Label ID="lblCartitle" runat="server"></asp:Label>
-                <asp:Button ID="btnNopay" class="cls" runat="server" Text="" BorderWidth="0" />
-                <!-- <div class="cls">
+    <!-- /#content -->
+    <div id="footer">
+        <uc1:Footer ID="Footer1" runat="server" />
+    </div>
+    <!-- Contact Us Popup start-->
+    <cc1:ModalPopupExtender ID="MpeEmail" runat="server" PopupControlID="Loginholder1"
+        BackgroundCssClass="ModalPopupBG" TargetControlID="hdnEmail">
+    </cc1:ModalPopupExtender>
+    <asp:HiddenField ID="hdnEmail" runat="server" />
+    <div id="Loginholder1" class="alert" runat="server" style="display: none;">
+        <h4 id="H4">
+            Email the Seller -
+            <asp:Label ID="lblCartitle" runat="server"></asp:Label>
+            <asp:Button ID="btnNopay" class="cls" runat="server" Text="" BorderWidth="0" />
+            <!-- <div class="cls">
             </div> -->
-            </h4>
-            <div id="login" class="data sendMail" style="font-size: 14px;">
-                <div>
-                    <div style="display: none;">
+        </h4>
+        <div id="login" class="data sendMail" style="font-size: 14px;">
+            <div>
+                <div style="display: none;">
+                    <label>
+                        To:</label>
+                    <b>
+                        <asp:Label ID="lblSellarname2" runat="server" Visible="false"></asp:Label></b>
+                    <br />
+                    <asp:Label ID="lblSellarAddress" runat="server"></asp:Label></b>
+                    <br />
+                    <asp:Label ID="lblphone" runat="server"></asp:Label>
+                </div>
+                <div style="display: none;">
+                    <div style="margin-bottom: 0px; margin-top: 15px;">
                         <label>
-                            To:</label>
-                        <b>
-                            <asp:Label ID="lblSellarname2" runat="server" Visible="false"></asp:Label></b>
-                        <br />
-                        <asp:Label ID="lblSellarAddress" runat="server"></asp:Label></b>
-                        <br />
-                        <asp:Label ID="lblphone" runat="server"></asp:Label>
+                            From:
+                        </label>
                     </div>
-                    <div style="display: none;">
-                        <div style="margin-bottom: 0px; margin-top: 15px;">
-                            <label>
-                                From:
-                            </label>
-                        </div>
-                        <div class="clear">
-                            &nbsp;</div>
-                    </div>
-                    <div>
-                        <div id="leadFormHolder">
-                            <div id="leadFormContentDiv">
-                                <div>
-                                    <div id="Div1">
-                                        <div>
-                                            <div style="display: none;">
-                                                <p>
-                                                    Hello!<br>
-                                                    I'm writing from
-                                                    <asp:TextBox runat="server" ID="zipCode1" MaxLength="25" ToolTip="Zip or City" class="default-value form-control"
-                                                        Style="width: 90px; display: inline-block" />
-                                                    and I'm interested in the <strong></strong>you have listed on mobicarz.com for <strong>
-                                                        <asp:Label ID="lblPrice3" runat="server" class="detPrice"></asp:Label>
-                                                    </strong>.<br />
-                                                    I would like to know more about this vehicle.
-                                                    <div style="display: inline-block; margin-top: 15px;">
-                                                        <label>
-                                                            I can be reached by phone on</label>
-                                                        <a href="javascript:void(0);" tabindex="-1" style="display: none;"></a>
-                                                    </div>
-                                                </p>
-                                            </div>
-                                            <!-- First Name -->
-                                            <div class="form-section emailSeller">
-                                                <div class="form-group ">
-                                                    <div class="col-sm-6 col-md-6">
-                                                        <label>
-                                                            First name: <span class="star">*</span></label>
-                                                        <asp:TextBox ID="txtfirstName" size="8" runat="server" class="default-value form-control"
-                                                            MaxLength="50" /><a href="javascript:void(0);" tabindex="-1" style="display: none;"></a>
-                                                    </div>
-                                                    <div class="col-sm-6 col-md-6">
-                                                        <label>
-                                                            Last name:</label>
-                                                        <asp:TextBox runat="server" size="8" ID="txtlastName" class="default-value form-control"
-                                                            MaxLength="50" /><a href="javascript:void(0);" tabindex="-1" style="display: none;"></a>
-                                                    </div>
-                                                    <div class=" clear ">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group ">
-                                                    <div class="col-sm-6 col-md-6">
-                                                        <label>
-                                                            Email: <span class="star">*</span></label>
-                                                        <asp:TextBox ID="txtcemail" alt="my email address*" MaxLength="253" size="20" runat="server"
-                                                            ToolTip="my email address*" Text="my email address" class="default-value form-control" />
-                                                    </div>
-                                                    <div class="col-sm-6 col-md-6">
-                                                        <label>
-                                                            Phone: <span class="star">*</span></label>
-                                                        <asp:TextBox ID="txtPhone" value="" size="16" runat="server" alt="my phone number*"
-                                                            ToolTip="my phone number*" Text="my phone number" class="default-value sample4 form-control"
-                                                            MaxLength="10" />
-                                                    </div>
-                                                    <div class=" clear ">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-12 col-md-12">
-                                                    <label>
-                                                        Provide Additional Comments:
-                                                    </label>
-                                                    <asp:TextBox ID="txtComments" runat="server" Text="Enter your message here" class="default-value form-control"
-                                                        TextMode="MultiLine"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <br />
-                                            <!-- comments -->
-                                            <!-- Trade-IN fields -->
+                    <div class="clear">
+                        &nbsp;</div>
+                </div>
+                <div>
+                    <div id="leadFormHolder">
+                        <div id="leadFormContentDiv">
+                            <div>
+                                <div id="Div1">
+                                    <div>
+                                        <div style="display: none;">
                                             <p>
+                                                Hello!<br>
+                                                I'm writing from
+                                                <asp:TextBox runat="server" ID="zipCode1" MaxLength="25" ToolTip="Zip or City" class="default-value form-control"
+                                                    Style="width: 90px; display: inline-block" />
+                                                and I'm interested in the <strong></strong>you have listed on mobicarz.com for <strong>
+                                                    <asp:Label ID="lblPrice3" runat="server" class="detPrice"></asp:Label>
+                                                </strong>.<br />
+                                                I would like to know more about this vehicle.
+                                                <div style="display: inline-block; margin-top: 15px;">
+                                                    <label>
+                                                        I can be reached by phone on</label>
+                                                    <a href="javascript:void(0);" tabindex="-1" style="display: none;"></a>
+                                                </div>
                                             </p>
                                         </div>
-                                        <!-- end message -->
+                                        <!-- First Name -->
+                                        <div class="form-section emailSeller">
+                                            <div class="form-group ">
+                                                <div class="col-sm-6 col-md-6">
+                                                    <label>
+                                                        First name: <span class="star">*</span></label>
+                                                    <asp:TextBox ID="txtfirstName" size="8" runat="server" class="default-value form-control"
+                                                        MaxLength="50" /><a href="javascript:void(0);" tabindex="-1" style="display: none;"></a>
+                                                </div>
+                                                <div class="col-sm-6 col-md-6">
+                                                    <label>
+                                                        Last name:</label>
+                                                    <asp:TextBox runat="server" size="8" ID="txtlastName" class="default-value form-control"
+                                                        MaxLength="50" /><a href="javascript:void(0);" tabindex="-1" style="display: none;"></a>
+                                                </div>
+                                                <div class=" clear ">
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="col-sm-6 col-md-6">
+                                                    <label>
+                                                        Email: <span class="star">*</span></label>
+                                                    <asp:TextBox ID="txtcemail" alt="my email address*" MaxLength="253" size="20" runat="server"
+                                                        ToolTip="my email address*" Text="my email address" class="default-value form-control" />
+                                                </div>
+                                                <div class="col-sm-6 col-md-6">
+                                                    <label>
+                                                        Phone: <span class="star">*</span></label>
+                                                    <asp:TextBox ID="txtPhone" value="" size="16" runat="server" alt="my phone number*"
+                                                        ToolTip="my phone number*" Text="my phone number" class="default-value sample4 form-control"
+                                                        MaxLength="10" />
+                                                </div>
+                                                <div class=" clear ">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-12">
+                                                <label>
+                                                    Provide Additional Comments:
+                                                </label>
+                                                <asp:TextBox ID="txtComments" runat="server" Text="Enter your message here" class="default-value form-control"
+                                                    TextMode="MultiLine"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <!-- comments -->
+                                        <!-- Trade-IN fields -->
+                                        <p>
+                                        </p>
                                     </div>
-                                    <!-- end email -->
+                                    <!-- end message -->
                                 </div>
+                                <!-- end email -->
                             </div>
                         </div>
-                        <div class="clear">
-                            &nbsp;</div>
                     </div>
+                    <div class="clear">
+                        &nbsp;</div>
                 </div>
-                <div style="">
-                    <div style="width: 100px; float: left;">
-                        &nbsp;
+            </div>
+            <div style="">
+                <div style="width: 100px; float: left;">
+                    &nbsp;
+                </div>
+                <div style="width: 380px; float: left;">
+                    <div style="width: 60px; float: left">
+                        <asp:Button runat="server" ID="zipValBut" class="pull-left btn btn-primary2" Text="Ok"
+                            OnClientClick="javascript:return ValidateContact();" OnClick="zipValBut_Click" />
                     </div>
-                    <div style="width: 380px; float: left;">
-                        <div style="width: 60px; float: left">
-                            <asp:Button runat="server" ID="zipValBut" class="pull-left btn btn-primary2" Text="Ok"
-                                OnClientClick="javascript:return ValidateContact();" OnClick="zipValBut_Click" />
-                        </div>
-                        <div style="width: 90px; float: left">
-                            <input type="button" class="pull-left btn btn-default" id="btnCancelPW" value="Cancel"
-                                onclick="javascript:return cancel1();" /></div>
-                    </div>
+                    <div style="width: 90px; float: left">
+                        <input type="button" class="pull-left btn btn-default" id="btnCancelPW" value="Cancel"
+                            onclick="javascript:return cancel1();" /></div>
                 </div>
             </div>
         </div>
-        <!-- Contact Us Popup END-->
-        <!--Subscribe Us Popup start-->
-        <cc1:ModalPopupExtender ID="mpealert" runat="server" PopupControlID="alertholder"
-            TargetControlID="hdnfldalert" BackgroundCssClass="ModalPopupBG">
-        </cc1:ModalPopupExtender>
-        <asp:HiddenField ID="hdnfldalert" runat="server" />
-        <div id="alertholder" runat="server" style="display: none">
-            <div id="ZipVal" class="alert">
-                <h4 id="H1">
-                    Alert
-                    <asp:Button ID="Button1" class="cls" OnClick="btnOk1_Click" runat="server" Text=""
-                        BorderWidth="0" />
-                </h4>
-                <div class="data">
-                    <table style="width: 98%; margin: 0 auto">
-                        <tr>
-                            <td style="width: 95px;" colspan="2">
-                                <asp:UpdatePanel ID="updpanel" runat="server">
-                                    <ContentTemplate>
-                                        <asp:Label ID="lblAlertMsg" runat="server"></asp:Label>
-                                    </ContentTemplate>
-                                </asp:UpdatePanel>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding-top: 5px;" colspan="2">
-                                <div style="width: 34px; margin: 30px auto 0 auto">
-                                    <asp:Button ID="btnOk1" runat="server" class="btn btn-primary2" Text="Ok" OnClick="btnOk1_Click" /></div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-        
-           <!----  Subscribe popup-------------->
-        <cc1:ModalPopupExtender ID="mpesubscribe111" runat="server" PopupControlID="subScribUs111"
-            BackgroundCssClass="ModalPopupBG" TargetControlID="hdnSubscribe111" OkControlID="btnsubScribUs111">
-        </cc1:ModalPopupExtender>
-        <asp:HiddenField ID="hdnSubscribe111" runat="server" />
-        <div id="subScribUs111" class="alert" style="height: auto; padding-bottom: 15px;
-            max-width: 550px; width: 70%; display: none;">
-            <h4 id="">
-                Sign up to receive email alerts.
-                <asp:LinkButton ID="btnsubScribUs111" runat="server" class="cls" Text="" Style="border-width: 0px;"></asp:LinkButton>
+    </div>
+    <!-- Contact Us Popup END-->
+    <!--Subscribe Us Popup start-->
+    <cc1:ModalPopupExtender ID="mpealert" runat="server" PopupControlID="alertholder"
+        TargetControlID="hdnfldalert" BackgroundCssClass="ModalPopupBG">
+    </cc1:ModalPopupExtender>
+    <asp:HiddenField ID="hdnfldalert" runat="server" />
+    <div id="alertholder" runat="server" style="display: none">
+        <div id="ZipVal" class="alert">
+            <h4 id="H1">
+                Alert
+                <asp:Button ID="Button1" class="cls" OnClick="btnOk1_Click" runat="server" Text=""
+                    BorderWidth="0" />
             </h4>
             <div class="data">
-                <div class="row" style="color: #333;">
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <div class="title">
-                            <h3>
-                                Car Info</h3>
-                        </div>
-                        <div class="form-section">
-                            <div class="form-group " id="delearBox" runat="server">
-                                <label>
-                                    Make <span class="star">*</span></label>
-                                <asp:UpdatePanel ID="m1" runat="server">
-                                    <ContentTemplate>
-                                        <asp:DropDownList ID="ddlmakesp" class="form-control" runat="server" AutoPostBack="true"
-                                            OnSelectedIndexChanged="ddlmakesp_SelectedIndexChanged1">
-                                        </asp:DropDownList>
-                                    </ContentTemplate>
-                                </asp:UpdatePanel>
-                            </div>
-                            <div class="form-group ">
-                                <label>
-                                    Model <span class="star">*</span></label>
-                                <asp:UpdatePanel ID="mpu2" runat="server">
-                                    <ContentTemplate>
-                                        <asp:DropDownList ID="ddlmodelsp" class="form-control" runat="server" AutoPostBack="true"
-                                            Enabled="false">
-                                            <asp:ListItem>Select</asp:ListItem>
-                                        </asp:DropDownList>
-                                    </ContentTemplate>
-                                </asp:UpdatePanel>
-                            </div>
-                            <div class="form-group ">
-                                <label>
-                                    Year <span class="star">*</span></label>
-                                <asp:UpdatePanel ID="upyeas" runat="server">
-                                    <ContentTemplate>
-                                        <asp:DropDownList ID="ddlyearp" class="form-control" runat="server">
-                                        </asp:DropDownList>
-                                    </ContentTemplate>
-                                </asp:UpdatePanel>
-                            </div>
-                        </div>
+                <table style="width: 98%; margin: 0 auto">
+                    <tr>
+                        <td style="width: 95px;" colspan="2">
+                            <asp:UpdatePanel ID="updpanel" runat="server">
+                                <ContentTemplate>
+                                    <asp:Label ID="lblAlertMsg" runat="server"></asp:Label>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 5px;" colspan="2">
+                            <div style="width: 34px; margin: 30px auto 0 auto">
+                                <asp:Button ID="btnOk1" runat="server" class="btn btn-primary2" Text="Ok" OnClick="btnOk1_Click" /></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!----  Subscribe popup-------------->
+    <cc1:ModalPopupExtender ID="mpesubscribe111" runat="server" PopupControlID="subScribUs111"
+        BackgroundCssClass="ModalPopupBG" TargetControlID="hdnSubscribe111" OkControlID="btnsubScribUs111">
+    </cc1:ModalPopupExtender>
+    <asp:HiddenField ID="hdnSubscribe111" runat="server" />
+    <div id="subScribUs111" class="alert" style="height: auto; padding-bottom: 15px;
+        max-width: 550px; width: 70%; display: none;">
+        <h4 id="">
+            Sign up to receive email alerts.
+            <asp:LinkButton ID="btnsubScribUs111" runat="server" class="cls" Text="" Style="border-width: 0px;"></asp:LinkButton>
+        </h4>
+        <div class="data">
+            <div class="row" style="color: #333;">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="title">
+                        <h3>
+                            Car Info</h3>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <div class="title">
-                            <h3>
-                                Personal Info</h3>
+                    <div class="form-section">
+                        <div class="form-group " id="delearBox" runat="server">
+                            <label>
+                                Make <span class="star">*</span></label>
+                            <asp:UpdatePanel ID="m1" runat="server">
+                                <ContentTemplate>
+                                    <asp:DropDownList ID="ddlmakesp" class="form-control" runat="server" AutoPostBack="true"
+                                        OnSelectedIndexChanged="ddlmakesp_SelectedIndexChanged1">
+                                    </asp:DropDownList>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
                         </div>
-                        <div class="form-section">
-                        <asp:UpdatePanel ID="U1" runat="server">
-                        <ContentTemplate>
-                            <div class="form-group " id="Div2" runat="server">
-                                <label>
-                                    First Name</label>
-                                <asp:TextBox ID="txtfnamep" runat="server" class="form-control"></asp:TextBox>
-                            </div>
-                            <div class="form-group ">
-                                <label>
-                                    Last Name
-                                </label>
-                                <asp:TextBox ID="txtlastnamep" runat="server" class="form-control"></asp:TextBox>
-                            </div>
-                            <div class="form-group ">
-                                <label>
-                                    Email <span class="star">*</span></label>
-                                <asp:TextBox ID="txtemail" runat="server" class="form-control"></asp:TextBox>
-                            </div>
-                            </ContentTemplate>
+                        <div class="form-group ">
+                            <label>
+                                Model <span class="star">*</span></label>
+                            <asp:UpdatePanel ID="mpu2" runat="server">
+                                <ContentTemplate>
+                                    <asp:DropDownList ID="ddlmodelsp" class="form-control" runat="server" AutoPostBack="true"
+                                        Enabled="false">
+                                        <asp:ListItem>Select</asp:ListItem>
+                                    </asp:DropDownList>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                        </div>
+                        <div class="form-group ">
+                            <label>
+                                Year <span class="star">*</span></label>
+                            <asp:UpdatePanel ID="upyeas" runat="server">
+                                <ContentTemplate>
+                                    <asp:DropDownList ID="ddlyearp" class="form-control" runat="server">
+                                    </asp:DropDownList>
+                                </ContentTemplate>
                             </asp:UpdatePanel>
                         </div>
                     </div>
                 </div>
-                <div style="text-align: right; margin: 10px 0;">
-                    <div style="float: right; width: 80px;">
-                        <asp:UpdatePanel ID="Supbtn" runat="server">
-                            <ContentTemplate>
-                                <asp:Button ID="btnSubok" runat="server" Text="Submit" class="btn btn-primary2 "
-                                    OnClientClick="return SendValidate();" OnClick="btnSubok_click" />
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="title">
+                        <h3>
+                            Personal Info</h3>
                     </div>
-                    &nbsp; &nbsp;
-                    <div style="float: right; width: 80px;">
-                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <div class="form-section">
+                        <asp:UpdatePanel ID="U1" runat="server">
                             <ContentTemplate>
-                                <asp:Button ID="btncancelp" runat="server" Text="Cancel" class="btn btn-default "
-                                    OnClick="btncancelp_click" />
+                                <div class="form-group " id="Div2" runat="server">
+                                    <label>
+                                        First Name</label>
+                                    <asp:TextBox ID="txtfnamep" runat="server" class="form-control"></asp:TextBox>
+                                </div>
+                                <div class="form-group ">
+                                    <label>
+                                        Last Name
+                                    </label>
+                                    <asp:TextBox ID="txtlastnamep" runat="server" class="form-control"></asp:TextBox>
+                                </div>
+                                <div class="form-group ">
+                                    <label>
+                                        Email <span class="star">*</span></label>
+                                    <asp:TextBox ID="txtemail" runat="server" class="form-control"></asp:TextBox>
+                                </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </div>
                 </div>
             </div>
+            <div style="text-align: right; margin: 10px 0;">
+                <div style="float: right; width: 80px;">
+                    <asp:UpdatePanel ID="Supbtn" runat="server">
+                        <ContentTemplate>
+                            <asp:Button ID="btnSubok" runat="server" Text="Submit" class="btn btn-primary2 "
+                                OnClientClick="return SendValidate();" OnClick="btnSubok_click" />
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+                &nbsp; &nbsp;
+                <div style="float: right; width: 80px;">
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <asp:Button ID="btncancelp" runat="server" Text="Cancel" class="btn btn-default "
+                                OnClick="btncancelp_click" />
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+            </div>
         </div>
-  
-     
+    </div>
     </form>
 
     <script src="../libraries/jquery.bxslider/jquery.bxslider.js"></script>

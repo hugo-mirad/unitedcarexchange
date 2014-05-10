@@ -1112,21 +1112,9 @@ public partial class SearchCarDetails : System.Web.UI.Page
             {
                 FillMakes();
                 FillWithin();
-                ddlmakesp.SelectedIndex = 0;
-                ddlmakesp.SelectedIndex = Convert.ToInt32(dsPerformLogin.Tables[0].Rows[0]["Makeid"].ToString());
-                ddlmodelsp.Items.Clear();
 
 
-                if (IsLogornot == "")
-                {
-                    string[] result = Pref.Split('-');
-                    ddlmodelsp.Items.Insert(0, new ListItem(result[1], "1"));
 
-                }
-                else
-                {
-                    ddlmodelsp.Items.Insert(0, new ListItem(dsPerformLogin.Tables[0].Rows[0]["Makeid"].ToString(), "1"));
-                }
 
 
                 // ddlmodelsp.SelectedValue =dsPerformLogin.Tables[0].Rows[0]["ModelID"].ToString();
@@ -1134,6 +1122,28 @@ public partial class SearchCarDetails : System.Web.UI.Page
                 txtfnamep.Text = dsPerformLogin.Tables[0].Rows[0]["FirstName"].ToString();
                 txtlastnamep.Text = dsPerformLogin.Tables[0].Rows[0]["LastName"].ToString();
                 txtemail.Text = dsPerformLogin.Tables[0].Rows[0]["Email"].ToString();
+
+                ListItem listState = new ListItem();
+                listState.Value = dsPerformLogin.Tables[0].Rows[0]["Makeid"].ToString();
+                listState.Text = dsPerformLogin.Tables[0].Rows[0]["make"].ToString();
+                ddlmakesp.SelectedIndex = ddlmakesp.Items.IndexOf(listState);
+
+                GetModelsInfo(ddlmakesp.SelectedValue, ddlmodelsp);
+
+
+                ListItem listState1 = new ListItem();
+                listState1.Value = dsPerformLogin.Tables[0].Rows[0]["ModelID"].ToString();
+                listState1.Text = dsPerformLogin.Tables[0].Rows[0]["model"].ToString();
+                ddlmodelsp.SelectedIndex = ddlmodelsp.Items.IndexOf(listState1);
+
+
+                ListItem listState2 = new ListItem();
+                listState2.Value = dsPerformLogin.Tables[0].Rows[0]["Year"].ToString();
+                listState2.Text = dsPerformLogin.Tables[0].Rows[0]["Year"].ToString();
+                ddlyearp.SelectedIndex = ddlyearp.Items.IndexOf(listState2);
+
+
+
                 //ddlmakesp.SelectedIndex = 0;
                 //ddlmodelsp.SelectedIndex = 0;
                 //txtemail.Text = ""; txtfnamep.Text = ""; txtlastnamep.Text = "";
@@ -1155,6 +1165,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
 
             }
         }
+
     }
     protected void ddlmakesp_SelectedIndexChanged1(object sender, EventArgs e)
     {

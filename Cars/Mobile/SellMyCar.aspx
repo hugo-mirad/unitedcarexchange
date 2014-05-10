@@ -31,7 +31,7 @@
                 <img src="images/logo.png" alt="" /></a>
             <div class="clear">
                 &nbsp;</div>
-            &nbsp; Toll-free: <span>888-786-8307</span>
+            &nbsp; Toll-free: <span>xxx-xxx-xxxx</span>
             <div class="clear">
                 &nbsp;</div>
             <div class="strip">
