@@ -67,22 +67,22 @@ public partial class NewCars : System.Web.UI.Page
             MailMessage msg = new MailMessage();
             msg.From = new MailAddress(CommonVariable.FromInfoMail);
 
-            msg.To.Add("dhanunjay@datumglobal.net");
-            msg.CC.Add("dhanunjay@datumglobal.net");
+            msg.To.Add("padma@datumglobal.net");
+            msg.CC.Add("padma@datumglobal.net");
             msg.Subject = "Regarding new car request";
             msg.IsBodyHtml = true;
             string text = string.Empty;
             text = format.SendNewcarRequestDetails(NewCarName, Phone, Email, ref text);
             msg.Body = text.ToString();
             SmtpClient smtp = new SmtpClient();
-            smtp.Host = "smtp.gmail.com";
-            smtp.Port = 587;
-            smtp.Credentials = new System.Net.NetworkCredential("dhanunjay@datumglobal.net", "myhampy21");
-            smtp.EnableSsl = true;
-            smtp.Send(msg);
-            //smtp.Host = "127.0.0.1";
-            //smtp.Port = 25;
+            //smtp.Host = "smtp.gmail.com";
+            //smtp.Port = 587;
+            //smtp.Credentials = new System.Net.NetworkCredential("padma@datumglobal.net", "myhampy21");
+            //smtp.EnableSsl = true;
             //smtp.Send(msg);
+            smtp.Host = "127.0.0.1";
+            smtp.Port = 25;
+            smtp.Send(msg);
             //    }
 
             mpealteruser.Show();

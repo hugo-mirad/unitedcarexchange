@@ -405,8 +405,8 @@ public partial class SearchCarDetails : System.Web.UI.Page
             {
                 msg.From = new MailAddress(txtcemail.Text);
                 msg.To.Add(Session["CustEmail"].ToString());
-                msg.CC.Add("dhanunjay@datumglobal.net");
-                msg.Bcc.Add("dhanunjay@datumglobal.net");
+                msg.CC.Add("padma@datumglobal.net");
+                msg.Bcc.Add("padma@datumglobal.net");
                 msg.Subject = "Regarding Buyer requestbu";
                 msg.IsBodyHtml = true;
                 string text = string.Empty;
@@ -430,15 +430,15 @@ public partial class SearchCarDetails : System.Web.UI.Page
 
                 SmtpClient smtp = new SmtpClient();
 
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.Credentials = new System.Net.NetworkCredential("dhanunjay@datumglobal.net", "");
-                smtp.EnableSsl = true;
-                smtp.Send(msg);
-
-                //smtp.Host = "127.0.0.1";
-                //smtp.Port = 25;
+                //smtp.Host = "smtp.gmail.com";
+                //smtp.Port = 587;
+                //smtp.Credentials = new System.Net.NetworkCredential("padma@datumglobal.net", "");
+                //smtp.EnableSsl = true;
                 //smtp.Send(msg);
+
+                smtp.Host = "127.0.0.1";
+                smtp.Port = 25;
+                smtp.Send(msg);
 
                 MpeEmail.Hide();
 

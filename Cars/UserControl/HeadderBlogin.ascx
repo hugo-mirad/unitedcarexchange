@@ -40,31 +40,31 @@
             }
             
             
-            if (document.getElementById('<%= txtemail.ClientID %>').value.length < 1)
+            if (document.getElementById('<%= txtemail1.ClientID %>').value.length < 1)
              {
                 alert("Please enter email address");
-                document.getElementById('<%= txtemail.ClientID %>').focus();
+                document.getElementById('<%= txtemail1.ClientID %>').focus();
                 valid = false;
             } 
-                else if (document.getElementById('<%= txtemail.ClientID %>').value.length < 1)
+                else if (document.getElementById('<%= txtemail1.ClientID %>').value.length < 1)
              {
                 alert("Enter email address");
-                document.getElementById('<%= txtemail.ClientID %>').focus();
+                document.getElementById('<%= txtemail1.ClientID %>').focus();
                 valid = false;
             }    
             
-             else if (echeck(document.getElementById('<%= txtemail.ClientID %>').value)==false)
+             else if (echeck(document.getElementById('<%= txtemail1.ClientID %>').value)==false)
 	        {
-		        document.getElementById('<%= txtemail.ClientID %>').value=""
-		        document.getElementById('<%= txtemail.ClientID %>').focus()
+		        document.getElementById('<%= txtemail1.ClientID %>').value=""
+		        document.getElementById('<%= txtemail1.ClientID %>').focus()
 		        valid=false;
         		return valid;
 	        }                     
-            else if(document.getElementById("txtemail").value.length<1 && echeck(document.getElementById("txtemail").value)==false)
+            else if(document.getElementById("txtemail1").value.length<1 && echeck(document.getElementById("txtemail1").value)==false)
             {
                 alert("Please enter the email address");               
                 valid=false;
-                document.getElementById("txtemail").focus();
+                document.getElementById("txtemail1").focus();
             } 
          
             return valid;
@@ -346,7 +346,7 @@
                             <div class="form-group ">
                                 <label>
                                     Email <span class="star">*</span></label>
-                                <asp:TextBox ID="txtemail" runat="server" class="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtemail1" runat="server" class="form-control"></asp:TextBox>
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>

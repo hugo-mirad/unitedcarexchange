@@ -83,3 +83,4 @@ D:\Working Sources Live\Mobicarz\mobicarz-24april\Service\CarsInfo\BussinessInfo
 D:\Working Sources Live\Mobicarz\mobicarz-24april\Service\CarsInfo\BussinessInfo\obj\Debug\ResolveAssemblyReference.cache
 D:\Working Sources Live\Mobicarz\mobicarz-24april\Service\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.dll
 D:\Working Sources Live\Mobicarz\mobicarz-24april\Service\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.pdb
+D:\Working Sources Live\Mobicarz\mobicarz-24april\Service\CarsInfo\BussinessInfo\bin\Debug\CarsInfo.dll

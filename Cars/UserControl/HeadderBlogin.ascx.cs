@@ -531,7 +531,7 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
                 ddlyearp.SelectedValue = dsPerformLogin.Tables[0].Rows[0]["Year"].ToString();
                 txtfnamep.Text = dsPerformLogin.Tables[0].Rows[0]["FirstName"].ToString();
                 txtlastnamep.Text = dsPerformLogin.Tables[0].Rows[0]["LastName"].ToString();
-                txtemail.Text = dsPerformLogin.Tables[0].Rows[0]["Email"].ToString();
+                txtemail1.Text = dsPerformLogin.Tables[0].Rows[0]["Email"].ToString();
               
                 ListItem listState = new ListItem();
                 listState.Value = dsPerformLogin.Tables[0].Rows[0]["Makeid"].ToString();
@@ -556,7 +556,7 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
 
                 //ddlmakesp.SelectedIndex = 0;
                 //ddlmodelsp.SelectedIndex = 0;
-                //txtemail.Text = ""; txtfnamep.Text = ""; txtlastnamep.Text = "";
+                //txtemail1.Text = ""; txtfnamep.Text = ""; txtlastnamep.Text = "";
                 mpesubscribe.Show();
             }
             else
@@ -568,7 +568,7 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
                     ddlmodelsp.Items.Insert(0, new ListItem("Select", "0"));
                     ddlmodelsp.Enabled = false;
                     ddlyearp.SelectedIndex = 0;
-                    txtemail.Text = ""; txtfnamep.Text = ""; txtlastnamep.Text = "";
+                    txtemail1.Text = ""; txtfnamep.Text = ""; txtlastnamep.Text = "";
                 }
                 catch { }
                 mpesubscribe.Show();
@@ -590,7 +590,7 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
                 Session["Pref"] = Response.Cookies["PrefCookie"].Value;
                 VisitSiteLog objVisitSiteLog = new VisitSiteLog();
                 objVisitSiteLog.SaveSubInformation(Convert.ToInt32(ddlmakesp.SelectedValue), Convert.ToInt32(ddlmodelsp.SelectedValue),
-                    Convert.ToInt32(ddlyearp.SelectedValue), txtfnamep.Text, txtlastnamep.Text, txtemail.Text, strIp, DateTime.Now, Session["Pref"].ToString());
+                    Convert.ToInt32(ddlyearp.SelectedValue), txtfnamep.Text, txtlastnamep.Text, txtemail1.Text, strIp, DateTime.Now, Session["Pref"].ToString());
                 //System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "EmailNAClick();", true);
                 mpesubscribe.Hide();
                 System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "alert('You are subscribed suceessfully for email alerts.');", true);

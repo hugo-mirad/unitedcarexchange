@@ -70,24 +70,24 @@ public partial class Dealer : System.Web.UI.Page
                 string Email = dsDealerInfo.Tables[0].Rows[0]["DealerEmail"].ToString();
                 clsMailFormats format = new clsMailFormats();
                 MailMessage msg = new MailMessage();
-                msg.From = new MailAddress("dhanunjay@datumglobal.net");
-                msg.To.Add("dhanunjay@datumglobal.net");
-                msg.CC.Add("dhanunjay@datumglobal.net");
-                msg.Bcc.Add("dhanunjay@datumglobal.net");
+                msg.From = new MailAddress("padma@datumglobal.net");
+                msg.To.Add("padma@datumglobal.net");
+                msg.CC.Add("padma@datumglobal.net");
+                msg.Bcc.Add("padma@datumglobal.net");
                 msg.Subject = "Regarding Dealer request";
                 msg.IsBodyHtml = true;
                 string text = string.Empty;
                 text = format.SendDealerRequestDetails(DealerName, Phone, Email, ref text);
                 msg.Body = text.ToString();
                 SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.Credentials = new System.Net.NetworkCredential("dhanunjay@datumglobal.net", "myhampy21");
-                smtp.EnableSsl = true;
+                //smtp.Host = "smtp.gmail.com";
+                //smtp.Port = 587;
+                //smtp.Credentials = new System.Net.NetworkCredential("padma@datumglobal.net", "myhampy21");
+                //smtp.EnableSsl = true;
+                //smtp.Send(msg);
+                smtp.Host = "127.0.0.1";
+                smtp.Port = 25;
                 smtp.Send(msg);
-              //  smtp.Host = "127.0.0.1";
-               // smtp.Port = 25;
-               // smtp.Send(msg);
             }
 
             mpealteruser.Show();
