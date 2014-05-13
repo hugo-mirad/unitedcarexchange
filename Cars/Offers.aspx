@@ -16,7 +16,7 @@
                     <img src="Offerimages/logo2.png" /></a></div>
             <div class="phoneNo">
                 <b>Questions? Call us!</b><br />
-                <strong>xxx-xxx-xxxx</strong><br />
+                <strong>888-465-6693</strong><br />
                 MON - FRI 9am - 5pm EST</div>
             <div class="agent">
                 <img src="Offerimages/women.png" /></div>

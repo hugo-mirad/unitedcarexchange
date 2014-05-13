@@ -119,7 +119,7 @@
                             </div>
                             <!-- /.label -->
                             <div class="value">
-                                xxx-xxx-xxxx</div>
+                                888-465-6693</div>
                             <!-- /.value -->
                         </div>
                         <!-- /.phone -->

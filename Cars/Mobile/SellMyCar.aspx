@@ -31,7 +31,7 @@
                 <img src="images/logo.png" alt="" /></a>
             <div class="clear">
                 &nbsp;</div>
-            &nbsp; Toll-free: <span>xxx-xxx-xxxx</span>
+            &nbsp; Toll-free: <span>888-465-6693</span>
             <div class="clear">
                 &nbsp;</div>
             <div class="strip">

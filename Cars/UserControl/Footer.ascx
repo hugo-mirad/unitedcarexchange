@@ -202,7 +202,7 @@
                         <br />
                         <div class="title">
                             <b>Customer Service</b></div>
-                        Phone: xxx-xxx-xxxx
+                        Phone: 888-465-6693
                         <br />
                     </div>
                     <!-- /.teaser-item-wrapper -->
@@ -311,7 +311,7 @@
                     <br />
                     <br />
                     <b>Customer Service</b><br />
-                    Phone: xxx-xxx-xxxx
+                    Phone: 888-465-6693
                     <br />
                     Working Hours: 9 AM to 5 PM EST (Mon-Fri)<br />
                 </td>

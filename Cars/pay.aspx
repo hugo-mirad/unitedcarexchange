@@ -3,7 +3,7 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register Src="UserControl/Footer.ascx" TagName="Footer" TagPrefix="uc1" %>
-<%@ Register src="UserControl/HeadderBlogin.ascx" tagname="HeadderBlogin" tagprefix="uc2" %>
+<%@ Register Src="UserControl/HeadderBlogin.ascx" TagName="HeadderBlogin" TagPrefix="uc2" %>
 <!doctype html>
 <html>
 <head id="Head1" runat="server">
@@ -20,8 +20,7 @@
     <link rel="stylesheet" type="text/css" href="libraries/pictopro-normal/pictopro-normal.css"
         media="screen, projection">
     <link rel="stylesheet" type="text/css" href="libraries/colorbox/colorbox.css" media="screen, projection">
-    <link rel="stylesheet" type="text/css" href="js/jslider/jquery.slider.min.css"
-        media="screen, projection">
+    <link rel="stylesheet" type="text/css" href="js/jslider/jquery.slider.min.css" media="screen, projection">
     <link rel="stylesheet" type="text/css" href="assets/css/carat.css" media="screen, projection">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:100,400,700,400italic,700italic"
         rel="stylesheet" type="text/css" media="screen, projection">
@@ -36,20 +35,19 @@
     <script src="assets/js/bootstrap.js"></script>
 
     <script src="assets/js/cycle.js"></script>
-    
-     <script type='text/javascript' src='js/jquery.alphanumeric.pack.js'></script>
-     <script src="Static/JS/JSCardValidation1.js" type="text/javascript"></script>
-     <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
+
+    <script type='text/javascript' src='js/jquery.alphanumeric.pack.js'></script>
+
+    <script src="Static/JS/JSCardValidation1.js" type="text/javascript"></script>
+
+    <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
 
 </head>
 <body>
     <form id="form1" runat="server">
     <cc1:ToolkitScriptManager ID="scrptmgr" runat="server">
     </cc1:ToolkitScriptManager>
-  
-  <uc2:HeadderBlogin ID="HeadderBlogin1" runat="server" />
-    
-    
+    <uc2:HeadderBlogin ID="HeadderBlogin1" runat="server" />
     <div id="content">
         <div id="progress" class="section">
             <div class="container">
@@ -140,7 +138,7 @@
                                                         <div class=" form-section  ">
                                                             <div class=" row  ">
                                                                 <div class="col-sm-11 col-md-10">
-                                                                    <div class="form-group" style=" display:none; " >
+                                                                    <div class="form-group" style="display: none;">
                                                                         <!-- Package Info Start -->
                                                                         <table class="VisitsTable" cellpadding="0" cellspacing="0">
                                                                             <tr>
@@ -250,7 +248,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        
                                                         <div class="form-section">
                                                             <div class="block-title">
                                                                 <h2>
@@ -270,20 +267,18 @@
                                                                     <li>
                                                                         <img alt="#" src="assets/img/icon-amex.png">
                                                                     </li>
-                                                                   
                                                                 </ul>
                                                             </div>
-                                                              <div class="row">
+                                                            <div class="row">
                                                                 <div class="col-sm-6 col-md-5">
                                                                     <div class="form-group">
                                                                         <label>
-                                                                             Credit Card <span class="star">*</span></label>
-                                                                         <asp:DropDownList ID="CardType" runat="server"  cssClass="form-control" >
-                                                                        
-                                                                        <asp:ListItem Value="MasterCard" Text="MasterCard"></asp:ListItem>
-                                                                        <asp:ListItem Value="VisaCard" Text="Visa"></asp:ListItem>
-                                                                        <asp:ListItem Value="AmExCard" Text="American Express"></asp:ListItem>
-                                                                    </asp:DropDownList>
+                                                                            Credit Card <span class="star">*</span></label>
+                                                                        <asp:DropDownList ID="CardType" runat="server" CssClass="form-control">
+                                                                            <asp:ListItem Value="MasterCard" Text="MasterCard"></asp:ListItem>
+                                                                            <asp:ListItem Value="VisaCard" Text="Visa"></asp:ListItem>
+                                                                            <asp:ListItem Value="AmExCard" Text="American Express"></asp:ListItem>
+                                                                        </asp:DropDownList>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -292,7 +287,8 @@
                                                                     <div class="form-group">
                                                                         <label>
                                                                             Card Number <span class="star">*</span></label>
-                                                                        <asp:TextBox ID="txtCardNumber" runat="server" CssClass="number form-control" placeholder="XXXX-XXXX-XXXX-XXXX" MaxLength="25">
+                                                                        <asp:TextBox ID="txtCardNumber" runat="server" CssClass="number form-control" placeholder="XXXX-XXXX-XXXX-XXXX"
+                                                                            MaxLength="25">
                                                                         </asp:TextBox>
                                                                     </div>
                                                                 </div>
@@ -347,20 +343,19 @@
                                                                 <div class="col-sm-6 col-md-5">
                                                                     <div class="form-group">
                                                                         <label>
-                                                                            CCV <i style="color: #999">(3-digit card verification number)</i> <span class="star">*</span></label>
-                                                                         <table>
+                                                                            CCV <i style="color: #999">(3-digit card verification number)</i> <span class="star">
+                                                                                *</span></label>
+                                                                        <table>
                                                                             <tr>
-                                                                                <td style=" width:60px " >
-                                                                                     <asp:TextBox ID="cvv" runat="server" MaxLength="3" class="form-control">
+                                                                                <td style="width: 60px">
+                                                                                    <asp:TextBox ID="cvv" runat="server" MaxLength="3" class="form-control">
                                                                         </asp:TextBox>
                                                                                 </td>
                                                                                 <td>
                                                                                     <img src="imagesOld/icon_card_back.gif" />
                                                                                 </td>
                                                                             </tr>
-                                                                         </table>
-                                                                       
-                                                                        
+                                                                        </table>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -377,67 +372,60 @@
                                                             <div class="form-group">
                                                                 <label>
                                                                     First Name <span class="star">*</span></label>
-                                                                <asp:TextBox ID="FirstNameTextBox" runat="server" cssClass="form-control"></asp:TextBox>
+                                                                <asp:TextBox ID="FirstNameTextBox" runat="server" CssClass="form-control"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6 col-md-5">
                                                             <div class="form-group">
                                                                 <label>
                                                                     Last Name <span class="star">*</span></label>
-                                                                <asp:TextBox ID="LastNameTextBox" runat="server" cssClass="form-control"></asp:TextBox>
+                                                                <asp:TextBox ID="LastNameTextBox" runat="server" CssClass="form-control"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6 col-md-5">
                                                             <div class="form-group">
                                                                 <label>
                                                                     Address <span class="star">*</span></label>
-                                                                <asp:TextBox ID="AddressTextBox" runat="server" cssClass="form-control"></asp:TextBox>
+                                                                <asp:TextBox ID="AddressTextBox" runat="server" CssClass="form-control"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6 col-md-5">
                                                             <div class="form-group">
                                                                 <label>
                                                                     City <span class="star">*</span></label>
-                                                                <asp:TextBox ID="CityTextBox" runat="server" cssClass="form-control"></asp:TextBox>
+                                                                <asp:TextBox ID="CityTextBox" runat="server" CssClass="form-control"></asp:TextBox>
                                                             </div>
                                                         </div>
-                                                        
                                                         <div class="col-sm-6 col-md-3">
                                                             <div class="form-group">
                                                                 <label>
                                                                     State <span class="star">*</span></label>
-                                                                <asp:DropDownList ID="ddlBillState" runat="server" cssClass="form-control">
-                                                        </asp:DropDownList>
+                                                                <asp:DropDownList ID="ddlBillState" runat="server" CssClass="form-control">
+                                                                </asp:DropDownList>
                                                             </div>
                                                         </div>
-                                                        
                                                         <div class="col-sm-6 col-md-2">
                                                             <div class="form-group">
                                                                 <label>
                                                                     Postal Code <span class="star">*</span></label>
-                                                                <asp:TextBox ID="txtBillZip" runat="server" CssClass="mediumTextBox form-control" ></asp:TextBox>
+                                                                <asp:TextBox ID="txtBillZip" runat="server" CssClass="mediumTextBox form-control"></asp:TextBox>
                                                             </div>
                                                         </div>
-                                                        
-                                                        
-                                                        
                                                         <div class="col-sm-6 col-md-5">
                                                             <div class="form-group">
                                                                 <label>
                                                                     Country <span class="star">*</span></label>
-                                                                <asp:TextBox ID="CountryTextBox" runat="server" CssClass="mediumTextBox form-control" Text="USA"></asp:TextBox>
+                                                                <asp:TextBox ID="CountryTextBox" runat="server" CssClass="mediumTextBox form-control"
+                                                                    Text="USA"></asp:TextBox>
                                                             </div>
                                                         </div>
-                                                        
-                                                        
                                                         <div class="col-sm-6 col-md-5">
                                                             <div class="form-group">
                                                                 <label>
                                                                     Phone <span class="star">*</span></label>
-                                                                <asp:TextBox ID="txtBillPhone" runat="server" cssClass="form-control"></asp:TextBox>
+                                                                <asp:TextBox ID="txtBillPhone" runat="server" CssClass="form-control"></asp:TextBox>
                                                             </div>
                                                         </div>
-                                                        
                                                         <div class="col-sm-6 col-md-5">
                                                             <div class="form-group">
                                                                 <label>
@@ -446,14 +434,7 @@
                                                         </asp:TextBox>
                                                             </div>
                                                         </div>
-                                                      
-                                                        
-                                                        
-                                                        
-                                                        
                                                     </div>
-                                                    
-                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -477,72 +458,72 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <h4>Package</h4>
-                                                <asp:Label ID="lblpackagename2" runat ="server" ></asp:Label>
+                                                <h4>
+                                                    Package</h4>
+                                                <asp:Label ID="lblpackagename2" runat="server"></asp:Label>
                                             </td>
-                                            
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h4>Seller Name</h4>
-                                                <asp:Label ID="lblSname" runat ="server"></asp:Label>
+                                                <h4>
+                                                    Seller Name</h4>
+                                                <asp:Label ID="lblSname" runat="server"></asp:Label>
                                             </td>
-                                            
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h4>Email</h4>
-                                                <asp:Label ID="lblSmail" runat ="server"></asp:Label>
+                                                <h4>
+                                                    Email</h4>
+                                                <asp:Label ID="lblSmail" runat="server"></asp:Label>
                                             </td>
-                                            
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h4>Phone</h4>
-                                                <asp:Label ID="lblSphone" runat ="server"></asp:Label>
+                                                <h4>
+                                                    Phone</h4>
+                                                <asp:Label ID="lblSphone" runat="server"></asp:Label>
                                             </td>
-                                            
                                         </tr>
                                         <tr>
-                                            <td colspan="2" >
-                                                <div class="devider2"></div>
-                                            </td>                                            
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h4>Year</h4>
-                                                <asp:Label ID="lblSyear" runat ="server"></asp:Label>
+                                            <td colspan="2">
+                                                <div class="devider2">
+                                                </div>
                                             </td>
-                                            
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h4>Make</h4>
-                                                <asp:Label ID="lblSmake" runat ="server"></asp:Label>
+                                                <h4>
+                                                    Year</h4>
+                                                <asp:Label ID="lblSyear" runat="server"></asp:Label>
                                             </td>
-                                            
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h4>Model</h4>
-                                                <asp:Label ID="lblSmodel" runat ="server"></asp:Label>
+                                                <h4>
+                                                    Make</h4>
+                                                <asp:Label ID="lblSmake" runat="server"></asp:Label>
                                             </td>
-                                            
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h4>Asking Price</h4>
-                                                <asp:Label ID="lblSprice" runat ="server"></asp:Label>
+                                                <h4>
+                                                    Model</h4>
+                                                <asp:Label ID="lblSmodel" runat="server"></asp:Label>
                                             </td>
-                                            
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h4>Uploaded Photos</h4>
-                                                
-                                                <asp:Label ID="lblSphotos" runat ="server"></asp:Label>
+                                                <h4>
+                                                    Asking Price</h4>
+                                                <asp:Label ID="lblSprice" runat="server"></asp:Label>
                                             </td>
-                                            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4>
+                                                    Uploaded Photos</h4>
+                                                <asp:Label ID="lblSphotos" runat="server"></asp:Label>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -552,7 +533,7 @@
                                 <div class="title">
                                     Total</div>
                                 <div class="value">
-                                    <asp:Label ID="lblpckgprice" runat ="server"></asp:Label></div>
+                                    <asp:Label ID="lblpckgprice" runat="server"></asp:Label></div>
                             </div>
                         </div>
                         <!-- /.block -->
@@ -565,20 +546,16 @@
                         <div class="row">
                             <div class="checkout-actions">
                                 <div class="col-sm-4 col-md-3">
-                                    
                                 </div>
                                 <div class="col-sm-4 col-md-3">
                                 </div>
                                 <div class="col-sm-4 col-md-3">
-                                    
                                 </div>
                                 <div class="col-sm-4 col-md-3">
                                     <div class="next">
-                                    <%--OnClick="SubmitButton_Click"--%>
-                                    <asp:Button ID="SubmitButton" runat="server" Text="Submit Payment" CausesValidation="true"
-                                                            ValidationGroup="Authorize"  CssClass="btn btn-primary" OnClientClick="return CheckCardNumber(this.form)" />
-                                                            
-                                        
+                                        <%--OnClick="SubmitButton_Click"--%>
+                                        <asp:Button ID="SubmitButton" runat="server" Text="Submit Payment" CausesValidation="true"
+                                            ValidationGroup="Authorize" CssClass="btn btn-primary" OnClientClick="return CheckCardNumber(this.form)" />
                                     </div>
                                 </div>
                             </div>
@@ -598,15 +575,7 @@
     <div id="footer">
         <uc1:Footer ID="Footer1" runat="server" />
     </div>
-
-
-
-
-
-
-<!-- Alerts Start  -->
-
-
+    <!-- Alerts Start  -->
     <cc1:ModalPopupExtender ID="mpealteruser" runat="server" PopupControlID="AlertUser"
         BackgroundCssClass="ModalPopupBG" TargetControlID="hdnAlertuser">
     </cc1:ModalPopupExtender>
@@ -621,12 +590,11 @@
             <p>
                 <asp:UpdatePanel ID="updpnlMsgUser1" runat="server">
                     <ContentTemplate>
-                        <asp:Label ID="lblErr" runat="server" ></asp:Label>
+                        <asp:Label ID="lblErr" runat="server"></asp:Label>
                     </ContentTemplate>
                 </asp:UpdatePanel>
             </p>
             <asp:Button ID="btnNo" class="btn" runat="server" Text="Ok" />
-            
         </div>
     </div>
     <cc1:ModalPopupExtender ID="mdepAlertExists" runat="server" PopupControlID="divExists"
@@ -651,11 +619,7 @@
             <asp:Button ID="btnOk" class="btn" runat="server" Text="Ok" />
         </div>
     </div>
-    
-
-
-<!-- Alerts End  -->
-
+    <!-- Alerts End  -->
 
     <script src="libraries/jquery.bxslider/jquery.bxslider.js"></script>
 

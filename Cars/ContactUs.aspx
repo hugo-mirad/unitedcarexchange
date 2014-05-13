@@ -435,7 +435,7 @@
                                                                 <br />
                                                                 <h3>
                                                                     Customer Service</h3>
-                                                                <strong>Phone: </strong>xxx-xxx-xxxx
+                                                                <strong>Phone: </strong>888-465-6693
                                                                 <br />
                                                                 <strong>Working Hours: </strong>9 AM to 5 PM EST (<i style="font-size: 11px; color: #666">Mon-Fri</i>)
                                                             </p>

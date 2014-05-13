@@ -20,5 +20,5 @@ USERNAME: ###UploadDate###
 PASSWORD: ###RecordCount###
 
 Sincerely,
-The MobiCarz Team
-x(xxx)xxx-xxxx
+The MobiCarz Team 
+(888)465-6693
