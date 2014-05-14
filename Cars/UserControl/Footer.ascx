@@ -184,7 +184,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <div class="col-lg-8 col-md-8 col-sm-4 col-xs-12">
             <div class="block random-cars">
                 <div class="title">
                     <h2>
@@ -197,12 +197,13 @@
                             <a href="#" style="font-size: 15px; font-weight: bold;">MobiCarz</a>
                         </div>
                         <!-- <b>Address:</b><br />  -->
-                        400 S Warren St Trenton, NJ 08608, USA
+                      <%--  400 S Warren St Trenton, NJ 08608, USA
                         <br />
-                        <br />
+                        <br />--%>
                         <div class="title">
                             <b>Customer Service</b></div>
-                        Phone: 888-465-6693
+                        Phone: 888-465-6693<br />
+                          info@mobicarz.com
                         <br />
                     </div>
                     <!-- /.teaser-item-wrapper -->
@@ -228,7 +229,7 @@
             <!-- /.block -->
         </div>
         <!-- /.col-md-4 -->
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+        <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12 ">
             <div class="block">
                 <div class="title ">
                     <h2>

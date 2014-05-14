@@ -51,8 +51,12 @@
 </head>
 <body id="page1">
     <form id="form1" runat="server">
-    <cc1:ToolkitScriptManager ID="scrptmgr" runat="server">
+    <cc1:ToolkitScriptManager ID="scrptmgr" runat="server" ScriptMode="Release">
     </cc1:ToolkitScriptManager>
+    
+    
+    <asp:Label ID="HdnSubScribeValue" CssClass="HdnSubScribeValue"  runat="server"   style=" display:none " ></asp:Label>
+    
     <header id="header">
 	<div class="header-inner">
 		<div class="container">
@@ -65,7 +69,7 @@
 							</a>
 						</div><!-- /.logo -->
 
-						<div class="slogan">Simply Smarter way to<br>Sell or Buy Used Cars</div><!-- /.slogan -->
+						<div class="slogan">We are best way to sell cars in your local area and <br />across the country using web,  mobile & social media</div><!-- /.slogan -->
 					</div><!-- /.brand -->
 					
 					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
@@ -77,11 +81,13 @@
 
 					<nav class="collapse navbar-collapse navbar-collapse" role="navigation">
 						<ul class="navigation">
-						<li><a href="../default.aspx">Home</a></li>				
+						<li><a href="http://www.mobicarz.com/default.aspx">Home</a></li>				
 						
-						<li><a href="../UsedCars.aspx">Used Cars</a></li>
-                        <li><a href="../NewCars.aspx">New Cars</a></li>
-						<li class="menuparent has-regularmenu" runat="server" visible="false" id="sellLi"> 
+					<li runat="server" id="usedCarsLi"><a href="javascript:void(0);">Buy a Car</a></li>
+                        <li runat="server" id="newCarsLi"><a href="http://www.mobicarz.com/SellRegi.aspx">Sell A Car</a></li>
+                         <li runat="server" id="Finaqnce"><a href="http://www.mobicarz.com/Finance.aspx">Finance</a></li>
+                         
+						<li class="menuparent has-regularmenu" runat="server" visible="false" id="sellLi" style="display:none;"> 
 						    <a href="#">Sell A Car</a>
 						    <div class="regularmenu">
 								<ul class="regularmenu-inner">
@@ -113,17 +119,7 @@
                         <li class="active">Buy</li>
                     </ol>
                     <div class="contact pull-right">
-                        <div class="contact-item phone">
-                            <div class="label">
-                                <i class="icon icon-normal-mobile-phone"></i>
-                            </div>
-                            <!-- /.label -->
-                            <div class="value">
-                                888-465-6693</div>
-                            <!-- /.value -->
-                        </div>
-                        <!-- /.phone -->
-                        <div class="contact-item mail">
+                      <div class="contact-item mail">
                             <div class="label">
                                 <i class="icon icon-normal-mail"></i>
                             </div>
@@ -132,8 +128,19 @@
                                 <a href="mailto:example@example.com">info@mobicarz.com</a></div>
                             <!-- /.value -->
                         </div>
+                        <div class="contact-item phone">
+                            <div class="label">
+                                <i class="icon icon-normal-mobile-phone"></i>
+                            </div>
+                            <!-- /.label -->
+                            <div class="value">
+                                888-465-6693  <small>(Mon - Fri : 9:00 AM - 5:00 PM)</small></div>
+                            <!-- /.value -->
+                        </div>
+                        <!-- /.phone -->
+                      
                         <!-- /.mail -->
-                        <div class="contact-item opening">
+                        <div class="contact-item opening" style="display:none;">
                             <div class="label">
                                 <i class="icon icon-normal-clock"></i>
                             </div>
@@ -148,7 +155,7 @@
                             <div class="value">
                                 <asp:UpdatePanel ID="usub" runat="server">
                                     <ContentTemplate>
-                                        <asp:Button ID="btnsubscr" runat="server" Text="Subscribe Now" Style="margin-bottom: 2px;
+                                        <asp:Button ID="btnsubscr" runat="server" Text="Sign up for alerts" Style="margin-bottom: 2px;
                                             margin-left: 25px;" class="btn btn-danger  btn-xs " OnClick="btnsubscr_click" />
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
@@ -1057,6 +1064,64 @@
             </div>
         </div>
     </div>
+    
+    
+    
+    <!---- ------------------ Buy a cra Prompt page ---------------------------------->
+
+<cc1:ModalPopupExtender ID="MdlBuyacar" runat="server" PopupControlID="Buyacarpopup"
+    BackgroundCssClass="ModalPopupBG" TargetControlID="hdnBuyacar" OkControlID="btnsubScribUs">
+</cc1:ModalPopupExtender>
+<asp:HiddenField ID="hdnBuyacar" runat="server" />
+<div id="Buyacarpopup" class="alert" style="height: auto; padding-bottom: 15px; max-width: 550px;
+    width: 70%; display: none;">
+    <h4 id="H2">
+        Buy a Car
+        <asp:LinkButton ID="btnsubScribUs" runat="server" OnClick="btncancelpopclick_click" class="cls" Text="" Style="border-width: 0px;"></asp:LinkButton>
+    </h4>
+    <div class="data">
+        <div class="row" style="color: #333;">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                
+                <div class="form-section">
+                    <div class="form-group " id="Div4" runat="server">
+                        <label>
+                            ZIP <span class="star">*</span></label>
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>                               
+                                
+                                <asp:TextBox ID="buyzip" CssClass="form-control buyzip sample4" runat="server"></asp:TextBox>
+                                
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </div>
+                  
+                </div>
+            </div>
+           
+        </div>
+        <div style="text-align: right; margin: 10px 0;">
+            <div style="float: right; width: 80px;">
+                <asp:UpdatePanel ID="UpdatePanel6" runat="server">
+                    <ContentTemplate>
+                        <asp:Button ID="Button2" runat="server" Text="Submit" class="btn btn-primary2 "
+                            OnClientClick="return buySearch();"/>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+            &nbsp; &nbsp;
+            <div style="float: right; width: 80px;">
+                <asp:UpdatePanel ID="UpdatePanel7" runat="server">
+                    <ContentTemplate>
+                      <asp:Button ID="btncancelpopclick" runat="server" Text="Cancel" class="btn btn-default "
+                            OnClick="btncancelpopclick_click" />
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+        </div>
+    </div>
+</div>
+    
     </form>
 
     <script src="../libraries/jquery.bxslider/jquery.bxslider.js"></script>
@@ -1105,10 +1170,20 @@
 
         var galInit = 0;
 
+    
+
         $(window).load(function() {
             //GetCarsAds();
             //_initGallery()        
-
+            
+            
+            
+            
+            $('#usedCarsLi').live('click', function(){
+                stopTimer()
+                $find('MdlBuyacar').show();
+            })
+            
            
             pageLoadCustom();
         })
@@ -1782,6 +1857,9 @@
 	var subTimer;
 	
 	
+	function stopTimer(){
+	    clearInterval(subTimer);
+	}
 	
 	function alertCall(){
 	    clearInterval(subTimer);
@@ -1791,7 +1869,7 @@
 	
 	function resetTimer(){
 	    if($.cookie('PrefCookie') == 'Pref'){
-	        subTimer = setInterval(function(){alertCall()}, 6000)
+	        subTimer = setInterval(function(){alertCall()}, parseInt($.trim($('.HdnSubScribeValue').text())))
 	    }
 	}
 	

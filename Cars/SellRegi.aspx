@@ -34,33 +34,54 @@
 
 <uc2:HeadderBlogin ID="HeadderBlogin1" runat="server" />
 
-    <div id="content" class="pricing-page">
-        <div id="page-heading">
+    <div id="content" class="rental">
+        
+       
+        
+        <!-- Banner Satrt  -->
+        <div id="highlighted">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8">
-                        <div class="heading">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        <div id="reservation-form" class="block">
+                            <div class="pricing pricing2"  >
+                                <div class="row">
+                                    <div class="inner">
+                                        <div class="teaser">
                             <div class="title">
                                 <h1>
-                                    Pricing for Basic Packages</h1>
+                                    Select a Package</h1>
                             </div>
                             <!-- /.title -->
+                            <p> 
+                                    <b>Sell Your Car- Easy & Fast With Our Exclusive Packages</b><br />
+                                    More then a million cars sold. - Sign up for MobiCarz Today.
+                            </p>
                         </div>
-                        <!-- /.heading -->
+                        <!-- /.teaser -->
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.pricing  -->
+                        </div>
                     </div>
-                    <!-- /.col-md-8 -->
                 </div>
                 <!-- /.row -->
             </div>
             <!-- /.container -->
         </div>
-        <!-- /#page-heading -->
+        <!-- Banner End  -->
+        
+        <div class="pricing-page">
+        
         <div class="section gray-light">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div id="main">
-                            <div class="row">
+                            <div class="row" style="display:none" >
                                 <div class="col-md-12">
                                     <div class="headline">
                                         Select a Package - Private Seller
@@ -68,25 +89,28 @@
                                 </div>
                             </div>
                             <div class="pricing" style="margin-bottom: 20px;">
-                                <div class="row">
+                                <div class="row" style="text-transform:capitalize" >
                                     <div class="col-sm-6 col-md-4 block-margin">
                                         <div class="pricing-package block block-shadow white">
                                             <div class="block-inner">
                                                 <div class="title">
                                                     <h2>
-                                                        Basic - FREE</h2>
+                                                        Regular</h2>
                                                 </div>
                                                 <div class="price gray-light block-shadow block-margin">
                                                     <div class="block-inner">
-                                                        FREE
+                                                        $99.99
                                                     </div>
                                                 </div>
                                                 <div class="product">
                                                     <ul class="product-list">
-                                                        <li>Ad runs for 21 days</li>
-                                                        <li>No renewals</li>
-                                                        <li>1 photo </li>
-                                                        <li style="border-bottom: none">Featured listings </li>
+                                                        <li>Ad runs for 90 days</li>                                                        
+                                                        <li>20 photos</li>
+                                                        <li>15 + Multi site Promotions</li>
+                                                        <li>Mobile, Social & Web listings</li>
+                                                        <li style="border-bottom: none">Ad traffic report </li>                                                       
+                                                        
+                                                        <li style="border-bottom: none">&nbsp;</li>
                                                         <li style="border-bottom: none">&nbsp;</li>
                                                         <li style="border-bottom: none">&nbsp;</li>
                                                     </ul>
@@ -102,21 +126,24 @@
                                             <div class="block-inner">
                                                 <div class="title">
                                                     <h2>
-                                                        Standard</h2>
+                                                        Premium</h2>
                                                 </div>
                                                 <div class="price gray-light block-shadow block-margin">
                                                     <div class="block-inner">
-                                                        $24.99
+                                                        $199.99
                                                     </div>
                                                 </div>
                                                 <div class="product">
                                                     <ul class="product-list">
-                                                        <li>Ad runs for 30 days</li>
-                                                        <li>Unlimited renewals </li>
-                                                        <li>3 photos </li>
-                                                        <li>Featured listings</li>
-                                                        <li style="border-bottom: none">Thumbnail photo </li>
+                                                        <li>Ad runs for 90 days</li>                                                        
+                                                        <li>20 Photos</li>
+                                                        <li>15 + Multi Site Promotions</li>
+                                                        <li>Mobile, Social & Web Listings</li>
+                                                        <li>Ad Traffic Report </li>
+                                                        <li style="border-bottom: none">Guaranteed Sale</li>
                                                         <li style="border-bottom: none">&nbsp;</li>
+                                                        <li style="border-bottom: none">&nbsp;</li>
+                                                        
                                                     </ul>
                                                 </div>
                                                 <div class="action-button">
@@ -133,21 +160,25 @@
                                                 </div>
                                                 <div class="title">
                                                     <h2>
-                                                        Enhanced</h2>
+                                                        Deluxe</h2>
                                                 </div>
                                                 <div class="price gray-light block-shadow block-margin">
                                                     <div class="block-inner">
-                                                        $49.99
+                                                        $299.99
                                                     </div>
                                                 </div>
                                                 <div class="product">
                                                     <ul class="product-list">
-                                                        <li>Ad runs for 60 days</li>
-                                                        <li>Unlimited renewals</li>
-                                                        <li>12 photos </li>
-                                                        <li>Featured listings </li>
-                                                        <li>Thumbnail photo</li>
+                                                        <li>Ad runs for 90 days</li>                                                        
+                                                        <li>20 photos</li>
+                                                        <li>15 + Multi site Promotions</li>
+                                                        <li>Mobile, Social & Web listings</li>
                                                         <li>Ad traffic report </li>
+                                                        <li>Guaranteed sale</li> 
+                                                        <li>Expert Advice</li> 
+                                                        <li>Premium Site Listings</li>                                                      
+                                                        
+                                                        
                                                     </ul>
                                                 </div>
                                                 <div class="action-button">
@@ -188,6 +219,7 @@
                 <!-- /.row -->
             </div>
             <!-- /.container -->
+        </div>
         </div>
         <!-- /.section -->
     </div>

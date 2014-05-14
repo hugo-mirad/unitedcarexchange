@@ -83,4 +83,5 @@ public static class Constants
     public const string StrDescending = "Descending";
     public static string SESSIONEXPIRATIONTIME = System.Configuration.ConfigurationManager.AppSettings["SessionExprirationTime"].ToString().Trim();
 
+    public static string SubsribeExpTime = System.Configuration.ConfigurationManager.AppSettings["subscribealert"].ToString().Trim();
 }

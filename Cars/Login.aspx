@@ -73,13 +73,13 @@
                     <div class="col-md-12">
                         <div id="main">
                             <div class=" row">
-                                <div class="col-sm-1 col-md-2 ">
+                                <div class="col-xs-1 col-sm-1 col-md-2 ">
                                 </div>
-                                <div class="col-sm-8 col-md-8 " style="padding-top: 10px;">
+                                <div class="col-xs-10 col-sm-10 col-md-8 " style="padding-top: 10px; ">
                                     <div class="pricing" style="margin-bottom: 20px;">
                                         <div class="row " style="padding-top: 30px;">
-                                            <div class="col-sm-6 col-md-6 block-margin">
-                                                <div class="pricing-package block block-shadow white" style="min-height: 420px">
+                                            <div class="col-sm-8 col-md-8 col-lg-6 block-margin" style="float:none; margin:0 auto 40px auto;">
+                                                <div class="pricing-package block block-shadow white" >
                                                     <div class="block-inner">
                                                         <div class="title">
                                                             <h2>
@@ -120,7 +120,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-6 col-md-6 block-margin">
+                                            <div class="col-sm-6 col-md-6 block-margin" style="display:none;" >
                                                 <div class="pricing-package  block block-shadow white" style="min-height: 420px">
                                                     <div class="block-inner">
                                                         <div class="title">
@@ -163,7 +163,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-1 col-md-2 ">
+                                <div class="col-xs-1 col-sm-1 col-md-2 ">
                                 </div>
                             </div>
                             <div class="row white block-shadow" style="margin: 0 0 30px 0; padding: 20px;">

@@ -824,6 +824,34 @@ function OnSuccessSearchedCar(result, userContext, methodName) {
 }
 
 
+function buyCarChekZip(sZip) {
+    CarsService.CheckZips(sZip, OnSuccessbuyCarChekZip, onError);
+}
+function OnSuccessbuyCarChekZip(result, userContext, methodName){
+     try {
+
+        if (result == true) {
+            CarsSearch('All makes', 'All models', $('.buyzip').val(), '5', '1', '25', 'yearOfMake');
+            $.cookie('userZip', $('.buyzip').val())
+            CarsService.SearchCriteriaSave('0', '0', $('.buyzip').val(), '5', OnSuccessSearchCriteriaSave, onerror);
+        }
+        else {
+            hideSpinner();
+            
+            //CarsSearch($('#make option:selected').val(), $('#model option:selected').val(),$('#yourZip').val(), $('#within option:selected').val(), '1', '25', 'price');
+            alert('Oops! we could not locate the zip you entered. Please enter another zip code');
+            $('.buyzip').val('').focus();    
+            return false;        
+        }
+    }
+
+    catch (ex)
+{ }
+}
+
+
+
+
 function ChekZip(sZip) {
 
     CarsService.CheckZips(sZip, OnSuccessGetZips, onError);

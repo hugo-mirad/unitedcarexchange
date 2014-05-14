@@ -43,7 +43,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
             reviewLi.Visible = false;
 
             loginLi.Visible = false;
-            sellLi.Visible = false;
+            newCarsLi.Visible = false;
         }
         else
         {
@@ -52,11 +52,12 @@ public partial class SearchCarDetails : System.Web.UI.Page
             reviewLi.Visible = false;
 
             loginLi.Visible = true;
-            sellLi.Visible = true;
+            newCarsLi.Visible = true;
         }
 
         if (!IsPostBack)
         {
+            HdnSubScribeValue.Text = Constants.SubsribeExpTime.ToString();
             FillMakes();
             FillModels();
             FillWithin();
@@ -1335,5 +1336,10 @@ public partial class SearchCarDetails : System.Web.UI.Page
                 lblPublishpostdate.Text += "  Published on: " + dsTasks3.Tables[0].Rows[e.Item.ItemIndex]["PublishedDate"].ToString();
 
         }
+    }
+    public void btncancelpopclick_click(object sender, EventArgs e)
+    {
+        MdlBuyacar.Hide();
+        System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "resetTimer();", true);
     }
 }

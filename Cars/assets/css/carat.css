@@ -2730,7 +2730,7 @@ margin-bottom:20px
 }
 #content.rental #highlighted {
 	background:url("../img/rental-background.jpg") top center no-repeat transparent;
-	min-height:500px;
+	min-height:380px; /*500px;*/
 	overflow:visible
 }
 #content.rental #highlighted #reservation-form {
@@ -2745,7 +2745,7 @@ margin-bottom:20px
 	margin:0px 0px 15px 0px
 }
 #content.rental #highlighted .teaser {
-	margin-top:280px
+	margin-top:180px
 }
 #content.rental #highlighted .teaser .title {
 	border-bottom:1px solid #f95446;

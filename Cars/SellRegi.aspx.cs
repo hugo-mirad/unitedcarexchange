@@ -18,8 +18,8 @@ public partial class SellRegi : System.Web.UI.Page
         if (!IsPostBack)
         {
 
-            Session["CurrentPage"] = "Packages";
-            Session["PageName"] = "Packages";
+            Session["CurrentPage"] = "SellRegi";
+            Session["PageName"] = "SellRegi";
             Session["CurrentPageConfig"] = null;
 
             GeneralFunc.SetPageDefaults(Page);

@@ -958,6 +958,24 @@ function search() {
     }
 };
 
+
+
+
+function buySearch(){
+    var buySearchZip = $.trim($('.buyzip').val());
+    
+    if(buySearchZip.length > 4){
+        buyCarChekZip(buySearchZip);
+    }else{
+        alert('Please enter valid zip code');
+        $('.buyzip').val('').focus(); 
+        return false;        
+    }
+
+    
+}
+
+
 // Search Button Submit
 function search2() {
     //alert('Click');
@@ -989,6 +1007,9 @@ function search2() {
         //alert('Make: '+SelectedMake+',  Model:'+SelectedModel+',  Within:'+SelectedDistance+',  ZIP:'+EnteredZip);
     }
 };
+
+
+
 
 
 

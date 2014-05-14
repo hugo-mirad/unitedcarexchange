@@ -18,7 +18,7 @@ public partial class Finance : System.Web.UI.Page
         if (!IsPostBack)
         {
             Session["CurrentPage"] = "Finance Page";
-            Session["PageName"] = "";
+            Session["PageName"] = "Finance Page";
             Session["CurrentPageConfig"] = null;
             KeyWords.Addkeywordstags(Header);
             GeneralFunc.SaveSiteVisit();

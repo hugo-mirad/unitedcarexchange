@@ -16,7 +16,7 @@ using System.Xml;
 using System.Data;
 
 
-public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
+public partial class UserControl_HeadderBlogin1 : System.Web.UI.UserControl
 {
     DropdownBL objdropdownBL = new DropdownBL();
     protected void Page_Load(object sender, EventArgs e)
@@ -26,7 +26,7 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
         if (!IsPostBack)
         {
 
-            HdnSubScribeValue.Text = Constants.SubsribeExpTime.ToString();
+            HdnSubScribeValue.Value = Constants.SubsribeExpTime.ToString();
             FillMakes();
             FillModels();
             FillWithin();
@@ -82,7 +82,7 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
             reviewLi.Visible = false;
 
             loginLi.Visible = false;
-            newCarsLi.Visible = false;
+            sellLi.Visible = false;
 
 
         }
@@ -93,7 +93,7 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
             reviewLi.Visible = false;
 
             loginLi.Visible = true;
-            newCarsLi.Visible = true;
+            sellLi.Visible = true;
         }
 
 
@@ -137,14 +137,9 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
             homeLi.Attributes.Add("class", "active");
 
         }
-        else if (Session["CurrentPage"] == "Finance Page")
+        else if (Session["CurrentPage"] == "Packages" || Session["CurrentPage"] == "Registration" || Session["CurrentPage"] == "Registration PlaceAd" || Session["CurrentPage"] == "Registration PlaceAd Photos")
         {
-            Finaqnce.Attributes.Add("class", "active");
-
-        }            
-        else if (Session["CurrentPage"] == "SellRegi" || Session["CurrentPage"] == "Packages" || Session["CurrentPage"] == "Registration" || Session["CurrentPage"] == "Registration PlaceAd" || Session["CurrentPage"] == "Registration PlaceAd Photos")
-        {
-            newCarsLi.Attributes.Add("class", "active");
+            sellLi.Attributes.Add("class", "active menuparent has-regularmenu");
 
         }
 
@@ -611,14 +606,6 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
         mpesubscribe.Hide();
         System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "resetTimer();", true);
     }
-
-
-    public void btncancelpopclick_click(object sender, EventArgs e)
-    {
-        MdlBuyacar.Hide();
-        System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "resetTimer();", true);
-    }
-   
 }
 
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Cars", "Cars", "{69A3E2C2-733B-4B69-9788-A8F41D3B913E}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Cars", "Cars\", "{69A3E2C2-733B-4B69-9788-A8F41D3B913E}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "3.5"
 		Debug.AspNetCompiler.VirtualPath = "/Cars"

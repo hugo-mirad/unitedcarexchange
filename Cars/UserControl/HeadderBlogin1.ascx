@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="HeadderBlogin.ascx.cs"
-    Inherits="UserControl_HeadderBlogin" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="HeadderBlogin1.ascx.cs"
+    Inherits="UserControl_HeadderBlogin1" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
@@ -10,13 +10,6 @@
             '<link rel="icon" href="favicon.ico" type="image/x-icon">';
 
             $('head').prepend(icon);
-            
-            
-            $('#HeadderBlogin1_usedCarsLi').live('click', function(){
-                stopTimer()
-                $find('HeadderBlogin1_MdlBuyacar').show();
-            })
-            
         })
      
 </script>
@@ -135,15 +128,10 @@
 	}
 	
 	
-	function stopTimer(){
-	    clearInterval(subTimer);
-	}
-	
-	
 	function resetTimer(){
 
 	    if($.cookie('PrefCookie') == 'Pref'){
-	        subTimer = setInterval(function(){alertCall()},parseInt($.trim($('.HdnSubScribeValue').text())))
+	        subTimer = setInterval(function(){alertCall()},4000)
 	  
 	  }
 	  }
@@ -168,8 +156,7 @@
 </script>
 
 <header id="header">
-
-<asp:Label ID="HdnSubScribeValue" CssClass="HdnSubScribeValue"  runat="server"   style=" display:none " ></asp:Label>
+<asp:HiddenField ID="HdnSubScribeValue" runat="server" Value="1" />
 	<div class="header-inner">
 		<div class="container">
 			<div class="row">
@@ -181,7 +168,7 @@
 							</a>
 						</div><!-- /.logo -->
 
-						<div class="slogan">We are best way to sell cars in your local area and<br /> across the country using web,  mobile & social media</div><!-- /.slogan -->
+						<div class="slogan">Simply Smarter way to<br>Sell or Buy Used Cars</div><!-- /.slogan -->
 					</div><!-- /.brand -->
 					
 					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
@@ -195,12 +182,9 @@
 						<ul class="navigation">
 						<li runat="server" id="homeLi"><a href="default.aspx">Home</a></li>				
 						
-						<li runat="server" id="usedCarsLi"><a href="javascript:void(0);">Buy a Car</a></li>
-                        <li runat="server" id="newCarsLi"><a href="SellRegi.aspx">Sell A Car</a></li>
-                         <li runat="server" id="Finaqnce"><a href="Finance.aspx">Finance</a></li>
-                        
-                        
-						<%--<li class="menuparent has-regularmenu" runat="server" visible="false" id="sellLi" style="display:none;" > 
+						<li runat="server" id="usedCarsLi"><a href="UsedCars.aspx">Used Cars</a></li>
+                        <li runat="server" id="newCarsLi"><a href="NewCars.aspx">New Cars</a></li>
+						<li class="menuparent has-regularmenu" runat="server" visible="false" id="sellLi"> 
 						    <a href="#">Sell A Car</a>
 						    <div class="regularmenu">
 								<ul class="regularmenu-inner">
@@ -208,7 +192,7 @@
 									<li><a href="Dealer.aspx">Dealer</a></li>
 								</ul><!-- /.regularmenu-inner -->
 							</div>						
-						</li>	--%>					
+						</li>						
 						<%--<li><a href="contact.html">Contact</a></li>--%>
 						<li runat="server" visible="false" id="accountLi"><a href="Account.aspx" >My Account</a></li>
 						<li runat="server" visible="false" id="reviewLi" style=" display:none; " ><a href="Reviews.aspx" >Reviews</a></li>
@@ -236,7 +220,16 @@
                     <li class="active">Buy</li>
                 </ol>
                 <div class="contact pull-right">
-                   <!-- /.phone -->
+                    <div class="contact-item phone">
+                        <div class="label">
+                            <i class="icon icon-normal-mobile-phone"></i>
+                        </div>
+                        <!-- /.label -->
+                        <div class="value">
+                            888-465-6693</div>
+                        <!-- /.value -->
+                    </div>
+                    <!-- /.phone -->
                     <div class="contact-item mail">
                         <div class="label">
                             <i class="icon icon-normal-mail"></i>
@@ -246,24 +239,14 @@
                             <a href="mailto:example@example.com">info@mobicarz.com</a></div>
                         <!-- /.value -->
                     </div>
-                    <div class="contact-item phone">
-                        <div class="label">
-                            <i class="icon icon-normal-mobile-phone"></i>
-                        </div>
-                        <!-- /.label -->
-                        <div class="value">
-                            888-465-6693 <small>(Mon - Fri : 9:00 AM - 5:00 PM)</small></div>
-                        <!-- /.value -->
-                    </div>
-                 
                     <!-- /.mail -->
-                    <div class="contact-item opening" style="display:none;">
+                    <div class="contact-item opening">
                         <div class="label">
                             <i class="icon icon-normal-clock"></i>
                         </div>
                         <!-- /.label -->
                         <div class="value">
-                            Mon - Fri: 9:00 AM - 5:00 PM</div>
+                            Mon - Sun: 8:00 - 16:00</div>
                         <!-- /.value -->
                     </div>
                     <div class="contact-item opening">
@@ -271,7 +254,7 @@
                         <div class="value">
                             <asp:UpdatePanel ID="usub" runat="server">
                                 <ContentTemplate>
-                                    <asp:Button ID="btnsubscr" runat="server" Text="Sign up for alerts" Style="margin-bottom: 2px;
+                                    <asp:Button ID="btnsubscr" runat="server" Text="Subscribe Now" Style="margin-bottom: 2px;
                                         margin-left: 25px;" class="btn btn-danger  btn-xs " OnClick="btnsubscr_click" />
                                 </ContentTemplate>
                             </asp:UpdatePanel>
@@ -387,62 +370,6 @@
                     <ContentTemplate>
                         <asp:Button ID="btncancelp" runat="server" Text="Cancel" class="btn btn-default "
                             OnClick="btncancelp_click" />
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!---- ------------------ Buy a cra Prompt page ---------------------------------->
-
-<cc1:ModalPopupExtender ID="MdlBuyacar" runat="server" PopupControlID="Buyacarpopup"
-    BackgroundCssClass="ModalPopupBG" TargetControlID="hdnBuyacar" OkControlID="btnBuyScribUs">
-</cc1:ModalPopupExtender>
-<asp:HiddenField ID="hdnBuyacar" runat="server" />
-<div id="Buyacarpopup" class="alert" style="height: auto; padding-bottom: 15px; max-width: 550px;
-    width: 70%; display: none;">
-    <h4 id="H1">
-        Buy a Car
-        <asp:LinkButton ID="btnBuyScribUs" OnClick="btncancelpopclick_click" runat="server" class="cls" Text="" Style="border-width: 0px;"></asp:LinkButton>
-    </h4>
-    <div class="data">
-        <div class="row" style="color: #333;">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                
-                <div class="form-section">
-                    <div class="form-group " id="Div3" runat="server">
-                        <label>
-                            ZIP <span class="star">*</span></label>
-                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                            <ContentTemplate>                               
-                                
-                                <asp:TextBox ID="buyzip" CssClass="form-control buyzip sample4" runat="server"></asp:TextBox>
-                                
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
-                    </div>
-                  
-                </div>
-            </div>
-           
-        </div>
-        <div style="text-align: right; margin: 10px 0;">
-            <div style="float: right; width: 80px;">
-                <asp:UpdatePanel ID="UpdatePanel6" runat="server">
-                    <ContentTemplate>
-                        <asp:Button ID="Button1" runat="server" Text="Submit" class="btn btn-primary2 "
-                            OnClientClick="return buySearch();" />
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-            </div>
-            &nbsp; &nbsp;
-            <div style="float: right; width: 80px;">
-                <asp:UpdatePanel ID="UpdatePanel7" runat="server">
-                    <ContentTemplate>
-                        <asp:Button ID="btncancelpopclick" runat="server" Text="Cancel" class="btn btn-default "
-                            OnClick="btncancelpopclick_click" />
                     </ContentTemplate>
                 </asp:UpdatePanel>
             </div>
