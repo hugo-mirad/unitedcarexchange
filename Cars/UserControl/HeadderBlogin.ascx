@@ -12,12 +12,23 @@
             $('head').prepend(icon);
             
             
-            $('#HeadderBlogin1_usedCarsLi').live('click', function(){
-                stopTimer()
-                $find('HeadderBlogin1_MdlBuyacar').show();
+            $('#HeadderBlogin1_usedCarsLi, .footerBuyCar').live('click', function(){
+                stopTimer();
+                
+                if($.cookie('userZip')){
+                    buySearch();
+                }else{
+                    $find('HeadderBlogin1_MdlBuyacar').show();
+                }
+                
+                
             })
             
         })
+        
+        
+        
+        
      
 </script>
 
@@ -171,7 +182,7 @@
 
 <asp:Label ID="HdnSubScribeValue" CssClass="HdnSubScribeValue"  runat="server"   style=" display:none " ></asp:Label>
 	<div class="header-inner">
-		<div class="container">
+		<div class="container" >
 			<div class="row">
 				<div class="col-md-12 clearfix">
 					<div class="brand">
@@ -181,7 +192,9 @@
 							</a>
 						</div><!-- /.logo -->
 
-						<div class="slogan">We are best way to sell cars in your local area and<br /> across the country using web,  mobile & social media</div><!-- /.slogan -->
+						<div class="slogan">The best way to sell/buy a car in your local area and<br />
+across the country using web, mobile & social media
+</div><!-- /.slogan -->
 					</div><!-- /.brand -->
 					
 					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
@@ -195,7 +208,7 @@
 						<ul class="navigation">
 						<li runat="server" id="homeLi"><a href="default.aspx">Home</a></li>				
 						
-						<li runat="server" id="usedCarsLi"><a href="javascript:void(0);">Buy a Car</a></li>
+						<li runat="server" id="usedCarsLi"><a href="javascript:void(0);">Buy A Car</a></li>
                         <li runat="server" id="newCarsLi"><a href="SellRegi.aspx">Sell A Car</a></li>
                          <li runat="server" id="Finaqnce"><a href="Finance.aspx">Finance</a></li>
                         
@@ -271,7 +284,7 @@
                         <div class="value">
                             <asp:UpdatePanel ID="usub" runat="server">
                                 <ContentTemplate>
-                                    <asp:Button ID="btnsubscr" runat="server" Text="Sign up for alerts" Style="margin-bottom: 2px;
+                                    <asp:Button ID="btnsubscr" runat="server" Text="Sign Up For Alerts" Style="margin-bottom: 2px;
                                         margin-left: 25px;" class="btn btn-danger  btn-xs " OnClick="btnsubscr_click" />
                                 </ContentTemplate>
                             </asp:UpdatePanel>
@@ -302,10 +315,15 @@
     </h4>
     <div class="data">
         <div class="row" style="color: #333;">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                Any time if we see a car that matches your interest. Our automated robo system will keep you updated with emails.
+                <br />
+            </div>
+        
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <div class="title">
                     <h3>
-                        Car Info</h3>
+                        My Preference</h3>
                 </div>
                 <div class="form-section">
                     <div class="form-group " id="delearBox" runat="server">

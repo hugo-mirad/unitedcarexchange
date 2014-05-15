@@ -373,5 +373,47 @@ namespace CarsBL.Transactions
             }
 
         }
+
+        public DataSet USp_secondcarlaonsapplication(int carid ,DateTime  ApplyTime ,string IPAddress,string BFirstName ,
+         string BLastName, string BEmailAddress,string BPrimaryPart1,string BDateOfBirthMonth ,string BStreetAdress,string BCity,
+          string BState,string BZipCode)
+        {
+            bool returnValue = false;
+            string spNameString = string.Empty;
+            DataSet dsUserInfo = new DataSet();
+            Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+            spNameString = "USp_secondcarlaonsapplication";
+            DbCommand dbCommand = null;
+
+            try
+            {
+
+
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                dbDatabase.AddInParameter(dbCommand, "@carid", System.Data.DbType.Int32, carid);
+                dbDatabase.AddInParameter(dbCommand, "@ApplyTime", System.Data.DbType.DateTime, ApplyTime);
+                dbDatabase.AddInParameter(dbCommand, "@IPAddress", System.Data.DbType.String, IPAddress);
+                dbDatabase.AddInParameter(dbCommand, "@BFirstName", System.Data.DbType.String, BFirstName);
+                dbDatabase.AddInParameter(dbCommand, "@BLastName", System.Data.DbType.String, BLastName);
+                dbDatabase.AddInParameter(dbCommand, "@BEmailAddress", System.Data.DbType.String, BEmailAddress);
+                dbDatabase.AddInParameter(dbCommand, "@BPrimaryPart1", System.Data.DbType.String, BPrimaryPart1);
+                dbDatabase.AddInParameter(dbCommand, "@BDateOfBirthMonth", System.Data.DbType.String, BDateOfBirthMonth);
+                dbDatabase.AddInParameter(dbCommand, "@BStreetAdress", System.Data.DbType.String, BStreetAdress);
+                dbDatabase.AddInParameter(dbCommand, "@BCity", System.Data.DbType.String, BCity);
+                dbDatabase.AddInParameter(dbCommand, "@BState", System.Data.DbType.String, BState);
+                dbDatabase.AddInParameter(dbCommand, "@BZipCode", System.Data.DbType.String, BZipCode);
+            
+                dsUserInfo = dbDatabase.ExecuteDataSet(dbCommand);
+
+                //blnSuccess = objUserLog.SaveUserLog(UserLogInfo, ref lngReturn, "");
+                return dsUserInfo;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }

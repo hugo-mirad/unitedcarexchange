@@ -471,6 +471,7 @@
                                                                                     our advertisement in Mobicarz and sold it with quickly and also managed to get fantastic
                                                                                     price. </i>
                                                                             </p>
+                                                                            <br />
                                                                         </div>
                                                                         <!-- /.description -->
                                                                         <div class="star-rating">
@@ -523,6 +524,7 @@
                                                                                     it's a breathtaking super sports car with the genes of the SLS AMG Coupe, yet with
                                                                                     a character all of its own. Loving my Car :) </i>
                                                                             </p>
+                                                                            <br />
                                                                         </div>
                                                                         <!-- /.description -->
                                                                         <div class="star-rating">
@@ -691,10 +693,11 @@
             })
 
             //$.cookie('userZip'); // => "the_value"
-            //$.cookie('not_existing'); // => undefined
+            //$.cookie('not_existing'); // => undefinedsh
 
             if ($.cookie('userZip')) {
-                $('#yourZip').val($.cookie('userZip'));
+                $('#yourZip, .buyzip').val($.cookie('userZip'));
+                
             } else {
 
                 /*
@@ -768,7 +771,7 @@
         var make1 = 'All makes';
         var Modal1 = 'All models';
         var ZipCode1 = '';
-        var WithinZipNew = 3;
+        var WithinZipNew = 4;
 
        
 

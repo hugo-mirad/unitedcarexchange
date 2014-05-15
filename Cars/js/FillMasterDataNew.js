@@ -5,6 +5,8 @@
 * Discription : JS for for Search Results Generation
 */
 
+var withinGlobal = 4;
+
 
 var AddName = true;
 
@@ -16,7 +18,7 @@ function CarBannerAdsDisplay(CarBannerAds) {
 
     if (CarBannerAds.length > 0) {
         var img = '';
-        var withinZIp1 = 5;
+        var withinZIp1 = withinGlobal;
         var zip1 = 0;
 
         var imgBanner = '';
@@ -129,7 +131,7 @@ function CarsAdDisplay(CarsAdDetails) {
     // Vertical Car Ads
     if (CarsAdDetails.length > 0 && LoadingPage != 2) {
         var img = '';
-        var withinZIp1 = 5;
+        var withinZIp1 = withinGlobal;
         var zip1 = 0;
         //console.log(CarsAdDetails);
         $('#grid-carousel').empty();
@@ -232,7 +234,7 @@ function CarsAdDisplay(CarsAdDetails) {
     if (CarsAdDetails.length > 0) {
         var img = '';
         var img2 = '';
-        var withinZIp1 = 5;
+        var withinZIp1 = withinGlobal;
         var zip1 = '0'
         var imgWidth = ''
         var liStyle = ''
@@ -359,7 +361,7 @@ function latestPostedCars(latestPosts) {
 
         if (latestPosts != null && latestPosts != undefined && latestPosts.length > 0) {
             var vTic = '';
-            var withinZIp1 = 5;
+            var withinZIp1 = withinGlobal;
             var zip1 = '0'
             for (i = 0; i < latestPosts.length; i++) {
                 //var resPath = "'" + latestPosts[i]['YearOfMake']['#text'] + "','" + latestPosts[i]['CarUniqueID']['#text'] + "','" + latestPosts[i]['Make']['#text'] + "','" + latestPosts[i]['Model']['#text'] + "','" + zip1 + "','" + withinZIp1 + "','" + true + "'";
@@ -962,11 +964,14 @@ function search() {
 
 
 function buySearch(){
+
     var buySearchZip = $.trim($('.buyzip').val());
     
     if(buySearchZip.length > 4){
+        showSpinner();
         buyCarChekZip(buySearchZip);
     }else{
+        $find('HeadderBlogin1_MdlBuyacar').show();
         alert('Please enter valid zip code');
         $('.buyzip').val('').focus(); 
         return false;        
@@ -1038,7 +1043,7 @@ function SearchResultsDisplay() {
                 for (i = 0; i < SearchResults.length; i++) {
                     var m = '';
                     var path = ''
-                    var withinZIp1 = $('#within option:selected').val();
+                    var withinZIp1 = withinGlobal;
                     var zip1 = $('#yourZip').val();
                     var resPath = "'" + SearchResults[i]['YearOfMake']['#text'] + '","' + SearchResults[i]['CarUniqueID']['#text'] + '","' + SearchResults[i]['Make']['#text'] + '","' + SearchResults[i]['Model']['#text'] + '","' + zip1 + '","' + withinZIp1 + '"';
                     var thumb1 = '';
@@ -1364,7 +1369,7 @@ function SearchResultsDisplayFilter(SearchResultsArray) {
 
     //console.log(SearchResultsArray);
 
-    withinZipRange = $('#within option:selected').text();
+    withinZipRange = withinGlobal;
     //alert(withinZipRange);
     $('.resultsLoading, #disableFilter').fadeOut();
     $('#Filter').fadeIn();
@@ -1383,7 +1388,7 @@ function SearchResultsDisplayFilter(SearchResultsArray) {
                 //$('.searchResultsHolder').append("<div class='searchResultsBox' ><table style='width:100%'><tr><td style='width:90px;' class='searchCarThumbHolder'><img src='images/SearchResultsCarsThumbs/thumb1.png' class='thumb' onclick='javascript:FindCarID("+SearchResultsArray[i]['Carid']['#text']+");' /><br /></td><td class='searchcarDetails'><h4><a href='javascript:FindCarID("+SearchResultsArray[i]['Carid']['#text']+");' class='carName'>"+SearchResultsArray[i]['YearOfMake']['#text']+" "+SearchResultsArray[i]['Make']['#text']+" "+SearchResultsArray[i]['Model']['#text']+"</a></h4><p><strong>Description: </strong>"+SearchResultsArray[i]['ExteriorColor']['#text']+", "+SearchResultsArray[i]['NumberOfDoors']['#text']+" with "+SearchResultsArray[i]['NumberOfSeats']['#text']+", "+SearchResultsArray[i]['NumberOfCylinder']['#text']+", "+SearchResultsArray[i]['Transmission']['#text']+"</p><a href='javascript:void(0);' class='viewA'>View seller details</a><p id='"+SearchResultsArray[i]['Carid']['#text']+"a' class='details'> <strong>"+SearchResultsArray[i]['SellerType']['#text']+": </strong>"+SearchResultsArray[i]['SellerName']['#text']+" <span class='det1'>("+SearchResultsArray[i]['City']['#text']+", "+SearchResultsArray[i]['State']['#text']+" - Within <span class='mileage'>"+withinZipRange+"</span> mi)</span><br /><span class='userNumber'><strong>Phone: </strong>"+SearchResultsArray[i]['Phone']['#text']+"</span>, <strong>Email: </strong><a href='mailto:"+SearchResultsArray[i]['Email']['#text']+"'>"+SearchResultsArray[i]['Email']['#text']+"</a> </p></td><td class='searchResultsBox3' ><table class='subInfo searchCarCheckBox' cellspacing='0' cellpadding='0' ><tr class='subInfoHed'><td><strong>Mileage</strong></td><td><strong>Price</strong></td></tr><tr><td><label class='mileage'>"+parseInt(SearchResultsArray[i]['Mileage']['#text'])+"</label> mi</td><td class='price'>"+ parseInt(SearchResultsArray[i]['Price']['#text'])+"</td></tr><tr class='subInfoHed'><td><strong>Body</strong></td><td><strong>Fuel</strong></td><td></td></tr><tr class='last'><td><label>"+SearchResultsArray[i]['Bodytype']['#text']+"</label></td><td>"+SearchResultsArray[i]['Fueltype']['#text']+"</td><td align='center'></td></tr></table></td></tr></table></div>");
                 var m = '';
                 var path = ''
-                var withinZIp1 = $('#within option:selected').val();
+                var withinZIp1 = withinGlobal;
                 var zip1 = $('#yourZip').val();
 
                // var resPath = "'" + SearchResultsArray[i]['YearOfMake']['#text'] + "','" + SearchResultsArray[i]['CarUniqueID']['#text'] + "','" + SearchResultsArray[i]['Make']['#text'] + "','" + SearchResultsArray[i]['Model']['#text'] + "','" + zip1 + "','" + withinZIp1 + "'";
@@ -1582,7 +1587,7 @@ function oneReord(SearchResultsArray) {
 
     var m = '';
     var path = ''
-    var withinZIp1 = $('#within option:selected').val();
+    var withinZIp1 = withinGlobal;
     var zip1 = $('#yourZip').val();
     var resPath = '"' + SearchResultsArray[i]['YearOfMake']['#text'] + '","' + SearchResultsArray['CarUniqueID']['#text'] + '","' + SearchResultsArray['Make']['#text'] + '","' + SearchResultsArray['Model']['#text'] + '","' + zip1 + '","' + withinZIp1 + '"';
     var thumb1 = '';
@@ -2351,7 +2356,7 @@ function CarsMatchedDataBinding(CarsAdDetails) {
     // Vertical Car Ads
     if (CarsAdDetails.length > 0 && LoadingPage != 2) {
         var img = '';
-        var withinZIp1 = 5;
+        var withinZIp1 = withinGlobal;
         var zip1 = 0;
         //console.log(CarsAdDetails);
         $('#grid-carousel').empty();

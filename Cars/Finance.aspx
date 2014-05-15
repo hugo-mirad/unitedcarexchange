@@ -23,7 +23,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/carat.css" media="screen, projection">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:100,400,700,400italic,700italic"
         rel="stylesheet" type="text/css" media="screen, projection">
-         <link href="Static/Css/calender.css" rel="stylesheet" type="text/css" />
+    <link href="Static/Css/calender.css" rel="stylesheet" type="text/css" />
     <title>MobiCarz</title>
 
     <script src="assets/js/jquery.js"></script>
@@ -72,10 +72,10 @@
                                 <div class="col-xs-12 col-sm-12 col-md-8">
                                     <div class="description">
                                         <p>
-                                            No matter what situation you are in, financing a used vehicle is aroad we must all
-                                            cross at some point in our lives. Whether you have good credit, bad credit, or none
-                                            at all, you're just a click away from getting into your new ride! We at MobiCarz
-                                            provide you various Financing options as listed below:
+                                            No matter what situation you are in, financing a used vehicle is a road we must
+                                            all cross at some point in our lives. Whether you have good credit, bad credit,
+                                            or none at all, you're just a click away from getting into your new ride! We at
+                                            MobiCarz provide you various Financing options as listed below:
                                         </p>
                                     </div>
                                     <p>
@@ -96,7 +96,8 @@
                                                 or repossession, we can get you financed for your used car.</p>
                                         </div>
                                     </div>
-                                    <div class="row description">
+                                    <!-- 
+                                    <div class="row description"  >
                                         <div class="col-sm-12 col-md-3">
                                             <div class="picture">
                                                 <img src="imagesOld/NationWideAutoLending_Logo.jpg">
@@ -111,6 +112,7 @@
                                                 in all 50 states with our local auto finance credit centers.</p>
                                         </div>
                                     </div>
+                                    -->
                                     <div class="row description">
                                         <div class="col-sm-12 col-md-3">
                                             <div class="picture">
@@ -144,91 +146,121 @@
                                                 and striving to deliver solutions to meet those needs.</p>
                                         </div>
                                     </div>
+                                    <br />
+                                    <br />
+                                    <div class="row description">
+                                        <div class="col-md-12">
+                                            <div class="row white block-shadow" style="margin: 30px 0; padding: 20px 10px 20px 10px;">
+                                                <div class="col-sm-12 col-md-12">
+                                                    <h3 class="h3">
+                                                        Sell Your Car- Easy & Fast With Our Premium Packages</h3>
+                                                    <p>
+                                                        More then a million cars sold, already - Sign up for MobiCarz Premium Packages.</p>
+                                                    <input type="button" class="btn btn-primary" value="Sign Up for Premium Packages"
+                                                        style="display: inline-block; width: auto" onclick="window.location.href='Premium.aspx' " />
+                                                </div>
+                                                <div class="col-sm-6 col-md-3" style="display: none;">
+                                                    <h3 class="h3">
+                                                        Used Cars Advertising</h3>
+                                                    <i class="i1">We help you grow your business</i><div class="clear">
+                                                    </div>
+                                                    View our <a href="Packages.aspx">Advertising Plans</a>
+                                                </div>
+                                                <div class="clear">
+                                                </div>
+                                            </div>
+                                            <!-- /.block -->
+                                        </div>
+                                        <!-- /.col-md-12 -->
+                                    </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-4 ">
                                     <div class="block-inner white block-shadow sidebar">
                                         <div class="block-title" style="border-bottom: 1px solid #D9D9D9; margin-bottom: 15px;">
                                             <h2 style="margin: 0 0 15px 0; font-size: 24px;">
-                                                Apply For Loan</h2>
+                                                Apply For A Loan</h2>
                                         </div>
                                         <!-- Form Start  -->
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
-                                                <h4 style="margin: 5px 0; padding: 5px 0; font-size: 19px; color: #003e55l">
-                                                    Buyer's Information</h4>
-                                                <div class="form-section">
-                                                    <div class="form-group ">
-                                                        <label>
-                                                            First Name <span class="star">*</span></label>
-                                                        <asp:TextBox ID="txt_Fname" TabIndex="1" class="form-control" runat="server"></asp:TextBox>
+                                            <asp:UpdatePanel ID="Y1" runat="server">
+                                                <ContentTemplate>
+                                                    <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+                                                        <h4 style="margin: 5px 0; padding: 5px 0; font-size: 19px; color: #003e55l">
+                                                            Buyer's Information</h4>
+                                                        <div class="form-section">
+                                                            <div class="form-group ">
+                                                                <label>
+                                                                    First Name <span class="star">*</span></label>
+                                                                <asp:TextBox ID="txt_Fname" TabIndex="1" class="form-control" runat="server"></asp:TextBox>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <label>
+                                                                    Last Name <span class="star">*</span></label>
+                                                                <asp:TextBox MaxLength="20" ID="txt_LName" TabIndex="2" class="form-control" runat="server"></asp:TextBox>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <label>
+                                                                    Email Address <span class="star">*</span></label>
+                                                                <asp:TextBox ID="txt_email" TabIndex="3" class="form-control" runat="server"></asp:TextBox>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <label>
+                                                                    Primary Phone <span class="star">*</span></label>
+                                                                <asp:TextBox ID="txt_prim1" TabIndex="4" MaxLength="12" class="form-control" runat="server"></asp:TextBox>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <label style="display: block;">
+                                                                    Date of Birth <span class="star">*</span></label>
+                                                                <asp:TextBox ID="txtStartDate" runat="server" class="input1 form-control" MaxLength="10"
+                                                                    onkeypress="return isNumberKeyForDt(event)" Style="width: 150px; display: inline-block"></asp:TextBox>&nbsp;
+                                                                <img id="imgcal" runat="server" style="border-right: 0px; border-top: 0px; border-left: 0px;
+                                                                    border-bottom: 0px" title="Calendar Control" onclick="displayCalendar(document.forms[0].txtStartDate,'mm/dd/yyyy',this);"
+                                                                    alt="Calendar Control" src="images/Calender.gif" width="18" />
+                                                                <asp:TextBox ID="txtEndDate" runat="server" class="input1 " MaxLength="10" onkeypress="return isNumberKeyForDt(event)"
+                                                                    Width="70px" Visible="false"></asp:TextBox>&nbsp;
+                                                                <img id="img1" visible="false" runat="server" style="border-right: 0px; border-top: 0px;
+                                                                    border-left: 0px; border-bottom: 0px" title="Calendar Control" onclick="displayCalendar(document.forms[0].txtStartDate,'mm/dd/yyyy',this);"
+                                                                    alt="Calendar Control" src="images/Calender.gif" width="18" />
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group ">
-                                                        <label>
-                                                            Last Name <span class="star">*</span></label>
-                                                        <asp:TextBox MaxLength="20" ID="txt_LName" TabIndex="2" class="form-control"></asp:TextBox>
+                                                    <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+                                                        <h4 style="margin: 5px 0; padding: 5px 0; font-size: 19px; color: ##003e55">
+                                                            Residential Information</h4>
+                                                        <div class="form-section">
+                                                            <div class="form-group ">
+                                                                <label>
+                                                                    Street Address<span class="star">*</span></label>
+                                                                <asp:TextBox ID="StrAdd" TabIndex="13" class="form-control" runat="server"></asp:TextBox>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <label>
+                                                                    City <span class="star">*</span></label>
+                                                                <asp:TextBox ID="City" TabIndex="14" class="form-control" runat="server"></asp:TextBox>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <label>
+                                                                    State/Province <span class="star">*</span></label>
+                                                                <asp:TextBox ID="Sate" TabIndex="15" class="form-control" runat="server"></asp:TextBox>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <label>
+                                                                    Zip Code <span class="star">*</span></label>
+                                                                <asp:TextBox ID="Zipcode" TabIndex="16" MaxLength="5" class="form-control sample4"
+                                                                    runat="server"></asp:TextBox>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group ">
-                                                        <label>
-                                                            Email Address <span class="star">*</span></label>
-                                                        <asp:TextBox ID="txt_email" TabIndex="3" class="form-control" runat="server"></asp:TextBox>
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                        <asp:UpdatePanel ID="u5" runat="server">
+                                                            <ContentTemplate>
+                                                                <asp:Button ID="btnsubmits" runat="server" Text="SUBMIT APPLICATION" OnClientClick="return validateSend();"
+                                                                    CssClass="btn btn-primary2" OnClick="btnsubmits_click" />
+                                                            </ContentTemplate>
+                                                        </asp:UpdatePanel>
                                                     </div>
-                                                    <div class="form-group ">
-                                                        <label>
-                                                            Primary Phone <span class="star">*</span></label>
-                                                        <asp:TextBox ID="txt_prim1" TabIndex="4" class="form-control" runat="server"></asp:TextBox>
-                                                    </div>
-                                                    <div class="form-group ">
-                                                        <label style="display:block;" >
-                                                            Date of Birth <span class="star">*</span></label>
-                                                             <asp:TextBox ID="txtStartDate" runat="server" class="input1 form-control" MaxLength="10" onkeypress="return isNumberKeyForDt(event)"
-                                                         style="width:150px; display:inline-block "></asp:TextBox>&nbsp;
-                                                        
-                                                        
-                                                        
-                                                    <img id="imgcal" runat="server" style="border-right: 0px; border-top: 0px; border-left: 0px;
-                                                        border-bottom: 0px" title="Calendar Control" onclick="displayCalendar(document.forms[0].txtStartDate,'mm/dd/yyyy',this);"
-                                                        alt="Calendar Control" src="images/Calender.gif" width="18" />
-                                                        
-                                                             <asp:TextBox ID="txtEndDate" runat="server" class="input1 " MaxLength="10" onkeypress="return isNumberKeyForDt(event)"
-                                                        Width="70px" Visible="false"></asp:TextBox>&nbsp;
-                                                    <img id="img1" visible="false" runat="server" style="border-right: 0px; border-top: 0px; border-left: 0px;
-                                                        border-bottom: 0px" title="Calendar Control" onclick="displayCalendar(document.forms[0].txtStartDate,'mm/dd/yyyy',this);"
-                                                        alt="Calendar Control" src="images/Calender.gif" width="18" />
-                                                            
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
-                                                <h4 style="margin: 5px 0; padding: 5px 0; font-size: 19px; color: ##003e55">
-                                                    Residential Information</h4>
-                                                <div class="form-section">
-                                                    <div class="form-group ">
-                                                        <label>
-                                                            Street Address<span class="star">*</span></label>
-                                                        <asp:TextBox ID="StrAdd" TabIndex="13" class="form-control" runat="server"></asp:TextBox>
-                                                    </div>
-                                                    <div class="form-group ">
-                                                        <label>
-                                                            City <span class="star">*</span></label>
-                                                        <asp:TextBox ID="City" TabIndex="14" class="form-control" runat="server"></asp:TextBox>
-                                                    </div>
-                                                    <div class="form-group ">
-                                                        <label>
-                                                            State/Province <span class="star">*</span></label>
-                                                        <asp:TextBox ID="Sate" TabIndex="15" class="form-control" runat="server"></asp:TextBox>
-                                                    </div>
-                                                    <div class="form-group ">
-                                                        <label>
-                                                            Zip Code <span class="star">*</span></label>
-                                                        <asp:TextBox ID="Zipcode" TabIndex="16" MaxLength="7" class="form-control" runat="server"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <asp:Button id="btnsubmits" runat="server" Text="SUBMIT APPLICATION"  OnClientClick="return validateSend();" CssClass="btn btn-primary2"/>
-                                            
-                                              
-                                            </div>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
                                         </div>
                                         <!-- Form End  -->
                                     </div>
@@ -240,35 +272,6 @@
                     <!-- /.col-md-12 -->
                 </div>
                 <!-- /.row -->
-                <div id="content-bottom">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="row white block-shadow" style="margin: 30px 0; padding: 10px 10px 20px 10px;">
-                                <div class="col-sm-6 col-md-9">
-                                    <h3 class="h3">
-                                        Sell Your Car- Easy & Fast With Our Premium Packages</h3>
-                                    <p>
-                                        More then a million cars sold, already - Sign up for MobiCarz Premium Packages.</p>
-                                    <input type="button" class="btn btn-primary" value="Sign Up for Premium Packages"
-                                        style="display: inline-block; width: auto" onclick="window.location.href='Premium.aspx' " />
-                                </div>
-                                <div class="col-sm-6 col-md-3">
-                                    <h3 class="h3">
-                                        Used Cars Advertising</h3>
-                                    <i class="i1">We help you grow your business</i><div class="clear">
-                                    </div>
-                                    View our <a href="Packages.aspx">Advertising Plans</a>
-                                </div>
-                                <div class="clear">
-                                </div>
-                            </div>
-                            <!-- /.block -->
-                        </div>
-                        <!-- /.col-md-12 -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /#content-bottom -->
             </div>
             <!-- /.container -->
         </div>
@@ -307,9 +310,8 @@
     <script type="text/javascript" src="js/jquery.vticker.js"></script>
 
     <script src="js/FillMasterDataNew.js" type="text/javascript"></script>
-     <script src="Static/JS/calendar.js" type="text/javascript"></script>
 
-   
+    <script src="Static/JS/calendar.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         var models;
@@ -341,7 +343,8 @@
             
     
     </script>
-   <script type="text/javascript" language="javascript">
+
+    <script type="text/javascript" language="javascript">
      function isNumberKey(evt)
         {
             var charCode = (evt.which) ? evt.which : event.keyCode
@@ -443,7 +446,13 @@
                 document.getElementById("txt_prim1").value="";
                 document.getElementById("txt_prim1").focus();
             }      
-          
+           else if(document.getElementById('txtStartDate').value.trim().length<1)
+            {
+                alert("Please select Date of Birth.");               
+                valid=false;
+                document.getElementById("txtStartDate").value="";
+                document.getElementById("txtStartDate").focus();
+            } 
             else if(document.getElementById('StrAdd').value.length<1)
             {
                 alert("Please enter the Street Address.");               
@@ -550,7 +559,7 @@
      
     </script>
 
-  <script type="text/javascript" language="javascript">
+    <script type="text/javascript" language="javascript">
     
        function poptastic(url)
 {

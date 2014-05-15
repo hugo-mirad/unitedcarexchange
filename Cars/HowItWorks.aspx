@@ -140,7 +140,7 @@ EnableEventValidation="false" %>
                 <div class="row">
                         <div class="col-md-12">
                             <div class="row white block-shadow" style="margin: 30px 0; padding: 10px 10px 20px 10px;">
-                                <div class="col-sm-6 col-md-9">
+                                <div class="col-sm-12 col-md-12">
                                     <h3 class="h3">
                                         Sell Your Car- Easy & Fast With Our Premium Packages</h3>
                                     <p>
@@ -148,7 +148,7 @@ EnableEventValidation="false" %>
                                     <input type="button" class="btn btn-primary" value="Sign Up for Premium Packages"
                                         style="display: inline-block; width: auto" onclick="window.location.href='Premium.aspx' " />
                                 </div>
-                                <div class="col-sm-6 col-md-3">
+                                <div class="col-sm-6 col-md-3" style=" display:none">
                                     <h3 class="h3">
                                         Used Cars Advertising</h3>
                                     <i class="i1">We help you grow your business</i><div class="clear">

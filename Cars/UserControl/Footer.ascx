@@ -238,15 +238,17 @@
                 <!-- /.title -->
                 <ul class=" footerNav">
                     <li><a href="http://www.mobicarz.com/Default.aspx">Home</a></li>
-                    <li><a href="http://www.mobicarz.com/UsedCars.aspx">Used Cars</a></li>
-                    <li><a href="http://www.mobicarz.com/NewCars.aspx">New Cars</a></li>
-                    <li><a href="http://www.mobicarz.com/Packages.aspx">Sell A Car</a></li>
-                    <li><a href="http://www.mobicarz.com/Dealer.aspx">Car Dealers</a></li>
+                    <li><a href="javascript:void(0);" class="footerBuyCar">Buy A Car</a></li>
+                    <li><a href="Finance.aspx">Finance</a></li>
+                    <li><a href="http://www.mobicarz.com/SellRegi.aspx">Sell A Car</a></li>
+                     <li><a href="http://www.mobicarz.com/HowItWorks.aspx">How It Works</a></li>
+                    <%--<li><a href="http://www.mobicarz.com/Dealer.aspx">Car Dealers</a></li>--%>
                     <%--<li><a href="ContactUs.aspx">Contact Us</a></li>--%>
-                    <li><a href="http://www.mobicarz.com/Finance.aspx">Finance</a></li>
-                    <li><a href="http://www.mobicarz.com/HowItWorks.aspx">How It Works</a></li>
                     <li><a href="http://www.mobicarz.com/Testimonials.aspx">Testimonials</a></li>
-                    <li><a href="http://www.mobicarz.com/TermsandConditions.aspx">T&amp;C</a></li>
+                      <li><a href="http://www.mobicarz.com/TermsandConditions.aspx">T&amp;C</a></li>
+                   <li></li>
+                   <li></li>
+                  
                     <%-- <li><a href="http://www.mobicarz.com/ReturnPolicy.aspx">Return Policy</a></li>
                     <li><a href="http://www.mobicarz.com/MONEY BACK FORM.pdf" target="_blank">Money Back
                         Form</a></li>--%>
@@ -270,7 +272,7 @@
                     <div class="social" style="float: right;">
                         <div class="inner">
                             <ul class="social-links">
-                                <li class="social-icon google-plus"><a href="https://plus.google.com/115003070237722437232"
+                                <li class="social-icon google-plus" style="display:none" ><a href="https://plus.google.com/115003070237722437232"
                                     rel="publisher" target="_blank">Google+</a></li>
                                 <li class="social-icon twitter"><a href="https://twitter.com/MobiCarz" target="_blank">
                                     Twitter</a></li>

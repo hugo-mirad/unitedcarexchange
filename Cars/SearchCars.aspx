@@ -409,7 +409,7 @@
         var make1 = 'All makes';
         var Modal1 = 'All models';
         var ZipCode1 = '';
-        var WithinZipNew = 5;
+        var WithinZipNew = 4;
 
         $(window).load(function() {
             pageLoad1()

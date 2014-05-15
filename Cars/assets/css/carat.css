@@ -4449,6 +4449,29 @@ margin-bottom: 15px; display:block; text-decoration:none;}
 
 
 
+@media(max-width: 1199px) and (min-width: 768px){
+	
+	#header .header-inner .brand {
+		float: none;
+		text-align: center;
+	}	
+	#header .header-inner .navbar-collapse {
+		text-align:center;
+	}
+	#header .header-inner .navigation {
+		border-top: 1px solid rgba(0, 0, 0, 0.1);
+		display: inline-block;
+		float: none;
+		margin-top: 25px;
+		padding-top: 20px;
+		text-align: left;
+	}
+}
+
+
+
+
+
 
 
 

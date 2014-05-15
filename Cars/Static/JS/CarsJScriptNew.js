@@ -180,7 +180,7 @@ function OnSuccessGetModelsInfo2(result, userContext, methodName) {
 function CarsSearch(carMake, CarModal, ZipCode, WithinZip) {
     
   // window.location.href = 'http://localhost:44251/Cars/SearchCars.aspx?Make=' + carMake + '&Model=' + CarModal + '&ZipCode=' + ZipCode + '&WithinZip=' + WithinZip + '';
-    window.location.href = 'http://www.mobicarz.com/SearchCars.aspx?Make=' + carMake + '&Model=' + CarModal + '&ZipCode=' + ZipCode + '&WithinZip=' + 5 + '';
+    window.location.href = 'http://www.mobicarz.com/SearchCars.aspx?Make=' + carMake + '&Model=' + CarModal + '&ZipCode=' + ZipCode + '&WithinZip=' + withinGlobal + '';
     //http://www.mobicarz.com/
 
 }
@@ -831,14 +831,14 @@ function OnSuccessbuyCarChekZip(result, userContext, methodName){
      try {
 
         if (result == true) {
-            CarsSearch('All makes', 'All models', $('.buyzip').val(), '5', '1', '25', 'yearOfMake');
+            CarsSearch('All makes', 'All models', $('.buyzip').val(), withinGlobal, '1', '25', 'yearOfMake');
             $.cookie('userZip', $('.buyzip').val())
-            CarsService.SearchCriteriaSave('0', '0', $('.buyzip').val(), '5', OnSuccessSearchCriteriaSave, onerror);
+            CarsService.SearchCriteriaSave('0', '0', $('.buyzip').val(), withinGlobal, OnSuccessSearchCriteriaSave, onerror);
         }
         else {
             hideSpinner();
             
-            //CarsSearch($('#make option:selected').val(), $('#model option:selected').val(),$('#yourZip').val(), $('#within option:selected').val(), '1', '25', 'price');
+            //CarsSearch($('#make option:selected').val(), $('#model option:selected').val(),$('#yourZip').val(), withinGlobal, '1', '25', 'price');
             alert('Oops! we could not locate the zip you entered. Please enter another zip code');
             $('.buyzip').val('').focus();    
             return false;        
@@ -861,14 +861,14 @@ function OnSuccessGetZips(result, userContext, methodName) {
     try {
 
         if (result == true) {
-            CarsSearch($('#make option:selected').text(), $('#model option:selected').text(), $('#yourZip').val(), $('#within option:selected').val(), '1', '25', 'yearOfMake');
+            CarsSearch($('#make option:selected').text(), $('#model option:selected').text(), $('#yourZip').val(), withinGlobal, '1', '25', 'yearOfMake');
             $.cookie('userZip', $('#yourZip').val())
-            CarsService.SearchCriteriaSave($('#make option:selected').val(), $('#model option:selected').val(), $('#yourZip').val(), $('#within option:selected').val(), OnSuccessSearchCriteriaSave, onerror);
+            CarsService.SearchCriteriaSave($('#make option:selected').val(), $('#model option:selected').val(), $('#yourZip').val(), withinGlobal, OnSuccessSearchCriteriaSave, onerror);
         }
         else {
             hideSpinner();
             
-            //CarsSearch($('#make option:selected').val(), $('#model option:selected').val(),$('#yourZip').val(), $('#within option:selected').val(), '1', '25', 'price');
+            //CarsSearch($('#make option:selected').val(), $('#model option:selected').val(),$('#yourZip').val(), withinGlobal, '1', '25', 'price');
             alert('Oops! we could not locate the zip you entered. Please enter another zip code');
             $('#yourZip').val('').focus();            
         }
@@ -908,7 +908,7 @@ function OnSuccessGetZips2(result, userContext, methodName) {
         else {
             hideSpinner();
             $('#yourZip').val('');
-            //CarsSearch($('#make option:selected').val(), $('#model option:selected').val(),$('#yourZip').val(), $('#within option:selected').val(), '1', '25', 'price'); 
+            //CarsSearch($('#make option:selected').val(), $('#model option:selected').val(),$('#yourZip').val(), withinGlobal, '1', '25', 'price'); 
             alert('Oops! we could not locate the zip you entered. Please enter another zip code');
         }
     }
@@ -1012,7 +1012,7 @@ function OnSuccessGetCarBannerAds(result, userContext, methodName) {
         json = xmlToJson(result);
 
         CarBannerAds = json["ArrayOfUsedCarsInfo"]["UsedCarsInfo"];
-
+ 
 
         if (CarBannerAds != undefined) {
 

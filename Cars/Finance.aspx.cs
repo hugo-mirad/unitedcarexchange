@@ -10,6 +10,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using CarsBL.Transactions;
 
 public partial class Finance : System.Web.UI.Page
 {
@@ -36,5 +37,20 @@ public partial class Finance : System.Web.UI.Page
 
 
         }
+    }
+
+    public void btnsubmits_click(object sender,EventArgs e)
+    {
+        String strHostName = Request.UserHostAddress.ToString();
+          string strIp = System.Net.Dns.GetHostAddresses(strHostName).GetValue(0).ToString();
+        VisitSiteLog objVisitSiteLog = new VisitSiteLog();
+
+        objVisitSiteLog.USp_secondcarlaonsapplication(2001 ,DateTime.Now ,strIp,txt_Fname.Text ,
+         txt_LName.Text,txt_email.Text,txt_prim1.Text,Convert.ToDateTime(txtStartDate.Text).ToString() ,StrAdd.Text,City.Text,
+          Sate.Text,Zipcode.Text);
+        txt_Fname.Text = ""; txt_LName.Text = ""; txt_email.Text = ""; txt_prim1.Text = ""; txtStartDate.Text = ""; StrAdd.Text = ""; City.Text = ""; Sate.Text = ""; Zipcode.Text = "";  
+     System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "alert('Thank you.Your application is submitted successfully.');", true);
+
+    
     }
 }
