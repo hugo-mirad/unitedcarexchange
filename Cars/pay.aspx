@@ -554,8 +554,11 @@
                                 <div class="col-sm-4 col-md-3">
                                     <div class="next">
                                         <%--OnClick="SubmitButton_Click"--%>
-                                        <asp:Button ID="SubmitButton" runat="server" Text="Submit Payment" CausesValidation="true"
-                                            ValidationGroup="Authorize" CssClass="btn btn-primary" OnClientClick="return CheckCardNumber(this.form)" />
+                                      <%--  <asp:Button ID="SubmitButton" runat="server" Text="Submit Payment" CausesValidation="true"
+                                            ValidationGroup="Authorize" CssClass="btn btn-primary" OnClientClick="return CheckCardNumber(this.form)" />--%>
+                                            
+                                            <asp:Button ID="SubmitButton" runat="server" Text="Submit Payment" CausesValidation="true"
+                                            ValidationGroup="Authorize" CssClass="btn btn-primary" OnClick="SubmitButton_Click" />
                                     </div>
                                 </div>
                             </div>

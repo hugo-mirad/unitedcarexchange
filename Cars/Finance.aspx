@@ -153,11 +153,12 @@
                                             <div class="row white block-shadow" style="margin: 30px 0; padding: 20px 10px 20px 10px;">
                                                 <div class="col-sm-12 col-md-12">
                                                     <h3 class="h3">
-                                                        Sell Your Car- Easy & Fast With Our Premium Packages</h3>
+                                                        Sell Your Car- Easy & Fast With Our Ultimate Packages</h3>
                                                     <p>
-                                                        More then a million cars sold, already - Sign up for MobiCarz Premium Packages.</p>
-                                                    <input type="button" class="btn btn-primary" value="Sign Up for Premium Packages"
-                                                        style="display: inline-block; width: auto" onclick="window.location.href='Premium.aspx' " />
+                                                        More then a million cars sold, already.
+                                                    </p>
+                                                    <input type="button" class="btn btn-primary" value="Sign Up For MobiCarz Packages"
+                                                        style="display: inline-block; width: auto" onclick="window.location.href='Sellregi.aspx' " />
                                                 </div>
                                                 <div class="col-sm-6 col-md-3" style="display: none;">
                                                     <h3 class="h3">
@@ -241,7 +242,69 @@
                                                             <div class="form-group ">
                                                                 <label>
                                                                     State/Province <span class="star">*</span></label>
-                                                                <asp:TextBox ID="Sate" TabIndex="15" class="form-control" runat="server"></asp:TextBox>
+                                                                <asp:DropDownList ID="Sate" TabIndex="15" class="form-control" runat="server">
+                                                                    <asp:ListItem Value="0">Unspecified</asp:ListItem>
+                                                                    <asp:ListItem Value="2">AK</asp:ListItem>
+                                                                    <asp:ListItem Value="1">AL</asp:ListItem>
+                                                                    <asp:ListItem Value="5">AR</asp:ListItem>
+                                                                    <asp:ListItem Value="3">AS</asp:ListItem>
+                                                                    <asp:ListItem Value="4">AZ</asp:ListItem>
+                                                                    <asp:ListItem Value="6">CA</asp:ListItem>
+                                                                    <asp:ListItem Value="7">CO</asp:ListItem>
+                                                                    <asp:ListItem Value="8">CT</asp:ListItem>
+                                                                    <asp:ListItem Value="10">DC</asp:ListItem>
+                                                                    <asp:ListItem Value="9">DE</asp:ListItem>
+                                                                    <asp:ListItem Value="12">FL</asp:ListItem>
+                                                                    <asp:ListItem Value="11">FM</asp:ListItem>
+                                                                    <asp:ListItem Value="13">GA</asp:ListItem>
+                                                                    <asp:ListItem Value="14">GU</asp:ListItem>
+                                                                    <asp:ListItem Value="15">HI</asp:ListItem>
+                                                                    <asp:ListItem Value="18">IA</asp:ListItem>
+                                                                    <asp:ListItem Value="59">ID</asp:ListItem>
+                                                                    <asp:ListItem Value="16">IL</asp:ListItem>
+                                                                    <asp:ListItem Value="17">IN</asp:ListItem>
+                                                                    <asp:ListItem Value="19">KS</asp:ListItem>
+                                                                    <asp:ListItem Value="20">KY</asp:ListItem>
+                                                                    <asp:ListItem Value="21">LA</asp:ListItem>
+                                                                    <asp:ListItem Value="25">MA</asp:ListItem>
+                                                                    <asp:ListItem Value="24">MD</asp:ListItem>
+                                                                    <asp:ListItem Value="22">ME</asp:ListItem>
+                                                                    <asp:ListItem Value="23">MH</asp:ListItem>
+                                                                    <asp:ListItem Value="26">MI</asp:ListItem>
+                                                                    <asp:ListItem Value="27">MN</asp:ListItem>
+                                                                    <asp:ListItem Value="29">MO</asp:ListItem>
+                                                                    <asp:ListItem Value="39">MP</asp:ListItem>
+                                                                    <asp:ListItem Value="28">MS</asp:ListItem>
+                                                                    <asp:ListItem Value="30">MT</asp:ListItem>
+                                                                    <asp:ListItem Value="37">NC</asp:ListItem>
+                                                                    <asp:ListItem Value="38">ND</asp:ListItem>
+                                                                    <asp:ListItem Value="31">NE</asp:ListItem>
+                                                                    <asp:ListItem Value="33">NH</asp:ListItem>
+                                                                    <asp:ListItem Value="34">NJ</asp:ListItem>
+                                                                    <asp:ListItem Value="35">NM</asp:ListItem>
+                                                                    <asp:ListItem Value="32">NV</asp:ListItem>
+                                                                    <asp:ListItem Value="36">NY</asp:ListItem>
+                                                                    <asp:ListItem Value="40">OH</asp:ListItem>
+                                                                    <asp:ListItem Value="41">OK</asp:ListItem>
+                                                                    <asp:ListItem Value="60">ON</asp:ListItem>
+                                                                    <asp:ListItem Value="42">OR</asp:ListItem>
+                                                                    <asp:ListItem Value="44">PA</asp:ListItem>
+                                                                    <asp:ListItem Value="45">PR</asp:ListItem>
+                                                                    <asp:ListItem Value="43">PW</asp:ListItem>
+                                                                    <asp:ListItem Value="46">RI</asp:ListItem>
+                                                                    <asp:ListItem Value="47">SC</asp:ListItem>
+                                                                    <asp:ListItem Value="48">SD</asp:ListItem>
+                                                                    <asp:ListItem Value="49">TN</asp:ListItem>
+                                                                    <asp:ListItem Value="50">TX</asp:ListItem>
+                                                                    <asp:ListItem Value="51">UT</asp:ListItem>
+                                                                    <asp:ListItem Value="54">VA</asp:ListItem>
+                                                                    <asp:ListItem Value="53">VI</asp:ListItem>
+                                                                    <asp:ListItem Value="52">VT</asp:ListItem>
+                                                                    <asp:ListItem Value="55">WA</asp:ListItem>
+                                                                    <asp:ListItem Value="57">WI</asp:ListItem>
+                                                                    <asp:ListItem Value="56">WV</asp:ListItem>
+                                                                    <asp:ListItem Value="58">WY</asp:ListItem>
+                                                                </asp:DropDownList>
                                                             </div>
                                                             <div class="form-group ">
                                                                 <label>
@@ -479,25 +542,8 @@
                 document.getElementById("City").value="";
                 document.getElementById("City").focus();
             }
-            else if(document.getElementById('Sate').value.length<1)
-            {
-                alert("Please enter the State.");               
-                valid=false;
-                document.getElementById("Sate").focus();
-            }
-            else if(document.getElementById('Sate').value.trim().length<1)
-            {
-                alert("Please enter the State.");               
-                valid=false;
-                document.getElementById("Sate").value="";
-                document.getElementById("Sate").focus();
-            }
-             else if(document.getElementById('Zipcode').value.length<1)
-            {
-                alert("Please enter the ZipCode.");               
-                valid=false;
-                document.getElementById("Zipcode").focus();
-            }
+          
+           
             else if(document.getElementById('Zipcode').value.trim().length<1)
             {
                 alert("Please enter the Zipcode.");               
@@ -505,6 +551,18 @@
                 document.getElementById("Zipcode").value="";
                 document.getElementById("Zipcode").focus();
             }
+            
+            
+              if (document.getElementById('<%=Sate.ClientID%>').value == "0") {
+            {
+            
+                alert("Please select the State.");               
+                valid=false;
+                document.getElementById("Sate").value="";
+                document.getElementById("Sate").focus();
+            }
+           
+             
             
             return valid;
         } 

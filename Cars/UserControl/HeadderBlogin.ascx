@@ -16,6 +16,7 @@
                 stopTimer();
                 
                 if($.cookie('userZip')){
+                    $('.buyzip').val($.cookie('userZip'));
                     buySearch();
                 }else{
                     $find('HeadderBlogin1_MdlBuyacar').show();
@@ -41,7 +42,7 @@
               if (document.getElementById('<%=ddlmakesp.ClientID%>').value == "0") {
                 alert('Please select make')
                 valid = false;
-                document.getElementById('ddlmakesp').focus();
+                document.getElementById('ddlmakesp').focus();   
                 return valid;
             }
             else   if (document.getElementById('<%=ddlmodelsp.ClientID%>').value == "0") {
@@ -153,16 +154,15 @@
 	
 	function resetTimer(){
 
-	    if($.cookie('PrefCookie') == 'Pref'){
-	        subTimer = setInterval(function(){alertCall()},parseInt($.trim($('.HdnSubScribeValue').text())))
-	  
-	  }
+	    if($.cookie('PrefCookie') && $.cookie('PrefCookie') == 'Pref'){
+	        subTimer = setInterval(function(){alertCall()},parseInt($.trim($('.HdnSubScribeValue').text())));	  
+	    }
 	  }
 	
 	$(function(){	
 	   if($('#accountLi').length <= 0){
 	        resetTimer();
-	    }
+	   }
 	
 	    	
 	    
@@ -436,7 +436,7 @@ across the country using web, mobile & social media
                         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                             <ContentTemplate>                               
                                 
-                                <asp:TextBox ID="buyzip" CssClass="form-control buyzip sample4" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="buyzip" MaxLength="5" CssClass="form-control buyzip sample4" runat="server"></asp:TextBox>
                                 
                             </ContentTemplate>
                         </asp:UpdatePanel>

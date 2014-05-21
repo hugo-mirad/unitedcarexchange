@@ -62,11 +62,29 @@
 
         cPage = 'Reg';
         
+        function pLoad(){
+            $('#spinner').show();
+        }
+        
+        function backPage(){
+            $('#spinner').show();
+            window.location.href="RegisterPlaceAd.aspx"
+        }
+        
+            function backPage1(){
+            $('#spinner').show();
+            window.location.href="Registration.aspx"
+        }
+        
+        function hidePop(){
+            $('#spinner').hide();
+        }
+        
                 
     </script>
 
 </head>
-<body>
+<body  >
     <form id="form1" runat="server">
     <cc1:ToolkitScriptManager ID="scrptmgr" runat="server">
     </cc1:ToolkitScriptManager>
@@ -82,7 +100,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3 col-md-3">
-                        <a class="progress-step done" href="javascript:void(0);">
+                        <a class="progress-step done" href="javascript:backPage1();">
                             <div class="circle">
                                 <i class="icon icon-normal-mark-tick"></i>
                             </div>
@@ -91,7 +109,7 @@
                         </a>
                     </div>
                     <div class="col-sm-3 col-md-3">
-                        <a class="progress-step done" href="javascript:void(0);">
+                        <a class="progress-step done" href="javascript:backPage();">
                             <div class="circle">
                                 <i class="icon icon-normal-mark-tick"></i>
                             </div>
@@ -236,7 +254,7 @@
                                             <div class="checkout-actions">
                                                 <div class="col-sm-4 col-md-3">
                                                     <div class="prev">
-                                                        <a href="RegisterPlaceAd.aspx" class=" btn btn-link ">< Back To Vehicle Information</a>
+                                                        <a href="javascript:backPage();" class="btn btn-primary">< Back</a>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4 col-md-3">
@@ -249,8 +267,13 @@
                                                 </div>
                                                 <div class="col-sm-4 col-md-3">
                                                     <div class="next">
+                                                    <asp:UpdatePanel ID="c1" runat="server">
+                                                    <ContentTemplate>
                                                         <asp:Button ID="btnContinue" runat="server" CssClass="btn btn-primary" Text="Add photos later >"
                                                             OnClick="btnContinue_Click" OnClientClick=" return showPop()  " />
+                                                    </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                    
                                                     </div>
                                                 </div>
                                             </div>
@@ -462,6 +485,58 @@
         </div>
     </div>
     <!-- Alerts End  -->
+    <cc1:ModalPopupExtender ID="mdlPaySucc" runat="server" PopupControlID="divlPaySuccss"
+        BackgroundCssClass="ModalPopupBG" TargetControlID="hdnBuyacar">
+    </cc1:ModalPopupExtender>
+    <asp:HiddenField ID="hdnBuyacar" runat="server" />
+    <div id="divlPaySuccss" class="alert" style="height: auto; padding-bottom: 15px;
+        max-width: 750px; width: 70%; display: none;">
+        <h4 id="H6">
+            Success Registration
+            <div style="display:none;">
+            <asp:UpdatePanel ID="i1" runat="server">
+                <ContentTemplate>
+                    <asp:LinkButton ID="btnsubScribUs" runat="server" class="cls" Text="" Style="border-width: 0px;"
+                        OnClick="btnsuccess_click"></asp:LinkButton>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            </div>
+        </h4>
+        <div class="data">
+            <div class="row" style="color: #333;">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="width:750px;">
+                    <div class="form-section">
+                        <div class="form-group " id="Div4" runat="server">
+                            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                                <ContentTemplate>
+                                    <asp:Label ID="txtsuccs" runat="server" Text="Success"></asp:Label>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: right; margin: 10px 0;">
+                <div style="float: right; width: 80px;">
+                    <asp:UpdatePanel ID="UpdatePanel6" runat="server">
+                        <ContentTemplate>
+                            <asp:Button ID="btnsuccess" runat="server" Text="Ok" class="btn btn-primary2 "
+                                OnClick="btnsuccess_click" />
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+                &nbsp; &nbsp;
+                <div style="float: right; width: 80px;display:none;">
+                    <asp:UpdatePanel ID="UpdatePanel7" runat="server">
+                        <ContentTemplate>
+                            <asp:Button ID="btncancelpopclick" runat="server" Text="Cancel" class="btn btn-default "
+                                OnClick="btnsuccess_click" />
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="libraries/jquery.bxslider/jquery.bxslider.js"></script>
 
@@ -535,12 +610,16 @@
         function maxPhotos() {
             alert(hdnMaxPhotos.value());
         }
-
+        
+        $(function(){
+            $('#spinner').show();
+        })
+        
 
         $(window).load(function() {
             //alert('Window Load')
             $('#maxPho').text($.trim($('#MaxPhotos').val()))
-            FindRegCarID($.trim($('#hdnId').val()))
+            FindRegCarID($.trim($('#hdnId').val()));
         })
         
     </script>

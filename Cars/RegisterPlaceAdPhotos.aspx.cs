@@ -47,12 +47,12 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                     lblSyear.Text = Session["SelYear"].ToString();
                     lblSmake.Text = Session["SelMake"].ToString();
                     lblSmodel.Text = Session["SelModel"].ToString();
-                    lblSprice.Text = Session["SelPrice"].ToString();             
+                    lblSprice.Text = Session["SelPrice"].ToString();
 
                 }
                 else
                 {
-                    Response.Redirect("Packages.aspx");
+                    Response.Redirect("SellRegi.aspx");
 
                 }
 
@@ -109,13 +109,17 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 Session["MaxPhotos"] = dsImages.Tables[1].Rows[0]["Maxphotos"].ToString();
                 MaxPhotos.Value = dsImages.Tables[1].Rows[0]["Maxphotos"].ToString();
 
-                
+
 
 
                 //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "success", "maxPhotos();", true);
                 btnContinue.Text = "Add Photos Later >";
 
-
+                try
+                {
+                    hdnId.Value = Session["CarID"].ToString();
+                }
+                catch { }
 
 
 
@@ -152,7 +156,7 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
 
                     ImageName.Visible = true;
                     //ImageName.ImageUrl = "http://unitedcarexchange.com/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
-                  //  ImageName.ImageUrl = "http://localhost:44251/Cars/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
+                    //  ImageName.ImageUrl = "http://localhost:44251/Cars/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
                     ImageName.ImageUrl = "http://www.images.mobicarz.com/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
                 }
                 else
@@ -196,7 +200,21 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("PaymentMode.aspx");
+
+                int PostingID = Convert.ToInt32(Session["PostingID"].ToString());
+                int UserPackID = Convert.ToInt32(Session["RegUserPackID"].ToString());
+                int UID = Convert.ToInt32(Session["RegUSER_ID"].ToString());
+                bool bnew = objBankDetailsBL.USP_UpdateInfoForFreePackage(PostingID, UserPackID, UID);
+                string LoginPassword = Session["RegPassword"].ToString();
+                string LoginName = Session["RegUserName"].ToString();
+                SendRegisterMail(LoginName, LoginPassword);
+                //sending mail to info
+                SendRegisterMailInfo(LoginName, LoginPassword);
+                // Response.Redirect("PaymentMode.aspx");
+                txtsuccs.Text = "<b>Registration Successful</b><br>Thank you for registering with MobiCarz. One of our customer representative will contact you shortly.";
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "hidePop();", true);
+  
+                mdlPaySucc.Show();
             }
 
             //mdepAlertForAsk.Show();
@@ -219,6 +237,7 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
         //{
         //}
     }
+
     protected void imageOrder_Click(object sender, EventArgs e)
     {
         try
@@ -543,19 +562,89 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
             text = format.SendRegistrationdetails(UserLoginID, LoginPassword, UserDisName, ref text);
             msg.Body = text.ToString();
             SmtpClient smtp = new SmtpClient();
-            //smtp.Host = "smtp.gmail.com";
-            //smtp.Port = 587;
-            //smtp.Credentials = new System.Net.NetworkCredential("satheesh.aakula@gmail.com", "hugomirad");
-            //smtp.EnableSsl = true;
-            //smtp.Send(msg);
-            smtp.Host = "127.0.0.1";
-            smtp.Port = 25;
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.Credentials = new System.Net.NetworkCredential("padmaece409@gmail.com", "dharma853");
+            smtp.EnableSsl = true;
             smtp.Send(msg);
+            //smtp.Host = "127.0.0.1";
+            //smtp.Port = 25;
+            //smtp.Send(msg);
         }
         catch (Exception ex)
         {
         }
     }
+    private void SendRegisterMailInfo(string LoginName, string LoginPassword)
+    {
+        try
+        {
+            string UserDisName = Session["RegName"].ToString();
+            string UserLoginID = Session["RegLogUserID"].ToString();
+            clsMailFormats format = new clsMailFormats();
+
+            //Sending Mail//
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress("padma@datumglobal.net");
+            msg.To.Add("padmaece409@gmail.com");
+            msg.Subject = "Mobicarz Custome registered Information";
+            string EmailBody = DesignMail_Body();
+            msg.Body = EmailBody;
+            msg.IsBodyHtml = true;
+
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.Credentials = new System.Net.NetworkCredential("padmaece409@gmail.com", "dharma853");
+            smtp.EnableSsl = true;
+            smtp.Send(msg);
+
+
+
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
+
+    private string DesignMail_Body()
+    {
+        string Fname = "",Ph = "", Lname = "", Email = "", packageid = "", strTransaction = string.Empty;
+
+        try
+        {
+           
+            Fname = Session["RegName"].ToString();
+            Ph = Session["RegPhoneNumber"].ToString();
+            Lname = Session["Lastname"].ToString();
+            Email = Session["sEmail"].ToString();
+            packageid = Session["PackgeName"].ToString() + " (" + Session["PackgePrice"].ToString() +")";
+
+        }
+        catch { }
+        string message = "This is the Information Regarding Mobicarz Customer" ;
+
+        string Message1 = "Sincerely,<br>The MobiCarz Team<br>(888)465-6693";
+
+ 
+
+
+        strTransaction += " <table> <tr> <td style=\"width: 43%; vertical-align: top;\" class=\"form1\">  <h4> "+message+"</h4>";
+        strTransaction += " <tr><td>First Name:</td><td>" + Fname + "</td></tr>";
+        strTransaction += " <tr><td>Last Name:</td><td>" + Lname + "</td></tr>";
+        strTransaction += " <tr><td>Phone No.:</td><td>" + Ph + "</td></tr>";
+        strTransaction += " <tr><td>Email Id:</td><td>" + Email + "</td></tr>";
+        strTransaction += " <tr><td>Package:</td><td>" + packageid + "</td></tr>";
+        strTransaction += " <tr></tr>";
+        strTransaction += " <tr></tr>";
+        strTransaction += "<tr><td>" + Message1 + "</td> </tr>";
+        strTransaction += " <tr><td colspan=\"2\">&nbsp; </td> </tr></table> </td></tr></table>";
+
+        return strTransaction;
+
+    }
+
     protected void btnAskYes_Click(object sender, EventArgs e)
     {
         try
@@ -601,28 +690,28 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
         btnContinue.Text = "Continue >";
         //try
         //{
-            if ((Session["isActive"].ToString() != "True") && (Session["PackageID"].ToString() == "1"))
-            {
-                int PostingID = Convert.ToInt32(Session["PostingID"].ToString());
-                int UserPackID = Convert.ToInt32(Session["RegUserPackID"].ToString());
-                int UID = Convert.ToInt32(Session["RegUSER_ID"].ToString());
+        if ((Session["isActive"].ToString() != "True") && (Session["PackageID"].ToString() == "1"))
+        {
+            int PostingID = Convert.ToInt32(Session["PostingID"].ToString());
+            int UserPackID = Convert.ToInt32(Session["RegUserPackID"].ToString());
+            int UID = Convert.ToInt32(Session["RegUSER_ID"].ToString());
 
-                string LoginPassword = Session["RegPassword"].ToString();
-                string LoginName = Session["RegUserName"].ToString();
-                SendRegisterMail(LoginName, LoginPassword);
-               // mdepAlertExists.Show();
+            string LoginPassword = Session["RegPassword"].ToString();
+            string LoginName = Session["RegUserName"].ToString();
+            SendRegisterMail(LoginName, LoginPassword);
+            // mdepAlertExists.Show();
 
 
-               // lblErr.Text = "Photos uploaded successfully..!";
-                //mpealteruser.Show();
+            // lblErr.Text = "Photos uploaded successfully..!";
+            //mpealteruser.Show();
 
-            }
-            else
-            {
-                Session["SelUploadedImg"] = hdnUploadedImages.Value;
-                Response.Redirect("PaymentMode.aspx");
+        }
+        else
+        {
+            Session["SelUploadedImg"] = hdnUploadedImages.Value;
+            Response.Redirect("PaymentMode.aspx");
 
-            }
+        }
         //}
         //catch (Exception ex)
         //{
@@ -634,6 +723,39 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
 
 
     }
+    public void btnsuccess_click(object sender, EventArgs e)
+    {
+        Response.Redirect("Default.aspx");
+    }
 
+
+    //try
+    //  {
+    //      string UserDisName = Session["RegName"].ToString();
+    //      string UserLoginID = Session["RegLogUserID"].ToString();
+
+    //      clsMailFormats format = new clsMailFormats();
+    //      MailMessage msg = new MailMessage();
+    //      msg.From = new MailAddress(CommonVariable.FromInfoMail);
+    //      msg.To.Add(LoginName);
+    //      msg.Bcc.Add(CommonVariable.ArchieveMail);
+    //      msg.Subject = "Registration details from MobiCarz for Car ID# " + Session["CarID"].ToString();
+    //      msg.IsBodyHtml = true;
+    //      string text = string.Empty;
+    //      text = format.SendRegistrationdetails(UserLoginID, LoginPassword, UserDisName, ref text);
+    //      msg.Body = text.ToString();
+    //      SmtpClient smtp = new SmtpClient();
+    //      //smtp.Host = "smtp.gmail.com";
+    //      //smtp.Port = 587;
+    //      //smtp.Credentials = new System.Net.NetworkCredential("satheesh.aakula@gmail.com", "hugomirad");
+    //      //smtp.EnableSsl = true;
+    //      //smtp.Send(msg);
+    //      smtp.Host = "127.0.0.1";
+    //      smtp.Port = 25;
+    //      smtp.Send(msg);
+    //  }
+    //  catch (Exception ex)
+    //  {
+    //  }
 
 }

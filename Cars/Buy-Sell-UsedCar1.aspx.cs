@@ -34,7 +34,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-
+      //  mdlPDetalerts.Show();
         if (Session[Constants.NAME] != null)
         {
 
@@ -1341,5 +1341,39 @@ public partial class SearchCarDetails : System.Web.UI.Page
     {
         MdlBuyacar.Hide();
         System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "resetTimer();", true);
+    }
+
+
+    public void btnDetailClick_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            txt_DEmail.Text = "";
+            txt_DFrstName.Text = "";
+            txt_Dlastname.Text = "";
+            txt_DPhn.Text = "";
+            String strHostName = Request.UserHostAddress.ToString();
+            string strIp = System.Net.Dns.GetHostAddresses(strHostName).GetValue(0).ToString();
+
+            Response.Cookies["PrefCookie"].Value = ddlmakesp.SelectedItem + "- " + ddlmodelsp.SelectedItem + " -" + ddlyearp.Text;
+            Session["Pref"] = Response.Cookies["PrefCookie"].Value;
+            VisitSiteLog objVisitSiteLog = new VisitSiteLog();
+            string cat = Session["carid"].ToString();
+            objVisitSiteLog.InsertSimlarCarPref(Session["carid"].ToString(), txt_DFrstName.Text, txt_Dlastname.Text, txt_DEmail.Text,
+                txt_DPhn.Text, strIp, DateTime.Now);
+            //System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "EmailNAClick();", true);
+            mdlPDetalerts.Hide();
+            System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "alert('You are subscribed suceessfully for email alerts.');", true);
+
+
+        }
+        catch { }
+    }
+
+
+    public void btnDetCancelClick_click(object sender, EventArgs e)
+    {
+        mdlPDetalerts.Hide();
+
     }
 }

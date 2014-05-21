@@ -415,5 +415,43 @@ namespace CarsBL.Transactions
             }
 
         }
+
+
+
+        public DataSet InsertSimlarCarPref(string carid, string FirstName,
+         string Lastnmae, string Email, string PhoneNumber, string IPAddress, DateTime ApplyTime)
+        {
+            bool returnValue = false;
+            string spNameString = string.Empty;
+            DataSet dsUserInfo = new DataSet();
+            Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+            spNameString = "USP_InsertSimlarCarPref";
+            DbCommand dbCommand = null;
+
+            try
+            {
+
+
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                dbDatabase.AddInParameter(dbCommand, "@carid", System.Data.DbType.String, carid);
+                dbDatabase.AddInParameter(dbCommand, "@FirstName", System.Data.DbType.String, FirstName);
+                dbDatabase.AddInParameter(dbCommand, "@Lastnmae", System.Data.DbType.String, Lastnmae);
+                dbDatabase.AddInParameter(dbCommand, "@Email", System.Data.DbType.String, Email);
+                dbDatabase.AddInParameter(dbCommand, "@PhoneNumber", System.Data.DbType.String, PhoneNumber);
+                dbDatabase.AddInParameter(dbCommand, "@IpAddress", System.Data.DbType.String, IPAddress);
+                dbDatabase.AddInParameter(dbCommand, "@ApplyTime", System.Data.DbType.DateTime, ApplyTime);
+               
+                dsUserInfo = dbDatabase.ExecuteDataSet(dbCommand);
+
+                //blnSuccess = objUserLog.SaveUserLog(UserLogInfo, ref lngReturn, "");
+                return dsUserInfo;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }

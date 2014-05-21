@@ -41,9 +41,8 @@ namespace CarsBL.Transactions
             DbCommand dbCommand = null;
 
             try
-          
             {
-           
+
 
                 dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
 
@@ -186,39 +185,39 @@ namespace CarsBL.Transactions
             spNameString = "Usp_Save_RegisterLogUser";
             DbCommand dbCommand = null;
 
-           // try
-         //   {
-                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+            // try
+            //   {
+            dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
 
-                dbDatabase.AddInParameter(dbCommand, "@Name", System.Data.DbType.String, objUserregisInfo.Name);
-                dbDatabase.AddInParameter(dbCommand, "@UserName", System.Data.DbType.String, objUserregisInfo.UserName);
-                dbDatabase.AddInParameter(dbCommand, "@Pwd", System.Data.DbType.String, objUserregisInfo.Pwd);
-                dbDatabase.AddInParameter(dbCommand, "@PhoneNumber", System.Data.DbType.String, objUserregisInfo.PhoneNumber);
-                dbDatabase.AddInParameter(dbCommand, "@isActive", System.Data.DbType.Int32, 1);
-                dbDatabase.AddInParameter(dbCommand, "@CouponCode", System.Data.DbType.String, objUserregisInfo.CouponCode);
-                dbDatabase.AddInParameter(dbCommand, "@ReferCode", System.Data.DbType.String, objUserregisInfo.ReferCode);
-                dbDatabase.AddInParameter(dbCommand, "@PackageID", System.Data.DbType.Int32, objUserregisInfo.PackageID);
-                dbDatabase.AddInParameter(dbCommand, "@StateID", System.Data.DbType.Int32, objUserregisInfo.StateID);
-                dbDatabase.AddInParameter(dbCommand, "@City", System.Data.DbType.String, objUserregisInfo.City);
-                dbDatabase.AddInParameter(dbCommand, "@Address", System.Data.DbType.String, objUserregisInfo.Address);
-                dbDatabase.AddInParameter(dbCommand, "@Zip", System.Data.DbType.String, objUserregisInfo.Zip);
+            dbDatabase.AddInParameter(dbCommand, "@Name", System.Data.DbType.String, objUserregisInfo.Name);
+            dbDatabase.AddInParameter(dbCommand, "@UserName", System.Data.DbType.String, objUserregisInfo.UserName);
+            dbDatabase.AddInParameter(dbCommand, "@Pwd", System.Data.DbType.String, objUserregisInfo.Pwd);
+            dbDatabase.AddInParameter(dbCommand, "@PhoneNumber", System.Data.DbType.String, objUserregisInfo.PhoneNumber);
+            dbDatabase.AddInParameter(dbCommand, "@isActive", System.Data.DbType.Int32, 1);
+            dbDatabase.AddInParameter(dbCommand, "@CouponCode", System.Data.DbType.String, objUserregisInfo.CouponCode);
+            dbDatabase.AddInParameter(dbCommand, "@ReferCode", System.Data.DbType.String, objUserregisInfo.ReferCode);
+            dbDatabase.AddInParameter(dbCommand, "@PackageID", System.Data.DbType.Int32, objUserregisInfo.PackageID);
+            dbDatabase.AddInParameter(dbCommand, "@StateID", System.Data.DbType.Int32, objUserregisInfo.StateID);
+            dbDatabase.AddInParameter(dbCommand, "@City", System.Data.DbType.String, objUserregisInfo.City);
+            dbDatabase.AddInParameter(dbCommand, "@Address", System.Data.DbType.String, objUserregisInfo.Address);
+            dbDatabase.AddInParameter(dbCommand, "@Zip", System.Data.DbType.String, objUserregisInfo.Zip);
 
-                dbDatabase.AddInParameter(dbCommand, "@BusinessName", System.Data.DbType.String, objUserregisInfo.BusinessName);
-                dbDatabase.AddInParameter(dbCommand, "@AltEmail", System.Data.DbType.String, objUserregisInfo.AltEmail);
-                dbDatabase.AddInParameter(dbCommand, "@AltPhone", System.Data.DbType.String, objUserregisInfo.AltPhone);
-                dbDatabase.AddInParameter(dbCommand, "@EmailExists", System.Data.DbType.Int32, EmailExists);
-                dbDatabase.AddInParameter(dbCommand, "@UserID", System.Data.DbType.String, UserID);
-                
-                dsUserInfo = dbDatabase.ExecuteDataSet(dbCommand);
+            dbDatabase.AddInParameter(dbCommand, "@BusinessName", System.Data.DbType.String, objUserregisInfo.BusinessName);
+            dbDatabase.AddInParameter(dbCommand, "@AltEmail", System.Data.DbType.String, objUserregisInfo.AltEmail);
+            dbDatabase.AddInParameter(dbCommand, "@AltPhone", System.Data.DbType.String, objUserregisInfo.AltPhone);
+            dbDatabase.AddInParameter(dbCommand, "@EmailExists", System.Data.DbType.Int32, EmailExists);
+            dbDatabase.AddInParameter(dbCommand, "@UserID", System.Data.DbType.String, UserID);
 
-                //blnSuccess = objUserLog.SaveUserLog(UserLogInfo, ref lngReturn, "");
-                return dsUserInfo;
+            dsUserInfo = dbDatabase.ExecuteDataSet(dbCommand);
 
-          //  }
-          //  catch (Exception ex)
-          //  {
-          //      throw ex;
-         //   }
+            //blnSuccess = objUserLog.SaveUserLog(UserLogInfo, ref lngReturn, "");
+            return dsUserInfo;
+
+            //  }
+            //  catch (Exception ex)
+            //  {
+            //      throw ex;
+            //   }
 
         }
         public bool SaveUserLog(UserLogInfo ObjUserLog, ref Int64 lngReturn, string logid)
@@ -284,5 +283,81 @@ namespace CarsBL.Transactions
             }
             return returnValue;
         }
+
+
+        public DataSet USP_RegisterDetails(int UserID)
+        {
+            bool returnValue = false;
+            string spNameString = string.Empty;
+            DataSet dsUserInfo = new DataSet();
+            Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+            spNameString = "USP_RegisterDetails";
+            DbCommand dbCommand = null;
+            dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+            dbDatabase.AddInParameter(dbCommand, "@uid", System.Data.DbType.String, UserID);
+            dsUserInfo = dbDatabase.ExecuteDataSet(dbCommand);
+            return dsUserInfo;
+
+
+        }
+        public DataSet USP_lastnameUpdate(string lastname, int UserID)
+        {
+            bool returnValue = false;
+            string spNameString = string.Empty;
+            DataSet dsUserInfo = new DataSet();
+            Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+            spNameString = "USP_lastnameUpdate";
+            DbCommand dbCommand = null;
+            dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+            dbDatabase.AddInParameter(dbCommand, "@lastname", System.Data.DbType.String, lastname);
+            dbDatabase.AddInParameter(dbCommand, "@uid", System.Data.DbType.String, UserID);
+            dsUserInfo = dbDatabase.ExecuteDataSet(dbCommand);
+            return dsUserInfo;
+
+
+        }
+
+        //[Usp_Update_RegisterLogUser]
+        public DataSet Usp_Update_RegisterLogUser(int uid, string Name, string UserName, string Pwd, string PhoneNumber, int isActive,
+        string CouponCode, string ReferCode, string Address, string City, int StateID, string Zip, int PackageID, string BusinessName,
+        string AltEmail, string AltPhone, string UserID,string lastname)
+        {
+            bool returnValue = false;
+            string spNameString = string.Empty;
+            DataSet dsUserInfo = new DataSet();
+            Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+            spNameString = "Usp_Update_RegisterLogUser";
+            DbCommand dbCommand = null;
+            dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+            dbDatabase.AddInParameter(dbCommand, "@uid", System.Data.DbType.Int32, uid);
+            dbDatabase.AddInParameter(dbCommand, "@Name", System.Data.DbType.String, Name);
+            dbDatabase.AddInParameter(dbCommand, "@UserName", System.Data.DbType.String, UserName);
+            dbDatabase.AddInParameter(dbCommand, "@Pwd", System.Data.DbType.String, Pwd);
+
+            dbDatabase.AddInParameter(dbCommand, "@PhoneNumber", System.Data.DbType.String, PhoneNumber);
+            dbDatabase.AddInParameter(dbCommand, "@isActive", System.Data.DbType.Int32, isActive);
+            dbDatabase.AddInParameter(dbCommand, "@CouponCode", System.Data.DbType.String, CouponCode);
+            dbDatabase.AddInParameter(dbCommand, "@ReferCode", System.Data.DbType.String, ReferCode);
+
+            dbDatabase.AddInParameter(dbCommand, "@Address", System.Data.DbType.String, Address);
+            dbDatabase.AddInParameter(dbCommand, "@City", System.Data.DbType.String, City);
+            dbDatabase.AddInParameter(dbCommand, "@StateID", System.Data.DbType.Int32, StateID);
+            dbDatabase.AddInParameter(dbCommand, "@Zip", System.Data.DbType.String, Zip);
+
+            dbDatabase.AddInParameter(dbCommand, "@PackageID", System.Data.DbType.Int32, PackageID);
+            dbDatabase.AddInParameter(dbCommand, "@BusinessName", System.Data.DbType.String, BusinessName);
+            dbDatabase.AddInParameter(dbCommand, "@AltEmail", System.Data.DbType.String, AltEmail);
+            dbDatabase.AddInParameter(dbCommand, "@AltPhone", System.Data.DbType.String, AltPhone);
+
+            dbDatabase.AddInParameter(dbCommand, "@UserID", System.Data.DbType.String, UserID);
+            dbDatabase.AddInParameter(dbCommand, "@lastname", System.Data.DbType.String, lastname);
+
+
+            dsUserInfo = dbDatabase.ExecuteDataSet(dbCommand);
+            return dsUserInfo;
+
+
+        }
+
     }
 }

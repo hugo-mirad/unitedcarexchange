@@ -21,7 +21,7 @@ public partial class SellRegi : System.Web.UI.Page
             Session["CurrentPage"] = "SellRegi";
             Session["PageName"] = "SellRegi";
             Session["CurrentPageConfig"] = null;
-
+            Session["Registration"] = null;
             GeneralFunc.SetPageDefaults(Page);
             ServiceReference objServiceReference = new ServiceReference();
 
@@ -34,7 +34,8 @@ public partial class SellRegi : System.Web.UI.Page
             scrptmgr.Services.Add(objServiceReference);
             scrptmgr.Scripts.Add(objScriptReference);
 
-
+            Session["Registration"] = null;
+            Session["RegistrationPlaceAd"] = null;
         }
     }
 
@@ -48,10 +49,10 @@ public partial class SellRegi : System.Web.UI.Page
     {
         try
         {
-            Session["PackageID"] = 1;
-            Session["PackgeName"] = "Basic - FREE";
-            Session["PackgePrice"] = "FREE";
-
+            Session["PackageID"] = 4;
+            Session["PackgeName"] = "Regular";
+            Session["PackgePrice"] = "$99.99";
+            Session["regular"] = "Ad Runs For 90 Days<br>20 Photos<br>15 + Multi Site Promotions<br>Mobile, Social & Web Listings<br>Ad Traffic Report<br>";
             if (Session[Constants.USER_ID] != null)
             {
                 mpeSuccessalert.Show();
@@ -69,9 +70,10 @@ public partial class SellRegi : System.Web.UI.Page
     {
         try
         {
-            Session["PackageID"] = 2;
-            Session["PackgeName"] = "Standard";
-            Session["PackgePrice"] = "$24.99";
+            Session["PackageID"] = 5;
+            Session["PackgeName"] = "Premium";
+            Session["PackgePrice"] = "$199.99";
+            Session["premium"] = "Ad Runs For 90 Days<br>20 Photos<br>15 + Multi Site Promotions<br>Mobile, Social & Web Listings<br>Ad Traffic Report<br>Popular Ads<br>Email Promotions & Dealer Network Ads<br>Unlimited No-Cost Renewal Option<br>";
             if (Session[Constants.USER_ID] != null)
             {
                 mpeSuccessalert.Show();
@@ -89,9 +91,11 @@ public partial class SellRegi : System.Web.UI.Page
     {
         try
         {
-            Session["PackageID"] = 3;
-            Session["PackgeName"] = "Enhanced";
-            Session["PackgePrice"] = "$49.99";
+            Session["PackageID"] = 6;
+            Session["PackgeName"] = "Deluxe";
+            Session["PackgePrice"] = "$299.99";
+            Session["Deluxe"] = "Ad Runs For 90 Days<br>20 Photos<br>15 + Multi Site Promotions<br>Mobile, Social & Web Listings<br>Ad Traffic Report<br>Popular / Banner Ads<br>Email Promotions & Dealer Network Ads<br>Unlimited No-Cost Renewal Option<br>Expert Advice<br>Premium Site Listings";
+
             if (Session[Constants.USER_ID] != null)
             {
                 mpeSuccessalert.Show();

@@ -196,11 +196,11 @@
                                                 <tr>
                                                     <td style="width: 65%; border-right: #fedaa0 1px dotted; padding: 10px;">
                                                         <h3 class="h3">
-                                                            Sell Your Car- Easy & Fast With Our Premium Packages</h3>
+                                                            Sell Your Car- Easy & Fast With Our Ultimate Packages</h3>
                                                         <p>
                                                             More then a million cars sold, already - Sign up for MobiCarz Premium
                                                             Packages.</p>
-                                                        <input type="button" class="button1" value="Sign Up for Premium Packages" onclick="window.location.href='Premium.aspx' " />
+                                                        <input type="button" class="button1" value="Sign Up For MobiCarz Packages" onclick="window.location.href='SellRegi.aspx' " />
                                                     </td>
                                                     <td style="padding: 10px;">
                                                         <h3 class="h3">

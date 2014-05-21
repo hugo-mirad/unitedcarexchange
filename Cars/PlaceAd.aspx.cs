@@ -257,6 +257,10 @@ public partial class Registar : System.Web.UI.Page
                     }
                 }
             }
+
+
+
+
             }
 
         }
@@ -413,6 +417,9 @@ public partial class Registar : System.Web.UI.Page
             PackCost = Convert.ToDouble(dsDropDown.Tables[2].Rows[RowNo]["Price"].ToString());
             string PackAmount = string.Format("{0:0.00}", PackCost).ToString();
             string PackName = dsDropDown.Tables[2].Rows[RowNo]["Description"].ToString();
+            if (PackName == "Silver Deluxe") PackName = "Regular";
+            else if (PackName == "Gold Deluxe") PackName = "Premium";
+            else if (PackName == "Platinum Deluxe") PackName = "Deluxe";
             lblPackageName.Text = PackName + "($" + PackAmount + ")";
 
             lblpackagename2.Text = PackName;

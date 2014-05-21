@@ -1,8 +1,36 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="HeadderBlogin1.ascx.cs"
-    Inherits="UserControl_HeadderBlogin1" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="HeadderBlogin2.ascx.cs"
+    Inherits="UserControl_HeadderBlogin2" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+        $(function() {
+            var icon = '<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">' +
+            '<link rel="icon" href="favicon.ico" type="image/x-icon">';
+
+            $('head').prepend(icon);
+            
+            
+            $('#HeadderBlogin_usedCarsLi, .footerBuyCar').live('click', function(){
+                stopTimer();
+                
+                if($.cookie('userZip')){
+                    $('.buyzip').val($.cookie('userZip'));
+                    buySearch();
+                }else{
+                    $find('HeadderBlogin_MdlBuyacar').show();
+                }               
+                
+            })
+            
+        })     
+        
+        
+        
+     
+</script>
 
 <script type="text/javascript">
         $(function() {

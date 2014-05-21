@@ -43,13 +43,14 @@ public partial class pay : System.Web.UI.Page
                 lblSmodel.Text = Session["SelModel"].ToString();
                 lblSprice.Text = Session["SelPrice"].ToString();
 
-                lblSphotos.Text = Session["SelUploadedImg"].ToString() + "/" + Session["MaxPhotos"].ToString(); ;
+              //  lblSphotos.Text = Session["SelUploadedImg"].ToString() + "/" + Session["MaxPhotos"].ToString(); ;
+                lblSphotos.Text =  Session["MaxPhotos"].ToString(); 
 
             }
             else
             {
-                Session.RemoveAll();               
-                Response.Redirect("Packages.aspx");
+                Session.RemoveAll();
+                Response.Redirect("SellRegi.aspx");
             }
 
 

@@ -16,7 +16,7 @@ using System.Xml;
 using System.Data;
 
 
-public partial class UserControl_HeadderBlogin1 : System.Web.UI.UserControl
+public partial class UserControl_HeadderBlogin2 : System.Web.UI.UserControl
 {
     DropdownBL objdropdownBL = new DropdownBL();
     protected void Page_Load(object sender, EventArgs e)

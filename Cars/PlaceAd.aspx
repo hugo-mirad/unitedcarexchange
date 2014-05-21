@@ -176,7 +176,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>
-                                                                Style <span class="star">*</span></label>
+                                                                Style</label>
                                                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                                                 <ContentTemplate>
                                                                     <asp:DropDownList ID="ddlStyle" runat="server" CssClass="form-control">

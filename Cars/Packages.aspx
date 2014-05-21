@@ -48,7 +48,7 @@
                             </div>
                             <!-- /.title -->
                             <p>
-                                <b>Sell Your Car- Easy & Fast With Our Premium Packages</b><br />
+                                <b>Sell Your Car- Easy & Fast With Our Ultimate Packages</b><br />
                                 More then a million cars sold, already - Sign up for MobiCarz Premium
                                 Packages.
                             </p>

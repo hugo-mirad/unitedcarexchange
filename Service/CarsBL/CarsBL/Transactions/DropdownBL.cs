@@ -270,7 +270,7 @@ namespace CarsBL.Transactions
                 dbDatabase.AddInParameter(dbCommand, "@MakeModelID", System.Data.DbType.Int32, objCarsInfo.MakeModelID);
                 dbDatabase.AddInParameter(dbCommand, "@BodyTypeID", System.Data.DbType.Int32, objCarsInfo.BodyTypeID);
                 dbDatabase.AddInParameter(dbCommand, "@VehicleConditionID", System.Data.DbType.Int32, objCarsInfo.VehicleConditionID);
-                dbDatabase.AddInParameter(dbCommand, "@CarID", System.Data.DbType.Double , objCarsInfo.CarID);
+                dbDatabase.AddInParameter(dbCommand, "@CarID", System.Data.DbType.Double, objCarsInfo.CarID);
                 dbDatabase.AddInParameter(dbCommand, "@Price", System.Data.DbType.String, objCarsInfo.Price);
                 dbDatabase.AddInParameter(dbCommand, "@Mileage", System.Data.DbType.String, objCarsInfo.Mileage);
                 dbDatabase.AddInParameter(dbCommand, "@ExteriorColor", System.Data.DbType.String, objCarsInfo.ExteriorColor);
@@ -353,7 +353,7 @@ namespace CarsBL.Transactions
                 throw ex;
             }
         }
-        public DataSet USP_GetCarDetailsBySellerID( int SellerID)
+        public DataSet USP_GetCarDetailsBySellerID(int SellerID)
         {
             try
             {
@@ -363,7 +363,7 @@ namespace CarsBL.Transactions
                 spNameString = "USP_GetCarDetailsBySellerID";
                 DbCommand dbCommand = null;
                 dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
-               
+
                 dbDatabase.AddInParameter(dbCommand, "@SellerID", System.Data.DbType.Int32, SellerID);
                 dsCars = dbDatabase.ExecuteDataSet(dbCommand);
                 return dsCars;
@@ -458,7 +458,7 @@ namespace CarsBL.Transactions
                 throw ex;
             }
         }
-        
+
         public bool USP_UpdatePicturesById(CarsInfo.CarsInfo objCarsInfo, int TranBy)
         {
             try
@@ -554,7 +554,7 @@ namespace CarsBL.Transactions
                 Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
                 spNameString = "USP_UpdatePicturesByIdForSmartzUserUpload";
                 DbCommand dbCommand = null;
-                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);                
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
                 dbDatabase.AddInParameter(dbCommand, "@pic1", System.Data.DbType.String, objCarsInfo.Pic1);
                 dbDatabase.AddInParameter(dbCommand, "@pic2", System.Data.DbType.String, objCarsInfo.Pic2);
                 dbDatabase.AddInParameter(dbCommand, "@pic3", System.Data.DbType.String, objCarsInfo.Pic3);
@@ -642,7 +642,7 @@ namespace CarsBL.Transactions
                 spNameString = "USP_GetImagesForCarID";
                 DbCommand dbCommand = null;
                 dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
-                dbDatabase.AddInParameter(dbCommand, "@CarID", System.Data.DbType.Int32, CarID);                
+                dbDatabase.AddInParameter(dbCommand, "@CarID", System.Data.DbType.Int32, CarID);
                 dsCars = dbDatabase.ExecuteDataSet(dbCommand);
                 return dsCars;
             }
@@ -977,6 +977,48 @@ namespace CarsBL.Transactions
             }
         }
 
+        public DataSet USP_ExistRegisterDetails(int UserID)
+        {
+            try
+            {
+                DataSet dsUsers = new DataSet();
+                string spNameString = string.Empty;
+                Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+                spNameString = "USP_ExistRegisterDetails";
+                DbCommand dbCommand = null;
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                dbDatabase.AddInParameter(dbCommand, "@uid", System.Data.DbType.String, UserID);
+                dsUsers = dbDatabase.ExecuteDataSet(dbCommand);
+                return dsUsers;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public DataSet USP_caridExists(int carid)
+        {
+            try
+            {
+                DataSet dsUsers = new DataSet();
+                string spNameString = string.Empty;
+                Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+                spNameString = "USP_caridExists";
+                DbCommand dbCommand = null;
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                dbDatabase.AddInParameter(dbCommand, "@carid", System.Data.DbType.String, carid);
+                dsUsers = dbDatabase.ExecuteDataSet(dbCommand);
+                return dsUsers;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
         public DataSet GetMMY(string caruniqueid)
         {
@@ -998,5 +1040,242 @@ namespace CarsBL.Transactions
             }
         }
 
+
+
+        public DataSet USP_SaveVehData(int regid, int pakid, int makeid, string Makename, int modelid, 
+            string modelname, int year, int style, string stylename, string city,
+            string phone, int stateid, string statename, string email, string zip,
+            string vehicltitle, int askingprice, int drivetrainid, string drivtranname, int mileage, 
+            int cylinderid, string cylindaername, int extcolorid, string extcolorname, int doorid, 
+            string doorname, int intcoloid, string intcorname, int fuelid, string fueliname, 
+            int transmid, string transmname, string vin, int conditionid, string conditname, 
+            string vehcdesc)
+        {
+            try
+            {
+                DataSet dsCars = new DataSet();
+                string spNameString = string.Empty;
+                Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+                spNameString = "USP_SaveVehData";
+                DbCommand dbCommand = null;
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                dbDatabase.AddInParameter(dbCommand, "@regid", System.Data.DbType.Int32, regid);
+                dbDatabase.AddInParameter(dbCommand, "@pakid", System.Data.DbType.Int32, pakid);
+                dbDatabase.AddInParameter(dbCommand, "@makeid", System.Data.DbType.Int32, makeid);
+                dbDatabase.AddInParameter(dbCommand, "@Makename", System.Data.DbType.String, Makename);
+                dbDatabase.AddInParameter(dbCommand, "@modelid", System.Data.DbType.Int32, modelid);
+                dbDatabase.AddInParameter(dbCommand, "@modelname", System.Data.DbType.String, modelname);
+                dbDatabase.AddInParameter(dbCommand, "@year", System.Data.DbType.Int32, year);
+                dbDatabase.AddInParameter(dbCommand, "@style", System.Data.DbType.Int32,style);
+                dbDatabase.AddInParameter(dbCommand, "@stylename", System.Data.DbType.String, stylename);
+                dbDatabase.AddInParameter(dbCommand, "@city", System.Data.DbType.String, city);
+                dbDatabase.AddInParameter(dbCommand, "@phone", System.Data.DbType.String, phone);
+                dbDatabase.AddInParameter(dbCommand, "@stateid", System.Data.DbType.Int32, stateid);
+                dbDatabase.AddInParameter(dbCommand, "@statename", System.Data.DbType.String, statename);
+                dbDatabase.AddInParameter(dbCommand, "@email", System.Data.DbType.String, email);
+                dbDatabase.AddInParameter(dbCommand, "@zip", System.Data.DbType.String, zip);
+                dbDatabase.AddInParameter(dbCommand, "@vehicltitle", System.Data.DbType.String, vehicltitle);
+                dbDatabase.AddInParameter(dbCommand, "@askingprice", System.Data.DbType.Int32, askingprice);
+                dbDatabase.AddInParameter(dbCommand, "@drivetrainid", System.Data.DbType.Int32, drivetrainid);
+                dbDatabase.AddInParameter(dbCommand, "@drivtranname", System.Data.DbType.String, drivtranname);
+               
+                dbDatabase.AddInParameter(dbCommand, "@mileage", System.Data.DbType.Int32, mileage);
+                dbDatabase.AddInParameter(dbCommand, "@cylinderid", System.Data.DbType.Int32, cylinderid);
+                dbDatabase.AddInParameter(dbCommand, "@cylindaername", System.Data.DbType.String, cylindaername);
+
+                dbDatabase.AddInParameter(dbCommand, "@extcolorid", System.Data.DbType.Int32, extcolorid);
+                dbDatabase.AddInParameter(dbCommand, "@extcolorname", System.Data.DbType.String, extcolorname);
+
+                dbDatabase.AddInParameter(dbCommand, "@doorid", System.Data.DbType.Int32, doorid);
+                dbDatabase.AddInParameter(dbCommand, "@doorname", System.Data.DbType.String, doorname);
+                dbDatabase.AddInParameter(dbCommand, "@intcoloid", System.Data.DbType.Int32, intcoloid);
+
+                dbDatabase.AddInParameter(dbCommand, "@intcorname", System.Data.DbType.String, intcorname);
+                dbDatabase.AddInParameter(dbCommand, "@fuelid", System.Data.DbType.Int32, fuelid);
+
+                dbDatabase.AddInParameter(dbCommand, "@fueliname", System.Data.DbType.String, fueliname);
+                dbDatabase.AddInParameter(dbCommand, "@transmid", System.Data.DbType.Int32, transmid);
+
+                dbDatabase.AddInParameter(dbCommand, "@transmname", System.Data.DbType.String, transmname);
+                dbDatabase.AddInParameter(dbCommand, "@vin", System.Data.DbType.String, vin);
+
+                dbDatabase.AddInParameter(dbCommand, "@conditionid", System.Data.DbType.Int32, conditionid);
+                dbDatabase.AddInParameter(dbCommand, "@conditname", System.Data.DbType.String, conditname);
+                dbDatabase.AddInParameter(dbCommand, "@vehcdesc", System.Data.DbType.String, vehcdesc);
+
+
+                dsCars = dbDatabase.ExecuteDataSet(dbCommand);
+                return dsCars;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+        public DataSet USP_VehGetDetails(int  regid)
+        {
+            try
+            {
+                DataSet dsUsers = new DataSet();
+                string spNameString = string.Empty;
+                Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+                spNameString = "USP_VehGetDetails";
+                DbCommand dbCommand = null;
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                dbDatabase.AddInParameter(dbCommand, "@reguid", System.Data.DbType.Int32, regid);
+                dsUsers = dbDatabase.ExecuteDataSet(dbCommand);
+                return dsUsers;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataSet USP_GetFeatures(int carid)
+        {
+            try
+            {
+                DataSet dsUsers = new DataSet();
+                string spNameString = string.Empty;
+                Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+                spNameString = "USP_GetFeatures";
+                DbCommand dbCommand = null;
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                dbDatabase.AddInParameter(dbCommand, "@carid", System.Data.DbType.Int32, carid);
+                dsUsers = dbDatabase.ExecuteDataSet(dbCommand);
+                return dsUsers;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        //USP_UpdateVehData
+
+            public DataSet USP_UpdateVehData(int regid, int pakid, int makeid, string Makename, int modelid,
+            string modelname, int year, int style, string stylename, string city,
+            string phone, int stateid, string statename, string email, string zip,
+            string vehicltitle, int askingprice, int drivetrainid, string drivtranname, int mileage,
+            int cylinderid, string cylindaername, int extcolorid, string extcolorname, int doorid,
+            string doorname, int intcoloid, string intcorname, int fuelid, string fueliname,
+            int transmid, string transmname, string vin, int conditionid, string conditname,
+            string vehcdesc)
+        {
+            try
+            {
+                DataSet dsCars = new DataSet();
+                string spNameString = string.Empty;
+                Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+                spNameString = "USP_UpdateVehData";
+                DbCommand dbCommand = null;
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                dbDatabase.AddInParameter(dbCommand, "@regid", System.Data.DbType.Int32, regid);
+                dbDatabase.AddInParameter(dbCommand, "@pakid", System.Data.DbType.Int32, pakid);
+                dbDatabase.AddInParameter(dbCommand, "@makeid", System.Data.DbType.Int32, makeid);
+                dbDatabase.AddInParameter(dbCommand, "@Makename", System.Data.DbType.String, Makename);
+                dbDatabase.AddInParameter(dbCommand, "@modelid", System.Data.DbType.Int32, modelid);
+                dbDatabase.AddInParameter(dbCommand, "@modelname", System.Data.DbType.String, modelname);
+                dbDatabase.AddInParameter(dbCommand, "@year", System.Data.DbType.Int32, year);
+                dbDatabase.AddInParameter(dbCommand, "@style", System.Data.DbType.Int32, style);
+                dbDatabase.AddInParameter(dbCommand, "@stylename", System.Data.DbType.String, stylename);
+                dbDatabase.AddInParameter(dbCommand, "@city", System.Data.DbType.String, city);
+                dbDatabase.AddInParameter(dbCommand, "@phone", System.Data.DbType.String, phone);
+                dbDatabase.AddInParameter(dbCommand, "@stateid", System.Data.DbType.Int32, stateid);
+                dbDatabase.AddInParameter(dbCommand, "@statename", System.Data.DbType.String, statename);
+                dbDatabase.AddInParameter(dbCommand, "@email", System.Data.DbType.String, email);
+                dbDatabase.AddInParameter(dbCommand, "@zip", System.Data.DbType.String, zip);
+                dbDatabase.AddInParameter(dbCommand, "@vehicltitle", System.Data.DbType.String, vehicltitle);
+                dbDatabase.AddInParameter(dbCommand, "@askingprice", System.Data.DbType.Int32, askingprice);
+                dbDatabase.AddInParameter(dbCommand, "@drivetrainid", System.Data.DbType.Int32, drivetrainid);
+                dbDatabase.AddInParameter(dbCommand, "@drivtranname", System.Data.DbType.String, drivtranname);
+
+                dbDatabase.AddInParameter(dbCommand, "@mileage", System.Data.DbType.Int32, mileage);
+                dbDatabase.AddInParameter(dbCommand, "@cylinderid", System.Data.DbType.Int32, cylinderid);
+                dbDatabase.AddInParameter(dbCommand, "@cylindaername", System.Data.DbType.String, cylindaername);
+
+                dbDatabase.AddInParameter(dbCommand, "@extcolorid", System.Data.DbType.Int32, extcolorid);
+                dbDatabase.AddInParameter(dbCommand, "@extcolorname", System.Data.DbType.String, extcolorname);
+
+                dbDatabase.AddInParameter(dbCommand, "@doorid", System.Data.DbType.Int32, doorid);
+                dbDatabase.AddInParameter(dbCommand, "@doorname", System.Data.DbType.String, doorname);
+                dbDatabase.AddInParameter(dbCommand, "@intcoloid", System.Data.DbType.Int32, intcoloid);
+
+                dbDatabase.AddInParameter(dbCommand, "@intcorname", System.Data.DbType.String, intcorname);
+                dbDatabase.AddInParameter(dbCommand, "@fuelid", System.Data.DbType.Int32, fuelid);
+
+                dbDatabase.AddInParameter(dbCommand, "@fueliname", System.Data.DbType.String, fueliname);
+                dbDatabase.AddInParameter(dbCommand, "@transmid", System.Data.DbType.Int32, transmid);
+
+                dbDatabase.AddInParameter(dbCommand, "@transmname", System.Data.DbType.String, transmname);
+                dbDatabase.AddInParameter(dbCommand, "@vin", System.Data.DbType.String, vin);
+
+                dbDatabase.AddInParameter(dbCommand, "@conditionid", System.Data.DbType.Int32, conditionid);
+                dbDatabase.AddInParameter(dbCommand, "@conditname", System.Data.DbType.String, conditname);
+                dbDatabase.AddInParameter(dbCommand, "@vehcdesc", System.Data.DbType.String, vehcdesc);
+
+
+                dsCars = dbDatabase.ExecuteDataSet(dbCommand);
+                return dsCars;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //USp_UpdateMainVeh
+
+
+            public DataSet USp_UpdateMainVeh(int carid, int MakeModelId, int yearofmake, int bodyTypeId, string title, int askingprice, int mileage,
+            string extcol, string intcolr, string transmission, string condiDec, string drivetrain,
+            string cylindera, string doors, int fuelTYpeId, string vin, string city,
+           string state, string zip, string phone, string email)
+            {
+                try
+                {
+                    DataSet dsCars = new DataSet();
+                    string spNameString = string.Empty;
+                    Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+                    spNameString = "USp_UpdateMainVeh";
+                    DbCommand dbCommand = null;
+                    dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                    dbDatabase.AddInParameter(dbCommand, "@carid", System.Data.DbType.Int32, carid);
+                    dbDatabase.AddInParameter(dbCommand, "@MakeModelId", System.Data.DbType.Int32, @MakeModelId);
+                    dbDatabase.AddInParameter(dbCommand, "@yearofmake", System.Data.DbType.Int32, yearofmake);
+                    dbDatabase.AddInParameter(dbCommand, "@bodyTypeId", System.Data.DbType.Int32, bodyTypeId);
+                    dbDatabase.AddInParameter(dbCommand, "@title", System.Data.DbType.String, title);
+                    dbDatabase.AddInParameter(dbCommand, "@askingprice", System.Data.DbType.Int32, askingprice);
+                    dbDatabase.AddInParameter(dbCommand, "@mileage", System.Data.DbType.Int32, mileage);
+                    dbDatabase.AddInParameter(dbCommand, "@extcol", System.Data.DbType.String, extcol);
+                    dbDatabase.AddInParameter(dbCommand, "@intcolr", System.Data.DbType.String, intcolr);
+                    dbDatabase.AddInParameter(dbCommand, "@transmission", System.Data.DbType.String, transmission);
+                    dbDatabase.AddInParameter(dbCommand, "@condiDec", System.Data.DbType.String, condiDec);
+                    dbDatabase.AddInParameter(dbCommand, "@drivetrain", System.Data.DbType.String, drivetrain);
+                    dbDatabase.AddInParameter(dbCommand, "@cylindera", System.Data.DbType.String, cylindera);
+                    dbDatabase.AddInParameter(dbCommand, "@doors", System.Data.DbType.String, doors);
+                    dbDatabase.AddInParameter(dbCommand, "@fuelTYpeId", System.Data.DbType.Int32, fuelTYpeId);
+                    dbDatabase.AddInParameter(dbCommand, "@vin", System.Data.DbType.String, vin);
+
+                    dbDatabase.AddInParameter(dbCommand, "@city", System.Data.DbType.String, city);
+                    dbDatabase.AddInParameter(dbCommand, "@state", System.Data.DbType.String, state);
+
+                    dbDatabase.AddInParameter(dbCommand, "@zip", System.Data.DbType.String, zip);
+                    dbDatabase.AddInParameter(dbCommand, "@phone", System.Data.DbType.String, phone);
+                    dbDatabase.AddInParameter(dbCommand, "@email", System.Data.DbType.String, email);
+                   
+
+                    dsCars = dbDatabase.ExecuteDataSet(dbCommand);
+                    return dsCars;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
     }
 }

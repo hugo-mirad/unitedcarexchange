@@ -53,10 +53,7 @@
     <form id="form1" runat="server">
     <cc1:ToolkitScriptManager ID="scrptmgr" runat="server" ScriptMode="Release">
     </cc1:ToolkitScriptManager>
-    
-    
-    <asp:Label ID="HdnSubScribeValue" CssClass="HdnSubScribeValue"  runat="server"   style=" display:none " ></asp:Label>
-    
+    <asp:Label ID="HdnSubScribeValue" CssClass="HdnSubScribeValue" runat="server" Style="display: none"></asp:Label>
     <header id="header">
 	<div class="header-inner">
 		<div class="container" >
@@ -121,7 +118,7 @@ across the country using web, mobile & social media
                         <li class="active">Buy</li>
                     </ol>
                     <div class="contact pull-right">
-                      <div class="contact-item mail">
+                        <div class="contact-item mail">
                             <div class="label">
                                 <i class="icon icon-normal-mail"></i>
                             </div>
@@ -136,13 +133,12 @@ across the country using web, mobile & social media
                             </div>
                             <!-- /.label -->
                             <div class="value">
-                                888-465-6693  <small>(Mon - Fri : 9:00 AM - 5:00 PM)</small></div>
+                                888-465-6693 <small>(Mon - Fri : 9:00 AM - 5:00 PM)</small></div>
                             <!-- /.value -->
                         </div>
                         <!-- /.phone -->
-                      
                         <!-- /.mail -->
-                        <div class="contact-item opening" style="display:none;">
+                        <div class="contact-item opening" style="display: none;">
                             <div class="label">
                                 <i class="icon icon-normal-clock"></i>
                             </div>
@@ -975,10 +971,11 @@ across the country using web, mobile & social media
         </h4>
         <div class="data">
             <div class="row" style="color: #333;">
-                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                Any time if we see a car that matches your interest. Our automated robo system will keep you updated with emails.
-                <br />
-            </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    Any time if we see a car that matches your interest. Our automated robo system will
+                    keep you updated with emails.
+                    <br />
+                </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="title">
                         <h3>
@@ -1070,64 +1067,125 @@ across the country using web, mobile & social media
             </div>
         </div>
     </div>
-    
-    
-    
     <!---- ------------------ Buy a cra Prompt page ---------------------------------->
-
-<cc1:ModalPopupExtender ID="MdlBuyacar" runat="server" PopupControlID="Buyacarpopup"
-    BackgroundCssClass="ModalPopupBG" TargetControlID="hdnBuyacar" OkControlID="btnsubScribUs">
-</cc1:ModalPopupExtender>
-<asp:HiddenField ID="hdnBuyacar" runat="server" />
-<div id="Buyacarpopup" class="alert" style="height: auto; padding-bottom: 15px; max-width: 550px;
-    width: 70%; display: none;">
-    <h4 id="H2">
-        Buy A Car
-        <asp:LinkButton ID="btnsubScribUs" runat="server" OnClick="btncancelpopclick_click" class="cls" Text="" Style="border-width: 0px;"></asp:LinkButton>
-    </h4>
-    <div class="data">
-        <div class="row" style="color: #333;">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                
-                <div class="form-section">
-                    <div class="form-group " id="Div4" runat="server">
-                        <label>
-                            ZIP <span class="star">*</span></label>
-                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                            <ContentTemplate>                               
-                                
-                                <asp:TextBox ID="buyzip" CssClass="form-control buyzip sample4" runat="server"></asp:TextBox>
-                                
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
+    <cc1:ModalPopupExtender ID="MdlBuyacar" runat="server" PopupControlID="Buyacarpopup"
+        BackgroundCssClass="ModalPopupBG" TargetControlID="hdnBuyacar" OkControlID="btnsubScribUs">
+    </cc1:ModalPopupExtender>
+    <asp:HiddenField ID="hdnBuyacar" runat="server" />
+    <div id="Buyacarpopup" class="alert" style="height: auto; padding-bottom: 15px; max-width: 550px;
+        width: 70%; display: none;">
+        <h4 id="H2">
+            Buy A Car
+            <asp:LinkButton ID="btnsubScribUs" runat="server" OnClick="btncancelpopclick_click"
+                class="cls" Text="" Style="border-width: 0px;"></asp:LinkButton>
+        </h4>
+        <div class="data">
+            <div class="row" style="color: #333;">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-section">
+                        <div class="form-group " id="Div4" runat="server">
+                            <label>
+                                ZIP <span class="star">*</span></label>
+                            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                <ContentTemplate>
+                                    <asp:TextBox ID="buyzip"  MaxLength="5" CssClass="form-control buyzip sample4" runat="server"></asp:TextBox>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                        </div>
                     </div>
-                  
                 </div>
             </div>
-           
-        </div>
-        <div style="text-align: right; margin: 10px 0;">
-            <div style="float: right; width: 80px;">
-                <asp:UpdatePanel ID="UpdatePanel6" runat="server">
-                    <ContentTemplate>
-                        <asp:Button ID="Button2" runat="server" Text="Submit" class="btn btn-primary2 "
-                            OnClientClick="return buySearch();"/>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-            </div>
-            &nbsp; &nbsp;
-            <div style="float: right; width: 80px;">
-                <asp:UpdatePanel ID="UpdatePanel7" runat="server">
-                    <ContentTemplate>
-                      <asp:Button ID="btncancelpopclick" runat="server" Text="Cancel" class="btn btn-default "
-                            OnClick="btncancelpopclick_click" />
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+            <div style="text-align: right; margin: 10px 0;">
+                <div style="float: right; width: 80px;">
+                    <asp:UpdatePanel ID="UpdatePanel6" runat="server">
+                        <ContentTemplate>
+                            <asp:Button ID="Button2" runat="server" Text="Submit" class="btn btn-primary2 " OnClientClick="return buySearch();" />
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+                &nbsp; &nbsp;
+                <div style="float: right; width: 80px;">
+                    <asp:UpdatePanel ID="UpdatePanel7" runat="server">
+                        <ContentTemplate>
+                            <asp:Button ID="btncancelpopclick" runat="server" Text="Cancel" class="btn btn-default "
+                                OnClick="btncancelpopclick_click" />
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
             </div>
         </div>
     </div>
-</div>
-    
+    <!-------------------- Model Popup for automatic alerts------------->
+    <cc1:ModalPopupExtender ID="mdlPDetalerts" runat="server" PopupControlID="mdlPopDetailPage"
+        BackgroundCssClass="ModalPopupBG ModalPopupBGSP" TargetControlID="hdnPagmdlP" OkControlID="btnsubScribUsDet">
+    </cc1:ModalPopupExtender>
+    <asp:HiddenField ID="hdnPagmdlP" runat="server" />
+    <div id="mdlPopDetailPage" class="alert Special" style="height: auto; padding-bottom: 15px;
+        max-width: 550px; width: 100%; display: none;">
+        <h4 id="H3">
+            Can i call you to make a best offer on this car?
+            <asp:LinkButton ID="btnsubScribUsDet" runat="server" class="cls" Text="" Style="border-width: 0px;"></asp:LinkButton>
+        </h4>
+        <div class="data">
+            <div class="row" style="color: #333;">
+                <div class="form-section">
+                    <div class="form-group " id="Div6" runat="server">
+                        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                            <ContentTemplate>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group ">
+                                        <label>
+                                            First Name <span class="star">*</span></label>
+                                        <asp:TextBox ID="txt_DFrstName" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group ">
+                                        <label>
+                                            Last Name <span class="star">*</span></label>
+                                        <asp:TextBox ID="txt_Dlastname" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group ">
+                                        <label>
+                                            Email <span class="star">*</span></label>
+                                        <asp:TextBox ID="txt_DEmail" CssClass="form-control " runat="server"></asp:TextBox>
+                                    </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                    <div class="form-group ">
+                                        <label>
+                                            Phone No<span class="star">*</span></label>
+                                        <asp:TextBox ID="txt_DPhn" CssClass="form-control  sample4 " MaxLength="10" runat="server"></asp:TextBox>
+                                    </div>
+                                </div>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: right; margin: 10px 0;">
+                <div style="float: right; width: 80px;">
+                    <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                        <ContentTemplate>
+                            <asp:Button ID="btnDetailClick" runat="server" Text="Submit" class="btn btn-primary2 "
+                                OnClick="btnDetailClick_Click" OnClientClick="javascript:return ValidateDetContact();" />
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+                &nbsp; &nbsp;
+                <div style="float: right; width: 80px;">
+                    <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+                        <ContentTemplate>
+                            <asp:Button ID="btnDetCancelClick" runat="server" Text="Cancel" class="btn btn-default "
+                                OnClick="btnDetCancelClick_click" />
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+            </div>
+        </div>
+    </div>
     </form>
 
     <script src="../libraries/jquery.bxslider/jquery.bxslider.js"></script>
@@ -1498,6 +1556,65 @@ across the country using web, mobile & social media
 
             //, txtlastName, zipCode1
         }
+        
+        
+          function ValidateDetContact() {
+
+            var valid = true;
+            if ($('#txt_DFrstName').val().trim() == '' || $('#txt_DFrstName').val().trim() == ' ' || $('#txt_DFrstName').val().trim().length <= 0) {
+                alert("Enter first name");
+                $('#txt_DFrstName').focus();
+                valid = false;
+                return valid;
+            }
+            else   if ($('#txt_Dlastname').val().trim() == '' || $('#txt_Dlastname').val().trim() == ' ' || $('#txt_Dlastname').val().trim().length <= 0) {
+                alert("Enter last name");
+                $('#txt_Dlastname').focus();
+                valid = false;
+                return valid;
+            }
+           
+             
+            else if(document.getElementById('txt_DEmail').value.length < 1) {
+                document.getElementById('txt_DEmail').focus();
+                alert("Enter email");
+                 document.getElementById('txt_DEmail').value = ""
+                document.getElementById('txt_DEmail').focus()
+                valid = false;            
+            
+            }
+            
+             else if ((document.getElementById('txt_DEmail').value.length > 0) && (echeck(document.getElementById('txt_DEmail').value) == false) )
+             {
+               
+                document.getElementById('txt_DEmail').value = ""
+                document.getElementById('txt_DEmail').focus()
+                valid = false;
+                
+           
+            }    
+         else if(document.getElementById('txt_DPhn').value.length < 1) {
+                document.getElementById('txt_DPhn').focus();
+                alert("Enter phone Number");
+                 document.getElementById('txt_DPhn').value = ""
+                document.getElementById('txt_DPhn').focus()
+                valid = false;            
+            
+            }
+            else if (($('#txt_DPhn').val().trim().length > 0) && ($('#txt_DPhn').val().trim().length < 10)) {
+                $('#txt_DPhn').focus();
+                $('#txt_DPhn').val();
+                alert("Enter valid phone number");
+                valid = false;
+                return valid;
+            }
+            
+            return valid;
+
+            //, txtlastName, zipCode1
+        }
+
+        
 
         function slidershow() {
 
@@ -1868,22 +1985,34 @@ across the country using web, mobile & social media
 	
 	
 	var subTimer;
+	var alertTimer;
 	
+	
+	
+	function alertTimerCall(){
+	    stopTimer();
+	    clearInterval(alertTimer);
+	    $find('mdlPDetalerts').show();
+	}	
 	
 	function stopTimer(){
-	    clearInterval(subTimer);
+	    clearInterval(subTimer);	    
 	}
 	
 	function alertCall(){
-	    clearInterval(subTimer);
+	    stopTimer()
 	    $find('mpesubscribe111').show();
-	}
+	}	
+	
 	
 	
 	function resetTimer(){
+	    //console.log('resetTimer Enter')
 	    if($.cookie('PrefCookie') == 'Pref'){
-	        subTimer = setInterval(function(){alertCall()}, parseInt($.trim($('.HdnSubScribeValue').text())))
+	         //console.log('subTimer Call')
+	        subTimer = setInterval(function(){alertCall()}, parseInt($.trim($('.HdnSubScribeValue').text())));        
 	    }
+	   
 	}
 	
 	$(function(){	
@@ -1892,9 +2021,12 @@ across the country using web, mobile & social media
 	        resetTimer();
 	    }
 	    
-	    $('#subScribUs111 .cls').live('click', function(){
+	    $('#subScribUs111 .cls, #btnsubScribUsDet').live('click', function(){
 	        resetTimer();
 	    })
+	    
+	    
+	    alertTimer = setInterval(function(){alertTimerCall()}, 30000 );
 	    
 	})
 	

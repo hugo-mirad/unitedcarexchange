@@ -141,7 +141,15 @@ public partial class UserControl_HeadderBlogin : System.Web.UI.UserControl
         {
             Finaqnce.Attributes.Add("class", "active");
 
-        }            
+        }
+        else if (Session["CurrentPage"] == "Search Results Page")
+        {
+            usedCarsLi.Attributes.Add("class", "active");
+
+        }  
+
+
+            
         else if (Session["CurrentPage"] == "SellRegi" || Session["CurrentPage"] == "Packages" || Session["CurrentPage"] == "Registration" || Session["CurrentPage"] == "Registration PlaceAd" || Session["CurrentPage"] == "Registration PlaceAd Photos")
         {
             newCarsLi.Attributes.Add("class", "active");

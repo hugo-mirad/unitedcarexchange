@@ -4468,6 +4468,16 @@ margin-bottom: 15px; display:block; text-decoration:none;}
 	}
 }
 
+.ModalPopupBG.ModalPopupBGSP{ background:rgba(255,255,255,0.8) }
+.alert.Special
+{
+	border:5px solid #00374b; box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+	}
+
+.alert.Special h4{ color:#f95446; }
+
+
+
 
 
 

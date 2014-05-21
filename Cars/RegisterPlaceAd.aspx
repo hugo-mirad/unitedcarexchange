@@ -1,14 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="RegisterPlaceAd.aspx.cs" Inherits="RegisterPlaceAd"  
-EnableEventValidation="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="RegisterPlaceAd.aspx.cs"
+    Inherits="RegisterPlaceAd" EnableEventValidation="false" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register Src="UserControl/Footer.ascx" TagName="Footer" TagPrefix="uc1" %>
-<%@ Register src="UserControl/HeadderBlogin.ascx" tagname="HeadderBlogin" tagprefix="uc2" %>
-
-
-
-
-
+<%@ Register Src="UserControl/HeadderBlogin.ascx" TagName="HeadderBlogin" TagPrefix="uc2" %>
 <!doctype html>
 <html>
 <head id="Head1" runat="server">
@@ -19,20 +14,17 @@ EnableEventValidation="false" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" media="screen, projection">
-    
     <link rel="stylesheet" type="text/css" href="libraries/pictopro-outline/pictopro-outline.css"
         media="screen, projection">
     <link rel="stylesheet" type="text/css" href="libraries/pictopro-normal/pictopro-normal.css"
         media="screen, projection">
     <link rel="stylesheet" type="text/css" href="libraries/colorbox/colorbox.css" media="screen, projection">
-    <link rel="stylesheet" type="text/css" href="js/jslider/jquery.slider.min.css"
-        media="screen, projection">
+    <link rel="stylesheet" type="text/css" href="js/jslider/jquery.slider.min.css" media="screen, projection">
     <link rel="stylesheet" type="text/css" href="assets/css/carat.css" media="screen, projection">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:100,400,700,400italic,700italic"
         rel="stylesheet" type="text/css" media="screen, projection">
     <title>MobiCarz</title>
-    
-    
+
     <script src="assets/js/jquery.js"></script>
 
     <script src="assets/js/jquery-migrate-1.2.1.js"></script>
@@ -42,27 +34,26 @@ EnableEventValidation="false" %>
     <script src="assets/js/bootstrap.js"></script>
 
     <script src="assets/js/cycle.js"></script>
-    
-    
-    
+
+    <script>
+        function backPage(){
+            $('#spinner').show();
+            window.location.href="Registration.aspx"
+        }
+    </script>
+
 </head>
 <body>
     <form id="form1" runat="server">
-   <cc1:ToolkitScriptManager ID="scrptmgr" runat="server">
+    <cc1:ToolkitScriptManager ID="scrptmgr" runat="server">
     </cc1:ToolkitScriptManager>
-   
-   
-<uc2:HeadderBlogin ID="HeadderBlogin1" runat="server" />
-   
-   
-   
-   
-   <div id="content">
+    <uc2:HeadderBlogin ID="HeadderBlogin1" runat="server" />
+    <div id="content">
         <div id="progress" class="section">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3 col-md-3">
-                        <a class="progress-step done" href="javascript:void(0);">
+                        <a class="progress-step done" href="javascript:backPage();">
                             <div class="circle">
                                 <i class="icon icon-normal-mark-tick"></i>
                             </div>
@@ -111,13 +102,8 @@ EnableEventValidation="false" %>
                                     <div class="page-header-inner">
                                         <div class="heading">
                                             <h2>
-                                                <asp:Label ID="lblHeadName" runat="server" Font-Size="16px"></asp:Label> - Build Your Ad</h2>
-                                            
-                                                
-                                                
-                                                
-                                                
-                                               
+                                                <asp:Label ID="lblHeadName" runat="server" Font-Size="16px"></asp:Label>
+                                                - Build Your Ad</h2>
                                         </div>
                                         <!-- /.heading -->
                                         <div class="line">
@@ -128,23 +114,25 @@ EnableEventValidation="false" %>
                                     <!-- /.page-header-inner -->
                                 </div>
                                 <!-- /.page-header -->
-                                
                                 <div class="row">
-                                    
                                     <div class="col-md-12">
                                         <div class="block-inner white block-shadow">
-                                        
                                             <div class="form-section">
-                                            <table style="font-size: 12px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;
+                                                <table style="font-size: 12px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;
                                                     width: 100%; margin: 0 0 20px 0;" class="form1">
                                                     <tr>
                                                         <td style="width: 55px;">
                                                             Package
                                                         </td>
-                                                        <td style=" width:250px; padding-right:20px; " >
+                                                        <td style="width: 250px; padding-right: 20px;">
                                                             <div id="ddlPackDiv" runat="server" style="display: block;">
-                                                                <asp:DropDownList ID="ddlPackage" runat="server" CssClass="form-control" >
-                                                                </asp:DropDownList>
+                                                                <asp:UpdatePanel ID="Up4" runat="server">
+                                                                    <ContentTemplate>
+                                                                        <asp:DropDownList ID="ddlPackage" runat="server" CssClass="form-control" AutoPostBack="true"
+                                                                            OnSelectedIndexChanged="ddlPackage_SelectedIndexChanged">
+                                                                        </asp:DropDownList>
+                                                                    </ContentTemplate>
+                                                                </asp:UpdatePanel>
                                                             </div>
                                                             <div id="lblPackDiv" runat="server" style="display: none">
                                                             </div>
@@ -155,8 +143,7 @@ EnableEventValidation="false" %>
                                                         </td>
                                                     </tr>
                                                 </table>
-                                       </div>
-                                        
+                                            </div>
                                             <div class="form-section">
                                                 <div class="block-title">
                                                     <h2>
@@ -169,8 +156,8 @@ EnableEventValidation="false" %>
                                                                 Make <span class="star">*</span></label>
                                                             <asp:UpdatePanel ID="updtMake" runat="server">
                                                                 <ContentTemplate>
-                                                                    <asp:DropDownList ID="ddlMake" runat="server" AutoPostBack="true" CssClass="form-control" OnSelectedIndexChanged="ddlMake_SelectedIndexChanged" >
-                                                                       
+                                                                    <asp:DropDownList ID="ddlMake" runat="server" AutoPostBack="true" CssClass="form-control"
+                                                                        OnSelectedIndexChanged="ddlMake_SelectedIndexChanged">
                                                                     </asp:DropDownList>
                                                                 </ContentTemplate>
                                                             </asp:UpdatePanel>
@@ -188,18 +175,15 @@ EnableEventValidation="false" %>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6 col-md-5">
-                                                        
-                                                        
                                                         <div class="form-group">
                                                             <label>
                                                                 Year <span class="star">*</span></label>
                                                             <asp:DropDownList ID="ddlYear" runat="server" CssClass="form-control">
                                                             </asp:DropDownList>
                                                         </div>
-                                                        
                                                         <div class="form-group">
                                                             <label>
-                                                                Style <span class="star">*</span></label>
+                                                                Style</label>
                                                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                                                 <ContentTemplate>
                                                                     <asp:DropDownList ID="ddlStyle" runat="server" CssClass="form-control">
@@ -235,7 +219,7 @@ EnableEventValidation="false" %>
                                                             <label>
                                                                 ZIP
                                                             </label>
-                                                            <asp:TextBox ID="txtZip" runat="server" MaxLength="10" onkeypress="return isNumberKeyWithDashForZip(event)"
+                                                            <asp:TextBox ID="txtZip" runat="server" MaxLength="5" onkeypress="return isNumberKeyWithDashForZip(event)"
                                                                 CssClass="form-control"></asp:TextBox>
                                                         </div>
                                                     </div>
@@ -274,15 +258,15 @@ EnableEventValidation="false" %>
                                                             <label>
                                                                 Asking Price
                                                             </label>
-                                                            <asp:TextBox ID="txtAskingPrice" runat="server" MaxLength="6" CssClass="form-control" onkeypress="return isNumberKeyWithDot(event)" > </asp:TextBox>
-                                                            
+                                                            <asp:TextBox ID="txtAskingPrice" runat="server" MaxLength="20" CssClass="form-control"
+                                                                onkeypress="return isNumberKeyWithDot(event)"> </asp:TextBox>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>
                                                                 Mileage
                                                             </label>
-                                                            <asp:TextBox ID="txtMileage" runat="server" MaxLength="6" CssClass="form-control" onkeypress="return isNumberKeyWithDot(event)"></asp:TextBox>
-                                                           
+                                                            <asp:TextBox ID="txtMileage" runat="server" MaxLength="20" CssClass="form-control"
+                                                                onkeypress="return isNumberKeyWithDot(event)"></asp:TextBox>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>
@@ -782,13 +766,35 @@ EnableEventValidation="false" %>
                                                     </div>
                                                 </div>
                                             </div>
-                                            
                                         </div>
                                         <!-- /.content -->
                                     </div>
                                     <!-- /.col-md-12 -->
                                 </div>
                                 <!-- /.row -->
+                                <!-- Action Buttons Start -->
+                                <div class="row">
+                                    <div class="checkout-actions">
+                                        <div class="col-sm-4 col-md-3">
+                                            <div class="prev">
+                                                <a href="javascript:backPage();" class="btn btn-primary">< Back</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 col-md-6">
+                                        </div>
+                                        <div class="col-sm-4 col-md-3">
+                                            <div class="next">
+                                                <asp:UpdatePanel ID="BtnSavePanel" runat="server">
+                                                    <ContentTemplate>
+                                                        <asp:Button ID="btnSaveCarDetails" runat="server" CssClass="btn btn-primary" Text="Proceed >"
+                                                            OnClientClick="return ValidateVehicleType();" OnClick="btnSaveCarDetails_Click" />
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Action Buttons End  -->
                             </div>
                             <!-- /.block -->
                         </div>
@@ -806,31 +812,35 @@ EnableEventValidation="false" %>
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <h4>Package</h4>
-                                                <asp:Label ID="lblpackagename2" runat ="server" ></asp:Label>
+                                                <h4>
+                                                    Package</h4>
+                                                <asp:UpdatePanel ID="u7" runat="server">
+                                                    <ContentTemplate>
+                                                        <asp:Label ID="lblpackagename2" runat="server"></asp:Label>
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
                                             </td>
-                                            
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h4>Seller Name</h4>
-                                                <asp:Label ID="lblSname" runat ="server"></asp:Label>
+                                                <h4>
+                                                    Seller Name</h4>
+                                                <asp:Label ID="lblSname" runat="server"></asp:Label>
                                             </td>
-                                           
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h4>Email</h4>
-                                                <asp:Label ID="lblSmail" runat ="server"></asp:Label>
+                                                <h4>
+                                                    Email</h4>
+                                                <asp:Label ID="lblSmail" runat="server"></asp:Label>
                                             </td>
-                                            
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h4>Phone</h4>
-                                                <asp:Label ID="lblSphone" runat ="server"></asp:Label>
+                                                <h4>
+                                                    Phone</h4>
+                                                <asp:Label ID="lblSphone" runat="server"></asp:Label>
                                             </td>
-                                            
                                         </tr>
                                     </tbody>
                                 </table>
@@ -840,7 +850,12 @@ EnableEventValidation="false" %>
                                 <div class="title">
                                     Total</div>
                                 <div class="value">
-                                    <asp:Label ID="lblpckgprice" runat ="server"></asp:Label></div>
+                                    <asp:UpdatePanel ID="uy" runat="server">
+                                        <ContentTemplate>
+                                            <asp:Label ID="lblpckgprice" runat="server"></asp:Label>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                </div>
                             </div>
                         </div>
                         <!-- /.block -->
@@ -848,44 +863,17 @@ EnableEventValidation="false" %>
                     <!-- /.sidebar -->
                 </div>
                 <!-- /.row -->
-                
-                        <div class="row">
-                            <div class="checkout-actions">
-                                <div class="col-sm-4 col-md-3">
-                                </div>
-                                <div class="col-sm-4 col-md-3">
-                                </div>
-                                <div class="col-sm-4 col-md-3">
-                                    <div class="next">
-                                        <asp:UpdatePanel ID="BtnSavePanel" runat="server">
-                                            <ContentTemplate>
-                                                <asp:Button ID="btnSaveCarDetails" runat="server" CssClass="btn btn-primary" Text="Proceed >" OnClientClick="return ValidateVehicleType();" OnClick="btnSaveCarDetails_Click" /> 
-                                            </ContentTemplate>
-                                        </asp:UpdatePanel>
-                                        
-                                    </div>
-                                </div>
-                                
-                                <div class="col-sm-4 col-md-3">
-                                </div>
-                            </div>
-                        </div>
-                   
             </div>
-            <!-- /.container -->
         </div>
-        <!-- /.section -->
+        <!-- /.container -->
+    </div>
+    <!-- /.section -->
     </div>
     <!-- /#content -->
-   
-   
-   
-   
     <div id="footer">
         <uc1:Footer ID="Footer1" runat="server" />
     </div>
-   
-   
+
     <script src="libraries/jquery.bxslider/jquery.bxslider.js"></script>
 
     <script src="libraries/easy-tabs/lib/jquery.easytabs.min.js"></script>
@@ -913,27 +901,21 @@ EnableEventValidation="false" %>
     <script type='text/javascript' src='js/jquery.alphanumeric.pack.js'></script>
 
     <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
-   
-   
-    </form>
-    
-    
-    
-   
 
-   
+    </form>
 
     <script>
         var LoadingPage = '10'
         
     </script>
-    
+
     <script src="js/FillMasterDataNew.js" type="text/javascript"></script>
+
     <script type='text/javascript' src='js/jquery.alphanumeric.pack.js'></script>
+
     <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
-    
-    
-     <script type="text/javascript" language="javascript">
+
+    <script type="text/javascript" language="javascript">
        function isNumberKey(evt)
          {
          
@@ -1112,7 +1094,6 @@ EnableEventValidation="false" %>
         }
 
     </script>
-    
-    
+
 </body>
 </html>

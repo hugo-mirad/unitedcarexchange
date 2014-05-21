@@ -475,8 +475,13 @@
                 WithinZipNew = 4;
                 }
                 */
-                if (ZipCode1 == null || ZipCode1 == 'undefined' || ZipCode1 == '' || ZipCode1 == ' ') {
-                    alert('Enter your ZIP');
+                if (!ZipCode1 || ZipCode1 == null || ZipCode1 == 'undefined' || ZipCode1 == '' || ZipCode1 == ' ') {
+                       if($.cookie('userZip')){
+                            $('.buyzip').val($.cookie('userZip'));
+                            buySearch();
+                        }else{
+                            $find('HeadderBlogin1_MdlBuyacar').show();
+                        }
                 } else {
                     //console.log(make1, Modal1, ZipCode1, WithinZipNew,'1', '25', 'Price');
 

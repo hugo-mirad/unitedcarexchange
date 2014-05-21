@@ -238,7 +238,7 @@ function productionPage(carDet) {
         }
 
 
-
+    $('#spinner').hide();
 
 }
 

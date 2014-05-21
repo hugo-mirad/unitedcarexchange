@@ -25,6 +25,23 @@
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:100,400,700,400italic,700italic"
         rel="stylesheet" type="text/css" media="screen, projection">
     <title>MobiCarz</title>
+    
+    
+        <script src="assets/js/jquery.js"></script>
+
+    <script src="assets/js/jquery-migrate-1.2.1.js"></script>
+
+    <script src="assets/js/jquery.ui.js"></script>
+
+    <script src="assets/js/bootstrap.js"></script>
+
+    <script src="assets/js/cycle.js"></script>
+    
+    <script>
+        var LoadingPage =10
+    </script>
+    
+    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -102,8 +119,7 @@
                                                             <li>Mobile, Social & Web listings</li>
                                                             <li style="border-bottom: none">Ad traffic report </li>
                                                             <li style="border-bottom: none">&nbsp;</li>
-                                                            <li style="border-bottom: none">&nbsp;</li>
-                                                            <li style="border-bottom: none">&nbsp;</li>
+                                                            <li style="border-bottom: none">&nbsp;</li>                                                            
                                                             <li style="border-bottom: none">&nbsp;</li>
                                                             <li style="border-bottom: none">&nbsp;</li>
                                                             <li style="border-bottom: none">&nbsp;</li>
@@ -140,8 +156,7 @@
                                                             <li>Popular Ads</li>
                                                             <li>Email Promotions & Dealer Network Ads</li>
                                                             
-                                                            <li style="border-bottom: none">Unlimited No-Cost Renewal Option</li>
-                                                            <li style="border-bottom: none">&nbsp;</li>
+                                                            <li style="border-bottom: none">Unlimited No-Cost Renewal Option</li>                                                            
                                                             <li style="border-bottom: none">&nbsp;</li>
                                                             <li style="border-bottom: none">&nbsp;</li>
                                                         </ul>
@@ -211,7 +226,7 @@
         BackgroundCssClass="ModalPopupBG" TargetControlID="hdnsuccess" CancelControlID="Button1">
     </cc1:ModalPopupExtender>
     <asp:HiddenField ID="hdnsuccess" runat="server" />
-    <div class="alert" style="display: block" id="SuccessAlert">
+    <div class="alert" style="display: none" id="SuccessAlert">
         <div>
             <h4 id="H1">
                 Alert !
@@ -232,15 +247,7 @@
         </div>
     </div>
 
-    <script src="assets/js/jquery.js"></script>
 
-    <script src="assets/js/jquery-migrate-1.2.1.js"></script>
-
-    <script src="assets/js/jquery.ui.js"></script>
-
-    <script src="assets/js/bootstrap.js"></script>
-
-    <script src="assets/js/cycle.js"></script>
 
     <script src="libraries/jquery.bxslider/jquery.bxslider.js"></script>
 
@@ -261,6 +268,14 @@
     <script type="text/javascript" src="libraries/flot/jquery.flot.resize.js"></script>
 
     <script type="text/javascript" src="libraries/flot/jquery.flot.time.js"></script>
+    
+    
+
+    <script src="js/jquery.alphanumeric.pack.js" type="text/javascript"></script>
+    <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
+
+    <script src="js/FillMasterDataNew.js" type="text/javascript"></script>
+    
 
     <script src="http://maps.googleapis.com/maps/api/js?sensor=true&amp;v=3.13"></script>
 

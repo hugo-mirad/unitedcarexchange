@@ -47,12 +47,13 @@ public partial class PaymentMode : System.Web.UI.Page
                     lblSmodel.Text = Session["SelModel"].ToString();
                     lblSprice.Text = Session["SelPrice"].ToString();
 
-                    lblSphotos.Text = Session["SelUploadedImg"].ToString() + "/" + Session["MaxPhotos"].ToString(); ;
+                    //lblSphotos.Text = Session["SelUploadedImg"].ToString() + "/" + Session["MaxPhotos"].ToString(); ;
+                    lblSphotos.Text =  Session["MaxPhotos"].ToString(); ;
 
                 }
                 else
                 {
-                    Response.Redirect("Packages.aspx");
+                    Response.Redirect("SellRegi.aspx");
 
                 }
 
