@@ -591,7 +591,11 @@
             Car ID#
             <%--<label style="font-weight: normal;">
                 </label>--%>
-            <asp:Label ID="lblCarID" runat="server" Style="font-weight: normal;"></asp:Label></h4>
+            <asp:Label ID="lblCarID" runat="server" Style="font-weight: normal;"></asp:Label>&nbsp;&nbsp;
+                     <asp:Label ID="lblBrand" runat="server" Style="font-weight: bold;"></asp:Label>
+        
+            
+            </h4>
         <table style="width: 90%">
             <tr>
                 <td style="width: 300px; vertical-align: top">

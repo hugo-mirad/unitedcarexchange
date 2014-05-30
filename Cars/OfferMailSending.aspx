@@ -273,7 +273,7 @@
     </div>
     <div class="main">
         <h1 class="h1">
-            OFFER EMAIL SENDER APPLICATION</h1>
+            OFFER EMAIL SENDER APPLICATION     &nbsp;<span style="color:Gray">Only for UCE</span></h1>
         <div class="clear">
             &nbsp;</div>
         <table style="width: 100%;">

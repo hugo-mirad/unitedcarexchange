@@ -449,6 +449,14 @@
                     <asp:Label ID="lblPackage" runat="server"></asp:Label>
                 </td>
             </tr>
+              <tr>
+                <td>
+                    Brand:
+                </td>
+                <td>
+                    <asp:Label ID="lblBrand" runat="server"></asp:Label>
+                </td>
+            </tr>
         </table>
         <h1 class="h1">
             Add a Car

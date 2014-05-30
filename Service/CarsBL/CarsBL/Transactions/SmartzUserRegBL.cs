@@ -34,10 +34,8 @@ namespace CarsBL.Transactions
                 spNameString = "USP_Perform_SmartzLogin";
                 DbCommand dbCommand = null;
                 dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
-
                 dbDatabase.AddInParameter(dbCommand, "@SmartzUname", System.Data.DbType.String, UserName);
                 dbDatabase.AddInParameter(dbCommand, "@SmatzPassword", System.Data.DbType.String, sPassword);
-
                 dsUsers = dbDatabase.ExecuteDataSet(dbCommand);
                 return dsUsers;
             }
@@ -52,13 +50,10 @@ namespace CarsBL.Transactions
             {
                 DataSet dsUsers = new DataSet();
                 string spNameString = string.Empty;
-
                 Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
-
                 spNameString = "USP_GetUserDetails";
                 DbCommand dbCommand = null;
                 dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
-
                 dsUsers = dbDatabase.ExecuteDataSet(dbCommand);
                 return dsUsers;
             }
@@ -86,7 +81,6 @@ namespace CarsBL.Transactions
             {
                 throw ex;
             }
-
         }
 
         public DataSet SmartzUpdateUserDetails(int SmartzUID, string SmartzName, string SmartzEmail, int SmartzIsActive)
@@ -99,7 +93,6 @@ namespace CarsBL.Transactions
                 spNameString = "USP_SmartzUpdateUserDetails";
                 DbCommand dbCommand = null;
                 dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
-
                 dbDatabase.AddInParameter(dbCommand, "@SmartzUID", System.Data.DbType.Int32, SmartzUID);
                 dbDatabase.AddInParameter(dbCommand, "@SmartzName", System.Data.DbType.String, SmartzName);
                 dbDatabase.AddInParameter(dbCommand, "@SmartzEmail", System.Data.DbType.String, SmartzEmail);
@@ -145,7 +138,6 @@ namespace CarsBL.Transactions
                 spNameString = "USP_SmartzUpdateUserPassword";
                 DbCommand dbCommand = null;
                 dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
-
                 dbDatabase.AddInParameter(dbCommand, "@SmartzUID", System.Data.DbType.Int32, SmartzUID);
                 dbDatabase.AddInParameter(dbCommand, "@SmatzPassword", System.Data.DbType.String, SmatzPassword);
                 dsUsers = dbDatabase.ExecuteDataSet(dbCommand);

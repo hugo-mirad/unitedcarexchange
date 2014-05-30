@@ -1256,11 +1256,11 @@ public partial class AddNewCarNewForm : System.Web.UI.Page
             {
                 DateTime PostDate = Convert.ToDateTime(Session["NewUserPDDate"].ToString());
                 PDDate = PostDate.ToString("MM/dd/yyyy");
-                text = format.SendRegistrationdetailsForPDSales(LoginName, LoginPassword, UserDisName, ref text, PDDate);
+                text = format.SendRegistrationdetailsForPDSales(LoginName, LoginPassword, UserDisName, ref text, PDDate,1);
             }
             else
             {
-                text = format.SendRegistrationdetails(LoginName, LoginPassword, UserDisName, ref text, Link, TermsLink);
+                text = format.SendRegistrationdetails(LoginName, LoginPassword, UserDisName, ref text, Link, TermsLink,1);
             }
             msg.Body = text.ToString();
             SmtpClient smtp = new SmtpClient();

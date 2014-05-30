@@ -111,7 +111,6 @@ namespace CarsBL.CentralDBTransactions
             }
             return returnValue;
         }
-
         public bool Perform_LogOut(int UserID, DateTime logOutDate, int LogID, int logStatusId)
         {
             bool returnValue = false;
@@ -150,7 +149,6 @@ namespace CarsBL.CentralDBTransactions
             }
             return returnValue;
         }
-
         public DataSet GetSmartzUserDetails()
         {
             try
@@ -169,7 +167,6 @@ namespace CarsBL.CentralDBTransactions
                 throw ex;
             }
         }
-
         public DataSet GetSmartzUsersActiveData()
         {
             try
@@ -188,7 +185,6 @@ namespace CarsBL.CentralDBTransactions
                 throw ex;
             }
         }
-
         public DataSet GetSmartzSalesAgentsDetails()
         {
             try
@@ -207,7 +203,6 @@ namespace CarsBL.CentralDBTransactions
                 throw ex;
             }
         }
-
         public DataSet GetSmartzSalesAgentsActiveData()
         {
             try
@@ -248,7 +243,6 @@ namespace CarsBL.CentralDBTransactions
             }
 
         }
-
         public DataSet GetUserStatus()
         {
             try
@@ -344,7 +338,6 @@ namespace CarsBL.CentralDBTransactions
             }
 
         }
-
         public DataSet GetSmartzSalesAgentsInActivePeriod(DateTime FromDate, DateTime ToDate)
         {
             try

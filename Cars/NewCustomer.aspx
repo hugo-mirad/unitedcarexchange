@@ -757,7 +757,7 @@
     <div class="main" style="border: #ccc 1px solid; padding: 10px; background: rgb(253, 243, 234);
         height: 2000px">
         <h1 class="h1">
-            New Customer Data
+            New Customer Data&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:Gray">Only for UCE</span> 
             <div style="width: 400px; float: right; margin-right: 0;">
                 <%--  <input type="button" value="Reset" class="g-button g-button-submit" />--%>
                 <%-- <input type="button" value="Save" class="g-button g-button-submit" />--%>

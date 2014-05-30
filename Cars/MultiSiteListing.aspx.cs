@@ -200,6 +200,16 @@ public partial class MultiSiteListing : System.Web.UI.Page
                     divPendUrl.Style["display"] = "block";
 
                     lblSelCarID.Text = dsCarData.Tables[0].Rows[0]["carid"].ToString();
+
+                    if (dsCarData.Tables[0].Rows[0]["BrandCode"].ToString().Trim() == "" || dsCarData.Tables[0].Rows[0]["BrandCode"].ToString().Trim()=="NULL")
+                    {
+                        lblSelCarID.Text = lblSelCarID.Text + " <b>(UCE)</b>";
+                    }
+                    else
+                    {
+                        lblSelCarID.Text = lblSelCarID.Text + " <b>(" + dsCarData.Tables[0].Rows[0]["BrandCode"].ToString().Trim() + ")</b>";
+                    }
+
                     DateTime PostDate = Convert.ToDateTime(dsCarData.Tables[0].Rows[0]["dateOfPosting"].ToString());
                     lblListDate.Text = PostDate.ToString("MM/dd/yyyy");
                     lblAdStatus.Text = dsCarData.Tables[0].Rows[0]["AdStatusName"].ToString();

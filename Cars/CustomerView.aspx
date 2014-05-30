@@ -748,7 +748,9 @@ return true
         </div>
         <h4 style="margin: 0 0 8px 2px; padding: 0; line-height: 16px;">
             Car ID#
-            <asp:Label ID="lblCarID" runat="server" Style="font-weight: normal;"></asp:Label></h4>
+            <asp:Label ID="lblCarID" runat="server" Style="font-weight: normal;"></asp:Label>
+            &nbsp;  <asp:Label ID="lblBrand" runat="server" Style="font-weight: bold;"></asp:Label>
+            </h4>
         <table style="width: 95%">
             <tr>
                 <td colspan="2" style="padding-bottom: 10px;">

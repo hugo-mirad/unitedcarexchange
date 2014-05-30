@@ -97,6 +97,17 @@ public partial class CustomerView : System.Web.UI.Page
                     if (CarsDetails.Tables[0].Rows.Count > 0)
                     {
                         lblCarID.Text = CarsDetails.Tables[0].Rows[0]["carid"].ToString();
+
+                        if (CarsDetails.Tables[0].Rows[0]["BrandCode"].ToString() == "NULL" || CarsDetails.Tables[0].Rows[0]["BrandCode"].ToString().Trim() == "")
+                        {
+                            lblBrand.Text="UCE";
+                            Session["BrandID"] = 1;
+                        }
+                        else
+                        {
+                            lblBrand.Text = CarsDetails.Tables[0].Rows[0]["BrandCode"].ToString();
+                            Session["BrandID"] = CarsDetails.Tables[0].Rows[0]["BrnadId"].ToString();
+                        }
                         Session["ViewCarID"] = CarsDetails.Tables[0].Rows[0]["carid"].ToString();
                         Session["ViewUID"] = CarsDetails.Tables[0].Rows[0]["uid"].ToString();
                         Session["ViewsellerID"] = CarsDetails.Tables[0].Rows[0]["sellerID"].ToString();
@@ -189,8 +200,18 @@ public partial class CustomerView : System.Web.UI.Page
 
                         string M1 = Make;
                         if (M1 == "W%20&%20M") M1 = "WM";
-                        HylinkUCE.NavigateUrl = "http://unitedcarexchange.com/Buy-Sell-UsedCar/" + Year + "-" + M1 + "-" + Model + "-" + UniqueID;
-                        HylinkUCE.Target = "blank";
+                        if (Session["BrandID"].ToString().Trim() == "1")
+                        {
+                            HylinkUCE.NavigateUrl = "http://unitedcarexchange.com/Buy-Sell-UsedCar/" + Year + "-" + M1 + "-" + Model + "-" + UniqueID;
+                            HylinkUCE.Target = "blank";
+                        }
+                        else if (Session["BrandID"].ToString().Trim() == "2")
+                        {
+                            HylinkUCE.Text = "Link to MOBI listing";
+                            HylinkUCE.NavigateUrl = "http://mobicarz.com/Buy-Sell-UsedCar/" + Year + "-" + M1.Replace("-", "@") + "-" + Model.Replace("-", "@") + "-" + UniqueID;
+                            HylinkUCE.Target = "blank";
+
+                        }
 
                         if (CarsDetails.Tables[0].Rows[0]["mileage"].ToString() != "0.00")
                         {
@@ -715,7 +736,18 @@ public partial class CustomerView : System.Web.UI.Page
             string PDDate = string.Empty;
             string LoginPassword = Session["RegPassword"].ToString();
             string LoginName = Session["RegUserName"].ToString();
-            lblMailTo.Text = LoginName;
+
+            if (Session["RegUserName"].ToString().Trim() != "")
+            {
+                lblMailTo.Text = LoginName;
+                lblMailTo.Enabled = false;
+            }
+            else
+            {
+                lblMailTo.Text = "";
+                lblMailTo.Enabled = true;
+            }
+
             string UserDisName = Session["RegName"].ToString();
             string Year = Session["ViewCarYear"].ToString();
             string Model = Session["ViewCarModel"].ToString();
@@ -725,19 +757,41 @@ public partial class CustomerView : System.Web.UI.Page
             Make = Make.Replace(" ", "%20");
             Model = Model.Replace(" ", "%20");
             Model = Model.Replace("&", "@");
-            string Link = "http://unitedcarexchange.com/Buy-Sell-UsedCar/" + Year + "-" + Make + "-" + Model + "-" + UniqueID;
-            string TermsLink = "http://unitedcarexchange.com/TermsandConditions.aspx";
+           
             clsMailFormats format = new clsMailFormats();
             string text = string.Empty;
             if (Session["ViewPayStatus"].ToString() == "5")
             {
                 DateTime PostDate = Convert.ToDateTime(Session["ViewPDDate"].ToString());
                 PDDate = PostDate.ToString("MM/dd/yyyy");
-                text = format.SendRegistrationdetailsForPDSales(LoginUserID, LoginPassword, UserDisName, ref text, PDDate);
+
+                if (Session["BrandID"].ToString() == "1")
+                {
+                    string Link = "http://unitedcarexchange.com/Buy-Sell-UsedCar/" + Year + "-" + Make + "-" + Model + "-" + UniqueID;
+                    string TermsLink = "http://unitedcarexchange.com/TermsandConditions.aspx";
+                    text = format.SendRegistrationdetailsForPDSales(LoginUserID, LoginPassword, UserDisName, ref text, PDDate, Convert.ToInt32(Session["BrandID"].ToString()));
+                }
+                else if (Session["BrandID"].ToString() == "2")
+                {
+                    string Link = "http://mobicarz.com/Buy-Sell-UsedCar/" + Year + "-" + Make.Replace("-", "@") + "-" + Model.Replace("-", "@") + "-" + UniqueID;
+                    string TermsLink = "http://mobicarz.com/TermsandConditions.aspx";
+                    text = format.SendRegistrationdetailsForPDSales(LoginUserID, LoginPassword, UserDisName, ref text, PDDate, Convert.ToInt32(Session["BrandID"].ToString()));
+                }
             }
             else
             {
-                text = format.SendRegistrationdetails(LoginUserID, LoginPassword, UserDisName, ref text, Link, TermsLink);
+                if (Session["BrandID"].ToString() == "1")
+                {
+                    string Link = "http://unitedcarexchange.com/Buy-Sell-UsedCar/" + Year + "-" + Make + "-" + Model + "-" + UniqueID;
+                    string TermsLink = "http://unitedcarexchange.com/TermsandConditions.aspx";
+                    text = format.SendRegistrationdetails(LoginUserID, LoginPassword, UserDisName, ref text, Link, TermsLink, Convert.ToInt32(Session["BrandID"].ToString()));
+                }
+                else if (Session["BrandID"].ToString() == "2")
+                {
+                    string Link = "http://mobicarz.com/Buy-Sell-UsedCar/" + Year + "-" + Make.Replace("-", "@") + "-" + Model.Replace("-", "@") + "-" + UniqueID;
+                    string TermsLink = "http://mobicarz.com/TermsandConditions.aspx";
+                    text = format.SendRegistrationdetails(LoginUserID, LoginPassword, UserDisName, ref text, Link, TermsLink, Convert.ToInt32(Session["BrandID"].ToString()));
+                }
             }
             lblRegisMail.Text = text;
             txtEmailTo.Text = "";
@@ -763,8 +817,17 @@ public partial class CustomerView : System.Web.UI.Page
             clsMailFormats format = new clsMailFormats();
             string text = string.Empty;
             lblGenMailTo.Text = LoginName;
+
             txtGenCCMail.Text = "";
-            txtGenSubject.Text = "Mail From United Car Exchange For Car ID# " + Session["ViewCarID"].ToString();
+            if (Session["BrandID"].ToString() == "1")
+            {
+
+                txtGenSubject.Text = "Mail From United Car Exchange For Car ID# " + Session["ViewCarID"].ToString();
+            }
+            else if (Session["BrandID"].ToString() == "2")
+            {
+                txtGenSubject.Text = "Mail From MobiCarz For Car ID# " + Session["ViewCarID"].ToString();
+            }
             txtgenMailText.Text = "";
             mdepgeneralMail.Show();
         }
@@ -815,14 +878,23 @@ public partial class CustomerView : System.Web.UI.Page
             string UserDisName = Session["RegName"].ToString();
             clsMailFormats format = new clsMailFormats();
             MailMessage msg = new MailMessage();
-            msg.From = new MailAddress("info@unitedcarexchange.com");
+
+            if (Session["BrandID"].ToString() == "1")
+            {
+                msg.From = new MailAddress("info@unitedcarexchange.com");
+                msg.Bcc.Add("archive@unitedcarexchange.com");
+            }
+            else if (Session["BrandID"].ToString() == "2")
+            {
+                msg.From = new MailAddress("info@mobicarz.com");
+                msg.Bcc.Add("archive@mobicarz.com");
+            }
             string ToEmail = lblGenMailTo.Text;
             msg.To.Add(ToEmail);
             if (txtGenCCMail.Text != "")
             {
                 msg.CC.Add(txtGenCCMail.Text);
             }
-            msg.Bcc.Add("archive@unitedcarexchange.com");
             msg.Subject = txtGenSubject.Text;
             msg.IsBodyHtml = false;
             string text = string.Empty;
@@ -901,29 +973,60 @@ public partial class CustomerView : System.Web.UI.Page
             Make = Make.Replace(" ", "%20");
             Model = Model.Replace(" ", "%20");
             Model = Model.Replace("&", "@");
-            string Link = "http://unitedcarexchange.com/Buy-Sell-UsedCar/" + Year + "-" + Make + "-" + Model + "-" + UniqueID;
-            string TermsLink = "http://unitedcarexchange.com/TermsandConditions.aspx";
             clsMailFormats format = new clsMailFormats();
-            MailMessage msg = new MailMessage();
-            msg.From = new MailAddress("info@unitedcarexchange.com");
-            msg.To.Add(LoginName);
-            if (txtEmailTo.Text != "")
-            {
-                msg.CC.Add(txtEmailTo.Text);
-            }
-            msg.Bcc.Add("archive@unitedcarexchange.com");
-            msg.Subject = "Registration Details From United Car Exchange For Car ID# " + Session["ViewCarID"].ToString();
-            msg.IsBodyHtml = true;
             string text = string.Empty;
-            if (Session["ViewPayStatus"].ToString() == "5")
+            MailMessage msg = new MailMessage();
+            if (Session["BrandID"].ToString() == "1")
             {
-                DateTime PostDate = Convert.ToDateTime(Session["ViewPDDate"].ToString());
-                PDDate = PostDate.ToString("MM/dd/yyyy");
-                text = format.SendRegistrationdetailsForPDSales(LoginUserID, LoginPassword, UserDisName, ref text, PDDate);
+                string Link = "http://unitedcarexchange.com/Buy-Sell-UsedCar/" + Year + "-" + Make + "-" + Model + "-" + UniqueID;
+                string TermsLink = "http://unitedcarexchange.com/TermsandConditions.aspx";
+              
+                msg.From = new MailAddress("info@unitedcarexchange.com");
+                msg.To.Add(LoginName);
+                if (txtEmailTo.Text != "")
+                {
+                    msg.CC.Add(txtEmailTo.Text);
+                }
+                msg.Bcc.Add("archive@unitedcarexchange.com");
+                msg.Subject = "Registration Details From United Car Exchange For Car ID# " + Session["ViewCarID"].ToString();
+                msg.IsBodyHtml = true;
+                
+                if (Session["ViewPayStatus"].ToString() == "5")
+                {
+                    DateTime PostDate = Convert.ToDateTime(Session["ViewPDDate"].ToString());
+                    PDDate = PostDate.ToString("MM/dd/yyyy");
+                    text = format.SendRegistrationdetailsForPDSales(LoginUserID, LoginPassword, UserDisName, ref text, PDDate, Convert.ToInt32(Session["BrandID"].ToString()));
+                }
+                else
+                {
+                    text = format.SendRegistrationdetails(LoginUserID, LoginPassword, UserDisName, ref text, Link, TermsLink, Convert.ToInt32(Session["BrandID"].ToString()));
+                }
             }
-            else
+            else if (Session["BrandID"].ToString() == "2")
             {
-                text = format.SendRegistrationdetails(LoginUserID, LoginPassword, UserDisName, ref text, Link, TermsLink);
+                string Link = "http://mobicarz.com/Buy-Sell-UsedCar/" + Year + "-" + Make.Replace("-", "@") + "-" + Model.Replace("-", "@") + "-" + UniqueID;
+                string TermsLink = "http://mobicarz.com/TermsandConditions.aspx";
+               
+                msg.From = new MailAddress("info@mobicarz.com");
+                msg.To.Add(LoginName);
+                if (txtEmailTo.Text != "")
+                {
+                    msg.CC.Add(txtEmailTo.Text);
+                }
+                msg.Bcc.Add("archive@mobicarz.com");
+                msg.Subject = "Registration Details From MobiCarz For Car ID# " + Session["ViewCarID"].ToString();
+                msg.IsBodyHtml = true;
+             
+                if (Session["ViewPayStatus"].ToString() == "5")
+                {
+                    DateTime PostDate = Convert.ToDateTime(Session["ViewPDDate"].ToString());
+                    PDDate = PostDate.ToString("MM/dd/yyyy");
+                    text = format.SendRegistrationdetailsForPDSales(LoginUserID, LoginPassword, UserDisName, ref text, PDDate, Convert.ToInt32(Session["BrandID"].ToString()));
+                }
+                else
+                {
+                    text = format.SendRegistrationdetails(LoginUserID, LoginPassword, UserDisName, ref text, Link, TermsLink, Convert.ToInt32(Session["BrandID"].ToString()));
+                }
             }
             msg.Body = text.ToString();
             SmtpClient smtp = new SmtpClient();
@@ -1607,6 +1710,18 @@ public partial class CustomerView : System.Web.UI.Page
                 string text = string.Empty;
                 string LoginName = Session["RegUserName"].ToString();
                 lblMultiSiteMailTo.Text = LoginName;
+
+                if (Session["RegUserName"].ToString().Trim() != "")
+                {
+                    lblMultiSiteMailTo.Text = LoginName;
+                    lblMultiSiteMailTo.Enabled = false;
+                }
+                else
+                {
+                    lblMultiSiteMailTo.Text = "";
+                    lblMultiSiteMailTo.Enabled = true;
+                }
+
                 string PDDate = string.Empty;
                 string LoginPassword = Session["RegPassword"].ToString();
                 string UserDisName = Session["RegName"].ToString();
@@ -1615,9 +1730,15 @@ public partial class CustomerView : System.Web.UI.Page
                 DataSet CarsDetails = (DataSet)Session["ViewCarDetailsDataset"];
                 string Carid = Session["ViewCarID"].ToString();
                 //text = format.SendMultiSitedetailsTesting(ref text, dtMutisite,CarsDetails);
-               
-                text = format.SendMultiListMail(ref text, dtMutisite, Carid, PackageName, UserDisName, UniqueID);
 
+                if (Session["BrandID"].ToString() == "1")
+                {
+                    text = format.SendMultiListMail(ref text, dtMutisite, Carid, PackageName, UserDisName, UniqueID);
+                }
+                else if(Session["BrandID"].ToString() == "2")
+                {
+                    text = format.SendMultiListMailMobi(ref text, dtMutisite, Carid, PackageName, UserDisName, UniqueID);
+                }
                 lblMultiListMail.Text = text;
                 lblMailTo.Text = LoginName;
                 txtMultiListEmailToCC.Text = "";
@@ -1681,8 +1802,7 @@ public partial class CustomerView : System.Web.UI.Page
             {
                 LoginName = lblMultiSiteMailTo.Text.Trim();
             }   
-            msg.From = new MailAddress("info@unitedcarexchange.com");
-            msg.To.Add(LoginName);
+          
             string PDDate = string.Empty;
             string LoginPassword = Session["RegPassword"].ToString();
             string UserDisName = Session["RegName"].ToString();
@@ -1690,21 +1810,46 @@ public partial class CustomerView : System.Web.UI.Page
             {
                 msg.CC.Add(txtMultiListEmailToCC.Text);
             }
-            msg.From = new MailAddress("info@unitedcarexchange.com");
-            msg.Subject = "MultiSite";
-            msg.IsBodyHtml = true;
-            string ToEmail = lblMultiSiteMailTo.Text;
-            msg.To.Add(ToEmail);
-            if (txtEmailTo.Text != "")
+            if (Session["BrandID"].ToString() == "1")
             {
-                msg.CC.Add(txtEmailTo.Text);
-            }
-            msg.Bcc.Add("archive@unitedcarexchange.com");
-            msg.Subject = "Multisite Listing Details From United Car Exchange For Car ID# " + Session["ViewCarID"].ToString();
-            msg.IsBodyHtml = true;
-           
-            msg.Body = lblMultiListMail.Text.ToString();
+                msg.From = new MailAddress("info@unitedcarexchange.com");
+                msg.Subject = "MultiSite";
+                msg.IsBodyHtml = true;
+                string ToEmail = lblMultiSiteMailTo.Text;
+                msg.To.Add(ToEmail);
+                if (txtEmailTo.Text != "")
+                {
+                    msg.CC.Add(txtEmailTo.Text);
+                }
+                msg.Bcc.Add("archive@unitedcarexchange.com");
+                msg.Subject = "Multisite Listing Details From United Car Exchange For Car ID# " + Session["ViewCarID"].ToString();
+                msg.IsBodyHtml = true;
 
+                msg.Body = lblMultiListMail.Text.ToString();
+            }
+            else if (Session["BrandID"].ToString() == "2")
+            {
+                msg.From = new MailAddress("info@mobicarz.com");
+                msg.Subject = "MultiSite";
+                msg.IsBodyHtml = true;
+                string ToEmail = lblMultiSiteMailTo.Text;
+                msg.To.Add(ToEmail);
+                if (txtEmailTo.Text != "")
+                {
+                    msg.CC.Add(txtEmailTo.Text);
+                }
+                msg.Bcc.Add("archive@mobicarz.com");
+                msg.Subject = "Multisite Listing Details From MobiCarz For Car ID# " + Session["ViewCarID"].ToString();
+                msg.IsBodyHtml = true;
+
+                msg.Body = lblMultiListMail.Text.ToString();
+            }
+            //SmtpClient smtp = new SmtpClient();
+            //smtp.Host = "smtp.gmail.com";
+            //smtp.Port = 587;
+            //smtp.Credentials = new System.Net.NetworkCredential("shobha@datumglobal.net", "sob902290");
+            //smtp.EnableSsl = true;
+            //smtp.Send(msg);
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "127.0.0.1";
             smtp.Port = 25;

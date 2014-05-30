@@ -61,6 +61,7 @@ public partial class DealerSearch : System.Web.UI.Page
                 GetAllModels();
                 GetMakes();
                 FillType();
+                GetAllBrands();
                 GetAllRvMakes();
             }
         }
@@ -305,6 +306,24 @@ public partial class DealerSearch : System.Web.UI.Page
         {
         }
     }
+
+    private void GetAllBrands()
+    {
+        try
+        {
+            DataSet dsBrands = new DataSet();
+            dsBrands = objdropdownBL.GetAllBrands();
+            ddlBrandName.DataSource = dsBrands;
+            ddlBrandName.DataTextField = "Brandname";
+            ddlBrandName.DataValueField = "BrnadId";
+            ddlBrandName.DataBind();
+            ddlBrandName.Items.Insert(0, new ListItem("Select", "0"));
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
     public void GetRvModelsInfo()
     {
         try
@@ -335,7 +354,8 @@ public partial class DealerSearch : System.Web.UI.Page
             string SellerName = txtCustName.Text;
             string Email = txtEmail.Text;
             int AgentName = Convert.ToInt32(ddlAgentNames.SelectedItem.Value);
-            DataSet dsCarData = objdropdownBL.SmartzSearchNewByUserDetailsForDealer(PhoneNum, SellerName, Email, AgentName);
+            int BrandType = Convert.ToInt32(ddlBrandName.SelectedValue);
+            DataSet dsCarData = objdropdownBL.SmartzSearchNewByUserDetailsForDealer(PhoneNum, SellerName, Email, AgentName,BrandType);
             Session["SearchCarsData"] = dsCarData;
             DataSet dsRvsData = objRvMainBL.SmartzSearchNewByRVUserDetails(PhoneNum, SellerName, Email, AgentName);
             Session["SearchRVSData"] = dsRvsData;
@@ -559,6 +579,12 @@ public partial class DealerSearch : System.Web.UI.Page
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                Label lblBrand = (Label)e.Row.FindControl("lblBrand");
+                if (lblBrand.Text.ToString().Trim() == "NULL" || lblBrand.Text.Trim() == "")
+                {
+                    lblBrand.Text = "UCE";
+                }
+
                 Image ImgSaleType = (Image)e.Row.FindControl("ImgSaleType");
                 HiddenField hdnSaleEnteredBy = (HiddenField)e.Row.FindControl("hdnSaleEnteredBy");
                 HiddenField hdnAgentID = (HiddenField)e.Row.FindControl("hdnAgentID");
@@ -681,6 +707,61 @@ public partial class DealerSearch : System.Web.UI.Page
             throw ex;
         }
     }
+
+    protected void lnkBrand_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Session.Timeout = 180;
+            DataSet ds = new DataSet();
+            ds = Session["SearchCarsData"] as DataSet;
+            ds.Tables[0].DefaultView.RowFilter = "";
+            DataTable dt = ds.Tables[0];
+            string SortExp = "BrandCode";
+            if (Session["SortDirec"] == null)
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkBrand.Text = "Brand &#8659";
+            }
+            else if (Session["SortDirec"].ToString() == "")
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkBrand.Text = "Brand &#8659";
+            }
+            else if (Session["SortDirec"].ToString() == "Ascending")
+            {
+                Session["SortDirec"] = "Descending";
+                lnkBrand.Text = "Brand &#8657";
+            }
+            else
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkBrand.Text = "Brand &#8659";
+            }
+            lnkCarIDSort.Text = "Car ID &darr; &uarr;";
+            lnkPostedSort.Text = "Posted Dt &darr; &uarr;";
+            lnkAgentSort.Text = "Agent &darr; &uarr;";
+            lnkYearSort.Text = "Year &darr; &uarr;";
+            lnkMakeSort.Text = "Make &darr; &uarr;";
+            lnkModelSort.Text = "Model &darr; &uarr;";
+            lnkPackageSort.Text = "Package &darr; &uarr;";
+            lnkNameSort.Text = "Name &darr; &uarr;";
+            lnkPhoneSort.Text = "Reg Phone &darr; &uarr;";
+            lnkEmailSort.Text = "Email &darr; &uarr;";
+            lnkStatusSort.Text = "Ad St &darr; &uarr;";
+            lnkSaleDateSort.Text = "Sale Dt &darr; &uarr;";
+
+            if (dt != null)
+            {
+                BizUtility.GridSortForReport(txthdnSortOrder, SortExp, grdIntroInfo, 0, dt, Session["SortDirec"].ToString());
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
 
 
     protected void lnkCarIDSort_Click(object sender, EventArgs e)
@@ -1256,7 +1337,6 @@ public partial class DealerSearch : System.Web.UI.Page
             throw ex;
         }
     }
-
     protected void lnkSaleDateSort_Click(object sender, EventArgs e)
     {
         try
@@ -1309,12 +1389,6 @@ public partial class DealerSearch : System.Web.UI.Page
             throw ex;
         }
     }
-
-
-
-
-
-
     protected void lnkBtnRvIDSort_Click(object sender, EventArgs e)
     {
         try
@@ -1888,7 +1962,6 @@ public partial class DealerSearch : System.Web.UI.Page
             throw ex;
         }
     }
-
     protected void lnkbtnRvSaleDateSort_Click(object sender, EventArgs e)
     {
         try
@@ -1941,8 +2014,6 @@ public partial class DealerSearch : System.Web.UI.Page
             throw ex;
         }
     }
-
-
     protected void grdRVDetails_RowDataBound(object sender, GridViewRowEventArgs e)
     {
         try
@@ -2024,8 +2095,6 @@ public partial class DealerSearch : System.Web.UI.Page
             throw ex;
         }
     }
-
-
     protected void lnkbtnCarsResCount_Click(object sender, EventArgs e)
     {
         try
@@ -2076,7 +2145,6 @@ public partial class DealerSearch : System.Web.UI.Page
             throw ex;
         }
     }
-
     protected void lnkbtnRVSResCount_Click(object sender, EventArgs e)
     {
         try
@@ -2126,10 +2194,6 @@ public partial class DealerSearch : System.Web.UI.Page
             throw ex;
         }
     }
-
-
-
-
     private string CreateTable()
     {
         string strTransaction = string.Empty;

@@ -39,24 +39,24 @@
             <td style="width: 250px; vertical-align: top;">
                 <ul class="menu">
                     <li class="sliding-element">
-                        <asp:LinkButton ID="lnkbtnIntromail" runat="server" Text="IntroMail" OnClick="lnkbtnIntromail_Click"></asp:LinkButton>
+                        <asp:LinkButton ID="lnkbtnIntromail" runat="server" Text="IntroMail (UCE only)" OnClick="lnkbtnIntromail_Click"></asp:LinkButton>
                     </li>
                     <li class="sliding-element">
                         <asp:LinkButton ID="lnkOfferEmail" runat="server" PostBackUrl="~/OfferMailSending.aspx"
-                            Text="OfferMail"></asp:LinkButton></li>
+                            Text="OfferMail (UCE only)"></asp:LinkButton></li>
                     <li class="sliding-element">
                         <asp:LinkButton ID="lnkbtnSearch" runat="server" PostBackUrl="~/SearchNew.aspx" Text="Search"></asp:LinkButton>
                     </li>
                     <li class="sliding-element">
                         <asp:UpdatePanel ID="updtpnlNewCust" runat="server">
                             <ContentTemplate>
-                                <asp:LinkButton ID="lnkbtnNewCustomer" runat="server" Text="New Customer" OnClick="lnkbtnNewCustomer_Click"></asp:LinkButton>
+                                <asp:LinkButton ID="lnkbtnNewCustomer" runat="server" Text="New Customer (UCE only)" OnClick="lnkbtnNewCustomer_Click"></asp:LinkButton>
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </li>
                     <li class="sliding-element">
                         <asp:LinkButton ID="lnkbtnNewForm" runat="server" PostBackUrl="~/AddCarNewForm.aspx"
-                            Text="New Form"></asp:LinkButton>
+                            Text="New Form (UCE only)"></asp:LinkButton>
                     </li>
                     <li class="sliding-element">
                         <asp:LinkButton ID="lnkbtnMultiSiteListing" runat="server" PostBackUrl="~/MultiSiteListing.aspx"

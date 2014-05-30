@@ -73,7 +73,8 @@ public partial class AddNewMultiCar : System.Web.UI.Page
                 if (dsSellerInfo.Tables[1].Rows.Count > 0)
                 {
                     lblCustName.Text = dsSellerInfo.Tables[1].Rows[0]["Name"].ToString();
-                    //txtCustName.Text = dsSellerInfo.Tables[1].Rows[0]["Name"].ToString();
+                    lblBrand.Text = dsSellerInfo.Tables[1].Rows[0]["BrandCode"].ToString();
+                    ViewState["BrandId"] = dsSellerInfo.Tables[1].Rows[0]["BrandID"].ToString();
                     txtCustPhoneNumber.Text = dsSellerInfo.Tables[1].Rows[0]["PhoneNumber"].ToString();
                     //txtCustAddress.Text = dsSellerInfo.Tables[1].Rows[0]["Address"].ToString();
                     txtCity.Text = dsSellerInfo.Tables[1].Rows[0]["City"].ToString();
@@ -586,25 +587,53 @@ public partial class AddNewMultiCar : System.Web.UI.Page
             Make = Make.Replace(" ", "%20");
             Model = Model.Replace(" ", "%20");
             Model = Model.Replace("&", "@");
-            string Link = "http://unitedcarexchange.com/Buy-Sell-UsedCar/" + Year + "-" + Make + "-" + Model + "-" + UniqueID;
-            string TermsLink = "http://unitedcarexchange.com/TermsandConditions.aspx";
+           
             clsMailFormats format = new clsMailFormats();
             MailMessage msg = new MailMessage();
-            msg.From = new MailAddress("info@unitedcarexchange.com");
-            msg.To.Add(LoginName);
-            msg.Bcc.Add("archive@unitedcarexchange.com");
-            msg.Subject = "Registration Details From United Car Exchange For Car ID# " + Session["CarID"].ToString();
-            msg.IsBodyHtml = true;
+          
             string text = string.Empty;
-            if (Session["NewUserPayStatus"].ToString() == "5")
+
+            if (ViewState["BrandId"].ToString().Trim() == "1")
             {
-                DateTime PostDate = Convert.ToDateTime(Session["NewUserPDDate"].ToString());
-                PDDate = PostDate.ToString("MM/dd/yyyy");
-                text = format.SendRegistrationdetailsForPDSales(LoginName, LoginPassword, UserDisName, ref text, PDDate);
+                string Link = "http://unitedcarexchange.com/Buy-Sell-UsedCar/" + Year + "-" + Make + "-" + Model + "-" + UniqueID;
+                string TermsLink = "http://unitedcarexchange.com/TermsandConditions.aspx";
+                msg.From = new MailAddress("info@unitedcarexchange.com");
+                msg.To.Add(LoginName);
+                msg.Bcc.Add("archive@unitedcarexchange.com");
+                msg.Subject = "Registration Details From United Car Exchange For Car ID# " + Session["CarID"].ToString();
+                msg.IsBodyHtml = true;
+
+                if (Session["NewUserPayStatus"].ToString() == "5")
+                {
+                    DateTime PostDate = Convert.ToDateTime(Session["NewUserPDDate"].ToString());
+                    PDDate = PostDate.ToString("MM/dd/yyyy");
+                    text = format.SendRegistrationdetailsForPDSales(LoginName, LoginPassword, UserDisName, ref text, PDDate, Convert.ToInt32(ViewState["BrandId"].ToString().Trim()));
+                }
+                else
+                {
+                    text = format.SendRegistrationdetails(LoginName, LoginPassword, UserDisName, ref text, Link, TermsLink, Convert.ToInt32(ViewState["BrandId"].ToString().Trim()));
+                }
             }
-            else
+            else if (ViewState["BrandId"].ToString().Trim() == "2")
             {
-                text = format.SendRegistrationdetails(LoginName, LoginPassword, UserDisName, ref text, Link, TermsLink);
+                string Link = "http://mobicarz.com/Buy-Sell-UsedCar/" + Year + "-" + Make.Replace("-", "@") + "-" + Model.Replace("-", "@") + "-" + UniqueID;
+                string TermsLink = "http://mobicarz.com/TermsandConditions.aspx";
+                msg.From = new MailAddress("info@mobicarz.com");
+                msg.To.Add(LoginName);
+                msg.Bcc.Add("archive@mobicarz.com");
+                msg.Subject = "Registration Details From MobiCarz For Car ID# " + Session["CarID"].ToString();
+                msg.IsBodyHtml = true;
+
+                if (Session["NewUserPayStatus"].ToString() == "5")
+                {
+                    DateTime PostDate = Convert.ToDateTime(Session["NewUserPDDate"].ToString());
+                    PDDate = PostDate.ToString("MM/dd/yyyy");
+                    text = format.SendRegistrationdetailsForPDSales(LoginName, LoginPassword, UserDisName, ref text, PDDate, Convert.ToInt32(ViewState["BrandId"].ToString().Trim()));
+                }
+                else
+                {
+                    text = format.SendRegistrationdetails(LoginName, LoginPassword, UserDisName, ref text, Link, TermsLink, Convert.ToInt32(ViewState["BrandId"].ToString().Trim()));
+                }
             }
             msg.Body = text.ToString();
             SmtpClient smtp = new SmtpClient();

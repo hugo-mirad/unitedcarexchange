@@ -1255,6 +1255,7 @@ function ValidateVehiclePopup()
             margin: 0 10px; float: left;">
             <h1 class="h1">
                 <asp:Label ID="lblMainHeadName" runat="server" Style="font-size: 16px; color: Navy;"></asp:Label>
+                &nbsp; <asp:Label ID="lblBrand" runat="server" Style="font-size: 16px; color: Navy;"></asp:Label>
                 <div style="float: right; margin-right: 0;">
                     <asp:UpdatePanel ID="UpdatePane1BtnSalesUpdate" runat="server">
                         <ContentTemplate>

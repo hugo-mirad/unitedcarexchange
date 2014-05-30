@@ -1933,7 +1933,7 @@
     </div>
     <div class="main" style="border: #ccc 1px solid; padding: 10px; background: rgb(253, 243, 234)">
         <h1 class="h1">
-            New Customer Data
+            New Customer Data&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:Gray">Only for UCE</span>
             <div style="width: 400px; float: right; margin-right: 0;">
                 <asp:UpdatePanel ID="UpdatePane1BtnSalesUpdate" runat="server">
                     <ContentTemplate>

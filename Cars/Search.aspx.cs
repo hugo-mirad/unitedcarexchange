@@ -400,7 +400,7 @@ public partial class Search : System.Web.UI.Page
                 string postingID = e.CommandArgument.ToString();
                 Session["PostingID"] = postingID;
                 Session["RedirectFrom"] = 1;
-                Response.Redirect("CustomerViewNewForm.aspx");
+                Response.Redirect("CustomerView.aspx");
             }
             if (e.CommandName == "EditCustomer")
             {

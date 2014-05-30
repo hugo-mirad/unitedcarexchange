@@ -36,16 +36,38 @@ public partial class MultiSiteBulkUploads : System.Web.UI.Page
                 if (Session["MultiSiteBulkRedirectFrom"].ToString() == "Cars")
                 {
                     lblRedirectBy.Text = "Upload car(s) data";
+                    GetAllBrands();
+                    ddlBrandName.Visible = true;
+                    lblBrand.Text = "Brand";
+                    lblBrand.Visible = true;
                 }
                 else if (Session["MultiSiteBulkRedirectFrom"].ToString() == "Rvs")
                 {
                     lblRedirectBy.Text = "Upload rv(s) data";
+                    ddlBrandName.Visible = false;
+                    lblBrand.Visible = false;
                 }
                 // lblRedirectBy.
             }
         }
     }
 
+    private void GetAllBrands()
+    {
+        try
+        {
+            DataSet dsBrands = new DataSet();
+            dsBrands = objdropdownBL.GetAllBrands();
+            ddlBrandName.DataSource = dsBrands;
+            ddlBrandName.DataTextField = "BrandCode";
+            ddlBrandName.DataValueField = "BrnadId";
+            ddlBrandName.DataBind();
+            ddlBrandName.Items.Insert(0, new ListItem("Select", "0"));
+        }
+        catch (Exception ex)
+        {
+        }
+    }
     protected void btnSave_Click(object sender, EventArgs e)
     {
         try

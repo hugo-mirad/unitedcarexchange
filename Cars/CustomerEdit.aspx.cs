@@ -131,6 +131,14 @@ public partial class CustomerEdit : System.Web.UI.Page
                         hdnPackageID.Value = CarsDetails.Tables[0].Rows[0]["packageID"].ToString();
                         lblCarID.Text = CarsDetails.Tables[0].Rows[0]["carid"].ToString();
 
+                        if (CarsDetails.Tables[0].Rows[0]["BrandCode"].ToString().Trim() == "NULL" || CarsDetails.Tables[0].Rows[0]["BrandCode"].ToString().Trim() == "")
+                        {
+                            lblBrand.Text = "UCE";
+                        }
+                        else
+                        {
+                            lblBrand.Text = CarsDetails.Tables[0].Rows[0]["BrandCode"].ToString().Trim();
+                        }
                         DateTime PostDate = Convert.ToDateTime(CarsDetails.Tables[0].Rows[0]["dateOfPosting"].ToString());
                         lblPostingDate.Text = PostDate.ToString("MM/dd/yyyy");
                         DateTime SaleDate = Convert.ToDateTime(CarsDetails.Tables[0].Rows[0]["SaleDate"].ToString());

@@ -81,6 +81,7 @@
             Customer Service</h1>
         <div class="clear">
             &nbsp;</div>
+     
         <asp:UpdatePanel ID="updtpnltblGrdcar" runat="server">
             <ContentTemplate>
                 <table style="width: 100%;" id="tblTicketDetails" runat="server">
@@ -108,7 +109,7 @@
                                     <asp:UpdatePanel ID="updtPnlHeaders" runat="server">
                                         <ContentTemplate>
                                             <table class="grid1 " cellpadding="0" cellspacing="0" style="position: absolute;
-                                                top: 2px; padding-top: 2px; width: 1080px; background: #fff;">
+                                                top: 2px; padding-top: 2px; width: 1160px; background: #fff;">
                                                 <tr class="tbHed">
                                                     <td width="90px" align="left">
                                                         <asp:LinkButton ID="lnkbtnCSIDHead" runat="server" Text="CS CallID &darr; &uarr;"
@@ -120,6 +121,10 @@
                                                     <td width="80px" align="left">
                                                         <asp:LinkButton ID="lnkbtnCarIDHead" runat="server" Text="Car ID &darr; &uarr;" OnClick="lnkbtnCarIDHead_Click"></asp:LinkButton>
                                                     </td>
+                                                     <td width="80px" align="left">
+                                                        <asp:LinkButton ID="lnkBrand" runat="server" Text="Brand &darr; &uarr;" OnClick="lnkBrand_Click"></asp:LinkButton>
+                                                    </td>
+                                                    
                                                     <td width="100px" align="left">
                                                         <asp:LinkButton ID="lnkbtnCallByHead" runat="server" Text="Call By &darr; &uarr;"
                                                             OnClick="lnkbtnCallByHead_Click"></asp:LinkButton>
@@ -149,16 +154,17 @@
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
                                 </div>
-                                <div style="width: 1100px; overflow-y: scroll; overflow-x: hidden; padding: 26px 3px 3px 3px;
+                                <div style="width: 1180px; overflow-y: scroll; overflow-x: hidden; padding: 26px 3px 3px 3px;
                                     border: #ccc 1px solid; height: 230px">
                                     <asp:Panel ID="pnl1" Width="100%" runat="server">
                                         <asp:UpdatePanel ID="UpdPnlGrid" runat="server">
                                             <ContentTemplate>
                                                 <input style="width: 91px" id="txthdnSortOrder" type="hidden" runat="server" enableviewstate="true" />
                                                 <input style="width: 40px" id="txthdnSortColumnId" type="hidden" runat="server" enableviewstate="true" />
-                                                <asp:GridView Width="1080px" ID="grdCSDetails" runat="server" CellSpacing="0" CellPadding="0"
+                                                <asp:GridView Width="1160px" ID="grdCSDetails" runat="server" CellSpacing="0" CellPadding="0"
                                                     CssClass="grid1" AutoGenerateColumns="False" GridLines="None" ShowHeader="false"
-                                                    OnRowCommand="grdCSDetails_RowCommand">
+                                                    OnRowCommand="grdCSDetails_RowCommand" 
+                                                    onrowdatabound="grdCSDetails_RowDataBound">
                                                     <PagerStyle HorizontalAlign="Right" BackColor="#C6C3C6" ForeColor="Black" />
                                                     <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
                                                     <HeaderStyle CssClass="headder" />
@@ -188,6 +194,14 @@
                                                             </ItemTemplate>
                                                             <ItemStyle HorizontalAlign="Left" Width="80px" />
                                                         </asp:TemplateField>
+                                                        
+                                                        <asp:TemplateField>
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblBrand" runat="server" Text='<%# Eval("BrandCode")%>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle HorizontalAlign="Left" Width="80px" />
+                                                        </asp:TemplateField>
+                                                        
                                                         <asp:TemplateField>
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblAgent" runat="server" Text='<%# objGeneralFunc.WrapTextByMaxCharacters(objGeneralFunc.ToProper(objGeneralFunc.GetSmartzUser(DataBinder.Eval(Container.DataItem,"CallAgentID"))),12) %>'></asp:Label>
@@ -382,10 +396,7 @@
     <div id="divCSIDPopup" class="PopUpHolder" style="display: none">
         <div class="main" style="width: 400px; margin: 60px auto 0 auto;">
             <h4>
-                CS Call Details
-                <!-- <div class="cls">
-            </div> -->
-            </h4>
+                CS Call Details</h4>
             <div class="dat" style="padding: 15px 0;">
                 <table style="width: 330px; margin: 0 auto" cellpadding="0" cellspacing="0">
                     <tr>
@@ -482,7 +493,7 @@
                     </tr>
                 </table>
             </div>
-        </div>
+       </div>
         <div class="clear">
             &nbsp;</div>
     </div>

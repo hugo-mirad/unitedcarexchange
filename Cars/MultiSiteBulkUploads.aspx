@@ -88,6 +88,17 @@
             valid=false;
             return valid;
             } 
+            
+             if(document.getElementById("<%=ddlBrandName.ClientID%>")!=null)
+             {
+                if(document.getElementById("<%=ddlBrandName.ClientID%>").value=="0")
+                {                    
+                alert("Please select brand ");
+                document.getElementById("<%=ddlBrandName.ClientID%>").focus();
+                valid=false;
+                return valid;
+                } 
+            }
             var Lines = document.getElementById("<%=txtMultiSiteBulkUpload.ClientID%>").value
             var ctrlLines=Lines.split('\n');                    
             if (ctrlLines.length>100)
@@ -225,6 +236,9 @@
                 <td align="right" style="padding-right: 15px;">
                     <div align="right" style="float: left">
                         <asp:Label ID="lblRedirectBy" runat="server"></asp:Label>
+                        
+                        &nbsp; <asp:Label ID="lblBrand" runat="server" style="font-weight:bold;"></asp:Label><asp:DropDownList ID="ddlBrandName" runat="server"></asp:DropDownList>
+                        
                     </div>
                     <div>
                         Max 100 records at a time

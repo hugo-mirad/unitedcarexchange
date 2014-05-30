@@ -61,6 +61,7 @@ public partial class SearchNew : System.Web.UI.Page
                 GetAllModels();
                 GetMakes();
                 FillType();
+                GetAllBrands();
                 GetAllRvMakes();
             }
         }
@@ -327,6 +328,26 @@ public partial class SearchNew : System.Web.UI.Page
         {
         }
     }
+
+
+    private void GetAllBrands()
+    {
+        try
+        {
+            DataSet dsBrands = new DataSet();
+            dsBrands = objdropdownBL.GetAllBrands();
+            ddlBrandName.DataSource = dsBrands;
+            ddlBrandName.DataTextField = "Brandname";
+            ddlBrandName.DataValueField = "BrnadId";
+            ddlBrandName.DataBind();
+            ddlBrandName.Items.Insert(0, new ListItem("ALL", "0"));
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
+
     protected void btnSearchUserDetails_Click(object sender, EventArgs e)
     {
         try
@@ -336,7 +357,8 @@ public partial class SearchNew : System.Web.UI.Page
             string SellerName = txtCustName.Text;
             string Email = txtEmail.Text;
             int CustType = Convert.ToInt32(ddlCustType.SelectedItem.Value);
-            DataSet dsCarData = objdropdownBL.SmartzSearchNewByUserDetailsForDealer(PhoneNum, SellerName, Email, CustType);
+            int BrandType = Convert.ToInt32(ddlBrandName.SelectedValue);
+            DataSet dsCarData = objdropdownBL.SmartzSearchNewByUserDetailsForDealer(PhoneNum, SellerName, Email, CustType,BrandType);
             Session["SearchCarsUserData"] = dsCarData;
             DataSet dsRvsData = new DataSet();
            DataSet dsCSData = objdropdownBL.SmartzSearchNewBySalesDetailsForDealer(PhoneNum, SellerName, Email, CustType);
@@ -657,6 +679,13 @@ public partial class SearchNew : System.Web.UI.Page
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                Label lblBrand = (Label)e.Row.FindControl("lblBrand");
+                if (lblBrand.Text.ToString().Trim() == "NULL" || lblBrand.Text.Trim() == "")
+                {
+                    lblBrand.Text = "UCE";
+                }
+
+
                 Image ImgSaleType = (Image)e.Row.FindControl("ImgSaleType");
                 HiddenField hdnSaleEnteredBy = (HiddenField)e.Row.FindControl("hdnSaleEnteredBy");
                 HiddenField hdnAgentID = (HiddenField)e.Row.FindControl("hdnAgentID");
@@ -668,7 +697,6 @@ public partial class SearchNew : System.Web.UI.Page
                 Label lblPhone = (Label)e.Row.FindControl("lblPhone");
                 HiddenField hdnPhoneNum = (HiddenField)e.Row.FindControl("hdnPhoneNum");
                 HiddenField hdnStatus = (HiddenField)e.Row.FindControl("hdnStatus");
-
                 HiddenField hdnDealerCode = (HiddenField)e.Row.FindControl("hdnDealerCode");
                 Label lblStatus = (Label)e.Row.FindControl("lblStatus");
                 Image ImgStatus = (Image)e.Row.FindControl("ImgStatus");
@@ -763,7 +791,6 @@ public partial class SearchNew : System.Web.UI.Page
             throw ex;
         }
     }
-
     protected void grdCarCustInfo_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         try
@@ -807,6 +834,14 @@ public partial class SearchNew : System.Web.UI.Page
                 {
                     lblCarCustSt.Text = "Inactive";
                 }
+
+
+                Label lblBrand = (Label)e.Row.FindControl("lblBrand");
+                if (lblBrand.Text.ToString().Trim() == "NULL" || lblBrand.Text.ToString().Trim() == "")
+                {
+                    lblBrand.Text = "UCE";
+                }
+
             }
         }
         catch (Exception ex)
@@ -814,7 +849,6 @@ public partial class SearchNew : System.Web.UI.Page
             throw ex;
         }
     }
-
     protected void grdRVCustInfo_RowDataBound(object sender, GridViewRowEventArgs e)
     {
         try
@@ -848,7 +882,6 @@ public partial class SearchNew : System.Web.UI.Page
             throw ex;
         }
     }
-
     protected void grdRVDetails_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         try
@@ -870,8 +903,6 @@ public partial class SearchNew : System.Web.UI.Page
             throw ex;
         }
     }
-
-
     protected void lnkCarIDSort_Click(object sender, EventArgs e)
     {
         try
@@ -903,6 +934,59 @@ public partial class SearchNew : System.Web.UI.Page
                 lnkCarIDSort.Text = "Car ID &#8659";
             }
 
+            lnkPostedSort.Text = "Posted Dt &darr; &uarr;";
+            lnkAgentSort.Text = "Agent &darr; &uarr;";
+            lnkYearSort.Text = "Year &darr; &uarr;";
+            lnkMakeSort.Text = "Make &darr; &uarr;";
+            lnkModelSort.Text = "Model &darr; &uarr;";
+            lnkPackageSort.Text = "Package &darr; &uarr;";
+            lnkNameSort.Text = "Name &darr; &uarr;";
+            lnkPhoneSort.Text = "Reg Phone &darr; &uarr;";
+            lnkEmailSort.Text = "Email &darr; &uarr;";
+            lnkStatusSort.Text = "Ad St &darr; &uarr;";
+            lnkSaleDateSort.Text = "Sale Dt &darr; &uarr;";
+
+            if (dt != null)
+            {
+                BizUtility.GridSortForReport(txthdnSortOrder, SortExp, grdIntroInfo, 0, dt, Session["SortDirec"].ToString());
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+    protected void lnkCarBrandType_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Session.Timeout = 180;
+            DataSet ds = new DataSet();
+            ds = Session["SearchCarsData"] as DataSet;
+            ds.Tables[0].DefaultView.RowFilter = "";
+            DataTable dt = ds.Tables[0];
+            string SortExp = "BrandCode";
+            if (Session["SortDirec"] == null)
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkCarBrandType.Text = "Brand &#8659";
+            }
+            else if (Session["SortDirec"].ToString() == "")
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkCarBrandType.Text = "Brand &#8659";
+            }
+            else if (Session["SortDirec"].ToString() == "Ascending")
+            {
+                Session["SortDirec"] = "Descending";
+                lnkCarBrandType.Text = "Brand &#8657";
+            }
+            else
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkCarBrandType.Text = "Brand &#8659";
+            }
+            lnkCarIDSort.Text = "Car ID &darr; &uarr;";
             lnkPostedSort.Text = "Posted Dt &darr; &uarr;";
             lnkAgentSort.Text = "Agent &darr; &uarr;";
             lnkYearSort.Text = "Year &darr; &uarr;";
@@ -1445,7 +1529,6 @@ public partial class SearchNew : System.Web.UI.Page
             throw ex;
         }
     }
-
     protected void lnkSaleDateSort_Click(object sender, EventArgs e)
     {
         try
@@ -1498,12 +1581,6 @@ public partial class SearchNew : System.Web.UI.Page
             throw ex;
         }
     }
-
-
-
-
-
-
     protected void lnkBtnRvIDSort_Click(object sender, EventArgs e)
     {
         try
@@ -4371,6 +4448,55 @@ public partial class SearchNew : System.Web.UI.Page
             //lnkCSVerifierLoc.Text = "Verifier loc &darr; &uarr;";
             lnkCSYear.Text = "Year &darr; &uarr;";
 
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+
+    }
+    protected void lnkBrandname_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Session.Timeout = 180;
+            DataSet ds = new DataSet();
+            ds = Session["SearchCarsUserData"] as DataSet;
+            ds.Tables[0].DefaultView.RowFilter = "";
+            DataTable dt = ds.Tables[0];
+            string SortExp = "BrandCode";
+            if (Session["SortDirec"] == null)
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkBrandname.Text = "Brand &#8659";
+            }
+            else if (Session["SortDirec"].ToString() == "")
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkBrandname.Text = "Brand &#8659";
+            }
+            else if (Session["SortDirec"].ToString() == "Ascending")
+            {
+                Session["SortDirec"] = "Descending";
+                lnkBrandname.Text = "Brand &#8657";
+            }
+            else
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkBrandname.Text = "Brand &#8659";
+            }
+
+            lnkbtnCarCustName.Text = "Name &darr; &uarr;";
+            lnkbtnCarCustSt.Text = "Cust St &darr; &uarr;";
+            lnkbtnCarBussName.Text = "Buss Name &darr; &uarr;";
+            lnkbtnCarDealerName.Text = "Dealer Code &darr; &uarr;";
+            lnkbtnCarCreateDt.Text = "Create Dt &darr; &uarr;";
+            lnkbtnCarRegPhone.Text = "Reg Phone &darr; &uarr;";
+            lnkbtnCarCustEmail.Text = "Email &darr; &uarr;";
+            if (dt != null)
+            {
+                BizUtility.GridSortForReport(txthdnSortOrder, SortExp, grdCarCustInfo, 0, dt, Session["SortDirec"].ToString());
+            }
         }
         catch (Exception ex)
         {

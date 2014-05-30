@@ -970,7 +970,7 @@ public partial class RvCustomerEdit : System.Web.UI.Page
             //msg.From = new MailAddress("info@unitedcarexchange.com");
             //msg.To.Add(LoginName);
             //if (txtEmailTo.Text != "")
-            //{
+            //{ 
             //    msg.CC.Add(txtEmailTo.Text);
             //}
             //msg.Bcc.Add("archive@unitedcarexchange.com");

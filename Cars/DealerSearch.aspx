@@ -380,6 +380,20 @@
                                         </asp:UpdatePanel>
                                     </td>
                                 </tr>
+                                
+                                 <tr>
+                                    <td>
+                                        Brand
+                                    </td>
+                                    <td>
+                                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                            <ContentTemplate>
+                                                <asp:DropDownList ID="ddlBrandName" runat="server" Width="150px" CssClass="input1">
+                                                </asp:DropDownList>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                    </td>
+                                </tr>
                             </table>
                             <div style="position: absolute; right: 15px; bottom: -15px">
                                 <asp:UpdatePanel ID="UpdatePanelBtnSearchUserDetails" runat="server">
@@ -446,6 +460,7 @@
                                                     <ContentTemplate>
                                                         <asp:DropDownList ID="ddlYear" runat="server" Width="200px" CssClass="input1">
                                                             <asp:ListItem Value="0">Any Year</asp:ListItem>
+                                                             <asp:ListItem Value="2014">2014</asp:ListItem>
                                                             <asp:ListItem Value="2013">2013</asp:ListItem>
                                                             <asp:ListItem Value="2012">2012</asp:ListItem>
                                                             <asp:ListItem Value="2011">2011</asp:ListItem>
@@ -645,11 +660,16 @@
                                     <asp:UpdatePanel ID="UpdtpnlHeader" runat="server">
                                         <ContentTemplate>
                                             <table class="grid1 " cellpadding="0" cellspacing="0" style="position: absolute;
-                                                top: 2px; padding-top: 2px; width: 1260px; background: #fff;">
+                                                top: 2px; padding-top: 2px; width: 1300px; background: #fff;">
                                                 <tr class="tbHed">
                                                     <td width="60" align="left">
                                                         <asp:LinkButton ID="lnkCarIDSort" runat="server" Text="Car ID &darr; &uarr;" OnClick="lnkCarIDSort_Click"></asp:LinkButton>
                                                     </td>
+                                                    
+                                                       <td width="80" align="left">
+                                                         <asp:LinkButton ID="lnkBrand" runat="server" Text="Brand &darr; &uarr;" OnClick="lnkBrand_Click"></asp:LinkButton>
+                                                    </td>
+                                                    
                                                     <td width="60" align="left">
                                                         Sale Type
                                                     </td>
@@ -704,14 +724,14 @@
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
                                 </div>
-                                <div style="width: 1280px; overflow-y: scroll; overflow-x: hidden; padding: 26px 3px 3px 3px;
+                                <div style="width: 1320px; overflow-y: scroll; overflow-x: hidden; padding: 26px 3px 3px 3px;
                                     border: #ccc 1px solid; height: 220px">
                                     <asp:Panel ID="pnl1" Width="100%" runat="server">
                                         <asp:UpdatePanel ID="UpdPnlGrid" runat="server">
                                             <ContentTemplate>
                                                 <input style="width: 91px" id="txthdnSortOrder" type="hidden" runat="server" enableviewstate="true" />
                                                 <input style="width: 40px" id="txthdnSortColumnId" type="hidden" runat="server" enableviewstate="true" />
-                                                <asp:GridView Width="1260px" ID="grdIntroInfo" runat="server" CellSpacing="0" CellPadding="0"
+                                                <asp:GridView Width="1300px" ID="grdIntroInfo" runat="server" CellSpacing="0" CellPadding="0"
                                                     CssClass="grid1" AutoGenerateColumns="False" GridLines="None" ShowHeader="false"
                                                     OnRowDataBound="grdIntroInfo_RowDataBound" OnRowCommand="grdIntroInfo_RowCommand">
                                                     <PagerStyle HorizontalAlign="Right" BackColor="#C6C3C6" ForeColor="Black" />
@@ -729,6 +749,13 @@
                                                             </ItemTemplate>
                                                             <ItemStyle HorizontalAlign="Left" Width="60px" />
                                                         </asp:TemplateField>
+                                                        <asp:TemplateField>
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblBrand" runat="server" Text='<%# Eval("BrandCode")%>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle HorizontalAlign="Left" Width="80px" />
+                                                        </asp:TemplateField>
+                                                        
                                                         <asp:TemplateField>
                                                             <ItemTemplate>
                                                                 <asp:Image ID="ImgSaleType" runat="server" />

@@ -45,6 +45,16 @@ public partial class MultiCars : System.Web.UI.Page
                 int UID = Convert.ToInt32(Session["SelectUID"].ToString());
                 DataSet dsUserInfoDetails = objdropdownBL.USP_GetUSerDetailsByUserID(UID);
                 Session["getRegUserdata"] = dsUserInfoDetails;
+
+
+                if (dsUserInfoDetails.Tables[0].Rows[0]["BrandCode"].ToString().Trim() == "NULL" || dsUserInfoDetails.Tables[0].Rows[0]["BrandCode"].ToString().Trim() == "")
+                {
+                    lblBrand.Text = "UCE";
+                }
+                else
+                {
+                    lblBrand.Text = dsUserInfoDetails.Tables[0].Rows[0]["BrandCode"].ToString();
+                }
                 lblUserName.Text = dsUserInfoDetails.Tables[0].Rows[0]["Name"].ToString();
                 lblRegUserName.Text = dsUserInfoDetails.Tables[0].Rows[0]["Name"].ToString();
                 lblUserAddPack.Text = dsUserInfoDetails.Tables[0].Rows[0]["Name"].ToString();

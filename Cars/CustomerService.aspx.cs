@@ -361,6 +361,62 @@ public partial class CustomerService : System.Web.UI.Page
         }
     }
 
+
+
+    protected void lnkBrand_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Session.Timeout = 180;
+            DataSet ds = new DataSet();
+            ds = Session["SearchCustServiceCallData"] as DataSet;
+            ds.Tables[0].DefaultView.RowFilter = "";
+            DataTable dt = ds.Tables[0];
+            string SortExp = "BrandCode";
+            if (Session["SortDirec"] == null)
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkBrand.Text = "Brand &#8659";
+            }
+            else if (Session["SortDirec"].ToString() == "")
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkBrand.Text = "Brand &#8659";
+            }
+            else if (Session["SortDirec"].ToString() == "Ascending")
+            {
+                Session["SortDirec"] = "Descending";
+                lnkBrand.Text = "Brand &#8657";
+            }
+            else
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkBrand.Text = "Brand &#8659";
+            }
+
+            lnkbtnCarIDHead.Text = "Car ID &darr; &uarr;";
+            lnkbtnCSIDHead.Text = "CS CallID &darr; &uarr;";
+            lnkbtnCallDateHead.Text = "Call Dt &darr; &uarr;";
+            lnkbtnCallByHead.Text = "Call By &darr; &uarr;";
+            lnkbtnCallTypeHead.Text = "Call Type &darr; &uarr;";
+            lnkbtnCallReasonHead.Text = "Call Reason &darr; &uarr;";
+            lnkbtnSpokenWithHead.Text = "Spoken With &darr; &uarr;";
+            //lnkWcStatus.Text = "WC St &darr; &uarr;";
+            lnkbtnTicketIDHead.Text = "Ticket ID &darr; &uarr;";
+            lnkbtnCallResolutionHead.Text = "Call Resolution &darr; &uarr;";
+
+
+            if (dt != null)
+            {
+                BizUtility.GridSortForReport(txthdnSortOrder, SortExp, grdCSDetails, 0, dt, Session["SortDirec"].ToString());
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
     protected void lnkbtnCarIDHead_Click(object sender, EventArgs e)
     {
         try
@@ -1537,4 +1593,21 @@ public partial class CustomerService : System.Web.UI.Page
         }
     }
 
+    protected void grdCSDetails_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        try
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                Label lblBrand = (Label)e.Row.FindControl("lblBrand");
+                if (lblBrand.Text.ToString().Trim() == "NULL" || lblBrand.Text.ToString().Trim() == "")
+                {
+                    lblBrand.Text = "UCE";
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+        }
+    }
 }

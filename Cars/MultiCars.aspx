@@ -374,7 +374,7 @@
                     <table cellpadding="0" cellspacing="0">
                         <tr>
                             <td style="width: 610px">
-                                <strong>Registrant Details</strong>
+                                <strong>Registrant Details</strong> for <strong><asp:Label ID="lblBrand" runat="server" ></asp:Label></strong> customer
                             </td>
                             <td>
                                 <asp:LinkButton runat="server" ID="lnkbtnEditUserdata" Text="Edit" OnClick="lnkbtnEditUserdata_Click"></asp:LinkButton>

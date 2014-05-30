@@ -41,7 +41,7 @@
   <ItemGroup>
     <Reference Include="CarsInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CarsInfo\BussinessInfo\bin\Debug\CarsInfo.dll</HintPath>
+      <HintPath>..\..\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

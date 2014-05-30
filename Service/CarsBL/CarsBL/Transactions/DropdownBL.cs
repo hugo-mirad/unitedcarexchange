@@ -1726,7 +1726,7 @@ namespace CarsBL.Transactions
             }
         }
 
-        public DataSet SmartzSearchNewByUserDetailsForDealer(string phone, string Name, string email, int CustomerType)
+        public DataSet SmartzSearchNewByUserDetailsForDealer(string phone, string Name, string email, int CustomerType, int BrandType)
         {
             try
             {
@@ -1740,6 +1740,7 @@ namespace CarsBL.Transactions
                 dbDatabase.AddInParameter(dbCommand, "@Name", System.Data.DbType.String, Name);
                 dbDatabase.AddInParameter(dbCommand, "@email", System.Data.DbType.String, email);
                 dbDatabase.AddInParameter(dbCommand, "@CustomerType", System.Data.DbType.Int32, CustomerType);
+                dbDatabase.AddInParameter(dbCommand, "@BrandType", System.Data.DbType.Int32, BrandType);
                 dsCars = dbDatabase.ExecuteDataSet(dbCommand);
                 return dsCars;
             }
@@ -3889,6 +3890,30 @@ namespace CarsBL.Transactions
                 throw ex;
             }
         }
+
+
+        //********************GetAllBrands(sobha) 05/24/2014*********
+
+        public DataSet GetAllBrands()
+        {
+            try
+            {
+                DataSet dsCarsData = new DataSet();
+                string spNameString = string.Empty;
+                Database dbDataBase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+                spNameString = "USP_GetBrandNames";
+                DbCommand dbCommand = null;
+                dbCommand = dbDataBase.GetStoredProcCommand(spNameString);
+                
+                dsCarsData = dbDataBase.ExecuteDataSet(dbCommand);
+                return dsCarsData;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
     }
 

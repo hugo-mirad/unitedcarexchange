@@ -271,6 +271,13 @@ public partial class WelcomeCalls : System.Web.UI.Page
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+
+                Label lblBrand = (Label)e.Row.FindControl("lblBrand");
+                if (lblBrand.Text.ToString().Trim() == "" || lblBrand.Text.ToString().Trim() == "NULL")
+                {
+                    lblBrand.Text = "UCE";
+                }
+
                 Label lblPhone = (Label)e.Row.FindControl("lblPhone");
                 HiddenField hdnPhoneNum = (HiddenField)e.Row.FindControl("hdnPhoneNum");
                 Image ImgWCStatus = (Image)e.Row.FindControl("ImgWCStatus");
@@ -563,7 +570,7 @@ public partial class WelcomeCalls : System.Web.UI.Page
         return strTransaction;
 
     }
-
+    
 
     protected void lnkCarIDSort_Click(object sender, EventArgs e)
     {
@@ -623,6 +630,68 @@ public partial class WelcomeCalls : System.Web.UI.Page
             throw ex;
         }
     }
+
+
+    protected void lnkBrand_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Session.Timeout = 180;
+            DataSet ds = new DataSet();
+            ds = Session["SearchWCCallData"] as DataSet;
+            ds.Tables[0].DefaultView.RowFilter = "";
+            DataTable dt = ds.Tables[0];
+            string SortExp = "BrandCode";
+            if (Session["SortDirec"] == null)
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkBrand.Text = "Brand &#8659";
+            }
+            else if (Session["SortDirec"].ToString() == "")
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkBrand.Text = "Brand &#8659";
+            }
+            else if (Session["SortDirec"].ToString() == "Ascending")
+            {
+                Session["SortDirec"] = "Descending";
+                lnkBrand.Text = "Brand &#8657";
+            }
+            else
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkBrand.Text = "Brand &#8659";
+            }
+            lnkCarIDSort.Text = "Car ID &darr; &uarr;";
+            lnkStatusSort.Text = "Ad St &darr; &uarr;";
+            lnkSaleDateSort.Text = "Sale Dt &darr; &uarr;";
+            lnkPostedSort.Text = "Posted Dt &darr; &uarr;";
+            lnkAgentSort.Text = "Agent &darr; &uarr;";
+            lnkNameSort.Text = "Name &darr; &uarr;";
+            lnkPhoneSort.Text = "Phone &darr; &uarr;";
+            //lnkWcStatus.Text = "WC St &darr; &uarr;";
+            lnkWCDt.Text = "WC Dt &darr; &uarr;";
+            lnkWCBy.Text = "WC By &darr; &uarr;";
+
+            lnkLastCallBySort.Text = "Last Call By &darr; &uarr;";
+            lnkLastCallDtSort.Text = "Last Call Dt &darr; &uarr;";
+            lnkLastCallStatusSort.Text = "Last Call Status &darr; &uarr;";
+            lnkNoOfAttemptSort.Text = "No Of Calls &darr; &uarr;";
+
+            lnkWcStatus.Text = "WC St &darr; &uarr;";
+
+            if (dt != null)
+            {
+                BizUtility.GridSortForReport(txthdnSortOrder, SortExp, grdWelcomeDetails, 0, dt, Session["SortDirec"].ToString());
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+
     protected void lnkStatusSort_Click(object sender, EventArgs e)
     {
         try
