@@ -317,7 +317,7 @@
                                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                         <asp:UpdatePanel ID="u5" runat="server">
                                                             <ContentTemplate>
-                                                                <asp:Button ID="btnsubmits" runat="server" Text="SUBMIT APPLICATION" OnClientClick="return validateSend();"
+                                                                <asp:Button ID="btnsubmits" runat="server" Text="SUBMIT APPLICATION" OnClientClick="return validateSend1();"
                                                                     CssClass="btn btn-primary2" OnClick="btnsubmits_click" />
                                                             </ContentTemplate>
                                                         </asp:UpdatePanel>
@@ -433,7 +433,7 @@
 
             return true;
         }
-    function validateSend()
+    function validateSend1()
 	  {  
         debugger     
             var valid=true;  
@@ -543,7 +543,15 @@
                 document.getElementById("City").focus();
             }
           
-           
+            
+             else if(document.getElementById('<%= Sate.ClientID%>').value == "0") {
+                document.getElementById('<%= Sate.ClientID%>').focus();
+                alert("Select state");                 
+                document.getElementById('<%=Sate.ClientID%>').focus()
+                valid = false;            
+                 return valid;     
+               }  
+               
             else if(document.getElementById('Zipcode').value.trim().length<1)
             {
                 alert("Please enter the Zipcode.");               
@@ -551,18 +559,7 @@
                 document.getElementById("Zipcode").value="";
                 document.getElementById("Zipcode").focus();
             }
-            
-            
-              if (document.getElementById('<%=Sate.ClientID%>').value == "0") {
-            {
-            
-                alert("Please select the State.");               
-                valid=false;
-                document.getElementById("Sate").value="";
-                document.getElementById("Sate").focus();
-            }
            
-             
             
             return valid;
         } 

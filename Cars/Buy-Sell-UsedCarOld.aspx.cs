@@ -298,8 +298,8 @@ public partial class SearchCarDetailsOld : System.Web.UI.Page
                 msg.From = new MailAddress(txtcemail.Text);
                 msg.To.Add(Session["CustEmail"].ToString());
                 msg.CC.Add("info@mobicarz.com");
-                msg.Bcc.Add(CommonVariable.ArchieveMail);
-                msg.Subject = "Regarding Buyer requestbu";
+                //msg.Bcc.Add(CommonVariable.ArchieveMail);
+                msg.Subject = "Regarding Buyer request";
                 msg.IsBodyHtml = true;
                 string text = string.Empty;
 

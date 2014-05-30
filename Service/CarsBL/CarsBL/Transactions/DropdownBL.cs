@@ -674,8 +674,26 @@ namespace CarsBL.Transactions
             }
         }
 
-
         public DataSet USP_GetUSerDetailsByUserID(int UID)
+        {
+            try
+            {
+                DataSet dsCars = new DataSet();
+                string spNameString = string.Empty;
+                Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+                spNameString = "USP_GetUSerDetailsByUserID1";
+                DbCommand dbCommand = null;
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                dbDatabase.AddInParameter(dbCommand, "@UID", System.Data.DbType.Int32, UID);
+                dsCars = dbDatabase.ExecuteDataSet(dbCommand);
+                return dsCars;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataSet USP_GetUSerDetailsByUserIDold(int UID)
         {
             try
             {

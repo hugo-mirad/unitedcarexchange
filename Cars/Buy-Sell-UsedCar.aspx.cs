@@ -160,6 +160,16 @@ public partial class SearchCarDetails : System.Web.UI.Page
        // Session["url"] = "url";
 
 
+
+
+     
+        if(strCarid1[1].ToString().Contains("@"))
+          strCarid1[1]=   strCarid1[1].ToString().Replace("@","-");
+
+        if (strCarid1[2].ToString().Contains("@"))
+            strCarid1[2]= strCarid1[2].ToString().Replace("@", "");
+
+
         string str = "usedcars/" + strCarid1[0].ToString() + "-" + strCarid1[1].ToString() + "-" + strCarid1[2].ToString() + "-" + urlscity.Trim() + "-" + urlstate.Trim() + "-" + strCarid1[3].ToString();
 
 
@@ -405,8 +415,8 @@ public partial class SearchCarDetails : System.Web.UI.Page
             {
                 msg.From = new MailAddress(txtcemail.Text);
                 msg.To.Add(Session["CustEmail"].ToString());
-                msg.CC.Add("padma@datumglobal.net");
-                msg.Bcc.Add("padma@datumglobal.net");
+                msg.CC.Add("info@mobicarz.com");
+               // msg.Bcc.Add(CommonVariable.ArchieveMail);
                 msg.Subject = "Regarding Buyer requestbu";
                 msg.IsBodyHtml = true;
                 string text = string.Empty;

@@ -9,10 +9,10 @@
     <title>..:: MobiCarz ::..</title>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/tabbed.css" />
+    <link rel="stylesheet" type="text/css" href="cssOld/tabbed.css" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/layout.css" rel="stylesheet" type="text/css" />
-    <link href="css/production.css" rel="stylesheet" type="text/css" />
+    <link href="cssOld/layout.css" rel="stylesheet" type="text/css" />
+    <link href="cssOld/production.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
 
@@ -85,7 +85,7 @@
 
     <!-- Look at the configuration -->
 </head>
-<body id="page1">
+<body id="page1" style="background: #f0f0f0;">
     <form id="form1" runat="server">
     <cc1:ToolkitScriptManager ID="scrptmgr" runat="server">
     </cc1:ToolkitScriptManager>
@@ -93,13 +93,16 @@
         <div id="main-bg">
             <div id="main">
                 <!-- header -->
-                <div id="header" style="height: 77px">
+                <div id="header" style=" background:#fff; height: 60px; vertical-align:middle; border-bottom:#eee 1px solid; margin-bottom:20px;">
                     <a href="http://mobicarz.com">
-                        <img src="images/logo2.png" id="logo" alt="" /></a>
+                        <img src="assets/img/logo.png" id="logo" alt="MobiCarz" style="margin:6px 0 0 30px; width:202px; height:50px;"  /></a>
                 </div>
                 <!-- content -->
-                <div id="content" style="background: #fff;">
-                    <table style="width: 900px; margin: 0 auto; padding: 50px 0 0 0;">
+                <div id="content" >
+                
+                
+                
+                    <table class="mTable" style="min-height: 200px; width: 927px; margin: 30px auto; padding:50px 25px; background:#fff url(images/loading.gif) center center no-repeat; box-shadow:0px 1px 1px rgba(0, 0, 0, 0.2)">
                         <tr style="display: none">
                             <td style="padding-bottom: 20px;" id="searchFormHolder">
                                 <strong style="width: 65px; display: inline-block; font-size: 14px;">Car ID:</strong>
@@ -182,4 +185,6 @@
     <!-- Processiong Popup End -->
     </form>
 </body>
+ <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:100,400,700,400italic,700italic" rel="stylesheet" type="text/css" media="screen, projection" />
+
 </html>

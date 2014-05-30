@@ -494,8 +494,8 @@ public partial class SearchCarDetails : System.Web.UI.Page
             {
                 msg.From = new MailAddress(txtcemail.Text);
                 msg.To.Add(Session["CustEmail"].ToString());
-                msg.CC.Add("padma@datumglobal.net");
-                msg.Bcc.Add("padma@datumglobal.net");
+                msg.CC.Add("info@mobicarz.com");
+               // msg.Bcc.Add("padma@datumglobal.net");
                 msg.Subject = "Regarding Buyer requestbu";
                 msg.IsBodyHtml = true;
                 string text = string.Empty;

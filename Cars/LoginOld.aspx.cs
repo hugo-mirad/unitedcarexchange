@@ -377,7 +377,7 @@ public partial class LoginOld : System.Web.UI.Page
                     MailMessage msg = new MailMessage();
                     msg.From = new MailAddress(CommonVariable.FromInfoMail);
                     msg.To.Add(txtForgetUserName.Text);
-                    msg.Bcc.Add(CommonVariable.ArchieveMail);
+                    // msg.Bcc.Add(CommonVariable.ArchieveMail);
                     msg.Subject = "Forgot Password";
                     msg.IsBodyHtml = true;
                     string text = string.Empty;

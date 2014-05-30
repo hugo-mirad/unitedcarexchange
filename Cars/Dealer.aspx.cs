@@ -70,10 +70,10 @@ public partial class Dealer : System.Web.UI.Page
                 string Email = dsDealerInfo.Tables[0].Rows[0]["DealerEmail"].ToString();
                 clsMailFormats format = new clsMailFormats();
                 MailMessage msg = new MailMessage();
-                msg.From = new MailAddress("padma@datumglobal.net");
-                msg.To.Add("padma@datumglobal.net");
-                msg.CC.Add("padma@datumglobal.net");
-                msg.Bcc.Add("padma@datumglobal.net");
+                msg.From = new MailAddress(CommonVariable.FromInfoMail);
+                msg.To.Add(CommonVariable.FromInfoMail);
+                //msg.CC.Add(CommonVariable.ContactUsEMailCC);
+                //msg.Bcc.Add(CommonVariable.ArchieveMail);
                 msg.Subject = "Regarding Dealer request";
                 msg.IsBodyHtml = true;
                 string text = string.Empty;

@@ -197,7 +197,7 @@ public partial class PaymentSucces : System.Web.UI.Page
             MailMessage msg = new MailMessage();
             msg.From = new MailAddress(CommonVariable.FromInfoMail);
             msg.To.Add(LoginName);
-            msg.Bcc.Add(CommonVariable.ArchieveMail);
+           // msg.Bcc.Add(CommonVariable.ArchieveMail);
             msg.Subject = "Registration details from MobiCarz for Car ID# " + Session["CarID"].ToString();
             msg.IsBodyHtml = true;
             string text = string.Empty;

@@ -974,7 +974,7 @@ public partial class Registar : System.Web.UI.Page
             MailMessage msg = new MailMessage();
             msg.From = new MailAddress(CommonVariable.FromInfoMail);
             msg.To.Add(CommonVariable.FromInfoMail);
-            msg.Bcc.Add(CommonVariable.ArchieveMail);
+           // msg.Bcc.Add(CommonVariable.ArchieveMail);
             msg.Subject = "Regarding customer requested to change status of Car ID# " + Session["CarID"].ToString();
             msg.IsBodyHtml = true;
             string text = string.Empty;
@@ -1007,7 +1007,7 @@ public partial class Registar : System.Web.UI.Page
             MailMessage msg = new MailMessage();
             msg.From = new MailAddress(CommonVariable.FromInfoMail);
             msg.To.Add(CommonVariable.FromInfoMail);
-            msg.Bcc.Add(CommonVariable.ArchieveMail);
+           // msg.Bcc.Add(CommonVariable.ArchieveMail);
             msg.Subject = "Regarding customer requested to change car details of Car ID# " + Session["CarID"].ToString();
             msg.IsBodyHtml = true;
             string text = string.Empty;

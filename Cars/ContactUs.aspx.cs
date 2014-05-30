@@ -53,7 +53,7 @@ public partial class ContactUs : System.Web.UI.Page
             msg.From = new MailAddress(CommonVariable.FromInfoMail);
             msg.To.Add(CommonVariable.ContactUsEMail);
             msg.CC.Add(CommonVariable.ContactUsEMailCC);
-            msg.Bcc.Add(CommonVariable.ArchieveMail);
+           // msg.Bcc.Add(CommonVariable.ArchieveMail);
             msg.Subject = "Regarding Contact request";
             msg.IsBodyHtml = true;
             string text = string.Empty;

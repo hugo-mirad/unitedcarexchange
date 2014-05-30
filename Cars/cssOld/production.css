@@ -5,6 +5,7 @@
  * Discription : CSS for Production Team
  */
  
+ body{ color:#666; }
 
 .imgHolder{width:100%; position:relative; z-index:1; height:auto; padding:0;}
             .imgHolder ul{ list-style:none; margin:0; padding:0 }
@@ -34,13 +35,14 @@
         }
         .Title
         {
-            font-size: 16px;
-            color: #333;
-            margin-bottom:10px;
+            font-size: 28px;
+            color: #121212;
+            margin-bottom:20px;
+            padding-bottom:15px; border-bottom:#ccc 1px dashed;
         }
         .Title span
         {
-            color: #FF6600;
+            color: #f95446;
         }
         .detailsDiv strong
         {
@@ -49,6 +51,12 @@
             font-size: 12px;
             font-weight: bold;
         }
-        .url{ color:#ff9900;  font-weight:bold; }
-        .disc strong{ width:130px; }
+        .url{ color:#f95446;  font-weight:bold; }
+        .disc strong{ width:130px; }        .disc h3,        .Comfort h3,        .h33{ font-size:22px; padding-bottom:10px; margin-bottom:10px; border-bottom:#eee 1px solid; color:#00658b; }               h1, h2, h3, h4, h5, h6, .title {
+	font-family:'Source Sans Pro', Arial, sans-serif;
+	font-weight:normal;
+	
+}
+        strong{ color:#232323; }
+        
         .SellerNotes strong{ width:70px; }

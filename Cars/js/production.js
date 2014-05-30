@@ -134,7 +134,7 @@ var selectedCarDiscription = "";
 		    }
 		    //console.log(carDetails['AdStatus']['#text'])
 
-		    m += "<label style='display:inline-block; float:right; text-align:right; color:#333; font-size:13px;'>AD Status: <small style='font-size:13px; color:#ff6600;'>" + carDetails['AdStatus']['#text'] + "</small></label>"
+		    m += "<label style='display:inline-block; float:right; text-align:right; color:#333; font-size:13px;'>AD Status: <small style='font-size:13px; color:#f95446;'>" + carDetails['AdStatus']['#text'] + "</small></label>"
 
     		$('.Title').empty().append(m );		
             var address = '';
@@ -181,7 +181,17 @@ var selectedCarDiscription = "";
             //$('.link1').attr('href','http://images.mobicarz.com/SearchCarDetails.aspx?Make='+make+'&Model='+model+'&ZipCode='+Zip+'&WithinZip=5&C=l3tTlT66'+carID).attr('readonly','readonly');
             $('.link1').attr('href', 'http://images.mobicarz.com/a1/' + year + '-' + make + '-' + UrlModel + '-' + carDetails['CarUniqueID']['#text']).attr('readonly', 'readonly');
             
-            $('.url').empty().html(encodeURI($('.link1').attr('href')));           
+            
+            make = make.replace('-','@');
+            UrlModel = UrlModel.replace('-','@');
+            
+            var link2 = 'http://mobicarz.com/a1/' + year + '-' + make + '-' + UrlModel + '-' + carDetails['CarUniqueID']['#text']
+            
+            
+            //$('.url').empty().html(encodeURI($('.link1').attr('href')));          
+            $('.url').empty().html(encodeURI(link2));
+            
+             
             
             var det = '';
 			
@@ -282,6 +292,11 @@ var selectedCarDiscription = "";
          }else{
             $('.proDet').hide();
             $('#spinner').hide();
+            $('.mTable').css({
+                            'background':'#fff'
+                                                
+                         });
+        
             alert('Car ID does not exist..!');
         }
         
@@ -320,7 +335,7 @@ var selectedCarDiscription = "";
                      
         }
         
-        p += "<h3 style='padding:0; margin:0 0 4px 0'>Car Specifications</h3>"
+        p += "<h3 >Car Specifications</h3>"
         
         p += '<strong>Comfort: </strong><label>';
         for(i=0; i<Comfort.length; i++){
@@ -395,7 +410,7 @@ var selectedCarDiscription = "";
         
         
         
-        p+= "<br><p style='padding-top:17px; padding-bottom:14px;'><strong style='font-size: 1.17em; width:100px'>Description: </strong>"+selectedCarDiscription;
+        p+= "<br><p style='padding-top:17px; padding-bottom:14px;'><h3 class='h33' >Description: </h3>"+selectedCarDiscription;
         
         p+= '<br><div class="clear">&nbsp;</div>';
         
@@ -413,6 +428,13 @@ var selectedCarDiscription = "";
               $(this).text($(this).text().substring(0, len-1));  
             }
         });
+        
+        $('.mTable').css({
+                            'background':'#fff',
+                            'padding':'25px;'                         
+                         });
+        
+        
         
         
    }   

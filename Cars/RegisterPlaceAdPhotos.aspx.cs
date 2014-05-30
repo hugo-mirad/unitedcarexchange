@@ -209,7 +209,7 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 string LoginName = Session["RegUserName"].ToString();
                 SendRegisterMail(LoginName, LoginPassword);
                 //sending mail to info
-                SendRegisterMailInfo(LoginName, LoginPassword);
+               // SendRegisterMailInfo(LoginName, LoginPassword);
                 // Response.Redirect("PaymentMode.aspx");
                 txtsuccs.Text = "<b>Registration Successful</b><br>Thank you for registering with MobiCarz. One of our customer representative will contact you shortly.";
                 System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "hidePop();", true);
@@ -555,57 +555,61 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
             MailMessage msg = new MailMessage();
             msg.From = new MailAddress(CommonVariable.FromInfoMail);
             msg.To.Add(LoginName);
-            msg.Bcc.Add(CommonVariable.ArchieveMail);
+           // msg.Bcc.Add(CommonVariable.ArchieveMail);
             msg.Subject = "Registration details from MobiCarz for Car ID# " + Session["CarID"].ToString();
             msg.IsBodyHtml = true;
             string text = string.Empty;
             text = format.SendRegistrationdetails(UserLoginID, LoginPassword, UserDisName, ref text);
             msg.Body = text.ToString();
             SmtpClient smtp = new SmtpClient();
-            smtp.Host = "smtp.gmail.com";
-            smtp.Port = 587;
-            smtp.Credentials = new System.Net.NetworkCredential("padmaece409@gmail.com", "dharma853");
-            smtp.EnableSsl = true;
-            smtp.Send(msg);
-            //smtp.Host = "127.0.0.1";
-            //smtp.Port = 25;
+
+            //smtp.Host = "smtp.gmail.com";
+            //smtp.Port = 587;
+            //smtp.Credentials = new System.Net.NetworkCredential("padma@datumglobal.net", "");
+            //smtp.EnableSsl = true;
             //smtp.Send(msg);
-        }
-        catch (Exception ex)
-        {
-        }
-    }
-    private void SendRegisterMailInfo(string LoginName, string LoginPassword)
-    {
-        try
-        {
-            string UserDisName = Session["RegName"].ToString();
-            string UserLoginID = Session["RegLogUserID"].ToString();
-            clsMailFormats format = new clsMailFormats();
-
-            //Sending Mail//
-            MailMessage msg = new MailMessage();
-            msg.From = new MailAddress("padma@datumglobal.net");
-            msg.To.Add("padmaece409@gmail.com");
-            msg.Subject = "Mobicarz Custome registered Information";
-            string EmailBody = DesignMail_Body();
-            msg.Body = EmailBody;
-            msg.IsBodyHtml = true;
-
-            SmtpClient smtp = new SmtpClient();
-            smtp.Host = "smtp.gmail.com";
-            smtp.Port = 587;
-            smtp.Credentials = new System.Net.NetworkCredential("padmaece409@gmail.com", "dharma853");
-            smtp.EnableSsl = true;
+            smtp.Host = "127.0.0.1";
+            smtp.Port = 25;
             smtp.Send(msg);
-
-
-
         }
         catch (Exception ex)
         {
         }
     }
+    //private void SendRegisterMailInfo(string LoginName, string LoginPassword)
+    //{
+    //    try
+    //    {
+    //        string UserDisName = Session["RegName"].ToString();
+    //        string UserLoginID = Session["RegLogUserID"].ToString();
+    //        clsMailFormats format = new clsMailFormats();
+
+    //        //Sending Mail//
+    //        MailMessage msg = new MailMessage();
+    //        msg.From = new MailAddress("padma@datumglobal.net");
+    //        msg.To.Add("info@mobicarz.com");
+    //        msg.Subject = "Mobicarz Custome registered Information";
+    //        string EmailBody = DesignMail_Body();
+    //        msg.Body = EmailBody;
+    //        msg.IsBodyHtml = true;
+
+    //        SmtpClient smtp = new SmtpClient();
+    //        //smtp.Host = "smtp.gmail.com";
+    //        //smtp.Port = 587;
+    //        //smtp.Credentials = new System.Net.NetworkCredential("padma@datumglobal.net", "");
+    //        //smtp.EnableSsl = true;
+    //        //smtp.Send(msg);
+    //        smtp.Host = "127.0.0.1";
+    //        smtp.Port = 25;
+    //        smtp.Send(msg);
+
+
+
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //    }
+    //}
 
 
     private string DesignMail_Body()
