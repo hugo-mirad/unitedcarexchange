@@ -619,7 +619,7 @@ function NoOfResultsandPagecount(result){
 			            path = path.replace("\\", "/");
 			        }
 			        path = path.replace("//", "/");
-			        thumb1 = "<img src='http://www.UnitedCarExchange.com/"+path+"'  />";
+			        thumb1 = "<img src='http://images.unitedcarexchange.com/"+path+"'  />";
 			    }else{
 			        //path = "images/stockMakes/"+SearchResults[i]['Make']['#text']+".jpg";
 			        
@@ -634,7 +634,7 @@ function NoOfResultsandPagecount(result){
 			        MakeModel = MakeModel.replace(' ','-');
 			        path = "images/MakeModelThumbs/"+MakeModel+".jpg";
 			        
-			        thumb1 = "<img src='http://www.UnitedCarExchange.com/"+path+"'  /><div class='stockPhoto1' >Stock Photo</div>";
+			        thumb1 = "<img src='http://images.unitedcarexchange.com/"+path+"'  /><div class='stockPhoto1' >Stock Photo</div>";
 			    
 			        
 			    }
@@ -1020,7 +1020,7 @@ function NoOfResultsandPagecount(result){
             }
           
             if(imgCount > 19 ){
-	            var path2 = "'http://www.UnitedCarExchange.com/images/stockMakes/"+carDetails['Make']['#text']+".jpg'";
+	            var path2 = "'http://images.unitedcarexchange.com/images/stockMakes/"+carDetails['Make']['#text']+".jpg'";
 	            var carMake = carDetails['Make']['#text'];			        
 	            var carModel = carDetails['Model']['#text'];
 	            carMake = carMake.replace(' ','-');
@@ -1031,8 +1031,8 @@ function NoOfResultsandPagecount(result){
 	            }
 	            var MakeModel = carMake+"_"+carModel;
 	            MakeModel = MakeModel.replace(' ','-');
-	            path2 = "http://www.UnitedCarExchange.com/images/MakeModelThumbs/"+MakeModel+".jpg";			    
-	            var path1 = "'http://www.UnitedCarExchange.com/images/no-image.jpg'";     
+	            path2 = "http://images.unitedcarexchange.com/images/MakeModelThumbs/"+MakeModel+".jpg";			    
+	            var path1 = "'http://images.unitedcarexchange.com/images/no-image.jpg'";     
 	            var im = "<div style='position:relative;	z-index:10;'><img  src="+path2+" class='carImg ' /><div class='stock2'>Stock Photo</div></div>";
 	            //alert(im)
 	            $('.profileImg').empty().append(im); 

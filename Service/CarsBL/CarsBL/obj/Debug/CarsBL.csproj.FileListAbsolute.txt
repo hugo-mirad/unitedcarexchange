@@ -19,3 +19,10 @@ C:\Users\padma\Desktop\Live\United-Car-Exchange-Jan082014\United-Car-Exchange-Ja
 C:\Users\padma\Desktop\Live\United-Car-Exchange-Jan082014\United-Car-Exchange-Jan082014\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\padma\Desktop\Live\United-Car-Exchange-Jan082014\United-Car-Exchange-Jan082014\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
 C:\Users\padma\Desktop\Live\United-Car-Exchange-Jan082014\United-Car-Exchange-Jan082014\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+D:\Working Sources Live\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+D:\Working Sources Live\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+D:\Working Sources Live\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+D:\Working Sources Live\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+D:\Working Sources Live\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+D:\Working Sources Live\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+D:\Working Sources Live\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb

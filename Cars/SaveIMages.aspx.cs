@@ -176,7 +176,7 @@ public partial class SaveIMages : System.Web.UI.Page
                             int newHeight = 122;
                             // Create a new bitmap which will hold the previous resized bitmap
                             Bitmap newBMP = new Bitmap(originalBMP, newWidth, newHeight);
-                            // Create a graphic based on the new bitmap
+                            // Create a graphic based on the new bitmap0
                             Graphics oGraphics = Graphics.FromImage(newBMP);
                             // Set the properties for the new graphic file
                             oGraphics.SmoothingMode = SmoothingMode.AntiAlias; oGraphics.InterpolationMode = InterpolationMode.HighQualityBicubic;

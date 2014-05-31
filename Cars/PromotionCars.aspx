@@ -70,7 +70,7 @@
                                 15 million plus online customers
                             </div>
                             <asp:LinkButton class="sellMyCar" runat="server" PostBackUrl="http://UnitedCarExchange.com/Packages.aspx">
-                                <img src="http://www.unitedcarexchange.com/images/sellmycarToday.png" /></asp:LinkButton>
+                                <img src="http://images.unitedcarexchange.com/images/sellmycarToday.png" /></asp:LinkButton>
                         </div>
                         <%--www.unitedcarexchange.com/Packages.aspx--%>
                         <!-- <b><a href="#" onclick="document.getElementById('car-form').submit()"></a></b> -->
@@ -78,7 +78,7 @@
                 </div>
                 <div id="loopedSlider">
                     <div class="container">
-                        <img src="http://www.unitedcarexchange.com/images/slides/image-08.jpg" width="630"
+                        <img src="http://images.unitedcarexchange.com/images/slides/image-08.jpg" width="630"
                             height="389">
                     </div>
                 </div>

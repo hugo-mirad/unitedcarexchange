@@ -197,7 +197,7 @@
                 <!-- header -->
                 <div id="header">
                     <a href="http://UnitedCarExchange.com">
-                        <img src="images/logo2.png" id="logo" alt="" /></a>
+                        <img src="http://images.unitedcarexchange.com/images/logo2.png" id="logo" alt="" /></a>
                     <div class="loginStat">
                         <uc2:LoginName ID="LoginName1" runat="server" />
                     </div>

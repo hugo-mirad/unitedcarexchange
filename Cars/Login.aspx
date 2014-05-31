@@ -200,7 +200,7 @@
                 <!-- header -->
                 <div id="header" style="height: 77px">
                     <a href="http://UnitedCarExchange.com">
-                        <img src="images/logo2.png" alt="" name="logo" id="logo" /></a>
+                        <img src="http://images.unitedcarexchange.com/images/logo2.png" alt="" name="logo" id="logo" /></a>
                     <div class="loginStat">
                         <%-- <a href="login.aspx" class="login">Login</a>--%>
                         <uc2:LoginName ID="LoginName1" runat="server" />

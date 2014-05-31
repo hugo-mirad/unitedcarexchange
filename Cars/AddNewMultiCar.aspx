@@ -248,7 +248,7 @@
                 <!-- header -->
                 <div id="header" style="height: 77px; top: 0px; left: 0px;">
                     <a href="http://UnitedCarExchange.com">
-                        <img src="images/logo2.png" alt="" name="logo" id="logo" /></a>
+                        <img src="http://images.unitedcarexchange.com/images/logo2.png" alt="" name="logo" id="logo" /></a>
                     <div class="loginStat">
                         <uc2:LoginName ID="LoginName1" runat="server" />
                         <%-- Welcome &nbsp;<asp:Label ID="lblUserName" runat="server"></asp:Label>

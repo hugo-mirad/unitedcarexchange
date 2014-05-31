@@ -23,7 +23,7 @@ jQuery.extend( jQuery.easing, // from the jquery.easing plugin
 	}
 });
 jQuery(function(){
-jQuery("div.svwp").prepend("<img src='http://www.UnitedCarExchange.com/images/svwloader.gif' class='ldrgif' alt='loading...'/ >"); //change with YOUR loader image path   
+jQuery("div.svwp").prepend("<img src='http://images.unitedcarexchange.com/images/svwloader.gif' class='ldrgif' alt='loading...'/ >"); //change with YOUR loader image path   
 });
 var j = 0;
 jQuery.fn.slideViewerPro = function(settings) {
@@ -45,8 +45,8 @@ jQuery.fn.slideViewerPro = function(settings) {
 			thumbsPercentReduction: 24,
 			thumbsVis: true,
 			easeFunc: "easeInOutExpo",
-			leftButtonInner: "<img src='http://www.UnitedCarExchange.com/images/ad_prev.png'  />", //could be an image "<img src='images/larw.gif' />" or an escaped char as "&larr";
-			rightButtonInner: "<img src='http://www.UnitedCarExchange.com/images/ad_next.png'  />", //could be an image or an escaped char as "&rarr";
+			leftButtonInner: "<img src='http://images.unitedcarexchange.com/images/ad_prev.png'  />", //could be an image "<img src='images/larw.gif' />" or an escaped char as "&larr";
+			rightButtonInner: "<img src='http://images.unitedcarexchange.com/images/ad_next.png'  />", //could be an image or an escaped char as "&rarr";
 			autoslide: false,
 			typo: false,
 			typoFullOpacity: 0,

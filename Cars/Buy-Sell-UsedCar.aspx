@@ -334,7 +334,7 @@
                 <!-- header -->
                 <div id="header" style="height: 77px">
                     <a href="http://www.UnitedCarExchange.com/Default.aspx">
-                        <img src="http://www.UnitedCarExchange.com/images/logo2.png" id="logo" alt="" /></a>
+                        <img src="http://images.unitedcarexchange.com/images/logo2.png" id="logo" alt="" /></a>
                     <div class="loginStat">
                         <uc2:LoginName ID="LoginName1" runat="server" />
                     </div>
@@ -449,7 +449,7 @@ document.write(String.fromCharCode(60,83,67,82,73,80,84));document.write(' src="
                                                 </div>
                                                 <div style="margin-top: 27px; margin-left: 7px; float: left; width: 80px;">
                                                     <a href="javascript:search();">
-                                                        <img src="http://www.UnitedCarExchange.com/images/searChButton.png" alt="" style="border: 1px solid #fff;
+                                                        <img src="http://images.unitedcarexchange.com/images/searChButton.png" alt="" style="border: 1px solid #fff;
                                                             border-bottom: #999 1px solid; border-right: #999 1px solid" tabindex="5" />
                                                     </a>
                                                 </div>
@@ -461,7 +461,7 @@ document.write(String.fromCharCode(60,83,67,82,73,80,84));document.write(' src="
                                     <!-- -->
                                 </div>
                             </div>
-                            <div id="div88X720" class="detailsAd" runat="server" style="height: 88px; width: 707px; margin: 0 auto;
+                            <div id="div88X720" class="detailsAd" runat="server" style="height: 88px; width: 707px; margin: 0 auto;overflow:hidden;
                                 border: #999 1px solid; padding: 1px; background: white;">
                             </div>
                             <!-- Results Start -->
@@ -492,7 +492,7 @@ document.write(String.fromCharCode(60,83,67,82,73,80,84));document.write(' src="
                                                                         <div class="soldCar" id="soldCar" runat="server" style="margin: 20px 0 10px 0; padding: 15px;
                                                                             border: #d9a863 3px dashed; background: #fffed1">
                                                                             <h2 style="color: #777; font-size: 26px;">
-                                                                                <img id="sold" runat="server" visible="false" src="http://www.UnitedCarExchange.com/images/sold_out_stamp.gif"
+                                                                                <img id="sold" runat="server" visible="false" src="http://images.unitedcarexchange.com/images/sold_out_stamp.gif"
                                                                                     style="float: right">
                                                                                 Sorry..!<br />
                                                                                 <asp:Label ID="lblCarsoldStatus" runat="server"></asp:Label>
@@ -1059,7 +1059,7 @@ document.write(String.fromCharCode(60,83,67,82,73,80,84));document.write(' src="
 				 
 				 
 	$(function() {
-	//$("div.svwp").prepend("<img src='http://www.UnitedCarExchange.com/images/svwloader.gif' class='ldrgif' alt='loading...'/ >");
+	//$("div.svwp").prepend("<img src='http://images.unitedcarexchange.com/images/svwloader.gif' class='ldrgif' alt='loading...'/ >");
 		
 		// Vertical Ticker
 		$('.sample4').numeric({allow:"-"});

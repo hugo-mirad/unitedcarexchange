@@ -194,7 +194,7 @@
                 <!-- header -->
                 <div id="header" style="height: 80px">
                     <a href="Default.aspx">
-                        <img src="images/logo2.png" id="logo" alt="" /></a>
+                        <img src="http://images.unitedcarexchange.com/images/logo2.png" id="logo" alt="" /></a>
                     <div class="loginStat">
                         <uc2:LoginName ID="LoginName1" runat="server" />
                     </div>

@@ -174,7 +174,7 @@ public partial class PromotionCars : System.Web.UI.Page
 
                 var path = obj[rowcount].PICLOC0.ToString() + "/" + obj[rowcount].PIC0.ToString();
                 path = path.Replace("//", "/");
-                StockUrl = "http://www.UnitedCarExchange.com/" + path;
+                StockUrl = "http://images.unitedcarexchange.com/" + path;
             }
             Image imgSimliar = (Image)e.Item.FindControl("imgSimliar");
 

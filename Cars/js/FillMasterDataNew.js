@@ -84,7 +84,7 @@ function CarsAdDisplay(CarsAdDetails) {
                     path = path.replace("\\", "/");
                 }
                 path = path.replace("//", "/");
-                thumb1 = "<img src='http://unitedcarexchange.com/" + path + "' class='thumbV' onclick='javascript:EncryptedCarID(" + resPath + ");' width='120'  />";
+                thumb1 = "<img src='http://images.unitedcarexchange.com/" + path + "' class='thumbV' onclick='javascript:EncryptedCarID(" + resPath + ");' width='120'  />";
             } else {
                 var carMake = CarsAdDetails[i]['Make']['#text'];
                 var carModel = CarsAdDetails[i]['Model']['#text'];
@@ -149,7 +149,7 @@ function CarsAdDisplay(CarsAdDetails) {
                     path = path.replace("\\", "/");
                 }
                 path = path.replace("//", "/");
-                thumb1 = "<img src='http://unitedcarexchange.com/" + path + "' class='thumbH' onclick='javascript:EncryptedCarID(" + resPath + ");' " + imgWidth + " />";
+                thumb1 = "<img src='http://images.unitedcarexchange.com/" + path + "' class='thumbH' onclick='javascript:EncryptedCarID(" + resPath + ");' " + imgWidth + " />";
             } else {
                 var carMake = CarsAdDetails[i]['Make']['#text'];
                 var carModel = CarsAdDetails[i]['Model']['#text'];
@@ -1152,7 +1152,7 @@ function SearchResultsDisplayFilter(SearchResultsArray) {
                         path = path.replace("\\", "/");
                     }
                     path = path.replace("//", "/");
-                    thumb1 = "<img src='http://unitedcarexchange.com/" + path + "' class='thumb' onclick='javascript:EncryptedCarID(" + resPath + ");' width='80' height='50' />";
+                    thumb1 = "<img src='http://images.unitedcarexchange.com/" + path + "' class='thumb' onclick='javascript:EncryptedCarID(" + resPath + ");' width='80' height='50' />";
                 } else {
                     //path = "images/stockMakes/"+SearchResultsArray[i]['Make']['#text']+".jpg";
                     var carMake = SearchResultsArray[i]['Make']['#text'];
@@ -2165,7 +2165,7 @@ function CarsMatchedDataBinding(CarsAdDetails){
                     path = path.replace("\\", "/");
                 }
                 path = path.replace("//", "/");
-                thumb1 = "<img src='http://unitedcarexchange.com/" + path + "' class='thumbV' onclick='javascript:EncryptedCarID(" + resPath + ");' width='120'  />";
+                thumb1 = "<img src='http://images.unitedcarexchange.com/" + path + "' class='thumbV' onclick='javascript:EncryptedCarID(" + resPath + ");' width='120'  />";
             } else {
                 var carMake = CarsAdDetails[i]['Make']['#text'];
                 var carModel = CarsAdDetails[i]['Model']['#text'];

@@ -1640,7 +1640,7 @@ function carDetailsDisplay() {
                             path = path.replace("\\", "/");
                         }
                         path = path.replace("//", "/");
-                        //path = "http://www.UnitedCarExchange.com/"+path;
+                        //path = "http://images.unitedcarexchange.com/"+path;
                         ////console.log(path)	           
                         img1 += "<li><img  src=" + path + "  width='250' height='100' class='slide1a ' /></li>";
                         img2 += "<li><img   src=" + path + "   class='slide1b ' /></li>";
@@ -1650,7 +1650,7 @@ function carDetailsDisplay() {
                     }
                 }
                 if (imgCount > 19) {
-                    var path2 = "'http://www.UnitedCarExchange.com/images/stockMakes/" + carDetails['Make']['#text'] + ".jpg'";
+                    var path2 = "'http://images.unitedcarexchange.com/images/stockMakes/" + carDetails['Make']['#text'] + ".jpg'";
 
 
                     var carMake = carDetails['Make']['#text'];
@@ -1668,10 +1668,10 @@ function carDetailsDisplay() {
                     //alert(MakeModel);
                     MakeModel = MakeModel.replace(' ', '-');
                     MakeModel = MakeModel.replace('/', '@');
-                    path2 = "http://www.UnitedCarExchange.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
+                    path2 = "http://images.unitedcarexchange.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
 
 
-                    var path1 = "'http://www.UnitedCarExchange.com/images/no-image.jpg'";
+                    var path1 = "'http://images.unitedcarexchange.com/images/no-image.jpg'";
                     //alert(path2);
                     img1 += "<li style='position:relative;	z-index:10;'><img  src=" + path2 + " width='250' height='100' class='slide1a ' /><div class='stock2'>Stock Photo</div></li>";
                     img2 += "<li><img   src=" + path1 + " class='slide1b ' /></li>";

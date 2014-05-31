@@ -97,7 +97,7 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 if (dsImages.Tables[0].Rows[0][ColumnPic].ToString() != "0" && dsImages.Tables[0].Rows[0][ColumnPic].ToString() != "")
                 {
                     ImageName.Visible = true;
-                    ImageName.ImageUrl = "http://unitedcarexchange.com/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
+                    ImageName.ImageUrl = "http://images.unitedcarexchange.com/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
                 }
                 else
                 {
@@ -206,9 +206,11 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
     {
         btnContinue.Text = "Continue";
         string sFilePath = string.Empty;
-        string Directorypath = string.Empty;
-        Directorypath = "CarImages";
-        Directorypath = Server.MapPath(Directorypath);
+        string Directorypath = string.Empty; string Directorypath1 = string.Empty;
+       // Directorypath = "CarImages";
+       // Directorypath = Server.MapPath(Directorypath);//D:\Working Sources Live\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Cars\CarImages
+        Directorypath = @"C:/Inetpub/wwwroot/COMMONIMAGES/CarImages";
+
         if (System.IO.Directory.Exists(Directorypath))
         {
             string SelModel = Session["SelModel"].ToString();
@@ -216,23 +218,31 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
             SelModel = SelModel.Replace("&", "@");
 
 
-            sFilePath = "CarImages" + "/" + Session["SelYear"].ToString();
-            string sFilePathDir = Server.MapPath(sFilePath);
+            sFilePath = "CarImages" + "/" + Session["SelYear"].ToString();//CarImages/2013
+           // string sFilePathDir = Server.MapPath(sFilePath); //D:\Working Sources Live\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Cars\CarImages\2013
+            string sFilePathDir =@"C:/Inetpub/wwwroot/COMMONIMAGES/"+sFilePath;
+
             if (System.IO.Directory.Exists(sFilePathDir) == false)
             {
                 System.IO.Directory.CreateDirectory(sFilePathDir);
             }
             string sFilePath2 = sFilePath + "/" + Session["SelMake"].ToString();
-            string sFilePath2Dir = Server.MapPath(sFilePath2);
+
+          //  string sFilePath2Dir = Server.MapPath(sFilePath2);
+            string sFilePath2Dir = @"C:/Inetpub/wwwroot/COMMONIMAGES/"+sFilePath2;
+
             if (System.IO.Directory.Exists(sFilePath2Dir) == false)
             {
                 System.IO.Directory.CreateDirectory(sFilePath2Dir);
             }
             string sFilePath3 = sFilePath2 + "/" + SelModel + "/";
-            string sFilePath3Dir = Server.MapPath(sFilePath3);
-            if (System.IO.Directory.Exists(sFilePath3Dir) == false)
+           
+           // string sFilePath3Dir = Server.MapPath(sFilePath3);
+            string sFilePath3Dir =  @"C:/Inetpub/wwwroot/COMMONIMAGES/"+sFilePath3;
+
+            if (System.IO.Directory.Exists(sFilePath3Dir) == false) //D:\Working Sources Live\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Cars\CarImages\2013\Advance\Mixer\
             {
-                System.IO.Directory.CreateDirectory(sFilePath3Dir);
+                System.IO.Directory.CreateDirectory(sFilePath3Dir); 
             }
             //flupImage.PostedFile.SaveAs(sFilePath + "/" + FILENAME1);
             SaveImages(sFilePath3);
@@ -256,19 +266,25 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 System.IO.Directory.CreateDirectory(Directorypath);
             }
             string sFilePath1 = sFilePath + "/" + Session["SelYear"].ToString();
-            string sFilePath1Dir = Server.MapPath(sFilePath1);
+
+            string sFilePath1Dir = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath1;
+           // string sFilePath1Dir = Server.MapPath(sFilePath1);
             if (System.IO.Directory.Exists(sFilePath1Dir) == false)
             {
                 System.IO.Directory.CreateDirectory(sFilePath1Dir);
             }
             string sFilePath2 = sFilePath1 + "/" + Session["SelMake"].ToString();
-            string sFilePath2Dir = Server.MapPath(sFilePath2);
+
+            string sFilePath2Dir = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath2;
+           // string sFilePath2Dir = Server.MapPath(sFilePath2);
             if (System.IO.Directory.Exists(sFilePath2Dir) == false)
             {
                 System.IO.Directory.CreateDirectory(sFilePath2Dir);
             }
             string sFilePath3 = sFilePath2 + "/" + SelModel + "/";
-            string sFilePath3Dir = Server.MapPath(sFilePath3);
+
+            string sFilePath3Dir = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+            //string sFilePath3Dir = Server.MapPath(sFilePath3);
             if (System.IO.Directory.Exists(sFilePath3Dir) == false)
             {
                 System.IO.Directory.CreateDirectory(sFilePath3Dir);
@@ -283,7 +299,7 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
         }
     }
 
-    private void SaveImages(string sFilePath3)
+    private void SaveImages(string sFilePath3) //CarImages/2013/Advance/Mixer/
     {
         try
         {
@@ -318,7 +334,13 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image1.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull =  @"C:/Inetpub/wwwroot/COMMONIMAGES/"+sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3); //D:\Working Sources Live\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Cars\CarImages\2013\Advance\Mixer\
+              //  string FileNameFull1 =@"C:/Inetpub/wwwroot/COMMONIMAGES/CarImages/"+sFilePath3;
+
+
+
                 double FlSize = flupImage1.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -333,7 +355,14 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 }
                 else
                 {
+
+                    //D:\Working Sources Live\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Cars\CarImages\2013\Advance\Mixer\
+                    //2013_Advance_Mixer_57308_Image1.jpg
+
                     flupImage1.PostedFile.SaveAs(FileNameFull + "/" + FileName);
+                    flupImage1.PostedFile.SaveAs(FileNameFull + "/" + FileName);
+
+
                 }
                 //PicImg1 = FileNameFull + "/" + FileName;
                 FileNameFull = sFilePath3;
@@ -346,7 +375,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image2.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+                
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage2.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -375,7 +406,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image3.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage3.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -404,7 +437,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image4.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage4.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -433,7 +468,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image5.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+              
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+               // string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage5.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -462,7 +499,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image6.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage6.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -491,7 +530,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image7.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+              
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+               // string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage7.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -520,7 +561,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image8.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage8.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -549,7 +592,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image9.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage9.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -578,7 +623,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image10.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage10.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -608,7 +655,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image11.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage11.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -637,7 +686,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image12.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage12.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -666,7 +717,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image13.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+                
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage13.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -695,7 +748,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image14.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+               // string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage14.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -724,7 +779,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image15.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage15.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -753,7 +810,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image16.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage16.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -782,7 +841,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image17.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage17.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -811,7 +872,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image18.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage18.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -840,7 +903,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image19.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage19.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -869,7 +934,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image20.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage20.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -1023,7 +1090,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileNameThumb = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "Thumb.jpg";
-                string FileNameFullThumb = Server.MapPath(sFilePath3);
+
+                string FileNameFullThumb = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+               // string FileNameFullThumb = Server.MapPath(sFilePath3);
                 Bitmap originalBMP = new Bitmap(FileForThumb.FileContent);
 
                 // Calculate the new image dimensions
@@ -1162,7 +1231,7 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
             SmtpClient smtp = new SmtpClient();
             //smtp.Host = "smtp.gmail.com";
             //smtp.Port = 587;
-            //smtp.Credentials = new System.Net.NetworkCredential("satheesh.aakula@gmail.com", "hugomirad");
+            //smtp.Credentials = new System.Net.NetworkCredential("padma@datumglobal.net", "");
             //smtp.EnableSsl = true;
             //smtp.Send(msg);
             smtp.Host = "127.0.0.1";

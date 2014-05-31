@@ -95,7 +95,7 @@ public partial class placeadPhotos : System.Web.UI.Page
 
                     ImageName.Visible = true;
                     //ButtonName.Visible = true;
-                    ImageName.ImageUrl = "http://unitedcarexchange.com/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
+                    ImageName.ImageUrl = "http://images.unitedcarexchange.com/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
                 }
                 else
                 {
@@ -206,8 +206,9 @@ public partial class placeadPhotos : System.Web.UI.Page
         btnContinue.Text = "Continue";
         string sFilePath = string.Empty;
         string Directorypath = string.Empty;
-        Directorypath = "CarImages";
-        Directorypath = Server.MapPath(Directorypath);
+        //Directorypath = "CarImages";
+        //Directorypath = Server.MapPath(Directorypath);
+        Directorypath = @"C:/Inetpub/wwwroot/COMMONIMAGES/CarImages";
         if (System.IO.Directory.Exists(Directorypath))
         {
             string SelModel = Session["SelModel"].ToString().Trim();
@@ -215,13 +216,16 @@ public partial class placeadPhotos : System.Web.UI.Page
             SelModel = SelModel.Replace("&", "@");
 
             sFilePath = "CarImages" + "/" + Session["SelYear"].ToString();
-            string sFilePathDir = Server.MapPath(sFilePath);
+            //string sFilePathDir = Server.MapPath(sFilePath);
+            string sFilePathDir = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath;
             if (System.IO.Directory.Exists(sFilePathDir) == false)
             {
                 System.IO.Directory.CreateDirectory(sFilePathDir);
             }
             string sFilePath2 = sFilePath + "/" + Session["SelMake"].ToString().Trim() ;
-            string sFilePath2Dir = Server.MapPath(sFilePath2);
+
+            //string sFilePath2Dir = Server.MapPath(sFilePath2);
+            string sFilePath2Dir = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath2;
             if (System.IO.Directory.Exists(sFilePath2Dir) == false)
             {
                 System.IO.Directory.CreateDirectory(sFilePath2Dir);
@@ -231,7 +235,8 @@ public partial class placeadPhotos : System.Web.UI.Page
             {
                 System.IO.Directory.CreateDirectory(sFilePath3);
             }
-            string sFilePath3Dir = Server.MapPath(sFilePath3);
+            string sFilePath3Dir = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+           // string sFilePath3Dir = Server.MapPath(sFilePath3);
             if (System.IO.Directory.Exists(sFilePath3Dir) == false)
             {
                 System.IO.Directory.CreateDirectory(sFilePath3Dir);
@@ -256,19 +261,24 @@ public partial class placeadPhotos : System.Web.UI.Page
                 System.IO.Directory.CreateDirectory(Directorypath);
             }
             string sFilePath1 = sFilePath + "/" + Session["SelYear"].ToString();
-            string sFilePath1Dir = Server.MapPath(sFilePath1);
+
+            string sFilePath1Dir = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath1;
+            //string sFilePath1Dir = Server.MapPath(sFilePath1);
             if (System.IO.Directory.Exists(sFilePath1Dir) == false)
             {
                 System.IO.Directory.CreateDirectory(sFilePath1Dir);
             }
             string sFilePath2 = sFilePath1 + "/" + Session["SelMake"].ToString();
-            string sFilePath2Dir = Server.MapPath(sFilePath2);
+
+            string sFilePath2Dir = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath2;
+           // string sFilePath2Dir = Server.MapPath(sFilePath2);
             if (System.IO.Directory.Exists(sFilePath2Dir) == false)
             {
                 System.IO.Directory.CreateDirectory(sFilePath2Dir);
             }
             string sFilePath3 = sFilePath2 + "/" + SelModel + "/";
-            string sFilePath3Dir = Server.MapPath(sFilePath3);
+            string sFilePath3Dir = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+           // string sFilePath3Dir = Server.MapPath(sFilePath3);
             if (System.IO.Directory.Exists(sFilePath3Dir) == false)
             {
                 System.IO.Directory.CreateDirectory(sFilePath3Dir);
@@ -316,7 +326,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image1.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 //flupImage1.PostedFile.SaveAs(FileNameFull + "/" + FileName);
                 double FlSize = flupImage1.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
@@ -347,7 +359,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image2.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+               // string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage2.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -375,7 +389,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image3.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage3.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -403,7 +419,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image4.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage4.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -431,7 +449,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image5.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage5.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -459,7 +479,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image6.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage6.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -487,7 +509,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image7.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+                
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage7.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -515,7 +539,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image8.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage8.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -543,7 +569,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image9.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+                
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage9.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -571,7 +599,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image10.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+                
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage10.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -600,7 +630,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image11.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage11.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -628,7 +660,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image12.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+                
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage12.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -656,7 +690,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image13.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage13.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -684,7 +720,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image14.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage14.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -712,7 +750,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image15.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage15.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -740,7 +780,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image16.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage16.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -768,7 +810,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image17.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage17.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -796,7 +840,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image18.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage18.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -824,7 +870,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image19.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage19.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -852,7 +900,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileName = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "_Image20.jpg";
-                string FileNameFull = Server.MapPath(sFilePath3);
+
+                string FileNameFull = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFull = Server.MapPath(sFilePath3);
                 double FlSize = flupImage20.PostedFile.ContentLength;
                 double FlSize2 = FlSize / 1024;
                 double FlSize3 = FlSize2 / 1024;
@@ -1007,7 +1057,9 @@ public partial class placeadPhotos : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileNameThumb = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "Thumb.jpg";
-                string FileNameFullThumb = Server.MapPath(sFilePath3);
+
+                string FileNameFullThumb = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+                //string FileNameFullThumb = Server.MapPath(sFilePath3);
                 Bitmap originalBMP = new Bitmap(FileForThumb.FileContent);
 
                 // Calculate the new image dimensions

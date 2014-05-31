@@ -89,7 +89,7 @@ var selectedCarDiscription = "";
                 }
             }
             if(imgCount >19 ){
-                var path2 = "'http://www.UnitedCarExchange.com/images/stockMakes/"+carDetails['Make']['#text']+".jpg'";
+                var path2 = "'http://images.unitedcarexchange.com/images/stockMakes/"+carDetails['Make']['#text']+".jpg'";
                 var carMake = carDetails['Make']['#text'];			        
                 var carModel = carDetails['Model']['#text'];
                 
@@ -104,8 +104,8 @@ var selectedCarDiscription = "";
                 var MakeModel = carMake+"_"+carModel;			       
                 MakeModel = MakeModel.replace(' ','-');
                 MakeModel = MakeModel.replace('/','@');
-                path2 = "http://www.UnitedCarExchange.com/images/MakeModelThumbs/"+MakeModel+".jpg";    
-                var path1 = "'http://www.UnitedCarExchange.com/images/no-image.jpg'";
+                path2 = "http://images.unitedcarexchange.com/images/MakeModelThumbs/"+MakeModel+".jpg";    
+                var path1 = "'http://images.unitedcarexchange.com/images/no-image.jpg'";
                 
                 img1 += "<li><img  src="+path2+" /><div class='stock'>Stock Photo</div></li>";		              
                 $('div.imgHolder ul').empty().append(img1);

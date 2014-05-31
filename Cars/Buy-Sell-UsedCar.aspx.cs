@@ -250,7 +250,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
 
 
                         path = path.Replace("//", "/");
-                        StockUrl = "http://www.UnitedCarExchange.com/" + path;
+                        StockUrl = "http://images.unitedcarexchange.com/" + path;
 
                         //dsPicsNew.Tables[0].Rows[dsPicsNew.Tables[0].Rows.Count - 1]["PICPATH"] = path;
                     }
@@ -262,9 +262,9 @@ public partial class SearchCarDetails : System.Web.UI.Page
 
 
                     path = path.Replace("//", "/");
-                    path = "http://www.UnitedCarExchange.com/" + path;
+                    path = "http://images.unitedcarexchange.com/" + path;
 
-                    if (path != "http://www.UnitedCarExchange.com//")
+                    if (path != "http://images.unitedcarexchange.com//")
                     {
 
                         dsPicsNew.Tables[0].Rows.Add();
@@ -437,7 +437,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
 
                 var path = obj[rowcount].PICLOC0.ToString() + "/" + obj[rowcount].PIC0.ToString();
                 path = path.Replace("//", "/");
-                StockUrl = "http://www.UnitedCarExchange.com/" + path;
+                StockUrl = "http://images.unitedcarexchange.com/" + path;
             }
             Image imgSimliar = (Image)e.Item.FindControl("imgSimliar");
 
