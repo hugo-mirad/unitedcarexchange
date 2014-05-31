@@ -427,11 +427,14 @@ public partial class SearchCarDetails : System.Web.UI.Page
                         //StockUrl = "http://www.mobicarz.com//images/MakeModelThumbs/" + StockMake + "_" + StockType + ".jpg";
                         StockUrl = "http://unitedcarexchange.com/images/MakeModelThumbs/" + StockMake + "_" + StockType + ".jpg";
 
-
-                        //dsPicsNew.Tables[0].Rows.Add();
-                        //dsPicsNew.Tables[0].Rows[dsPicsNew.Tables[0].Rows.Count - 1]["PIC"] = "";
-                        //dsPicsNew.Tables[0].Rows[dsPicsNew.Tables[0].Rows.Count - 1]["PICLOC"] = "";
-                        //dsPicsNew.Tables[0].Rows[dsPicsNew.Tables[0].Rows.Count - 1]["PICPATH"] = StockUrl;
+                        try
+                        {
+                            dsPicsNew.Tables[0].Rows.Add();
+                            dsPicsNew.Tables[0].Rows[dsPicsNew.Tables[0].Rows.Count - 1]["PIC"] = "";
+                            dsPicsNew.Tables[0].Rows[dsPicsNew.Tables[0].Rows.Count - 1]["PICLOC"] = "";
+                            dsPicsNew.Tables[0].Rows[dsPicsNew.Tables[0].Rows.Count - 1]["PICPATH"] = StockUrl;
+                        }
+                        catch { }
                     }
 
                     else
@@ -447,9 +450,10 @@ public partial class SearchCarDetails : System.Web.UI.Page
                         //StockUrl = "http://www.mobicarz.com/" + path;
                         StockUrl = "http://images.mobicarz.com/" + path;
 
-                        //dsPicsNew.Tables[0].Rows[dsPicsNew.Tables[0].Rows.Count - 1]["PICPATH"] = path;
+                       
                     }
                     img.ImageUrl = StockUrl;
+
                 }
                 else
                 {
