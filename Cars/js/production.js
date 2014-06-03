@@ -56,7 +56,7 @@ var selectedCarDiscription = "";
     };
     
     function displayCarDetailsProduction(carDetails){
-        ////console.log(carDetails); 
+        //console.log(carDetails["Brandid"]['#text']); 
         $('.stock').hide();      
         if(carDetails != 'undefined' && carDetails != undefined){
             var year = carDetails['YearOfMake']['#text'];
@@ -75,13 +75,18 @@ var selectedCarDiscription = "";
                     var path = "'"+carDetails['PICLOC'+i]['#text']+"/"+carDetails['PIC'+i]['#text']+"'";  
                     var loaction = carDetails['PICLOC'+i]['#text'];
                     var img = carDetails['PIC'+i]['#text']
-                    path = 'http://images.mobicarz.com/' + loaction + img;
+                    
+                    if(carDetails["Brandid"]['#text'] == "2"){                    
+                        path = 'http://images.mobicarz.com/' + loaction + img;
+                    }else{
+                        path = 'http://images.unitedcarexchange.com/' + loaction + img;
+                    }
                     path = path.replace(' ', '%20');
                     path = path.replace(' ', '%20');
                     path = path.replace(' ', '%20');
                     path = path.replace(' ', '%20');
                     path = path.replace(' ', '%20');
-                    console.log(path);
+                    //console.log(path);
                     img1 += "<li><img  src="+path+"   /></li>";
                    				        
                 }else{
@@ -89,7 +94,15 @@ var selectedCarDiscription = "";
                 }
             }
             if(imgCount >19 ){
-                var path2 = "'http://images.mobicarz.com/images/stockMakes/" + carDetails['Make']['#text'] + ".jpg'";
+                
+                
+                if(carDetails["Brandid"]['#text'] == "2"){                    
+                   var path2 = "'http://images.mobicarz.com/images/stockMakes/" + carDetails['Make']['#text'] + ".jpg'";
+                }else{
+                    var path2 = "'http://images.unitedcarexchange.com/images/stockMakes/" + carDetails['Make']['#text'] + ".jpg'";
+                }
+            
+                
                 var carMake = carDetails['Make']['#text'];			        
                 var carModel = carDetails['Model']['#text'];
                 
@@ -104,8 +117,18 @@ var selectedCarDiscription = "";
                 var MakeModel = carMake+"_"+carModel;			       
                 MakeModel = MakeModel.replace(' ','-');
                 MakeModel = MakeModel.replace('/','@');
-                path2 = "http://images.mobicarz.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
-                var path1 = "'http://images.mobicarz.com/images/no-image.jpg'";
+                
+                
+                
+                if(carDetails["Brandid"]['#text'] == "2"){                    
+                   path2 = "http://images.mobicarz.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
+                    var path1 = "'http://images.mobicarz.com/images/no-image.jpg'";
+                }else{
+                    path2 = "http://images.unitedcarexchange.com/images/MakeModelThumbs/" + MakeModel + ".jpg";
+                    var path1 = "'http://images.unitedcarexchange.com/images/no-image.jpg'";
+                }
+                
+                
                 
                 img1 += "<li><img  src="+path2+" /><div class='stock'>Stock Photo</div></li>";		              
                 $('div.imgHolder ul').empty().append(img1);
@@ -134,7 +157,13 @@ var selectedCarDiscription = "";
 		    }
 		    //console.log(carDetails['AdStatus']['#text'])
 
-		    m += "<label style='display:inline-block; float:right; text-align:right; color:#333; font-size:13px;'>AD Status: <small style='font-size:13px; color:#f95446;'>" + carDetails['AdStatus']['#text'] + "</small></label>"
+		    m += "<label style='display:inline-block; float:right; text-align:right; color:#333; font-size:13px;'>AD Status: <small style='font-size:13px; color:#f95446;'>" + carDetails['AdStatus']['#text'] + "</small><br>Brand: <small style='font-size:13px; color:#f95446;'>";
+		    
+		    if(carDetails["Brandid"]['#text'] == "2"){  
+		     m += "MobiCarz</small></label>";
+		     }else{
+		       m += "United Car Exchange</small></label>";
+		     }
 
     		$('.Title').empty().append(m );		
             var address = '';
@@ -179,17 +208,31 @@ var selectedCarDiscription = "";
 
             //Buy - Sell - UsedCar / 1991 - Volkswagen - Vanagon - 518445981658
             //$('.link1').attr('href','http://images.mobicarz.com/SearchCarDetails.aspx?Make='+make+'&Model='+model+'&ZipCode='+Zip+'&WithinZip=5&C=l3tTlT66'+carID).attr('readonly','readonly');
-            $('.link1').attr('href', 'http://images.mobicarz.com/a1/' + year + '-' + make + '-' + UrlModel + '-' + carDetails['CarUniqueID']['#text']).attr('readonly', 'readonly');
             
             
-            make = make.replace('-','@');
-            UrlModel = UrlModel.replace('-','@');
-            
-            var link2 = 'http://mobicarz.com/a1/' + year + '-' + make + '-' + UrlModel + '-' + carDetails['CarUniqueID']['#text']
             
             
-            //$('.url').empty().html(encodeURI($('.link1').attr('href')));          
-            $('.url').empty().html(encodeURI(link2));
+            
+            if(carDetails["Brandid"]['#text'] == "2"){                    
+                $('.link1').attr('href', 'http://images.mobicarz.com/a1/' + year + '-' + make + '-' + UrlModel + '-' + carDetails['CarUniqueID']['#text']).attr('readonly', 'readonly');
+            
+                 make = make.replace('-','@');
+                 UrlModel = UrlModel.replace('-','@');
+                
+                var link2 = 'http://mobicarz.com/a1/' + year + '-' + make + '-' + UrlModel + '-' + carDetails['CarUniqueID']['#text']
+                
+                
+                //$('.url').empty().html(encodeURI($('.link1').attr('href')));          
+                $('.url').empty().html(encodeURI(link2));
+            
+            }else{
+               $('.link1').attr('href', 'http://UnitedCarExchange.com/a1/' + year + '-' + make + '-' + UrlModel + '-' + carDetails['CarUniqueID']['#text']).attr('readonly', 'readonly');
+            
+                $('.url').empty().html(encodeURI($('.link1').attr('href')));  
+            }
+            
+            
+           
             
              
             

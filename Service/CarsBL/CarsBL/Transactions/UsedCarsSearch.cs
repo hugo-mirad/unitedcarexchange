@@ -1064,7 +1064,13 @@ namespace CarsBL
 
                 objUsedCars.UserFeedback = UsedCarsDataReader["UserFeedback"].ToString();
 
+                try
+                {
+                    objUsedCars.Brandid = Convert.ToInt32(UsedCarsDataReader["Brandid"].ToString());
 
+
+                }
+                catch { }
 
 
 

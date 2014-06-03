@@ -201,20 +201,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
             else
             {
 
-                int PostingID = Convert.ToInt32(Session["PostingID"].ToString());
-                int UserPackID = Convert.ToInt32(Session["RegUserPackID"].ToString());
-                int UID = Convert.ToInt32(Session["RegUSER_ID"].ToString());
-                bool bnew = objBankDetailsBL.USP_UpdateInfoForFreePackage(PostingID, UserPackID, UID);
-                string LoginPassword = Session["RegPassword"].ToString();
-                string LoginName = Session["RegUserName"].ToString();
-                SendRegisterMail(LoginName, LoginPassword);
-                //sending mail to info
-               // SendRegisterMailInfo(LoginName, LoginPassword);
-                // Response.Redirect("PaymentMode.aspx");
-                txtsuccs.Text = "<b>Registration Successful</b><br>Thank you for registering with MobiCarz. One of our customer representative will contact you shortly.";
-                System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "hidePop();", true);
-  
-                mdlPaySucc.Show();
+             
+
+                Response.Redirect("pay.aspx");
             }
 
             //mdepAlertForAsk.Show();

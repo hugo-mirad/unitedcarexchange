@@ -185,7 +185,7 @@ namespace CarsBL.Transactions
 
             //Assign stored procedure name
 
-            spNameString = "[USP_UpdateInfoForFreePackage]";
+            spNameString = "[USP_UpdateInfoForFreePackage1]";
             DbCommand dbCommand = null;
 
             try

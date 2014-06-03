@@ -12,6 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Net;
 using CarsBL.Transactions;
+using System.Net.Mail;
 
 public partial class pay : System.Web.UI.Page
 {
@@ -26,8 +27,8 @@ public partial class pay : System.Web.UI.Page
         if (!IsPostBack)
         {
 
-           
-           // ------------------------------------------------------------
+
+            // ------------------------------------------------------------
 
             if (Session["PackageID"] != null && Session["PackgeName"] != null && Session["PackgePrice"] != null)
             {
@@ -43,8 +44,8 @@ public partial class pay : System.Web.UI.Page
                 lblSmodel.Text = Session["SelModel"].ToString();
                 lblSprice.Text = Session["SelPrice"].ToString();
 
-              //  lblSphotos.Text = Session["SelUploadedImg"].ToString() + "/" + Session["MaxPhotos"].ToString(); ;
-                lblSphotos.Text =  Session["MaxPhotos"].ToString(); 
+                //  lblSphotos.Text = Session["SelUploadedImg"].ToString() + "/" + Session["MaxPhotos"].ToString(); ;
+                lblSphotos.Text = Session["MaxPhotos"].ToString();
 
             }
             else
@@ -56,7 +57,6 @@ public partial class pay : System.Web.UI.Page
 
             // if (Session["CarID"] != null)
             if (Session["CarID"] != null)
-
             {
                 DataSet dsYears = objBankDetailsBL.USP_GetNext12years();
 
@@ -72,7 +72,7 @@ public partial class pay : System.Web.UI.Page
             else
             {
                 Session.RemoveAll();
-                Session["regRedirect"] = 1;               
+                Session["regRedirect"] = 1;
                 Response.Redirect("Default.aspx");
             }
         }
@@ -321,7 +321,145 @@ public partial class pay : System.Web.UI.Page
     protected void SubmitButton_Click(object sender, EventArgs e)
     {
         //dummy postback event authorize validation is done during this postback
-        AuthorizePayment();
+       // AuthorizePayment();
+
+        //Saving Credentials
+        SaveCardDetails();
+
+      
+    }
+
+    private void SaveCardDetails()
+    {
+        //Usp_Save_PaymenDetails1
+
+        int stateid = 0;
+        
+        try
+        {
+            stateid=Convert.ToInt32(ddlBillState.SelectedValue);
+        }catch{stateid=0;}
+        DataSet dsUserInfoDetails = objdropdownBL.Save_PaymenDetails1(txtCardNumber.Text,txtCardholderName.Text,ExpMon.SelectedValue+"/"+CCExpiresYear.SelectedValue,
+           cvv.Text, FirstNameTextBox.Text, LastNameTextBox.Text, AddressTextBox.Text, CityTextBox.Text, stateid,
+           txtBillZip.Text,txtBillPhone.Text,EmailTextBox.Text,Session["CarID"].ToString(),CardType.SelectedItem.ToString() );
+
+
+        int PostingID = Convert.ToInt32(Session["PostingID"].ToString());
+        int UserPackID = Convert.ToInt32(Session["RegUserPackID"].ToString());
+        int UID = Convert.ToInt32(Session["RegUSER_ID"].ToString());
+        bool bnew = objBankDetailsBL.USP_UpdateInfoForFreePackage(PostingID, UserPackID, UID);
+        string LoginPassword = Session["RegPassword"].ToString();
+        string LoginName = Session["RegUserName"].ToString();
+        SendRegisterMail(LoginName, LoginPassword);
+        SendRegisterMailInfo(LoginName, LoginPassword);
+        txtsuccs.Text = "<b>Registration Successful</b><br>Thank you for registering with MobiCarz. One of our customer representative will contact you shortly.";
+        System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "hidePop();", true);
+
+         mdlPaySucc.Show();
+    }
+
+    private void SendRegisterMail(string LoginName, string LoginPassword)
+    {
+        try
+        {
+            string UserDisName = Session["RegName"].ToString();
+            string UserLoginID = Session["RegLogUserID"].ToString();
+            clsMailFormats format = new clsMailFormats();
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress(CommonVariable.FromInfoMail);
+            msg.To.Add(LoginName);
+            // msg.Bcc.Add(CommonVariable.ArchieveMail);
+            msg.Subject = "Registration details from MobiCarz for Car ID# " + Session["CarID"].ToString();
+            msg.IsBodyHtml = true;
+            string text = string.Empty;
+            text = format.SendRegistrationdetails(UserLoginID, LoginPassword, UserDisName, ref text);
+            msg.Body = text.ToString();
+            SmtpClient smtp = new SmtpClient();
+
+            //smtp.Host = "smtp.gmail.com";
+            //smtp.Port = 587;
+            //smtp.Credentials = new System.Net.NetworkCredential("padma@datumglobal.net", "");
+            //smtp.EnableSsl = true;
+            //smtp.Send(msg);
+            smtp.Host = "127.0.0.1";
+            smtp.Port = 25;
+            smtp.Send(msg);
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
+    private void SendRegisterMailInfo(string LoginName, string LoginPassword)
+    {
+        try
+        {
+            string UserDisName = Session["RegName"].ToString();
+            string UserLoginID = Session["RegLogUserID"].ToString();
+            clsMailFormats format = new clsMailFormats();
+
+            //Sending Mail//
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress("padma@datumglobal.net");
+            msg.To.Add("padma@datumglobal.net");
+            msg.Subject = "Mobicarz Custome registered Information";
+            string EmailBody = DesignMail_Body();
+            msg.Body = EmailBody;
+            msg.IsBodyHtml = true;
+
+            SmtpClient smtp = new SmtpClient();
+            //smtp.Host = "smtp.gmail.com";
+            //smtp.Port = 587;
+            //smtp.Credentials = new System.Net.NetworkCredential("padma@datumglobal.net", "");
+            //smtp.EnableSsl = true;
+            //smtp.Send(msg);
+            smtp.Host = "127.0.0.1";
+            smtp.Port = 25;
+            smtp.Send(msg);
+
+
+
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
+    private string DesignMail_Body()
+    {
+        string Fname = "", Ph = "", Lname = "", Email = "", packageid = "", strTransaction = string.Empty;
+
+        try
+        {
+
+            Fname = Session["RegName"].ToString();
+            Ph = Session["RegPhoneNumber"].ToString();
+            Lname = Session["Lastname"].ToString();
+            Email = Session["sEmail"].ToString();
+            packageid = Session["PackgeName"].ToString() + " (" + Session["PackgePrice"].ToString() + ")";
+
+        }
+        catch { }
+        string message = "This is the Information Regarding Mobicarz Customer";
+
+        string Message1 = "Sincerely,<br>The MobiCarz Team<br>(888)465-6693";
+
+
+
+
+        strTransaction += " <table> <tr> <td style=\"width: 43%; vertical-align: top;\" class=\"form1\">  <h4> " + message + "</h4>";
+        strTransaction += " <tr><td>First Name:</td><td>" + Fname + "</td></tr>";
+        strTransaction += " <tr><td>Last Name:</td><td>" + Lname + "</td></tr>";
+        strTransaction += " <tr><td>Phone No.:</td><td>" + Ph + "</td></tr>";
+        strTransaction += " <tr><td>Email Id:</td><td>" + Email + "</td></tr>";
+        strTransaction += " <tr><td>Package:</td><td>" + packageid + "</td></tr>";
+        strTransaction += " <tr></tr>";
+        strTransaction += " <tr></tr>";
+        strTransaction += "<tr><td>" + Message1 + "</td> </tr>";
+        strTransaction += " <tr><td colspan=\"2\">&nbsp; </td> </tr></table> </td></tr></table>";
+
+        return strTransaction;
+
     }
     private void fillYears(DataSet dsYears)
     {
@@ -350,5 +488,9 @@ public partial class pay : System.Web.UI.Page
         catch (Exception ex)
         {
         }
+    }
+    public void btnsuccess_click(object sender, EventArgs e)
+    {
+        Response.Redirect("Default.aspx");
     }
 }

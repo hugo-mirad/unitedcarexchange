@@ -368,65 +368,66 @@
                                                             Billing address</h2>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-sm-6 col-md-5">
+                                                        <div class="col-sm-6 col-md-6">
                                                             <div class="form-group">
                                                                 <label>
                                                                     First Name <span class="star">*</span></label>
                                                                 <asp:TextBox ID="FirstNameTextBox" runat="server" CssClass="form-control"></asp:TextBox>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 col-md-5">
+                                                        <div class="col-sm-6 col-md-6">
                                                             <div class="form-group">
                                                                 <label>
                                                                     Last Name <span class="star">*</span></label>
                                                                 <asp:TextBox ID="LastNameTextBox" runat="server" CssClass="form-control"></asp:TextBox>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 col-md-5">
+                                                        <div class="col-sm-6 col-md-6">
                                                             <div class="form-group">
                                                                 <label>
                                                                     Address <span class="star">*</span></label>
                                                                 <asp:TextBox ID="AddressTextBox" runat="server" CssClass="form-control"></asp:TextBox>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 col-md-5">
+                                                        <div class="col-sm-6 col-md-6">
                                                             <div class="form-group">
                                                                 <label>
-                                                                    City <span class="star">*</span></label>
+                                                                    City </label>
                                                                 <asp:TextBox ID="CityTextBox" runat="server" CssClass="form-control"></asp:TextBox>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 col-md-3">
+                                                        <div style="height:0; overflow:hidden; clear:both" ></div>
+                                                        <div class="col-sm-3 col-md-3">
                                                             <div class="form-group">
                                                                 <label>
-                                                                    State <span class="star">*</span></label>
+                                                                    State</label>
                                                                 <asp:DropDownList ID="ddlBillState" runat="server" CssClass="form-control">
                                                                 </asp:DropDownList>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 col-md-2">
+                                                        <div class="col-sm-3 col-md-3">
                                                             <div class="form-group">
                                                                 <label>
-                                                                    Postal Code <span class="star">*</span></label>
+                                                                    Postal Code</label>
                                                                 <asp:TextBox ID="txtBillZip" runat="server" CssClass="mediumTextBox form-control"></asp:TextBox>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 col-md-5">
+                                                        <div class="col-sm-6 col-md-6">
                                                             <div class="form-group">
                                                                 <label>
-                                                                    Country <span class="star">*</span></label>
+                                                                    Country</label>
                                                                 <asp:TextBox ID="CountryTextBox" runat="server" CssClass="mediumTextBox form-control"
                                                                     Text="USA"></asp:TextBox>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 col-md-5">
+                                                        <div class="col-sm-6 col-md-6">
                                                             <div class="form-group">
                                                                 <label>
                                                                     Phone <span class="star">*</span></label>
                                                                 <asp:TextBox ID="txtBillPhone" runat="server" CssClass="form-control"></asp:TextBox>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 col-md-5">
+                                                        <div class="col-sm-6 col-md-6">
                                                             <div class="form-group">
                                                                 <label>
                                                                     Email <span class="star">*</span></label>
@@ -557,8 +558,8 @@
                                       <%--  <asp:Button ID="SubmitButton" runat="server" Text="Submit Payment" CausesValidation="true"
                                             ValidationGroup="Authorize" CssClass="btn btn-primary" OnClientClick="return CheckCardNumber(this.form)" />--%>
                                             
-                                            <asp:Button ID="SubmitButton" runat="server" Text="Submit Payment" CausesValidation="true"
-                                            ValidationGroup="Authorize" CssClass="btn btn-primary" OnClick="SubmitButton_Click" />
+                                            <asp:Button ID="SubmitButton" runat="server" Text="Proceed" OnClientClick="return validateSend1();"
+                                           CssClass="btn btn-primary" OnClick="SubmitButton_Click" />
                                     </div>
                                 </div>
                             </div>
@@ -662,6 +663,222 @@
         });    
 
     </script>
+    
+    
+    
+    
+    
+    <script type="text/javascript" language="javascript">
+    
+    function validateSend1()
+	  {  
+        debugger     
+            var valid=true;  
+    
+           if(document.getElementById('txtCardNumber').value.length<1)
+            {
+                alert("Please enter the cardNumber.");               
+                valid=false;
+                document.getElementById("txtCardNumber").focus();
+            }
+            else if(document.getElementById('txtCardholderName').value.trim().length<1)
+            {
+                alert("Please enter the name on the card.");               
+                valid=false;
+                document.getElementById("txtCardholderName").value="";
+                document.getElementById("txtCardholderName").focus();
+            }
+           
+              
+             else if(document.getElementById('<%= ExpMon.ClientID%>').value == "0") {
+                document.getElementById('<%= ExpMon.ClientID%>').focus();
+                alert("Select Exp Month");                 
+                document.getElementById('<%=ExpMon.ClientID%>').focus()
+                valid = false;            
+                 return valid;     
+               }  
+                 
+             else if(document.getElementById('<%= CCExpiresYear.ClientID%>').value == "0") {
+                document.getElementById('<%= CCExpiresYear.ClientID%>').focus();
+                alert("Select Exp Year");                 
+                document.getElementById('<%=CCExpiresYear.ClientID%>').focus()
+                valid = false;            
+                 return valid;     
+               }  
+               
+         
+         
+            else if(document.getElementById('cvv').value.trim().length<1)
+            {
+                alert("Please enter the valid cvv.");               
+                valid=false;
+                document.getElementById("cvv").value="";
+                document.getElementById("cvv").focus();
+            }
+            else if(document.getElementById('FirstNameTextBox').value.trim().length<1)
+            {
+                alert("Please enter the firstname.");               
+                valid=false;
+                document.getElementById("FirstNameTextBox").value="";
+                document.getElementById("FirstNameTextBox").focus();
+            }
+             else if(document.getElementById('LastNameTextBox').value.trim().length<1)
+            {
+                alert("Please enter the last name.");               
+                valid=false;
+                document.getElementById("LastNameTextBox").value="";
+                document.getElementById("LastNameTextBox").focus();
+            }
+             else if(document.getElementById('AddressTextBox').value.trim().length<1)
+            {
+                alert("Please enter the address.");               
+                valid=false;
+                document.getElementById("AddressTextBox").value="";
+                document.getElementById("AddressTextBox").focus();
+            }
+             else if(document.getElementById('txtBillPhone').value.trim().length<1)
+            {
+                alert("Please enter the phone number.");               
+                valid=false;
+                document.getElementById("txtBillPhone").value="";
+                document.getElementById("txtBillPhone").focus();
+            }
+           
+                                   
+             else if (document.getElementById('<%= EmailTextBox.ClientID %>').value.length < 1)
+             {
+                alert("Please enter email address");
+                document.getElementById('<%= EmailTextBox.ClientID %>').focus();
+                valid = false;
+            } 
+                else if (document.getElementById('<%= EmailTextBox.ClientID %>').value.length < 1)
+             {
+                alert("Enter email address");
+                document.getElementById('<%= EmailTextBox.ClientID %>').focus();
+                valid = false;
+            }    
+            
+             else if (echeck(document.getElementById('<%= EmailTextBox.ClientID %>').value)==false)
+	        {
+		        document.getElementById('<%= EmailTextBox.ClientID %>').value=""
+		        document.getElementById('<%= EmailTextBox.ClientID %>').focus()
+		        valid=false;
+        		return valid;
+	        }                     
+            else if(document.getElementById("EmailTextBox").value.length<1 && echeck(document.getElementById("EmailTextBox").value)==false)
+            {
+                alert("Please enter the email address");               
+                valid=false;
+                document.getElementById("EmailTextBox").focus();
+                
+            } 
+              return valid;
+        } 
+       
+        
+	function echeck(str) 
+    {
+
+		var at="@"
+		var dot="."
+		var lat=str.indexOf(at)
+		var lstr=str.length
+		var ldot=str.indexOf(dot)
+		if (str.indexOf(at)==-1){
+		   alert("Invalid E-mail ID")
+		   return false
+		}
+
+		if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==lstr){
+		   alert("Invalid E-mail ID")
+		   return false
+		}
+
+		if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || str.indexOf(dot)==lstr){
+		    alert("Invalid E-mail ID")
+		    return false
+		}
+
+		 if (str.indexOf(at,(lat+1))!=-1){
+		    alert("Invalid E-mail ID")
+		    return false
+		 }
+
+		 if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot){
+		    alert("Invalid E-mail ID")
+		    return false
+		 }
+
+		 if (str.indexOf(dot,(lat+2))==-1){
+		    alert("Invalid E-mail ID")
+		    return false
+		 }
+		
+		 if (str.indexOf(" ")!=-1){
+		    alert("Invalid E-mail ID")
+		    return false
+		 }
+
+ 		 return true					
+	}
+	
+     
+    </script>
+
+    
+ <!-- Alerts End  -->
+    <cc1:ModalPopupExtender ID="mdlPaySucc" runat="server" PopupControlID="divlPaySuccss"
+        BackgroundCssClass="ModalPopupBG" TargetControlID="hdnBuyacar">
+    </cc1:ModalPopupExtender>
+    <asp:HiddenField ID="hdnBuyacar" runat="server" />
+    <div id="divlPaySuccss" class="alert" style="height: auto; padding-bottom: 15px;
+        max-width: 750px; width: 70%; display: none;">
+        <h4 id="H6">
+            Success Registration
+            <div style="display:none;">
+            <asp:UpdatePanel ID="i1" runat="server">
+                <ContentTemplate>
+                    <asp:LinkButton ID="btnsubScribUs" runat="server" class="cls" Text="" Style="border-width: 0px;"
+                        OnClick="btnsuccess_click"></asp:LinkButton>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            </div>
+        </h4>
+        <div class="data">
+            <div class="row" style="color: #333;">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="width:750px;">
+                    <div class="form-section">
+                        <div class="form-group " id="Div4" runat="server">
+                            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                                <ContentTemplate>
+                                    <asp:Label ID="txtsuccs" runat="server" Text="Success"></asp:Label>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: right; margin: 10px 0;">
+                <div style="float: right; width: 80px;">
+                    <asp:UpdatePanel ID="UpdatePanel6" runat="server">
+                        <ContentTemplate>
+                            <asp:Button ID="btnsuccess" runat="server" Text="Ok" class="btn btn-primary2 "
+                                OnClick="btnsuccess_click" />
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+                &nbsp; &nbsp;
+                <div style="float: right; width: 80px;display:none;">
+                    <asp:UpdatePanel ID="UpdatePanel7" runat="server">
+                        <ContentTemplate>
+                            <asp:Button ID="btncancelpopclick" runat="server" Text="Cancel" class="btn btn-default "
+                                OnClick="btnsuccess_click" />
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+            </div>
+        </div>
+    </div>
 
     </form>
 </body>

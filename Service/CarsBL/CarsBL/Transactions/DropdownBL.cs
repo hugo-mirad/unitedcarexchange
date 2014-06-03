@@ -1252,7 +1252,7 @@ namespace CarsBL.Transactions
             public DataSet USp_UpdateMainVeh(int carid, int MakeModelId, int yearofmake, int bodyTypeId, string title, int askingprice, int mileage,
             string extcol, string intcolr, string transmission, string condiDec, string drivetrain,
             string cylindera, string doors, int fuelTYpeId, string vin, string city,
-           string state, string zip, string phone, string email)
+            string state, string zip, string phone, string email)
             {
                 try
                 {
@@ -1286,6 +1286,47 @@ namespace CarsBL.Transactions
                     dbDatabase.AddInParameter(dbCommand, "@phone", System.Data.DbType.String, phone);
                     dbDatabase.AddInParameter(dbCommand, "@email", System.Data.DbType.String, email);
                    
+
+                    dsCars = dbDatabase.ExecuteDataSet(dbCommand);
+                    return dsCars;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+
+        //Save payment Crreditcard details
+
+
+
+            public DataSet Save_PaymenDetails1(string CreditCardNum, string name, string Exp,           
+               string cvv , string firstname ,string lasttname,string add ,string city ,int state ,string postalCode ,string phone ,
+               string email ,string CarID ,string cardtype )
+            {
+                try
+                {
+                    DataSet dsCars = new DataSet();
+                    string spNameString = string.Empty;
+                    Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+                    spNameString = "Usp_Save_PaymenDetails1";
+                    DbCommand dbCommand = null;
+                    dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                    dbDatabase.AddInParameter(dbCommand, "@CreditCardNum", System.Data.DbType.String, CreditCardNum);
+                    dbDatabase.AddInParameter(dbCommand, "@name", System.Data.DbType.String, name);
+                    dbDatabase.AddInParameter(dbCommand, "@Exp", System.Data.DbType.String, Exp);
+                    dbDatabase.AddInParameter(dbCommand, "@cvv", System.Data.DbType.String, cvv);
+                    dbDatabase.AddInParameter(dbCommand, "@firstname", System.Data.DbType.String, firstname);
+                    dbDatabase.AddInParameter(dbCommand, "@lasttname", System.Data.DbType.String, lasttname);
+                    dbDatabase.AddInParameter(dbCommand, "@add", System.Data.DbType.String, add);
+                    dbDatabase.AddInParameter(dbCommand, "@city", System.Data.DbType.String, city);
+                    dbDatabase.AddInParameter(dbCommand, "@state", System.Data.DbType.Int32, state);
+                    dbDatabase.AddInParameter(dbCommand, "@postalCode", System.Data.DbType.String, postalCode);
+                    dbDatabase.AddInParameter(dbCommand, "@phone", System.Data.DbType.String, phone);
+                    dbDatabase.AddInParameter(dbCommand, "@email", System.Data.DbType.String, email);
+                    dbDatabase.AddInParameter(dbCommand, "@CarID", System.Data.DbType.String, CarID);
+                    dbDatabase.AddInParameter(dbCommand, "@cardtype", System.Data.DbType.String, cardtype);
+                 
 
                     dsCars = dbDatabase.ExecuteDataSet(dbCommand);
                     return dsCars;
