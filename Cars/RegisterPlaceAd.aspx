@@ -246,9 +246,10 @@
         <ProgressTemplate>
             <div id="spinner">
                 <div>
-                    Processing
-                    <img src="images/loading.gif" />
-                </div>
+                        Processing
+                        <img src="images/loading.gif" />
+                    </div>
+                   
             </div>
         </ProgressTemplate>
     </asp:UpdateProgress>

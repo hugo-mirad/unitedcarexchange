@@ -234,10 +234,7 @@
                         Processing
                         <img src="images/loading.gif" />
                     </div>
-                    <h4>
-                    </h4>
-                    <h4>
-                    </h4>
+                   
                 </h4>
             </div>
         </ProgressTemplate>

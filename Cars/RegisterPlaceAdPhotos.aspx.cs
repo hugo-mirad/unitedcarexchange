@@ -207,8 +207,8 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
         btnContinue.Text = "Continue";
         string sFilePath = string.Empty;
         string Directorypath = string.Empty; string Directorypath1 = string.Empty;
-       // Directorypath = "CarImages";
-       // Directorypath = Server.MapPath(Directorypath);//D:\Working Sources Live\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Cars\CarImages
+        // Directorypath = "CarImages";
+        // Directorypath = Server.MapPath(Directorypath);//D:\Working Sources Live\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Cars\CarImages
         Directorypath = @"C:/Inetpub/wwwroot/COMMONIMAGES/CarImages";
 
         if (System.IO.Directory.Exists(Directorypath))
