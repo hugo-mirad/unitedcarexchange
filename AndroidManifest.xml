@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.unitedcars.home"
+    android:versionCode="5"
+    android:versionName="2.1" >
+
+    <uses-sdk
+        android:maxSdkVersion="17"
+        android:minSdkVersion="8" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"/>
+
+    <supports-screens
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true" />
+
+    <application
+        android:debuggable="false"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+        <activity
+            android:name=".MainHomeScreen"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:debuggable="true"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- Seller lOgin  Activity -->
+        <activity android:name="com.uce.sellacar.Seller_Login" >
+        </activity>
+        <activity
+            android:name="com.uce.sellacar.Sell_Home"
+            android:configChanges="keyboardHidden|orientation" >
+        </activity>
+        <activity android:name="com.uce.sellacar.SellCarDetailView" >
+        </activity>
+        <activity android:name="com.uce.sellacar.SellCarDetails_Edit" >
+        </activity>
+        <activity android:name="com.uce.sellacar.SellCarDetails_Features" >
+        </activity>
+        <activity android:name="com.uce.sellacar.SellCarDetails_Gallery" >
+        </activity>
+        <activity android:name="com.uce.sellacar.Sell_VehicleType" >
+        </activity>
+        <activity android:name="com.uce.sellacar.SellerInformation" >
+        </activity>
+        <activity android:name="com.uce.sellacar.VehicleInformation" >
+        </activity>
+        <activity android:name="com.uce.sellacar.VehicleFeatures" >
+        </activity>
+        <activity android:name="com.uce.sellacar.VehicleDescription" >
+        </activity>
+        <activity android:name="com.uce.sellacar.Photo" />
+        <activity android:name="com.uce.sellacar.MultisiteListing" >
+        </activity>
+        <activity
+            android:name="com.uce.sellacar.MultisiteListingWebView"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name="com.uce.sellacar.Vehiclephotos_Upload" >
+        </activity>
+        <activity android:name="com.uce.sellacar.CameraPhotoUploading" >
+        </activity>
+        <activity
+            android:name="com.uce.sellacar.PhotoUploading"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name="com.uce.sellacar.Sell_Home_More" >
+        </activity>
+        <activity android:name="com.uce.sellacar.SellerRegistration_Info" >
+        </activity>
+        <activity android:name="com.uce.sellacar.Packages" >
+        </activity>
+        <activity
+            android:name="com.uce.sellacar.Add_A_Car"
+            android:configChanges="keyboardHidden|orientation" >
+        </activity>
+        <activity
+            android:name="com.uce.sellacar.Seller_Package_Basic"
+            android:configChanges="keyboardHidden|orientation" >
+        </activity>
+        <activity
+            android:name="com.uce.sellacar.Seller_Package_Standard"
+            android:configChanges="keyboardHidden|orientation" >
+        </activity>
+        <activity android:name="com.uce.sellacar.Customer_Support" >
+        </activity>
+        <activity android:name="com.uce.sellacar.Seller_Registration" >
+        </activity>
+        <activity android:name="com.uce.sellacar.SamplePhotoUpload" >
+        </activity>
+
+        <!-- Find a car  Activity -->
+        <activity
+            android:name="com.unitedcars.home.MainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.SearchView"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleInstance" />
+        <activity android:name="com.unitedcars.home.PreferenceView" />
+        <activity android:name="com.unitedcars.home.MyListView" />
+        <activity android:name="com.unitedcars.home.CarDetailView" />
+        <activity android:name="com.unitedcars.home.CarDetails_Features" />
+        <activity android:name="com.unitedcars.home.GalleryCars" />
+        <activity android:name="com.unitedcars.home.MyListCarDetailsView" />
+        <activity android:name="com.unitedcars.home.EmailActivity" />
+        <activity android:name="com.unitedcars.home.MyListCarDetails_Features" />
+        <activity android:name="com.unitedcars.home.SearchResultView" />
+        <activity
+            android:name="com.unitedcars.home.EditPreferencesOne"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.Showvalues"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.PreferencesPage"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.EditPreferencesTwo"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.ViewCarsTwo"
+            />
+        <activity
+            android:name="com.unitedcars.home.PreferencesTwo"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.EditPreferencesThree"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.ViewCarsThree"
+            />
+        <activity
+            android:name=".PreferencesThree"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.EditPreferencesFour"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.ViewCarsFour"
+             />
+        <activity
+            android:name="com.unitedcars.home.PreferencesFour"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.EditpreferencesFive"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.ViewCarsFive"
+           />
+        <activity
+            android:name="com.unitedcars.home.PreferencesFive"
+            android:launchMode="singleInstance" />
+        <activity android:name="com.unitedcars.home.SearchCarDetailsView" />
+        <activity android:name="com.unitedcars.home.PreferenceCarDetailView" />
+        <activity android:name="com.unitedcars.home.PreferenceCarDetailViewTwo" />
+        <activity android:name="com.unitedcars.home.PreferenceCarDetailViewThree" />
+        <activity android:name="com.unitedcars.home.PreferenceCarDetailViewFour" />
+        <activity android:name="com.unitedcars.home.PreferenceCarDetailViewFive" />
+        <activity
+            android:name="com.unitedcars.home.SearchCarDetails_Features"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.PreferenceCarDetailFeature"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.PreferenceCarDetailViewTwoFeature"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.PreferenceCarDetailViewThreeFeaturs"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.PreferenceCarDetailViewFourFeaturs"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.PreferenceCarDetailViewFiveFeatures"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.AboutEmail"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.unitedcars.home.AboutUs"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".PreferenceOne"
+            android:launchMode="singleInstance" />
+        <activity android:name="ViewCarsOne" />
+        <activity android:name=".PreferenceGalleryCars" />
+        <activity android:name=".PreferenceTwoGalleryCars" />
+        <activity android:name=".PreferenceThreeGalleryCars" />
+        <activity android:name=".PreferenceFourGalleryCars" />
+        <activity android:name=".PreferenceFiveGalleryCars" />
+        <activity android:name=".SearchGalleryCars"/>
+        <activity android:name=".MyListGalleryCars"/>
+    </application>
+
+</manifest>

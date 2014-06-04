@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <dimen name="textsize">15sp</dimen>
+      <dimen name="textsize1">14sp</dimen>
+      <integer name="padding_left">0</integer>
+    <integer name="padding_top">10</integer>
+    <integer name="padding_right">5</integer>
+    <integer name="padding_bottom">0</integer>
+    <bool name="portrait_only">true</bool>
+ <bool name="is_tablet">false</bool>
+</resources>
