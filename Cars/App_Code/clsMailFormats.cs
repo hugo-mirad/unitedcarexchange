@@ -935,7 +935,7 @@ public class clsMailFormats
         strMail += "</td>";
         strMail += "<td style=\"width: 200px;padding-top:50px;\" valign=\"top\">";
         //strMail += "<a target=\"_blank\" href='http://unitedcarexchange.com/SearchCarDetails.aspx?Make=" + obUsedCarsInfo[0].Make.ToString() + "&Model=" + obUsedCarsInfo[0].Model.ToString() + "&ZipCode=0&WithinZip=5&C=4zVbl2Mc" + obUsedCarsInfo[0].Carid.ToString() + "'";
-        strMail += "<img src='http://unitedcarexchange.com/" + path + "'" + " style=\"margin-top: 4px\" border=\"0\" width=\"200\">";
+        strMail += "<img src='http://images.unitedcarexchange.com/" + path + "'" + " style=\"margin-top: 4px\" border=\"0\" width=\"200\">";
         //strMail += "</a>";
         strMail += "  <br>";
         strMail += "</td>";
@@ -1644,7 +1644,7 @@ public class clsMailFormats
         strMail += "</td>";
         strMail += "<td style=\"width: 200px;padding-top:50px;\" valign=\"top\">";
         //strMail += "<a target=\"_blank\" href='http://unitedcarexchange.com/SearchCarDetails.aspx?Make=" + obUsedCarsInfo[0].Make.ToString() + "&Model=" + obUsedCarsInfo[0].Model.ToString() + "&ZipCode=0&WithinZip=5&C=4zVbl2Mc" + obUsedCarsInfo[0].Carid.ToString() + "'";
-        strMail += "<img src='http://unitedcarexchange.com/" + path + "'" + " style=\"margin-top: 4px\" border=\"0\" width=\"200\">";
+        strMail += "<img src='http://images.mobicarz.com/" + path + "'" + " style=\"margin-top: 4px\" border=\"0\" width=\"200\">";
         //strMail += "</a>";
         strMail += "  <br>";
         strMail += "</td>";
@@ -2848,7 +2848,7 @@ public class clsMailFormats
                 path = "images/MakeModelThumbs/" + MakeModel + ".jpg";
             }
 
-            strMail += "<img src='http://unitedcarexchange.com/" + path + "'" + "width=\"220\" height=\"134\" vspace=\"0\" border=\"0\"><br></a>";
+            strMail += "<img src='http://images.unitedcarexchange.com/" + path + "'" + "width=\"220\" height=\"134\" vspace=\"0\" border=\"0\"><br></a>";
             strMail += "</td></tr></tbody></table>";
             strMail += "<a href='http://unitedcarexchange.com/Buy-Sell-UsedCar/" + dtTotalCars.Rows[i]["YearOfMake"].ToString() + "-" + dtTotalCars.Rows[i]["Make"].ToString() + "-" + dtTotalCars.Rows[i]["Model"].ToString() + "-" + dtTotalCars.Rows[i]["CarUniqueID"].ToString() + "'><img src=\"http://smartz.unitedcarexchange.com/images/view-full-details.gif\" style=\"margin-top: 6px;\"></a></td>";
             strMail += "<td valign=\"top\" align=\"left\" width=\"413\" style=\"padding-top: 11px; padding-bottom: 11px;padding-left: 0\"><table width=\"240\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody><tr>";

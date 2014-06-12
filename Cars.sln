@@ -22,7 +22,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Cars", "Cars", "{2708DF46-4
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "51767"
+		VWDPort = "53140"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsBL", "Service\CarsBL\CarsBL\CarsBL.csproj", "{6ADB3D67-5993-4F5D-8CAC-5C7B5922414C}"

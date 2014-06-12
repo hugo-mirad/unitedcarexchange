@@ -127,7 +127,28 @@ namespace CarsBL.RvTransactions
             }
         }
 
+        public bool USP_CHANGE_PASSWORD(string NEWPASSWORD, int UID)
+        {
+            try
+            {
+                bool bnew = false;
+                string spNameString = string.Empty;
+                Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME2);
+                spNameString = "USP_CHANGE_PASSWORD";
+                DbCommand dbCommand = null;
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
 
+                dbDatabase.AddInParameter(dbCommand, "@NEWPASSWORD", System.Data.DbType.String, NEWPASSWORD);
+                dbDatabase.AddInParameter(dbCommand, "@UID", System.Data.DbType.Int32, UID);
+                dbDatabase.ExecuteDataSet(dbCommand);
+                bnew = true;
+                return bnew;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public DataSet GetYears()
         {
             try
@@ -276,6 +297,43 @@ namespace CarsBL.RvTransactions
             {
                 throw ex;
             }
+        }
+
+        public DataSet USP_SmartzUpdateRegUserDetailsForMultiCar(UserRegistrationInfo objUserregisInfo, int TranBy)
+        {
+            bool returnValue = false;
+            string spNameString = string.Empty;
+            DataSet dsUserInfo = new DataSet();
+            Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME2);
+            spNameString = "[USP_SmartzUpdateRegUserDetailsForMultiCar]";
+            DbCommand dbCommand = null;
+
+            try
+            {
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                dbDatabase.AddInParameter(dbCommand, "@UId", System.Data.DbType.Int32, objUserregisInfo.UId);
+                dbDatabase.AddInParameter(dbCommand, "@Name", System.Data.DbType.String, objUserregisInfo.Name);
+                dbDatabase.AddInParameter(dbCommand, "@PhoneNumber", System.Data.DbType.String, objUserregisInfo.PhoneNumber);
+                dbDatabase.AddInParameter(dbCommand, "@StateID", System.Data.DbType.Int32, objUserregisInfo.StateID);
+                dbDatabase.AddInParameter(dbCommand, "@City", System.Data.DbType.String, objUserregisInfo.City);
+                dbDatabase.AddInParameter(dbCommand, "@Address", System.Data.DbType.String, objUserregisInfo.Address);
+                dbDatabase.AddInParameter(dbCommand, "@Zip", System.Data.DbType.String, objUserregisInfo.Zip);
+                dbDatabase.AddInParameter(dbCommand, "@BusinessName", System.Data.DbType.String, objUserregisInfo.BusinessName);
+                dbDatabase.AddInParameter(dbCommand, "@AltEmail", System.Data.DbType.String, objUserregisInfo.AltEmail);
+                dbDatabase.AddInParameter(dbCommand, "@AltPhone", System.Data.DbType.String, objUserregisInfo.AltPhone);
+                dbDatabase.AddInParameter(dbCommand, "@TranBy", System.Data.DbType.Int32, TranBy);
+
+                dsUserInfo = dbDatabase.ExecuteDataSet(dbCommand);
+
+                //blnSuccess = objUserLog.SaveUserLog(UserLogInfo, ref lngReturn, "");
+                return dsUserInfo;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
         public DataSet GetVehicleCondition()
@@ -1651,6 +1709,47 @@ namespace CarsBL.RvTransactions
                 dsCars = dbDatabase.ExecuteDataSet(dbCommand);
 
                 return dsCars;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public DataSet GetRvUserDetailsByUID(int UID)
+        {
+            try
+            {
+                DataSet dsCars = new DataSet();
+                string spNameString = string.Empty;
+                Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME2);
+                spNameString = "USP_GetUSerDetailsByUserID";
+                DbCommand dbCommand = null;
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                dbDatabase.AddInParameter(dbCommand, "@UID", System.Data.DbType.Int32, UID);
+                dsCars = dbDatabase.ExecuteDataSet(dbCommand);
+                return dsCars;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataSet USP_GetPackageDetailsByUserPackID(int UserPackID)
+        {
+            try
+            {
+                DataSet dsAgents = new DataSet();
+                string spNameString = string.Empty;
+                Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME2);
+                spNameString = "USP_GetPackageDetailsByUserPackID";
+                DbCommand dbCommand = null;
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                dbDatabase.AddInParameter(dbCommand, "@UserPackID", System.Data.DbType.Int32, UserPackID);
+                dsAgents = dbDatabase.ExecuteDataSet(dbCommand);
+                return dsAgents;
             }
             catch (Exception ex)
             {

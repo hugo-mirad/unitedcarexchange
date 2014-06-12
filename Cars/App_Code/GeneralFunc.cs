@@ -112,7 +112,6 @@ public class GeneralFunc
         }
         return strReturnValue;
     }
-
     public string WrapText(string objText, int intMaxChars)
     {
         string strReturnValue = "";
@@ -173,7 +172,6 @@ public class GeneralFunc
         }
         return true;
     }
-
     public static bool ValidateDate(String date, String format)
     {
         try
@@ -189,7 +187,6 @@ public class GeneralFunc
         }
         return true;
     }
-
     public static string DateFormat(string strFormat)
     {
         DateTime Date;
@@ -213,7 +210,6 @@ public class GeneralFunc
             return strFormat;
         }
     }
-
     public string DateTimeFormat(string strFormat)
     {
         DateTime Date;
@@ -237,7 +233,6 @@ public class GeneralFunc
             return strFormat;
         }
     }
-
     public static object DateTimeFormat(object strFormat)
     {
         DateTime Date;
@@ -261,7 +256,6 @@ public class GeneralFunc
             return strFormat;
         }
     }
-
     public static object DateFormat(object strFormat)
     {
         DateTime Date;
@@ -287,7 +281,6 @@ public class GeneralFunc
         return strFormat;
 
     }
-
     public static string DateOnly(string strFormat)
     {
         DateTime Date;
@@ -307,13 +300,11 @@ public class GeneralFunc
         }
 
     }
-
     public static bool IsNumeric(string str)
     {
         Regex objNotWholePattern = new Regex("[^0-9]");
         return !objNotWholePattern.IsMatch(str) && (str != "");
     }
-
     public string GetSmartzUser(object ID)
     {
         string UserID = ID.ToString();
@@ -344,7 +335,6 @@ public class GeneralFunc
             return UserID;
         }
     }
-
     public string GetSalesAgent(object ID)
     {
         string AgentID = ID.ToString();
@@ -375,7 +365,6 @@ public class GeneralFunc
             return AgentID;
         }
     }
-
 
 }
 

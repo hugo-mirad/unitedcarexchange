@@ -328,8 +328,6 @@ public partial class SearchNew : System.Web.UI.Page
         {
         }
     }
-
-
     private void GetAllBrands()
     {
         try
@@ -346,8 +344,6 @@ public partial class SearchNew : System.Web.UI.Page
         {
         }
     }
-
-
     protected void btnSearchUserDetails_Click(object sender, EventArgs e)
     {
         try
@@ -441,7 +437,6 @@ public partial class SearchNew : System.Web.UI.Page
             throw ex;
         }
     }
-
     protected void SearchVehicleDetails_Click(object sender, EventArgs e)
     {
         try
@@ -893,10 +888,7 @@ public partial class SearchNew : System.Web.UI.Page
                 Session["RedirectFrom"] = 1;
                 Response.Redirect("RvCustomerView.aspx");
             }
-            if (e.CommandName == "EditCustomer")
-            {
-
-            }
+           
         }
         catch (Exception ex)
         {
@@ -4501,6 +4493,16 @@ public partial class SearchNew : System.Web.UI.Page
         catch (Exception ex)
         {
             throw ex;
+        }
+
+    }
+    protected void grdRVCustInfo_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "EditCustomer")
+        {
+            Session["RvUserID"] = e.CommandArgument.ToString();
+
+            Response.Redirect("MultiRvs.aspx");
         }
 
     }

@@ -384,13 +384,14 @@
                  document.getElementById('<%= txtCustAltNumber.ClientID%>').value =  document.getElementById('<%= txtRegAltPhoneNum.ClientID%>').value;                 
                                   
               }             
-              return valid;      
+              return false;      
         } 
           
       function ChangeValuesHidden()
       {
        document.getElementById("<%=hdnChange.ClientID%>").value ="1";
 //       document.getElementById("<%=btnUpdate.ClientID%>").disabled  = false;
+        return false;
       } 
        function ChangeValues()
        {
@@ -615,21 +616,23 @@
     </script>
 
     <script type='text/javascript'>
+    
+    function pageLoad(){        
+        $('.number').numeric();
+    }
+    
 	$(function() {
 		$('.number').numeric();
-		$('.price').formatCurrency();
-        $('.mileage').formatCurrency({symbol: ' '});
-        
-      	    
+		//$('.price').formatCurrency();
+        //$('.mileage').formatCurrency({symbol: ' '});
+    });   
 	    
-	});   
-	    
-      function  showSpinner(){
-            $('#spinner').show();
-        }
-        function  hideSpinner(){
-            $('#spinner').hide();
-        } 
+    function  showSpinner(){
+        $('#spinner').show();
+    }
+    function  hideSpinner(){
+        $('#spinner').hide();
+    } 
 
     </script>
 
@@ -1059,8 +1062,8 @@
                                                     Phone number</h4>
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="txtRegPhNo" CssClass="input3 number" MaxLength="10" runat="server"
-                                                    onkeyup="return ChangeValuesHidden()"></asp:TextBox>
+                                                <asp:TextBox ID="txtRegPhNo" CssClass="input3" MaxLength="10" runat="server"
+                                                    onkeyup="return ChangeValuesHidden()" onkeypress="return isNumberKey(event)"></asp:TextBox>
                                                 <%--<input type="text" class="input3 number" />--%>
                                             </td>
                                         </tr>
@@ -1070,8 +1073,8 @@
                                                     Alt Phone number</h4>
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="txtRegAltPhoneNum" CssClass="input3 number" MaxLength="10" runat="server"
-                                                    onkeyup="return ChangeValuesHidden()"></asp:TextBox>
+                                                <asp:TextBox ID="txtRegAltPhoneNum" CssClass="input3" MaxLength="10" runat="server"
+                                                    onkeyup="return ChangeValuesHidden()" onkeypress="return isNumberKey(event)"></asp:TextBox>
                                                 <%--<input type="text" class="input3 number" />--%>
                                             </td>
                                         </tr>
@@ -1226,8 +1229,8 @@
                                                                 Price</h4>
                                                         </td>
                                                         <td>
-                                                            <asp:TextBox ID="txtAskingPrice" runat="server" MaxLength="6" CssClass="input3 number"
-                                                                onkeyup="return ChangeValuesHidden()"></asp:TextBox>
+                                                            <asp:TextBox ID="txtAskingPrice" runat="server" MaxLength="6" CssClass="input3"
+                                                                onkeyup="return ChangeValuesHidden()" onkeypress="return isNumberKey(event)"></asp:TextBox>
                                                             <%-- <input type="text" class="input3 number" />--%>
                                                         </td>
                                                     </tr>
@@ -1237,8 +1240,8 @@
                                                                 Mileage</h4>
                                                         </td>
                                                         <td>
-                                                            <asp:TextBox ID="txtMileage" runat="server" MaxLength="6" CssClass="input3 number"
-                                                                onkeyup="return ChangeValuesHidden()"></asp:TextBox>
+                                                            <asp:TextBox ID="txtMileage" runat="server" MaxLength="6" CssClass="input3"
+                                                                onkeyup="return ChangeValuesHidden()" onkeypress="return isNumberKey(event)"></asp:TextBox>
                                                             <%--<asp:Label ID="lblMi" Text="mi" runat="server" Visible="false"></asp:Label>--%>
                                                             <%-- <input type="text" class="input3 number" />--%>
                                                         </td>
@@ -1533,8 +1536,8 @@
                                                             Phone number</h4>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txtCustPhoneNumber" CssClass="input3 number" MaxLength="10" runat="server"
-                                                            onkeyup="return ChangeValuesHidden()"></asp:TextBox>
+                                                        <asp:TextBox ID="txtCustPhoneNumber" CssClass="input3" MaxLength="10" runat="server"
+                                                            onkeyup="return ChangeValuesHidden()"  onkeypress="return isNumberKey(event)" ></asp:TextBox>
                                                         <%--<input type="text" class="input3 number" />--%>
                                                     </td>
                                                 </tr>
@@ -1544,8 +1547,8 @@
                                                             Alt number</h4>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txtCustAltNumber" CssClass="input3 number" MaxLength="10" runat="server"
-                                                            onkeyup="return ChangeValuesHidden()"></asp:TextBox>
+                                                        <asp:TextBox ID="txtCustAltNumber" CssClass="input3" MaxLength="10" runat="server"
+                                                            onkeyup="return ChangeValuesHidden()" onkeypress="return isNumberKey(event)"></asp:TextBox>
                                                         <%-- <input type="text" class="input3 number" />--%>
                                                     </td>
                                                 </tr>

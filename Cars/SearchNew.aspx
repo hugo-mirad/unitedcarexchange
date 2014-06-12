@@ -716,6 +716,7 @@
         </table>
         <div class="clear" style="height: 20px; margin-top: 10px; border-top: 2px dotted #ccc;">
             &nbsp;</div>
+      
         <asp:UpdatePanel ID="updtpnltblGrdcar" runat="server">
             <ContentTemplate>
                 <table style="width: 100%; display: none;" id="tblGrdcar" runat="server">
@@ -839,7 +840,7 @@
                                                                 <asp:Label ID="lblBrand" runat="server" Text='<%# Eval("BrandCode")%>'></asp:Label>
                                                                   
                                                             </ItemTemplate>
-                                                            <ItemStyle HorizontalAlign="Left" Width="60px" />
+                                                            <ItemStyle HorizontalAlign="Left" Width="80px" />
                                                         </asp:TemplateField>
                                                         
                                                         <asp:TemplateField>
@@ -1287,7 +1288,8 @@
                                                 <input style="width: 40px" id="Hidden6" type="hidden" runat="server" enableviewstate="true" />
                                                 <asp:GridView Width="820px" ID="grdRVCustInfo" runat="server" CellSpacing="0" CellPadding="0"
                                                     CssClass="grid1" AutoGenerateColumns="False" GridLines="None" ShowHeader="false"
-                                                    OnRowDataBound="grdRVCustInfo_RowDataBound">
+                                                    OnRowDataBound="grdRVCustInfo_RowDataBound" 
+                                                    onrowcommand="grdRVCustInfo_RowCommand">
                                                     <PagerStyle HorizontalAlign="Right" BackColor="#C6C3C6" ForeColor="Black" />
                                                     <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
                                                     <HeaderStyle CssClass="headder" />
@@ -1300,7 +1302,9 @@
                                                             <ItemTemplate>
                                                                 <%-- <asp:LinkButton ID="lnkbtnName" runat="server" Text='<%#objGeneralFunc.WrapTextByMaxCharacters(DataBinder.Eval(Container.DataItem,"Name"),15)%>'
                                                                     CommandArgument='<%# Eval("UId")%>' CommandName="EditCustomer"></asp:LinkButton>--%>
-                                                                <asp:Label ID="lblCustName" runat="server" Text='<%#objGeneralFunc.WrapTextByMaxCharacters(DataBinder.Eval(Container.DataItem,"Name"),15)%>'></asp:Label>
+                                                                <asp:LinkButton ID="lblCustName" runat="server" Text='<%#objGeneralFunc.WrapTextByMaxCharacters(DataBinder.Eval(Container.DataItem,"Name"),15)%>'
+                                                                 CommandArgument='<%# Eval("UId")%>' CommandName="EditCustomer"></asp:LinkButton>
+                                                               
                                                             </ItemTemplate>
                                                             <ItemStyle HorizontalAlign="Left" Width="130px" />
                                                         </asp:TemplateField>

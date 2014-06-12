@@ -1146,8 +1146,19 @@ public partial class ChargebackProcess : System.Web.UI.Page
                         Make2 = Make2.Replace(" ", "%20");
                         Model2 = Model2.Replace(" ", "%20");
                         Model2 = Model2.Replace("&", "@");
-                        lblUceAdLink.Text = "http://unitedcarexchange.com/Buy-Sell-UsedCar/" + Year2 + "-" + Make2 + "-" + Model2 + "-" + UniqueID2;
-                        string TermsLink2 = "http://unitedcarexchange.com/TermsandConditions.aspx";
+                        string BrandID = dsPackageInfo.Tables[0].Rows[0]["BrnadId"].ToString();
+                        if (BrandID.ToString().Trim() == "1")
+                        {
+                            lblUceAdLink.Text = "http://unitedcarexchange.com/Buy-Sell-UsedCar/" + Year2 + "-" + Make2 + "-" + Model2 + "-" + UniqueID2;
+                            string TermsLink2 = "http://unitedcarexchange.com/TermsandConditions.aspx";
+                        }
+                        else if (BrandID.ToString().Trim() == "2")
+                        {
+                            lblUceAdLink.Text = "http://mobicarz.com/Buy-Sell-UsedCar/" + Year2 + "-" + Make2.Replace("-", "@") + "-" + Model2.Replace("-", "@") + "-" + UniqueID2;
+                            string TermsLink2 = "http://mobicarz.com/TermsandConditions.aspx";
+                        }
+
+                        
                     }
                 }
             }
@@ -1203,8 +1214,19 @@ public partial class ChargebackProcess : System.Web.UI.Page
                     Make1 = Make1.Replace(" ", "%20");
                     Model1 = Model1.Replace(" ", "%20");
                     Model1 = Model1.Replace("&", "@");
-                    lblUceAdLink.Text = "http://unitedcarexchange.com/Buy-Sell-UsedCar/" + Year1 + "-" + Make1 + "-" + Model1 + "-" + UniqueID1;
-                    string TermsLink1 = "http://unitedcarexchange.com/TermsandConditions.aspx";
+
+
+                    string BrandID = dsPackageInfo.Tables[0].Rows[0]["BrnadId"].ToString();
+                    if (BrandID.ToString().Trim() == "1")
+                    {
+                        lblUceAdLink.Text = "http://unitedcarexchange.com/Buy-Sell-UsedCar/" + Year1 + "-" + Make1 + "-" + Model1 + "-" + UniqueID1;
+                        string TermsLink1 = "http://unitedcarexchange.com/TermsandConditions.aspx";
+                    }
+                    else if (BrandID.ToString().Trim() == "2")
+                    {
+                        lblUceAdLink.Text = "http://mobicarz.com/Buy-Sell-UsedCar/" + Year1 + "-" + Make1.Replace("-","@") + "-" + Model1.Replace("-","@") + "-" + UniqueID1;
+                        string TermsLink1 = "http://mobicarz.com/TermsandConditions.aspx";
+                    }
                 }
             }
             //text = text.Replace("<br />", Environment.NewLine);

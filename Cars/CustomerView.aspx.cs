@@ -420,8 +420,18 @@ public partial class CustomerView : System.Web.UI.Page
                         StockModel = StockModel.Replace("/", "@");
                         StockModel = StockModel.Replace("&", "@");
                         StockModel = StockModel.Replace(" ", "-");
-                        string StockUrl = "http://unitedcarexchange.com/images/MakeModelThumbs/" + StockMake + "_" + StockModel + ".jpg";
-                        ImgStockPhoto.ImageUrl = StockUrl;
+
+
+                        if (CarsDetails.Tables[0].Rows[0]["BrnadId"].ToString().Trim() == "1")
+                        {
+                            string StockUrl = "http://images.unitedcarexchange.com/images/MakeModelThumbs/" + StockMake + "_" + StockModel + ".jpg";
+                            ImgStockPhoto.ImageUrl = StockUrl;
+                        }
+                        else if (CarsDetails.Tables[0].Rows[0]["BrnadId"].ToString().Trim() == "2")
+                        {
+                            string StockUrl = "http://images.mobicarz.com/images/MakeModelThumbs/" + StockMake + "_" + StockModel + ".jpg";
+                            ImgStockPhoto.ImageUrl = StockUrl;
+                        }
                         int ImagesHaveCount = 0;
                         for (int i = 1; i < TotalImgCount + 1; i++)
                         {
@@ -454,7 +464,15 @@ public partial class CustomerView : System.Web.UI.Page
                                     LabelName.Visible = false;
                                     BtnName.Visible = true;
                                     ImageName.Visible = true;
-                                    ImageName.ImageUrl = "http://unitedcarexchange.com/" + CarsDetails.Tables[0].Rows[0][ColumnPicLocation].ToString() + CarsDetails.Tables[0].Rows[0][ColumnPic].ToString();
+
+                                    if (CarsDetails.Tables[0].Rows[0]["BrnadId"].ToString().Trim() == "1")
+                                    {
+                                        ImageName.ImageUrl = "http://images.unitedcarexchange.com/" + CarsDetails.Tables[0].Rows[0][ColumnPicLocation].ToString() + CarsDetails.Tables[0].Rows[0][ColumnPic].ToString();
+                                    }
+                                    else if (CarsDetails.Tables[0].Rows[0]["BrnadId"].ToString().Trim() == "2")
+                                    {
+                                        ImageName.ImageUrl = "http://images.mobicarz.com/" + CarsDetails.Tables[0].Rows[0][ColumnPicLocation].ToString() + CarsDetails.Tables[0].Rows[0][ColumnPic].ToString();
+                                    }
                                 }
                                 else
                                 {
@@ -1930,7 +1948,15 @@ public partial class CustomerView : System.Web.UI.Page
                     LabelName.Visible = false;
                     ImageName.Visible = true;
                     BtnName.Visible = true;
-                    ImageName.ImageUrl = "http://unitedcarexchange.com/" + CarsDetails.Tables[0].Rows[0][ColumnPicLocation].ToString() + CarsDetails.Tables[0].Rows[0][ColumnPic].ToString();
+
+                    if (CarsDetails.Tables[0].Rows[0]["BrnadId"].ToString().Trim() == "1")
+                    {
+                        ImageName.ImageUrl = "http://images.unitedcarexchange.com/" + CarsDetails.Tables[0].Rows[0][ColumnPicLocation].ToString() + CarsDetails.Tables[0].Rows[0][ColumnPic].ToString();
+                    }
+                    else if (CarsDetails.Tables[0].Rows[0]["BrnadId"].ToString().Trim() == "2")
+                    {
+                        ImageName.ImageUrl = "http://images.mobicarz.com/" + CarsDetails.Tables[0].Rows[0][ColumnPicLocation].ToString() + CarsDetails.Tables[0].Rows[0][ColumnPic].ToString();
+                    }
                 }
                 else
                 {

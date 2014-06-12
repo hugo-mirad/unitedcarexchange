@@ -1,34 +1,35 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="MultiCars.aspx.cs" Inherits="MultiCars" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="MultiRvs.aspx.cs" Inherits="MultiRvs" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register Src="UserControl/LoginName.ascx" TagName="LoginName" TagPrefix="uc1" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>..:: United Car Exchange ::..</title>
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+<head runat="server">
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>..:: United Car Exchange ::..</title>
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
 
-    <script type="text/javascript" language="javascript">window.history.forward(1);</script>
+        <script type="text/javascript" language="javascript">window.history.forward(1);</script>
 
-    <script type="text/javascript" language="javascript" src="js/jquery-1.7.min.js"></script>
+        <script type="text/javascript" language="javascript" src="js/jquery-1.7.min.js"></script>
 
-    <script type='text/javascript' src='js/jquery.alphanumeric.pack.js'></script>
+        <script type='text/javascript' src='js/jquery.alphanumeric.pack.js'></script>
 
-    <script src="js/FillMasterData.js" type="text/javascript"></script>
-<script src="js/overlibmws.js" type="text/javascript"></script>
-    <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
+    <script src="js/overlibmws.js" type="text/javascript"></script>
+        <script src="js/FillMasterData.js" type="text/javascript"></script>
 
-    <script type="text/javascript" language="javascript">
-      function isNumberKey(evt)
-         {
-            var charCode = (evt.which) ? evt.which : event.keyCode
-            if (charCode > 31 && (charCode < 48 || charCode > 57))
-                return false;
-
-            return true;
+        <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
+        <script type="text/javascript" language="javascript">
+        
+         function ShowPW() {            
+            document.getElementById('<%= txtNewPW.ClientID%>').value = "";
+            document.getElementById('<%= txtConfirmPW.ClientID%>').value = "";   
+            $find('<%= mpeChangePW.ClientID%>').show();                     
+            return false;
         }
+        
+        
         
         
         
@@ -74,143 +75,40 @@
         } 
         
         
-         function ValidateChangePW()
-        {
         
-            var valid=true;     
-            
-              if (document.getElementById('<%=txtNewPW.ClientID%>').value.trim().length <1 )
-            {
-                alert('Please enter new password')
-                valid=false;
-              document.getElementById('<%=txtNewPW.ClientID%>').value = ""
-               document.getElementById('<%=txtNewPW.ClientID%>').focus()
-                return valid;
-            }
-             if((document.getElementById('<%= txtNewPW.ClientID%>').value.trim().length > 0) && (document.getElementById('<%= txtNewPW.ClientID%>').value.trim().length < 5))
-            {
-                document.getElementById('<%= txtNewPW.ClientID%>').focus();
-                document.getElementById('<%=txtNewPW.ClientID%>').value = "";
-                alert("Password length must be 5 characters");
-                valid = false;            
-                 return valid;     
-            }    
-             else if (document.getElementById('<%=txtConfirmPW.ClientID%>').value.trim().length <1 )
-            {
-                alert('Please enter confirm password')
-                valid=false;
-              document.getElementById('<%=txtConfirmPW.ClientID%>').value = ""
-               document.getElementById('<%=txtConfirmPW.ClientID%>').focus()
-                return valid;
-            }
-              else if( document.getElementById('<%=txtNewPW.ClientID%>').value.trim() != document.getElementById('<%=txtConfirmPW.ClientID%>').value.trim())
-             {
-                document.getElementById('<%= txtConfirmPW.ClientID%>').focus();
-                alert("New password does not match the confirm password");
-                 document.getElementById('<%=txtConfirmPW.ClientID%>').value = ""
-                document.getElementById('<%=txtConfirmPW.ClientID%>').focus()
-                valid = false; 
-                 return valid;              
-             }          
-          
-                 
-            return valid;
-        }
-        
-          function ShowPW() {            
-            document.getElementById('<%= txtNewPW.ClientID%>').value = "";
-            document.getElementById('<%= txtConfirmPW.ClientID%>').value = "";   
-            $find('<%= mpeChangePW.ClientID%>').show();                     
-            return false;
-        }
-        
-        function ValidateSelPack()
-        { 
-            var valid=true; 
-            if(document.getElementById('<%= ddlSelPack.ClientID%>').value == "0") {
-            document.getElementById('<%= ddlSelPack.ClientID%>').focus();
-            alert("Select package");                 
-            document.getElementById('<%=ddlSelPack.ClientID%>').focus()
-            valid = false;            
-            return valid;     
-            } 
-            return valid; 
-        }
-         
-         function ValidateAddPack()
-         {        
-             var valid=true; 
-            if(document.getElementById('<%= ddlAddPackage.ClientID%>').value == "0") {
-            document.getElementById('<%= ddlAddPackage.ClientID%>').focus();
-            alert("Select package");                 
-            document.getElementById('<%=ddlAddPackage.ClientID%>').focus()
-            valid = false;            
-            return valid;     
-            } 
-             
-             
-             if(document.getElementById('<%= ddlPaymentDate.ClientID%>').value == "0") {
-            document.getElementById('<%= ddlPaymentDate.ClientID%>').focus();
-            alert("Select payment date");                 
-            document.getElementById('<%=ddlPaymentDate.ClientID%>').focus()
-            valid = false;            
-            return valid;     
-            }
-             
-               if(document.getElementById('<%= txtPayConfirmNum.ClientID%>').value.length < 1) {
-                document.getElementById('<%= txtPayConfirmNum.ClientID%>').focus();
-                alert("Enter payment Trans ID");
-                 document.getElementById('<%=txtPayConfirmNum.ClientID%>').value = ""
-                document.getElementById('<%=txtPayConfirmNum.ClientID%>').focus()
-                valid = false;            
-                return valid;     
-            }    
-                  
-            var string = $('#ddlAddPackage option:selected').text();
-            var p =string.split('$');
-            var pp = p[1].split(')');
-            //alert(pp[0]);
-            //pp[0] = parseInt(pp[0]);
-            pp[0] = parseFloat(pp[0]);
-            var selectedPack = pp[0].toFixed(2);
-	        
-	        
-            var EnterAmt = parseFloat($('#txtPayAmount').val());
-	       
-          if(document.getElementById('<%= txtPayAmount.ClientID%>').value.length < 1) {
-                document.getElementById('<%= txtPayAmount.ClientID%>').focus();
-                alert("Enter amount");
-                 document.getElementById('<%=txtPayAmount.ClientID%>').value = ""
-                document.getElementById('<%=txtPayAmount.ClientID%>').focus()
-                valid = false;            
-                return valid;     
-            }    
-	       
-           if(EnterAmt != selectedPack){
-               document.getElementById('<%= txtPayAmount.ClientID%>').focus();
-                alert("Amount doesn't match with selected package price");
-                 document.getElementById('<%=txtPayAmount.ClientID%>').value = ""
-                document.getElementById('<%=txtPayAmount.ClientID%>').focus()
-                valid = false; 
-                return valid;     
-           }   
-           
-              if(document.getElementById('<%= txtVoiceRecordNum.ClientID%>').value.length < 1) {
-                document.getElementById('<%= txtVoiceRecordNum.ClientID%>').focus();
-                alert("Enter voice file confirmation #");
-                 document.getElementById('<%=txtVoiceRecordNum.ClientID%>').value = ""
-                document.getElementById('<%=txtVoiceRecordNum.ClientID%>').focus()
-                valid = false;            
-                return valid;     
-            }               
-                      
-            return valid;      
-         }  
-         
-    </script>
+         function isNumberKeyWithDot(evt)
+         {
+         debugger
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 46)
+                return false;
 
-    <script type="text/javascript" language="javascript">
-     function echeck(str) {
+            return true;
+        }
+      function isNumberKeyWithDashForZip(evt)
+         {
+         debugger
+         
+            var charCode = (evt.which) ? evt.which : event.keyCode         
+            if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 45)
+                return false;
+
+            return true;
+        }
+        
+        
+        
+           function isNumberKey(evt)
+         {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
+        }
+        
+        
+          function echeck(str) {
             var at = "@"
             var dot = "."
             var lat = str.indexOf(at)
@@ -254,32 +152,56 @@
             return true
         }
 
-    </script>
-
-    <script type="text/javascript" language="javascript">
-      function isNumberKeyWithDot(evt)
-         {
-         debugger
-            var charCode = (evt.which) ? evt.which : event.keyCode
-            if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 46)
-                return false;
-
-            return true;
+        
+        
+        
+        
+          function ValidateChangePW()
+        {
+        
+            var valid=true;     
+            
+              if (document.getElementById('<%=txtNewPW.ClientID%>').value.trim().length <1 )
+            {
+                alert('Please enter new password')
+                valid=false;
+              document.getElementById('<%=txtNewPW.ClientID%>').value = ""
+               document.getElementById('<%=txtNewPW.ClientID%>').focus()
+                return valid;
+            }
+             if((document.getElementById('<%= txtNewPW.ClientID%>').value.trim().length > 0) && (document.getElementById('<%= txtNewPW.ClientID%>').value.trim().length < 5))
+            {
+                document.getElementById('<%= txtNewPW.ClientID%>').focus();
+                document.getElementById('<%=txtNewPW.ClientID%>').value = "";
+                alert("Password length must be 5 characters");
+                valid = false;            
+                 return valid;     
+            }    
+             else if (document.getElementById('<%=txtConfirmPW.ClientID%>').value.trim().length <1 )
+            {
+                alert('Please enter confirm password')
+                valid=false;
+              document.getElementById('<%=txtConfirmPW.ClientID%>').value = ""
+               document.getElementById('<%=txtConfirmPW.ClientID%>').focus()
+                return valid;
+            }
+              else if( document.getElementById('<%=txtNewPW.ClientID%>').value.trim() != document.getElementById('<%=txtConfirmPW.ClientID%>').value.trim())
+             {
+                document.getElementById('<%= txtConfirmPW.ClientID%>').focus();
+                alert("New password does not match the confirm password");
+                 document.getElementById('<%=txtConfirmPW.ClientID%>').value = ""
+                document.getElementById('<%=txtConfirmPW.ClientID%>').focus()
+                valid = false; 
+                 return valid;              
+             }          
+          
+                 
+            return valid;
         }
-    function isNumberKeyWithDashForZip(evt)
-         {
-         debugger
-         
-            var charCode = (evt.which) ? evt.which : event.keyCode         
-            if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 45)
-                return false;
-
-            return true;
-        }
-    
-    </script>
-
-    <script type='text/javascript'>
+        
+        
+        </script>
+           <script type='text/javascript'>
 	$(function() {
 		$('.number').numeric();
 		$('.price').formatCurrency();
@@ -314,12 +236,12 @@
         } 
 
     </script>
-
 </head>
 <body>
     <form id="form1" runat="server">
     <asp:ScriptManager ID="SM" runat="server">
     </asp:ScriptManager>
+    
     <asp:UpdateProgress ID="Progress" runat="server" AssociatedUpdatePanelID="updtpnlRegUser"
         DisplayAfter="0">
         <ProgressTemplate>
@@ -366,7 +288,7 @@
     </div>
     <div class="main">
         <h1 class="h1">
-            Multi Car Listing</h1>
+            Multi RV Listing</h1>
         <div class="clear">
             &nbsp;</div>
         <table style="width: 100%;" cellpadding="0" cellspacing="0">
@@ -502,8 +424,8 @@
                 </td>
                 <td>
                     <div style="width: 90px; font-size: 12px; font-weight: normal; float: right; text-align: right;">
-                        <asp:LinkButton ID="lnkbtnAddPackage" runat="server" Text="Add Package" OnClick="lnkbtnAddPackage_Click"></asp:LinkButton>
-                        <asp:LinkButton ID="lnkbtnUpdateDealer" runat="server" Text="Dealer View" OnClick="lnkbtnUpdateDealer_Click"></asp:LinkButton>
+                        <asp:LinkButton ID="lnkbtnAddPackage" runat="server" Text="Add Package"  Enabled="false"></asp:LinkButton>
+                        <asp:LinkButton ID="lnkbtnUpdateDealer" runat="server" Text="Dealer View"  style="display:none"></asp:LinkButton>
                         </div>
                 </td>
             </tr>
@@ -527,10 +449,10 @@
                         ValidTill
                     </td>
                     <td width="110px">
-                        # Of Posted Cars
+                        # Of Posted RVs
                     </td>
                     <td width="110px">
-                        # Of Max Cars
+                        # Of Max RVs
                     </td>
                 </tr>
             </table>
@@ -571,15 +493,15 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:Label ID="lblDtOfPurchase" runat="server" Text='<%# Bind("Paydate", "{0:MM/dd/yy}") %>'></asp:Label>
-                                        <asp:HiddenField ID="hdnDtOfPurchase" runat="server" Value='<%# Bind("Paydate", "{0:MM/dd/yy}") %>' />
+                                        <asp:Label ID="lblDtOfPurchase" runat="server" Text='<%# Bind("PayDate", "{0:MM/dd/yy}") %>'></asp:Label>
+                                        <asp:HiddenField ID="hdnDtOfPurchase" runat="server" Value='<%# Bind("PayDate", "{0:MM/dd/yy}") %>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Left" Width="100px" />
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="ValidTill">
                                     <ItemTemplate>
                                         <asp:Label ID="lblValidTill" runat="server"></asp:Label>
-                                        <asp:HiddenField ID="hdnValidTill" runat="server" Value='<%# Eval("Validityperiod")%>' />
+                                        <asp:HiddenField ID="hdnValidTill" runat="server" Value='<%# Eval("ValidityPeriod")%>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Left" Width="80px" />
                                 </asp:TemplateField>
@@ -609,11 +531,11 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <td style="width: 750px">
-                    <strong>Car Details</strong> (click on CarID number to view/edit car listing details)
+                    <strong>RV Details</strong> (click on RVID number to view/edit RV listing details)
                 </td>
                 <td>
                     <div style="width: 90px; font-size: 12px; font-weight: normal; float: right; text-align: right;">
-                        <asp:LinkButton ID="lnkbtnCarDetails" runat="server" Text="Add Car" OnClick="lnkbtnCarDetails_Click"></asp:LinkButton></div>
+                        <asp:LinkButton ID="lnkbtnCarDetails" runat="server" Text="Add RV" Enabled="false"></asp:LinkButton></div>
                 </td>
             </tr>
         </table>
@@ -624,7 +546,7 @@
                 padding-top: 2px; width: 820px; background: #fff;">
                 <tr class="tbHed">
                     <td width="70px">
-                        CarID
+                        RVID
                     </td>
                     <td width="40px">
                         <asp:Label ID="lblStatusHeader" runat="server" Text="Status"></asp:Label>
@@ -795,7 +717,7 @@
                                     <asp:UpdatePanel ID="updtPnlChangePwd" runat="server">
                                         <ContentTemplate>
                                             <asp:Button ID="btnChangePW" CssClass="g-button g-button-submit" runat="server" Text="Change"
-                                                OnClientClick="return ValidateChangePW();" OnClick="btnChangePW_Click" />
+                                                OnClientClick="return ValidateChangePW();"  OnClick="btnChangePW_Click"  />
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
                                 </div>
@@ -854,7 +776,7 @@
                                     <asp:UpdatePanel ID="UpdatePanel4" runat="server">
                                         <ContentTemplate>
                                             <asp:Button ID="btnGoSelPack" CssClass="g-button g-button-submit" runat="server"
-                                                Text="Select" OnClientClick="return ValidateSelPack();" OnClick="btnGoSelPack_Click" />
+                                                Text="Select" OnClientClick="return ValidateSelPack();"  />
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
                                 </div>
@@ -949,7 +871,7 @@
                                 <asp:UpdatePanel ID="UpdatePanel5" runat="server">
                                     <ContentTemplate>
                                         <asp:Button ID="btnPackSvae" CssClass="g-button g-button-submit" runat="server" Text="Add"
-                                            OnClientClick="return ValidateAddPack();" OnClick="btnPackSvae_Click" />
+                                            OnClientClick="return ValidateAddPack();" />
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
                             </div>
@@ -990,7 +912,7 @@
                 </asp:UpdatePanel>
             </p>
             <asp:Button ID="btnNo" CssClass="btn" runat="server" Text="Cancel" />
-            <asp:Button ID="btnYes" CssClass="btn" runat="server" Text="Ok" OnClick="btnYes_Click" />
+            <asp:Button ID="btnYes" CssClass="btn" runat="server" Text="Ok" />
         </div>
     </div>
     <cc1:ModalPopupExtender ID="MdepUpdateUserDetails" runat="server" PopupControlID="divUpdateUserData"
@@ -1053,7 +975,7 @@
                                     </td>
                                     <td>
                                         <asp:TextBox ID="txtRegPhone" runat="server" MaxLength="10" CssClass="input3 number"
-                                            onkeypress="return isNumberKey(event)" Enabled="false"></asp:TextBox>
+                                            onkeypress="return isNumberKey(event)" ></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1122,7 +1044,7 @@
                                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                     <ContentTemplate>
                                         <asp:Button ID="btnUpdateUserData" CssClass="g-button g-button-submit" runat="server"
-                                            Text="Update" OnClick="lnkbtnUpdateUserData_Click" OnClientClick="return ValidateVehicleType();" />
+                                            Text="Update" OnClick="lnkbtnUpdateUserData_Click" OnClientClick="return ValidateVehicleType();"/>
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
                             </div>
@@ -1149,7 +1071,7 @@
     <div id="divAlertPackSucess" class="alert" style="display: none;">
         <h4 id="H2">
             Alert
-            <asp:Button ID="btnAlertCls" class="cls" runat="server" Text="" BorderWidth="0" OnClick="btnAlertOK_Click" />
+            <asp:Button ID="btnAlertCls" class="cls" runat="server" Text="" BorderWidth="0"  />
             <!-- <div class="cls">
             </div> -->
         </h4>
@@ -1162,7 +1084,7 @@
                 </asp:UpdatePanel>
             </p>
             <%-- <asp:Button ID="btnAlertNo" CssClass="btn" runat="server" Text="Ok" />--%>
-            <asp:Button ID="btnAlertOK" CssClass="btn" runat="server" Text="Ok" OnClick="btnAlertOK_Click" />
+            <asp:Button ID="btnAlertOK" CssClass="btn" runat="server" Text="Ok" />
         </div>
     </div>
     <cc1:ModalPopupExtender ID="mdepPackageDetails" runat="server" PopupControlID="divPackageDetails"
@@ -1219,7 +1141,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            # of cars allowed:
+                                                            # of RVs allowed:
                                                         </td>
                                                         <td>
                                                             <asp:Label ID="lblShowMaxCars" runat="server"></asp:Label>
@@ -1227,7 +1149,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            # of cars posted:
+                                                            # of RVs posted:
                                                         </td>
                                                         <td>
                                                             <asp:Label ID="lblShowCarsPosted" runat="server"></asp:Label>
@@ -1310,6 +1232,10 @@
         <div class="clear">
             &nbsp;</div>
     </div>
+    
+    
+    
+    
     </form>
 </body>
 </html>

@@ -878,8 +878,16 @@ public partial class CustomerViewNewForm : System.Web.UI.Page
                                     //RowID.Style["display"] = "table-cell";
                                     BtnName.Visible = true;
                                     ImageName.Visible = true;
-                                    ImageName.ImageUrl = "http://unitedcarexchange.com/" + CarsDetails.Tables[0].Rows[0][ColumnPicLocation].ToString() + CarsDetails.Tables[0].Rows[0][ColumnPic].ToString();
+                                    if (ViewState["BrandId"].ToString() == "1")
+                                    {
+                                        ImageName.ImageUrl = "http://images.unitedcarexchange.com/" + CarsDetails.Tables[0].Rows[0][ColumnPicLocation].ToString() + CarsDetails.Tables[0].Rows[0][ColumnPic].ToString();
+                                    }
+                                    else if (ViewState["BrandId"].ToString() == "2")
+                                    {
+                                        ImageName.ImageUrl = "http://images.mobicarz.com/" + CarsDetails.Tables[0].Rows[0][ColumnPicLocation].ToString() + CarsDetails.Tables[0].Rows[0][ColumnPic].ToString();
+                                    }
                                 }
+
                                 else
                                 {
                                     //RowID.Style["display"] = "none";
@@ -2495,7 +2503,19 @@ public partial class CustomerViewNewForm : System.Web.UI.Page
                     //RowID.Style["display"] = "table-cell";
                     BtnName.Visible = true;
                     ImageName.Visible = true;
-                    ImageName.ImageUrl = "http://unitedcarexchange.com/" + CarsDetails.Tables[0].Rows[0][ColumnPicLocation].ToString() + CarsDetails.Tables[0].Rows[0][ColumnPic].ToString();
+
+                    if (ViewState["BrandId"].ToString() == "1")
+                    {
+
+                        ImageName.ImageUrl = "http://images.unitedcarexchange.com/" + CarsDetails.Tables[0].Rows[0][ColumnPicLocation].ToString() + CarsDetails.Tables[0].Rows[0][ColumnPic].ToString();
+                        
+                    }
+                    else if (ViewState["BrandId"].ToString() == "2")
+                    {
+                        ImageName.ImageUrl = "http://images.mobicarz.com/" + CarsDetails.Tables[0].Rows[0][ColumnPicLocation].ToString() + CarsDetails.Tables[0].Rows[0][ColumnPic].ToString();
+                    }
+
+                   
                 }
                 else
                 {
