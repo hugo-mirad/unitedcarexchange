@@ -636,7 +636,7 @@ public partial class Tickets : System.Web.UI.Page
                 Session["SortDirec"] = "Ascending";
                 lnkTicketIDSort.Text = "Ticket ID &#8659";
             }
-
+            lnkBrand.Text = "Brand  &darr; &uarr;";
             lnkTicketDateSort.Text = "Ticket Dt &darr; &uarr;";
             lnkPrioritySort.Text = "Priority &darr; &uarr;";
             lnkCallBackDtSort.Text = "Cl Back Dt &darr; &uarr;";
@@ -695,7 +695,7 @@ public partial class Tickets : System.Web.UI.Page
                 Session["SortDirec"] = "Ascending";
                 lnkTicketDateSort.Text = "Ticket Dt &#8659";
             }
-
+            lnkBrand.Text = "Brand  &darr; &uarr;";
             lnkTicketIDSort.Text = "Ticket ID &darr; &uarr;";
             lnkPrioritySort.Text = "Priority &darr; &uarr;";
             lnkCallBackDtSort.Text = "Cl Back Dt &darr; &uarr;";
@@ -753,7 +753,7 @@ public partial class Tickets : System.Web.UI.Page
                 Session["SortDirec"] = "Ascending";
                 lnkPrioritySort.Text = "Priority &#8659";
             }
-
+            lnkBrand.Text = "Brand  &darr; &uarr;";
             lnkTicketIDSort.Text = "Ticket ID &darr; &uarr;";
             lnkTicketDateSort.Text = "Ticket Dt &darr; &uarr;";
             lnkCallBackDtSort.Text = "Cl Back Dt &darr; &uarr;";
@@ -811,7 +811,7 @@ public partial class Tickets : System.Web.UI.Page
                 Session["SortDirec"] = "Ascending";
                 lnkCallBackDtSort.Text = "Cl Back Dt &#8659";
             }
-
+            lnkBrand.Text = "Brand  &darr; &uarr;";
             lnkTicketIDSort.Text = "Ticket ID &darr; &uarr;";
             lnkTicketDateSort.Text = "Ticket Dt &darr; &uarr;";
             lnkPrioritySort.Text = "Priority &darr; &uarr;";
@@ -870,6 +870,7 @@ public partial class Tickets : System.Web.UI.Page
                 lnkTicketTypeSort.Text = "Ticket Type &#8659";
             }
 
+            lnkBrand.Text = "Brand  &darr; &uarr;";
             lnkTicketIDSort.Text = "Ticket ID &darr; &uarr;";
             lnkTicketDateSort.Text = "Ticket Dt &darr; &uarr;";
             lnkPrioritySort.Text = "Priority &darr; &uarr;";
@@ -929,6 +930,7 @@ public partial class Tickets : System.Web.UI.Page
                 lnkStatusSort.Text = "Status &#8659";
             }
 
+            lnkBrand.Text = "Brand  &darr; &uarr;";
             lnkTicketIDSort.Text = "Ticket ID &darr; &uarr;";
             lnkTicketDateSort.Text = "Ticket Dt &darr; &uarr;";
             lnkPrioritySort.Text = "Priority &darr; &uarr;";
@@ -956,6 +958,66 @@ public partial class Tickets : System.Web.UI.Page
         }
     }
 
+
+
+    protected void lnkBrand_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Session.Timeout = 180;
+            DataSet ds = new DataSet();
+            ds = Session["SearchTicketData"] as DataSet;
+            ds.Tables[0].DefaultView.RowFilter = "";
+            DataTable dt = ds.Tables[0];
+            string SortExp = "BrandCode";
+            if (Session["SortDirec"] == null)
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkBrand.Text = "Brand &#8659";
+            }
+            else if (Session["SortDirec"].ToString() == "")
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkBrand.Text = "Brand &#8659";
+            }
+            else if (Session["SortDirec"].ToString() == "Ascending")
+            {
+                Session["SortDirec"] = "Descending";
+                lnkBrand.Text = "Brand &#8657";
+            }
+            else
+            {
+                Session["SortDirec"] = "Ascending";
+                lnkBrand.Text = "Brand &#8659";
+            }
+          
+            lnkCarIDSort.Text = "Car ID &darr; &uarr;";
+            lnkTicketIDSort.Text = "Ticket ID &darr; &uarr;";
+            lnkTicketDateSort.Text = "Ticket Dt &darr; &uarr;";
+            lnkPrioritySort.Text = "Priority &darr; &uarr;";
+            lnkCallBackDtSort.Text = "Cl Back Dt &darr; &uarr;";
+            lnkTicketTypeSort.Text = "Ticket Type &darr; &uarr;";
+            lnkStatusSort.Text = "Status &darr; &uarr;";
+            lnkAssignedtoSort.Text = "Assigned To &darr; &uarr;";
+            lnkComDtSort.Text = "Com Dt &darr; &uarr;";
+            lnkComBySort.Text = "Com By &darr; &uarr;";
+            lnkCustNameSort.Text = "Cust Name &darr; &uarr;";
+            lnkPhoneSort.Text = "Phone &darr; &uarr;";
+            lnkYearSort.Text = "Year &darr; &uarr;";
+            lnkMakeSort.Text = "Make &darr; &uarr;";
+            lnkModelSort.Text = "Model &darr; &uarr;";
+            lnkTicketCreatedBySort.Text = "Created By &darr; &uarr;";
+
+            if (dt != null)
+            {
+                BizUtility.GridSortForReport(txthdnSortOrder, SortExp, grdTicketDetails, 0, dt, Session["SortDirec"].ToString());
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
 
     protected void lnkCarIDSort_Click(object sender, EventArgs e)
     {
@@ -987,7 +1049,7 @@ public partial class Tickets : System.Web.UI.Page
                 Session["SortDirec"] = "Ascending";
                 lnkCarIDSort.Text = "Car ID &#8659";
             }
-
+            lnkBrand.Text = "Brand  &darr; &uarr;";
             lnkTicketIDSort.Text = "Ticket ID &darr; &uarr;";
             lnkTicketDateSort.Text = "Ticket Dt &darr; &uarr;";
             lnkPrioritySort.Text = "Priority &darr; &uarr;";
@@ -1046,6 +1108,7 @@ public partial class Tickets : System.Web.UI.Page
                 lnkAssignedtoSort.Text = "Assigned To &#8659";
             }
 
+            lnkBrand.Text = "Brand  &darr; &uarr;";
             lnkTicketIDSort.Text = "Ticket ID &darr; &uarr;";
             lnkTicketDateSort.Text = "Ticket Dt &darr; &uarr;";
             lnkPrioritySort.Text = "Priority &darr; &uarr;";
@@ -1103,7 +1166,7 @@ public partial class Tickets : System.Web.UI.Page
                 Session["SortDirec"] = "Ascending";
                 lnkComDtSort.Text = "Com Dt &#8659";
             }
-
+            lnkBrand.Text = "Brand  &darr; &uarr;";
             lnkTicketIDSort.Text = "Ticket ID &darr; &uarr;";
             lnkTicketDateSort.Text = "Ticket Dt &darr; &uarr;";
             lnkPrioritySort.Text = "Priority &darr; &uarr;";
@@ -1162,7 +1225,7 @@ public partial class Tickets : System.Web.UI.Page
                 Session["SortDirec"] = "Ascending";
                 lnkComBySort.Text = "Com By &#8659";
             }
-
+            lnkBrand.Text = "Brand  &darr; &uarr;";
             lnkTicketIDSort.Text = "Ticket ID &darr; &uarr;";
             lnkTicketDateSort.Text = "Ticket Dt &darr; &uarr;";
             lnkPrioritySort.Text = "Priority &darr; &uarr;";
@@ -1221,7 +1284,7 @@ public partial class Tickets : System.Web.UI.Page
                 Session["SortDirec"] = "Ascending";
                 lnkCustNameSort.Text = "Cust Name &#8659";
             }
-
+            lnkBrand.Text = "Brand  &darr; &uarr;";
             lnkTicketIDSort.Text = "Ticket ID &darr; &uarr;";
             lnkTicketDateSort.Text = "Ticket Dt &darr; &uarr;";
             lnkPrioritySort.Text = "Priority &darr; &uarr;";
@@ -1279,7 +1342,7 @@ public partial class Tickets : System.Web.UI.Page
                 Session["SortDirec"] = "Ascending";
                 lnkPhoneSort.Text = "Phone &#8659";
             }
-
+            lnkBrand.Text = "Brand  &darr; &uarr;";
             lnkTicketIDSort.Text = "Ticket ID &darr; &uarr;";
             lnkTicketDateSort.Text = "Ticket Dt &darr; &uarr;";
             lnkPrioritySort.Text = "Priority &darr; &uarr;";
@@ -1337,7 +1400,7 @@ public partial class Tickets : System.Web.UI.Page
                 Session["SortDirec"] = "Ascending";
                 lnkYearSort.Text = "Year &#8659";
             }
-
+            lnkBrand.Text = "Brand  &darr; &uarr;";
             lnkTicketIDSort.Text = "Ticket ID &darr; &uarr;";
             lnkTicketDateSort.Text = "Ticket Dt &darr; &uarr;";
             lnkPrioritySort.Text = "Priority &darr; &uarr;";
@@ -1395,7 +1458,7 @@ public partial class Tickets : System.Web.UI.Page
                 Session["SortDirec"] = "Ascending";
                 lnkMakeSort.Text = "Make &#8659";
             }
-
+            lnkBrand.Text = "Brand  &darr; &uarr;";
             lnkTicketIDSort.Text = "Ticket ID &darr; &uarr;";
             lnkTicketDateSort.Text = "Ticket Dt &darr; &uarr;";
             lnkPrioritySort.Text = "Priority &darr; &uarr;";
@@ -1453,7 +1516,7 @@ public partial class Tickets : System.Web.UI.Page
                 Session["SortDirec"] = "Ascending";
                 lnkModelSort.Text = "Model &#8659";
             }
-
+            lnkBrand.Text = "Brand  &darr; &uarr;";
             lnkTicketIDSort.Text = "Ticket ID &darr; &uarr;";
             lnkTicketDateSort.Text = "Ticket Dt &darr; &uarr;";
             lnkPrioritySort.Text = "Priority &darr; &uarr;";
@@ -1511,7 +1574,7 @@ public partial class Tickets : System.Web.UI.Page
                 Session["SortDirec"] = "Ascending";
                 lnkTicketCreatedBySort.Text = "Created By &#8659";
             }
-
+            lnkBrand.Text = "Brand  &darr; &uarr;";
             lnkTicketIDSort.Text = "Ticket ID &darr; &uarr;";
             lnkTicketDateSort.Text = "Ticket Dt &darr; &uarr;";
             lnkPrioritySort.Text = "Priority &darr; &uarr;";

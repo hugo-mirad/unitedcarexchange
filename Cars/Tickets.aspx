@@ -400,7 +400,7 @@
                                     <asp:UpdatePanel ID="updtPnlHeaders" runat="server">
                                         <ContentTemplate>
                                             <table class="grid1 " cellpadding="0" cellspacing="0" style="position: absolute;
-                                                top: 2px; padding-top: 2px; width: 1318px; background: #fff;">
+                                                top: 2px; padding-top: 2px; width: 1398px; background: #fff;">
                                                 <tr class="tbHed">
                                                     <td width="70px">
                                                         <%--Ticket ID--%>
@@ -434,6 +434,10 @@
                                                     <td width="60px">
                                                         <asp:LinkButton ID="lnkCarIDSort" runat="server" Text="Car ID &darr; &uarr;" OnClick="lnkCarIDSort_Click"></asp:LinkButton>
                                                     </td>
+                                                    <td width="80px">
+                                                        <asp:LinkButton ID="lnkBrand" runat="server" Text="Brand &darr; &uarr;" OnClick="lnkBrand_Click"></asp:LinkButton>
+                                                    </td> 
+                                                    
                                                     <td width="90px">
                                                         <asp:LinkButton ID="lnkAssignedtoSort" runat="server" Text="Assigned To &darr; &uarr;"
                                                             OnClick="lnkAssignedtoSort_Click"></asp:LinkButton>
@@ -465,14 +469,14 @@
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
                                 </div>
-                                <div style="width: 1340px; overflow-y: scroll; overflow-x: hidden; padding: 26px 3px 3px 3px;
+                                <div style="width: 1420px; overflow-y: scroll; overflow-x: hidden; padding: 26px 3px 3px 3px;
                                     border: #ccc 1px solid; height: 230px">
                                     <asp:Panel ID="pnl1" Width="100%" runat="server">
                                         <asp:UpdatePanel ID="UpdPnlGrid" runat="server">
                                             <ContentTemplate>
                                                 <input style="width: 91px" id="txthdnSortOrder" type="hidden" runat="server" enableviewstate="true" />
                                                 <input style="width: 40px" id="txthdnSortColumnId" type="hidden" runat="server" enableviewstate="true" />
-                                                <asp:GridView Width="1318px" ID="grdTicketDetails" runat="server" CellSpacing="0"
+                                                <asp:GridView Width="1398px" ID="grdTicketDetails" runat="server" CellSpacing="0"
                                                     CellPadding="0" CssClass="grid1" AutoGenerateColumns="False" GridLines="None"
                                                     ShowHeader="false" OnRowCommand="grdTicketDetails_RowCommand" OnRowDataBound="grdTicketDetails_RowDataBound">
                                                     <PagerStyle HorizontalAlign="Right" BackColor="#C6C3C6" ForeColor="Black" />
@@ -537,6 +541,13 @@
                                                                 <%--<asp:Label ID="lblCarID" runat="server" Text='<%# Eval("carid")%>'></asp:Label>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle HorizontalAlign="Left" Width="60px" />
+                                                        </asp:TemplateField>
+                                                        
+                                                         <asp:TemplateField>
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblBrand" runat="server" Text='<%#Eval("BrandCode")%>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle HorizontalAlign="Left" Width="80px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField>
                                                             <ItemTemplate>
