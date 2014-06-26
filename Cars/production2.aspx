@@ -147,7 +147,7 @@
                                             width: 750px; margin: 3px 0 0 0;"></textarea>
                                         <br />
                                         <a href="#" class="link1" style="display: none;">copy</a>
-                                        <br />
+                                       
                                         <div class="disc" style="width: 100%;">
                                         </div>
                                         <div class="SellerNotes">
