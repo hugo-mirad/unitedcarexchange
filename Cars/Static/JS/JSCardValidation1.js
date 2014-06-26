@@ -162,7 +162,7 @@ function CheckCardNumber(form) {
     }
     else {
     
-    if (form.txtCardNumber.value.length>0 && tmpyear>0  &&tmpmonth>0&&tmpyear!='undefined' &&tmpmonth!='undefined'  )
+    
     {
         // The cardnumber has the valid luhn checksum, but we want to know which
         // cardtype it belongs to.

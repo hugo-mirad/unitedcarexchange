@@ -940,7 +940,12 @@ namespace CarsInfo
             get { return _PICID20; }
             set { _PICID20 = value; }
         }
-
+        private int _Brandid;
+        public int Brandid
+        {
+            get { return _Brandid; }
+            set { _Brandid = value; }
+        }
     }
 
 }

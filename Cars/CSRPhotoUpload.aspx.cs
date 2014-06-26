@@ -1081,7 +1081,10 @@ public partial class CSRPhotoUpload : System.Web.UI.Page
                 SelModelName = SelModelName.Replace("/", "@");
                 SelModelName = SelModelName.Replace("&", "@");
                 string FileNameThumb = Session["SelYear"].ToString() + "_" + Session["SelMake"].ToString() + "_" + SelModelName + "_" + Session["CarID"].ToString() + "Thumb.jpg";
-                string FileNameFullThumb = Server.MapPath(sFilePath3);
+
+                string FileNameFullThumb = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + sFilePath3;
+
+               // string FileNameFullThumb = Server.MapPath(sFilePath3);
                 Bitmap originalBMP = new Bitmap(FileForThumb.FileContent);
 
                 // Calculate the new image dimensions

@@ -231,7 +231,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
                         string StockType = dsPics.Tables[0].Rows[0]["Model"].ToString().Replace('&', '@');
                         StockType = StockType.Replace("/", "@");
                         StockType = StockType.Replace(" ", "-");
-                        StockUrl = "http://UnitedCarExchange.com/images/MakeModelThumbs/" + StockMake + "_" + StockType + ".jpg";
+                        StockUrl = "http://images.UnitedCarExchange.com/images/MakeModelThumbs/" + StockMake + "_" + StockType + ".jpg";
 
 
                         //dsPicsNew.Tables[0].Rows.Add();
@@ -429,7 +429,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
                 string StockType = obj[rowcount].Model.ToString().Replace('&', '@');
                 StockType = StockType.Replace("/", "@");
                 StockType = StockType.Replace(" ", "-");
-                StockUrl = "http://UnitedCarExchange.com/images/MakeModelThumbs/" + StockMake + "_" + StockType + ".jpg";
+                StockUrl = "http://images.unitedCarExchange.com/images/MakeModelThumbs/" + StockMake + "_" + StockType + ".jpg";
             }
 
             else

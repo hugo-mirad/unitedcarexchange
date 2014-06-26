@@ -1265,6 +1265,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
 
                 SendRegisterMail(LoginName, LoginPassword);
 
+                //saving details it is from free package
+
+
                 mdepAlertExists.Show();
 
                 //lblErrorExists.Visible = true;
