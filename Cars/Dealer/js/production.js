@@ -46,6 +46,7 @@ KeyListener = {
 };
 
 function productionPage(carDetails) {
+  
     //console.log(carDetails);
     $('.stock').hide();
     if (carDetails != 'undefined' && carDetails != undefined && page != 10) {

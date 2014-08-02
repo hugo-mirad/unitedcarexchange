@@ -14,7 +14,7 @@ using CarsBL.Transactions;
 using CarsInfo;
 using System.Collections.Generic;
 using CarsBL.Masters;
-using System.Web.UI.MobileControls;
+using System.Web.Mobile;
 using System.Net.Mail;
 
 public partial class Registar : System.Web.UI.Page

@@ -511,7 +511,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
                 }
                 else if (objCarInfo[0].AdStatus != "Active")
                 {
-
+                    soldcarid1.Visible = false;
                     lblCarsoldStatus.Text = "This car is in " + objCarInfo[0].AdStatus + " status!";
                     mailsend.Visible = false;
                     //return;

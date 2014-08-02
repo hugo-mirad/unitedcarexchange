@@ -12,9 +12,11 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Net;
 using CarsBL.Transactions;
+using Stripe;
 
 public partial class pay : System.Web.UI.Page
 {
+    public static string appkey = System.Configuration.ConfigurationManager.AppSettings["StripeApiKey"].ToString().Trim();
     DropdownBL objdropdownBL = new DropdownBL();
     DataSet dsDropDown = new DataSet();
     BankDetailsBL objBankDetailsBL = new BankDetailsBL();
@@ -22,12 +24,14 @@ public partial class pay : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
+        try
+        {
+            setSecureProtocol(true);
+        }
+        catch { }
         if (!IsPostBack)
         {
-
-
-
             if (Session["CarID"] != null)
             {
                 DataSet dsYears = objBankDetailsBL.USP_GetNext12years();
@@ -46,6 +50,33 @@ public partial class pay : System.Web.UI.Page
                 Response.Redirect("Default.aspx");
             }
         }
+       
+    }
+    public static void setSecureProtocol(bool bSecure)
+    {
+
+        string redirectUrl = null;
+        HttpContext context = HttpContext.Current;
+
+
+        // if we want HTTPS and it is currently HTTP
+        if (bSecure && !context.Request.IsSecureConnection)
+            redirectUrl = context.Request.Url.ToString().Replace("http:", "https:");
+
+        else
+            // if we want HTTP and it is currently HTTPS
+            if (!bSecure && context.Request.IsSecureConnection)
+                redirectUrl = context.Request.Url.ToString().Replace("https:", "http:");
+
+        //else
+
+        // in all other cases we don't need to redirect
+
+        // check if we need to redirect, and if so use redirectUrl to do the job
+        if (redirectUrl != null)
+            context.Response.Redirect(redirectUrl);
+
+
     }
     private void showsaledetails()
     {
@@ -159,7 +190,7 @@ public partial class pay : System.Web.UI.Page
 
         InputObject.Add("x_method", "CC");
         InputObject.Add("x_type", "AUTH_CAPTURE");
-        
+
         InputObject.Add("x_amount", string.Format("{0:c2}", Convert.ToDouble(lblAdPrice2.Text)));
 
         //InputObject.Add("x_amount", string.Format("{0:c2}", lblAdPrice2));
@@ -272,11 +303,112 @@ public partial class pay : System.Web.UI.Page
             return false;
         }
     }
+
+
+    //Payment using stripe account
+    private void StripePayment()
+    {
+        string tx = "", invoice = "", amountre = "", pricere = "";
+        string ErrorString="";
+        try
+        {
+
+            try
+            {
+                int chargetotal = 0;//Convert.ToInt32((3.33*Convert.ToInt32(days)*100));
+                //("x_exp_date", ExpMon.SelectedItem.Text + "/" + CCExpiresYear.SelectedItem.Text);
+                if (lblAdPrice2.Text == "")
+                {
+                    chargetotal = 0;
+                }
+                else
+                {
+                    double lblAdPrice21 = 0;
+                    lblAdPrice21 = Convert.ToDouble(lblAdPrice2.Text);
+                    if (lblAdPrice21 == 0)
+                    {
+                        lblAdPrice21 = 0;
+                    }
+                    else
+                    {
+                        double chargetotal1 = lblAdPrice21 * (Convert.ToInt32(100));
+                        chargetotal = Convert.ToInt32(chargetotal1);
+                    }
+                    // chargetotal = Convert.ToInt32((lblAdPrice2.Text)*100);
+                }
+                var mycharge = new StripeChargeCreateOptions();
+                mycharge.AmountInCents = chargetotal;
+                mycharge.Currency = "USD";
+                mycharge.CardAddressCity = CityTextBox.Text;
+                mycharge.CardAddressCountry = CountryTextBox.Text;
+                mycharge.CardAddressLine1 = AddressTextBox.Text;
+                mycharge.CardAddressLine2 = "";
+                mycharge.CardAddressState = ddlBillState.SelectedItem.Text;
+                mycharge.CardAddressZip = txtBillZip.Text;
+                mycharge.CardCvc = cvv.Text;
+                mycharge.CardExpirationMonth = ExpMon.SelectedItem.Text;
+                mycharge.CardExpirationYear = CCExpiresYear.SelectedItem.Text;
+                mycharge.CardName = FirstNameTextBox.Text + " " + LastNameTextBox.Text;
+                mycharge.CardNumber = txtCardNumber.Text;
+                mycharge.Description = "UCE Payment to " + Session["Package"].ToString();
+                string key = appkey;
+                var chargeservice = new StripeChargeService(key);
+                var response = chargeservice.Create(mycharge);
+
+
+                tx = response.Id.ToString();
+                invoice = response.Id.ToString();
+                amountre = response.AmountInCents.ToString();
+
+
+
+                if (response.Paid==true)
+                {
+                    //AuthNetCodeLabel.Text = ReturnValues[4].Trim(char.Parse("|")); // Returned Authorisation Code
+                    //AuthNetTransIDLabel.Text = ReturnValues[6].Trim(char.Parse("|")); // Returned Transaction ID
+
+                    Response.Redirect("PaymentSucces.aspx?NetCode=" + response.Id.Trim(char.Parse("|")) + "&tx=" + response.Id.Trim(char.Parse("|")) + "&amt=" + lblAdPrice2.Text + "&item_number=" + Session["PackageID"].ToString() + "");
+
+                    lblErr.Text = "Authorisation Code" + response.Id.Trim(char.Parse("|")) + "</br>TransID=" + response.Id.Trim(char.Parse("|")); // Returned Authorisation Code;
+                    mpealteruser.Show();
+                  
+                }
+                else
+                {
+                    // Error!
+                    ErrorString =response.FailureMessage;
+                    lblErr.Text = ErrorString;
+                    mpealteruser.Show();
+                 
+                }
+
+            }
+            catch (StripeException ex)
+            {
+
+                lblErr.Text = (ex.Message);
+                mpealteruser.Show();
+
+            }
+            
+        }
+        catch (Exception ex)
+        {
+            //CustomValidator1.ErrorMessage = ex.Message;
+
+        }
+    }
+
     protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
     {
         args.IsValid = true;
 
-        AuthorizePayment();
+        //AuthorizePayment();
+
+        if (Session["PayType"] == "Stripe")
+            StripePayment();
+        else
+            AuthorizePayment();
         //if (CustomValidator1.ErrorMessage.Length > 0)
         //{
         //    args.IsValid = false;
@@ -290,8 +422,8 @@ public partial class pay : System.Web.UI.Page
 
     protected void SubmitButton_Click(object sender, EventArgs e)
     {
-        //dummy postback event authorize validation is done during this postback
-        AuthorizePayment();
+        StripePayment();
+
     }
     private void fillYears(DataSet dsYears)
     {
@@ -320,5 +452,10 @@ public partial class pay : System.Web.UI.Page
         catch (Exception ex)
         {
         }
+    }
+
+    public void btnpa_click(object sender, EventArgs e)
+    {
+
     }
 }

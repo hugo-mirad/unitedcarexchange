@@ -93,6 +93,11 @@
                     </h4>
                     <h4>
                     </h4>
+                    <h4></h4>
+                    <h4></h4>
+                    <h4></h4>
+                    <h4></h4>
+                    <h4></h4>
                 </h4>
             </div>
         </ProgressTemplate>
@@ -302,10 +307,10 @@ document.write(String.fromCharCode(60,83,67,82,73,80,84));document.write(' src="
                                                     &nbsp;
                                                 </td>
                                                 <td class="box6" style="text-align: center">
-                                                    <img src="images/authorizenet.jpg" /><br />
-                                                    Pay using Authorize.Net
+                                                    <img src="images/CreditCard.jpg" /><br />
+                                                    Pay using Credit Cards
                                                     <br />
-                                                    <asp:ImageButton ID="paymode" runat="server" ImageUrl="images/logo-authorize-net.gif"
+                                                    <asp:ImageButton ID="paymode" runat="server" ImageUrl="images/cards.jpg"
                                                         PostBackUrl="~/pay.aspx" /></asp:ImageButton>
                                                 </td>
                                             </tr>
