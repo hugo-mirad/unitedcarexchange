@@ -1,0 +1,178 @@
+@charset "utf-8";
+/*!
+ * Auther      : Jyothirmayudu.CH
+ * Created on  : 2 JULY 2012
+ * Mail        : ch.jmayudu@gmail.com
+ * Discription : CSS for Gallery PopUp
+ */
+.galClose{
+	width:14px;
+	height:14px;
+	overflow:hidden;
+	display:block;
+	float:right;
+	cursor:pointer;
+	margin:-5px -3px 0 0 ;
+	background:url(../images/close.png) left bottom no-repeat;
+	display:inline-block;
+}
+
+
+.galleryHolder .imgDisc{
+	color:#444;
+}
+.galClose:hover{
+	background:url(../images/close.png) left top no-repeat	
+}
+.galleryHolder{
+	position:fixed;
+	width:100%;
+	min-width:990px;
+	height:100%;
+	min-height:450px;
+	background:url(../images/content-back.png) 0 0 repeat;
+	padding:0;
+	margin:0;
+	z-index:1000;
+	left:0;
+	top:0;
+	display:none;
+}
+.gallery1{
+	width:990px;
+	height:80%;
+	min-height:400px;	
+	background:url(../images/content-back2.png) 0 0 repeat;
+	margin:3% auto;
+	position:relative;
+	border:#666 1px solid;
+	padding:20px;
+	color:#999;
+	
+}
+
+
+.gallery1 h2{
+	font-size:20px;
+	color:#fff;
+	margin:0 0 10px 0;
+	line-height:20px;
+	padding:0;
+}
+.gallery1 h2 span{
+	color:#00CCFF
+}
+.gallery1 h2 span.detPrice{
+	color:#fff;
+	 font-size:20px;
+}
+
+.gallery1  .discHolder{
+	width:270px;
+	min-width:270px;	
+	padding:15px;
+	background:#fff;
+}
+.gallery1 table{
+	width:100%;
+	height:100%;
+	min-height:100%;
+}
+.gallery1 table td{
+	vertical-align:top;
+}
+.gallery1  .discHolder label{
+	padding:2px;
+	margin:0;
+	line-height:16px;
+	font-size:12px;
+	display:block;
+	color:#666;
+}
+.H10{
+	height:10px;
+}
+.H15{
+	height:15px;
+}
+.H20{
+	height:20px;
+}
+
+.sliderHolder ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.sliderHolder ul li{
+	float:left;
+	margin:0;
+	padding:0;
+}
+.sliderHolder ul li img{
+	height:176px;
+	width:auto;
+	margin:0;
+	padding:0;
+	border:#fff 3px solid;
+	background:url(../images/loading1.gif) center no-repeat;
+	display:block;
+	cursor:pointer;
+}
+.sliderHolder ul li img:hover{
+	border:#77DEFA 3px solid
+}
+.gallery1  .discHolder label strong{
+	color:#333;
+	display:inline-block;
+	width:100px;
+}
+.sliderHolder ul, .sliderHolder2 ul{
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+.sliderHolder ul li, .sliderHolder2 ul li{
+	float:left;
+	margin:0px;
+	background:#fff;	
+}
+.sliderHolder
+{
+		width:730px;
+	}
+.gallery1  .discHolder h3, .searchResultsHolder h3{
+	color:#0099CC;
+	border-bottom:#999 1px dotted;
+	font-size:18px;
+	line-height:22px;
+	margin:0 0 10px 0;
+	padding:0 0 6px 0
+}
+
+.searchResultsHolder h3{
+	color:#333;
+	margin:7px 0;
+	font-size:16px;
+	border:none;
+	line-height:18px;
+	padding:7px;
+	border-bottom:#999 dotted 1px;
+	background:#eee;
+}
+#carDet1 strong{
+	color:#333;
+	display:inline-block;
+	width:105px;
+}
+#carDet{
+	font-size:20px;
+}
+.gallery1  .discHolder .disc{
+	font-size:12px;
+	color:#666;
+	line-height:18px;
+}
+
+
+

@@ -1,0 +1,361 @@
+form.jqtransformdone label{
+	margin-top:0;
+	margin-right: 8px;
+	display: block;
+	float:left;
+	padding-left:7px;
+	font-family:Arial, Helvetica, sans-serif;
+	 color:#919292;
+	 font-size:12px;
+	 line-height:16px
+}
+form.jqtransformdone div.rowElem{
+	clear:both;
+	padding:4px 0px;
+}
+.form{background:#292929;
+}
+/* -------------
+ * Buttons
+ * ------------- */
+ 
+ 
+ 
+ 
+button.jqTransformButton {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	overflow: visible;
+
+	
+}
+
+
+
+button.jqTransformButton span {
+
+}
+
+button.jqTransformButton span span {
+	background:url(../images/tail-3.gif) repeat-x 0 -25px #3b3b3b;
+	color: #fff;
+	padding: 7px 10px 6px;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 12px;
+	display: inline-block;
+	text-decoration: none;
+	font-weight:700;
+	font-family:Arial, Helvetica, sans-serif;
+	border:1px solid #333333;
+	box-shadow:0 2px 4px #d1d1d1;
+	-moz-box-shadow: 0 2px 4px #d1d1d1;
+	-webkit-box-shadow:0 2px 4px #d1d1d1;
+	margin-left:12px;
+}
+
+button.jqTransformButton:hover span span {
+	background:url(../images/tail-3.gif) repeat-x 0 0 #fe9600;
+	border:1px solid #fe9600;
+
+}
+
+.txt-1{font-family:Arial, Helvetica, sans-serif;
+font-size:13px;
+color:#ccc;
+text-shadow:1px 1px #111111;
+padding-bottom:6px;}
+
+
+
+/*hover*/
+button.jqTransformButton_hover span span { background-position: left -33px ; }
+button.jqTransformButton_hover span { background-position: right -33px ; }
+
+/*clicked*/
+button.jqTransformButton_click span span { background-position: left -66px ; }
+button.jqTransformButton_click span { background-position: right -66px ; }
+
+/* IE 6 */
+
+
+/* IE 7 */
+
+
+
+/* -------------
+ * Inputs
+ * ------------- */
+ .select-1{padding-bottom:16px;}
+ .searchHolder{
+ 	height:323px;
+	overflow:hidden;
+	margin:11px auto;
+	position:relative;
+	left:15px; top:0px;
+	width:90%; border:none;
+	display:inline-block;
+ }
+ #form{ margin:0}
+ .input-1{float:left;width:98%;
+ padding-bottom:6px;
+ margin-bottom:10px;
+}
+
+  .input-2{float:left;
+  padding-bottom:6px;}
+.jqTransformInputWrapper {
+	
+	
+	height: 31px;
+	padding: 0px;
+	width:121px !important
+	
+}
+
+.jqTransformInputInner {
+	background: transparent;
+	padding: 0px;
+	margin: 0px;
+	width:90% !important
+	
+}
+
+.jqTransformInputInner div {
+	height: 31px;
+	margin:0 ;
+	width:121px !important
+}
+
+.jqTransformInputInner div input {
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:15px;
+	font-size:12px;
+	vertical-align: middle;
+	color:#fff;	
+	border: none;
+	padding: 8px 4px 8px 4px;
+	margin: 0;
+	/*background:url(../images/input_back.png) 0 0 repeat-x;	*/
+	outline:none;
+	width:100%;
+}
+
+
+
+/*hover*/
+.jqTransformInputWrapper_hover{ background-position: left -31px ;}
+.jqTransformInputWrapper_hover div.jqTransformInputInner{ background-position: right -31px ;}
+
+/*focus*/
+.jqTransformInputWrapper_focus{ background-position: left -62px ;}
+.jqTransformInputWrapper_focus div.jqTransformInputInner{ background-position: right -62px ;}
+
+/*
+
+.jqTransformSafari .jqTransformInputInner div {
+	position: relative;
+	overflow: hidden;
+	margin:0px 8px;
+	width:100%;
+}
+.jqTransformSafari .jqTransformInputInner div input {
+	background-color: #fff;
+	position: absolute;
+	top: -10px;
+	left: -2px;
+	height: 42px; 
+	padding-left: 4px;
+	background:url(../images/input_back.png) 0 0 repeat-x;
+	width:100%;
+	
+}
+*/
+
+
+ #form2 .jqTransformSafari {
+ 
+    padding-bottom: 26px;
+}
+
+
+/* -------------
+ * Textarea
+ * ------------- */
+table.jqTransformTextarea td#jqTransformTextarea-mm textarea{
+	font-size: 12px;
+	line-height: 18px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#919292;
+	padding:10px 9px;
+	background:#fff;
+	width:100% !important;
+	height:86px !important;
+	outline:none;
+	
+}
+
+
+table.jqTransformTextarea td#jqTransformTextarea-mm div{
+
+	width:100% !important;
+	height:108px !important;
+	
+	
+}
+
+
+
+table.jqTransformTextarea textarea{
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: 1px solid #dbdbdb;
+	resize:none;
+		border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+		box-shadow:0 0 3px #e5e3e3 inset;
+	-moz-box-shadow: 0 0 3px #e5e3e3 inset;
+	-webkit-box-shadow:0 0 3px #e5e3e3 inset;
+	width:100%px;
+	height:86px;
+	overflow:auto;
+	
+}
+
+
+
+/* -------------
+ * Radios
+ * ------------- */
+.jqTransformRadioWrapper {float: left;margin-left:61px;
+}
+.jqTransformRadio {
+	background: transparent url(../images/checkbox1.gif) no-repeat center top;
+	height: 19px;
+	width: 19px;
+	display:block;/*display: -moz-inline-block;*/
+}
+
+
+/* -------------
+ * Checkboxes
+ * ------------- */
+span.jqTransformCheckboxWrapper{
+	display:block;float:left;
+	margin-top:0;
+}
+#form2 span.jqTransformCheckboxWrapper{
+	display:block;float:left;
+	margin-top:0;
+}
+a.jqTransformCheckbox {
+	
+	display:block;/*display: -moz-inline-block;*/
+}
+
+
+#form2 a.jqTransformCheckbox {
+	background: transparent url(../images/checkbox2.png) no-repeat center top;
+	vertical-align: middle;
+	height: 16px;
+	width: 16px;
+	display:block;/*display: -moz-inline-block;*/
+}
+
+
+
+/* -------------
+ * Checked - Used for both Radio and Checkbox
+ * ------------- */
+a.jqTransformChecked { background-position: center bottom;}
+#form2 a.jqTransformChecked { background-position: center bottom;}
+
+/* -------------
+ * Selects
+ * ------------- */
+.jqTransformSelectWrapper {
+	width: 100% !important;
+	position:relative;
+	height: 31px;
+	background: url(../images/input_back.png) 0 0 repeat-x;
+	border:#1A8099 1px solid;
+	-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+	
+}
+
+.jqTransformSelectWrapper div span {
+	
+	font-size: 12px;
+width:100% !important;
+	position: absolute;
+	white-space: nowrap;
+	height: 21px;
+	line-height: 15px;
+	padding: 8px 0 0 7px;
+	overflow: hidden;
+	cursor:pointer;
+
+}
+
+.jqTransformSelectWrapper  a.jqTransformSelectOpen {
+	display: block;
+	position: absolute;
+	right: 2px;
+	width: 27px;
+	height: 27px;
+	top:2px;
+	background: url(../images/select-right.gif) no-repeat center 0;
+}
+
+.jqTransformSelectWrapper  a.jqTransformSelectOpen:hover{background: url(../images/select-right.gif) no-repeat center -27px;}
+
+.jqTransformSelectWrapper ul {
+	position: absolute;
+	width: 100% !important;
+	top: 30px;
+	left: 0px;
+	list-style: none;
+	background:#1890ad;
+	border: #2c7e9a 1px solid;
+	display: none;
+	margin: 0px;
+	padding: 0px;
+	height: 150px;
+	overflow: auto;
+	overflow-y: auto;
+	z-index:10;
+	-moz-box-shadow:     1px 1px 1px rgba(0,0,0,0.6);
+   -webkit-box-shadow:  1px 1px 1px rgba(0,0,0,0.6);
+   box-shadow:          1px 1px 1px rgba(0,0,0,0.6);
+}
+
+.jqTransformSelectWrapper ul a {
+	display: block;
+	padding: 5px;
+	text-decoration: none;
+	color:#ccc;
+	background:none;
+	font-size: 12px;	
+}
+
+.jqTransformSelectWrapper ul a.selected {
+	background:url(../images/selectBack2.png) 0 0 repeat;
+	color: #eee;
+}
+
+.jqTransformSelectWrapper ul a:hover, .jqTransformSelectWrapper ul a.selected:hover {
+	background:url(../images/selectBack1.png) 0 0 repeat;
+	color: #fff;
+}
+
+/* -------------
+ * Hidden - used to hide the original form elements
+ * ------------- */
+.jqTransformHidden {display: none;}

@@ -1,0 +1,96 @@
+﻿using System;
+using System.Data;
+using System.Configuration;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+using System.Collections;
+
+/// <summary>
+/// Summary description for Collections
+/// </summary>
+public class Collections
+{
+    public Collections()
+    {
+        //
+        // TODO: Add constructor logic here
+        //
+    }
+
+
+
+
+    public delegate bool ListFilterCriteria(object obj);
+
+    public sealed class ListFilter
+    {
+
+        private ListFilter() { }
+
+        public static IList Filter(IList toFilter, ListFilterCriteria criteria)
+        {
+            // Check parameters
+            if (toFilter == null)
+            {
+                throw new ArgumentNullException("toFilter", "The IList to filter must not be null.");
+            }
+            if (criteria == null)
+            {
+                throw new ArgumentNullException("criteria", "The collection filter criteria must not be null.");
+            }
+
+            // Get the invocation list
+            System.Delegate[] invocationList = criteria.GetInvocationList();
+            if (invocationList.Length < 1)
+            {
+                throw new ArgumentException("There must be at least one delegate in the invocation list of the filter criteria.", "criteria");
+            }
+
+            // Create the output collection
+            IList filtered = null;
+            try
+            {
+                // Get the input collection type
+                Type inputType = toFilter.GetType();
+
+                // Create the new object
+                filtered = Activator.CreateInstance(inputType) as IList;
+            }
+            catch (Exception err)
+            {
+                throw new NotSupportedException("Error occurred while creating new collection to contain filtered list.", err);
+            }
+            if (filtered == null)
+            {
+                throw new NotSupportedException("Unable to create new collection to contain filtered list (constructor invocation returned null).");
+            }
+
+            // Perform the filtering
+            foreach (object obj in toFilter)
+            {
+                bool include = true;
+                foreach (ListFilterCriteria individualCriteria in invocationList)
+                {
+                    include = include && individualCriteria(obj);
+                    if (!include)
+                    {
+                        break;
+                    }
+                }
+                if (include)
+                {
+                    filtered.Add(obj);
+                }
+            }
+
+            // Filtering complete; return the filtered collection
+            return filtered;
+        }
+    }
+}

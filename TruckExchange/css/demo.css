@@ -1,0 +1,184 @@
+/*!
+ * Auther      : Jyothirmayudu.CH
+ * Created on  : 8 Jan 2012
+ * Mail        : ch.jmayudu@gmail.com
+ * Discription : CSS for Filter Nav
+ */
+
+.basic  {
+	width: 100%;	
+	border:none;
+	margin:0 auto;
+}
+.basic div {
+	background-color: #eee;
+}
+
+
+.basic div.hed {
+	cursor:pointer;
+	display:block;
+	padding:8px 5px;
+	margin-top: 0;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 12px;
+	color: black;
+	
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #999;	
+	background:#44c3e6 url(../images/AccordionTab0.gif)  ;
+	text-shadow:#fff 1px 1px 0;
+	
+}
+.basic div.hed a{
+	color: #fff;
+	font-weight: bold;
+	font-size: 12px;
+	color: black;	
+	}
+	.hed div.open
+	{
+		background:url(../images/gn-sprite.png) no-repeat scroll -200px -71px transparent;
+		width:12px;
+		height:12px;
+		overflow:hidden;
+		float:right;		
+		margin:3px 4px 0 0;
+	}
+	.hed div.close
+	{
+		background:url(../images/gn-sprite.png) no-repeat scroll -99px -47px transparent;
+		width:12px;
+		height:12px;
+		overflow:hidden;
+		float:right;		
+		margin:2px 5px 0 0;
+	}
+	
+.basic div.hed:hover {
+	color: #fff;
+	background-image: url("../images/AccordionTab2.jpg");
+	text-shadow:#222 1px 1px 1px;
+}
+.basic div.hed:hover a{
+	color: #fff;
+	text-shadow:#222 1px 1px 1px;
+	}
+.basic div.hed.selected {	
+	color: #fff;
+	background-image: url("../images/AccordionTab2.jpg");
+}
+.basic ul{
+	padding:0;
+	margin:5px;
+	line-height:22px;
+}
+.li-hover{
+	color:#ffb619;
+	font-weight:bold
+}
+.basic li input[type='checkbox']{
+	margin-right:6px;
+}
+.basic ul li a{
+	text-decoration:underline;
+	font-size: 12px;
+	margin: 0px;
+	padding: 10px;
+	color:#333;	
+	line-height:20px;
+}
+.basic ul li {
+	color:#333;
+}
+.basic ul li a:hover{
+	text-decoration:underline;
+	color:#ffb619;
+	font-weight:bold
+}
+
+
+
+
+@media print {
+	.basic div, #navigation ul, #list2 dd, #list3 div{
+		display: block!important;
+		height: auto!important
+	}
+}
+
+.ModalPopupBG
+{
+	border: 2px;
+	background-color: #dbdbdb;
+	filter: alpha(opacity=50);
+	opacity: 0.7;
+}
+.alert{
+	/*width:357px; */
+	width:370px;	
+	padding:0;
+	font-weight:normal;
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;	
+	border:1px solid #5e5e5e;	
+	background:#5281d2 url(../images/head-mid.png) 0 -1px repeat-x;
+	position:fixed;
+	left:35%;
+	top:29%;
+	z-index:18999;
+	margin:0 auto;
+	font-family:"Lucida Grande", Verdana, Arial, "Bitstream Vera Sans", sans-serif;
+	padding:0 3px 3px 3px;	
+	
+}
+
+.alert h4{
+	font-size:11px;
+	color:#fff;
+	padding:4px 3px;
+	margin:0;
+}
+.alert .cls{
+	width:44px;
+	height:19px;
+	background:url(../images/cls.png);
+	float:right;
+	margin:-5px 0 0 0 ;
+	position:relative;		
+}
+.alert .cls:hover{
+	background:url(../images/cls-act.png);
+}
+.alert .data{
+	background:#d4d0c8;
+	/* width:340px; */	
+	margin:0 auto;
+	color:#000;
+	font-size:11px;
+	line-height:20px;
+	height:80px;
+	min-height:80px;
+	padding:0 7px 7px 7px;
+	overflow:hidden;
+	border:1px solid #34548b;	
+}
+.alert .data .btn{
+	background:url(../images/alertBtn.png) 0 0 no-repeat;
+	width:78px;
+	height:26px;
+	float:right;
+	text-align:center;
+	font-size:10px;
+	text-transform:uppercase;
+	font-weight:normal;	
+	line-height:10px;
+	margin-top:10px;
+	margin-left:15px;
+	border:none;
+	outline:none;
+	border-width: 0px;
+}

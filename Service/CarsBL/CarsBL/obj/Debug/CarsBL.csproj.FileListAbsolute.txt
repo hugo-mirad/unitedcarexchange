@@ -1,0 +1,323 @@
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+C:\Documents and Settings\user\Desktop\CarExchange\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+E:\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+E:\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+E:\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+E:\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+E:\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+E:\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+E:\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+E:\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+E:\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+E:\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+E:\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+E:\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+E:\CarsExchange\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+E:\CarsExchange\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+E:\CarsExchange\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+E:\Dinesh Folders\CarsProject\Feb_1_2012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+E:\Dinesh Folders\CarsProject\Feb_8_2012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+E:\DineshCars\Feb_12_Sunday\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+E:\DineshCars\Feb_17_2012\CarsExchange\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+E:\Dinesh Folders\CarsProject\Feb_28_2012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+E:\Dinesh Folders\CarsProject\Cars_May_07_2012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+E:\Dinesh Folders\CarsProject\Cars_May_11_2012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+E:\Dinesh Folders\CarsProject\Cars_May_12_2012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+E:\Dinesh Folders\CarsProject\Cars_May_16_2012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+E:\Dinesh Folders\Rv Projects\Rv Latest\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+E:\RV Exchange\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+E:\RV Exchange\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+E:\RV Exchange\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+E:\RV Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+E:\RV Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\RV Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\RV Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+E:\RV Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+E:\RV Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+E:\RV Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+E:\RV Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+E:\RV Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\RV Exchange\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+E:\RV Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\RV Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+E:\RV Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+E:\RV Exchange\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+E:\RV Exchange\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+E:\RV Exchange\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+D:\United\3 Truck Exchange\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+E:\Dinesh Folders\Trucks Project\Trucks Latest\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+E:\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+E:\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+E:\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+E:\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+E:\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+E:\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+E:\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+E:\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+E:\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+E:\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+E:\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+E:\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+E:\Trucks28082012\Service\CarsBL\CarsBL\obj\Debug\ResolveAssemblyReference.cache
+E:\Trucks28082012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+E:\Trucks28082012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.dll
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\CarsBL.pdb
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.dll
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\CarsInfo.pdb
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.csprojResolveAssemblyReference.cache
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.dll
+C:\Users\padma\Desktop\Trucks28082012\Service\CarsBL\CarsBL\obj\Debug\CarsBL.pdb
