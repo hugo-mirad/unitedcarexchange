@@ -19,6 +19,7 @@ using System.Net.Mail;
 
 public partial class Registar : System.Web.UI.Page
 {
+
     DropdownBL objdropdownBL = new DropdownBL();
     DataSet dsDropDown = new DataSet();
     CarsInfo.CarsInfo objcarsInfo = new CarsInfo.CarsInfo();
@@ -27,7 +28,7 @@ public partial class Registar : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+      
         if (Session[Constants.NAME] == null)
         {
             Response.Redirect("Default.aspx");

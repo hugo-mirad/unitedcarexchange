@@ -43,10 +43,11 @@ public partial class Default3 : System.Web.UI.Page
         {
 
             dsSiteMap.Tables[0].Rows.Add();
-            //http://www.mobicarz.com/SearchCarDetails.aspx?Make=Toyota&Model=Sienna&ZipCode=0&WithinZip=5&C=zIgOMkOB46344
-            //http://www.mobicarz.com//2010-Hyundai-Santa%20Fe-707638577695
+            //http://UnitedCarExchange.com/SearchCarDetails.aspx?Make=Toyota&Model=Sienna&ZipCode=0&WithinZip=5&C=zIgOMkOB46344
+            //http://UnitedCarExchange.com//2010-Hyundai-Santa%20Fe-707638577695
 
-            string sUrl = "http://www.mobicarz.com/Buy-Sell-UsedCar/" + SiteMapds.Tables[0].Rows[k]["YearofMake"].ToString() + "-" + SiteMapds.Tables[0].Rows[k]["Make"].ToString() + "-" + SiteMapds.Tables[0].Rows[k]["Model"].ToString() + "-" + SiteMapds.Tables[0].Rows[k]["Caruniqueid"].ToString() + "";
+           // http://www.mobicarz.com/usedcars/1998-Oldsmobile-Intrigue-Akron-OH-442359339643
+            string sUrl = "http://www.mobicarz.com/usedcars/" + SiteMapds.Tables[0].Rows[k]["YearofMake"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["Make"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["Model"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["city"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["statename"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["Caruniqueid"].ToString().Trim() + "";
 
             //dsSiteMap.Tables[0].Rows[dsSiteMap.Tables["url"].Rows.Count - 1][0] = sUrl;
             dsSiteMap.Tables[0].Rows[dsSiteMap.Tables["url"].Rows.Count - 1][0] = sUrl.Replace('&', '-');
@@ -67,7 +68,6 @@ public partial class Default3 : System.Web.UI.Page
         SiteMapBL objSiteMap = new SiteMapBL();
         string sPath = string.Empty;
 
-        //sPath = "XML/XMLStateCityURLs.xml";
         sPath = "XML/SiteMap.xml";
 
         sPath = Server.MapPath(sPath);
@@ -86,7 +86,8 @@ public partial class Default3 : System.Web.UI.Page
 
             dsSiteMap.Tables[0].Rows.Add();
 
-            string sUrl = "http://www.mobicarz.com/SellUsedCars/" + SiteMapds.Tables[0].Rows[k]["state"].ToString() + "/" + SiteMapds.Tables[0].Rows[k]["city"].ToString().Replace("#", "");
+         
+            string sUrl = "http://www.mobicarz.com/usedcars/" + SiteMapds.Tables[0].Rows[k]["YearofMake"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["Make"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["Model"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["city"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["statename"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["Caruniqueid"].ToString().Trim() + "";
 
             //dsSiteMap.Tables[0].Rows[dsSiteMap.Tables["url"].Rows.Count - 1][0] = sUrl;
             dsSiteMap.Tables[0].Rows[dsSiteMap.Tables["url"].Rows.Count - 1][0] = sUrl.Replace('&', '-');

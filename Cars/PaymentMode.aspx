@@ -113,7 +113,7 @@
                                                 <div class="pricing pricing2" style=" margin-top:30px; " >
                                                     <div class="row">
                                                         <div class="inner">
-                                                            <div class="col-sm-6 col-md-6 block-margin">
+                                                            <div class="col-sm-6 col-md-6 block-margin" style="display:none" >
                                                                 <div class="pricing-package block block-shadow white">
                                                                     <div class="block-inner" style=" height:310px ">
                                                                         <div class="title">
@@ -196,19 +196,17 @@
                                                             </div>
                                                             <div class="col-sm-6 col-md-6 block-margin">
                                                                 <div class="pricing-package block block-shadow white">
-                                                                    <div class="block-inner" style=" height:310px ">
+                                                                    <div class="block-inner" style=" height:auto ">
                                                                        
                                                                         <div class="title">
                                                                             <h2>
-                                                                                Pay using Authorize.Net
+                                                                                Pay using Credit Cards
                                                                             </h2>
                                                                         </div>
-                                                                        <div class="block-inner " style=" display:block; text-align:center; "   >
-                                                                                <img src="imagesOld/authorizenet.jpg" class="price block-shadow block-margin" style=" padding:0 10px; "  />
-                                                                            </div>
+                                                                      
                                                                             
-                                                                        <div class="product"  style=" text-align:center; " >
-                                                                           <asp:ImageButton ID="paymode" runat="server" ImageUrl="imagesOld/logo-authorize-net.gif"
+                                                                        <div class="product"  style=" text-align:center; padding:10px 0; " >
+                                                                           <asp:ImageButton ID="paymode" runat="server" ImageUrl="images/cards.jpg"
                                                         PostBackUrl="~/pay.aspx" /></asp:ImageButton>
                                                                         </div>
                                                                         

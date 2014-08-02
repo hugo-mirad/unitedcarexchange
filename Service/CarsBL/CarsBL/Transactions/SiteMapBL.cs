@@ -50,7 +50,9 @@ namespace CarsBL.Transactions
 
             //objUsedCars.Assign stored procedure name
 
-            spNameString = "[USP_GetXMLSiteMap]";
+            //USP_GetXMLSiteMapMobi
+            //spNameString = "[USP_GetXMLSiteMap]";
+            spNameString = "[USP_GetXMLSiteMapMobi]";
             DbCommand dbCommand = null;
 
             try
@@ -99,9 +101,9 @@ namespace CarsBL.Transactions
             //objUsedCars.Connect to the database
             Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
 
-            //objUsedCars.Assign stored procedure name
+            //objUsedCars.Assign stored procedure name USP_GetXMLSiteMapMobi
 
-            spNameString = "[GetStateWiseURL]";
+            spNameString = "[USP_GetXMLSiteMapMobi]";
             DbCommand dbCommand = null;
 
             try

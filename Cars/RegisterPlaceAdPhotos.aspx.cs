@@ -121,17 +121,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 }
                 catch { }
 
-
-
             }
         }
     }
-
-
-
-
-
-
     private void DisplayImages(DataSet dsImages)
     {
         try
@@ -153,10 +145,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 SelModelDis = SelModelDis.Replace("&", "@");
                 if (dsImages.Tables[0].Rows[0][ColumnPic].ToString() != "0" && dsImages.Tables[0].Rows[0][ColumnPic].ToString() != "")
                 {
-
                     ImageName.Visible = true;
                     //ImageName.ImageUrl = "http://unitedcarexchange.com/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
-                    //  ImageName.ImageUrl = "http://localhost:44251/Cars/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
+                    //ImageName.ImageUrl = "http://localhost:44251/Cars/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
                     ImageName.ImageUrl = "http://www.images.mobicarz.com/" + dsImages.Tables[0].Rows[0][ColumnPicLocation].ToString() + dsImages.Tables[0].Rows[0][ColumnPicName].ToString();
                 }
                 else
@@ -187,6 +178,14 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 int UserPackID = Convert.ToInt32(Session["RegUserPackID"].ToString());
                 int UID = Convert.ToInt32(Session["RegUSER_ID"].ToString());
                 bool bnew = objBankDetailsBL.USP_UpdateInfoForFreePackage(PostingID, UserPackID, UID);
+
+                try
+                {
+                //update barndname in sellertinto
+                    DataSet dst = objBankDetailsBL.Brandupdate1(UID);
+                }
+                catch { }
+
                 string LoginPassword = Session["RegPassword"].ToString();
                 string LoginName = Session["RegUserName"].ToString();
 
@@ -201,9 +200,9 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
             else
             {
 
-             
 
-                Response.Redirect("pay.aspx");
+
+                Response.Redirect("PaymentMode.aspx");
             }
 
             //mdepAlertForAsk.Show();
@@ -289,19 +288,25 @@ public partial class RegisterPlaceAdPhotos : System.Web.UI.Page
                 if (objcarsInfo.Pic1 != Pic1)
                 {
                     DataSet dsdata = objdropdownBL.GetPictureLocationByID1(Pic1);
-                    string FileNameSaveData1 = Server.MapPath(dsdata.Tables[0].Rows[0]["picturelocation"].ToString() + dsdata.Tables[0].Rows[0]["picturename"].ToString());
+                   // string FileNameSaveData1 = Server.MapPath(dsdata.Tables[0].Rows[0]["picturelocation"].ToString() + dsdata.Tables[0].Rows[0]["picturename"].ToString());
+                    string FileNameSaveData1 = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + dsdata.Tables[0].Rows[0]["picturelocation"].ToString() + dsdata.Tables[0].Rows[0]["picturename"].ToString();
+                   
                     string FileNameSaveData = dsdata.Tables[0].Rows[0]["picturelocation"].ToString() + dsdata.Tables[0].Rows[0]["picturename"].ToString();
                     System.Web.UI.WebControls.Image Image1 = (System.Web.UI.WebControls.Image)form1.FindControl("Img1");
-                    Image1.ImageUrl = "~/" + FileNameSaveData;
+                   // Image1.ImageUrl = "~/" + FileNameSaveData;
+                    Image1.ImageUrl = FileNameSaveData;
                     string SavePath = dsdata.Tables[0].Rows[0]["picturelocation"].ToString();
-                    string path = Server.MapPath(Image1.ImageUrl);
+                 //   string path = Server.MapPath(Image1.ImageUrl);
+                    string path = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + Image1.ImageUrl;
                     //string path = Server.MapPath(ImageName.ImageUrl);
                     string SelModelName = Model.ToString();
                     SelModelName = SelModelName.Replace("/", "@");
                     SelModelName = SelModelName.Replace("&", "@");
                     SelModelName = SelModelName.Replace(" ", "-");
                     string FileNameThumb = Year + "_" + Make + "_" + SelModelName + "_" + CarID + "_Thumb.jpg";
-                    string FileNameFullThumb = Server.MapPath("~/" + dsdata.Tables[0].Rows[0]["picturelocation"].ToString());
+                  //  string FileNameFullThumb = Server.MapPath("~/" + dsdata.Tables[0].Rows[0]["picturelocation"].ToString());
+                    string FileNameFullThumb = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + dsdata.Tables[0].Rows[0]["picturelocation"].ToString();
+
                     System.Drawing.Image image = System.Drawing.Image.FromFile(path);
                     //int newwidthimg = 250;
                     //float AspectRatio = (float)image.Size.Width / (float)image.Size.Height;

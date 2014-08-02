@@ -42,6 +42,14 @@
         var LoadingPage = 10;
     </script>
 
+
+    <style>
+
+        .btn, .btn-primary, .pricing-page .pricing .pricing-package .action-button a, .pricing-page .pricing .pricing-package .action-button input {
+            padding:5px 15px;
+        }
+    </style>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -114,7 +122,7 @@
                                                     <div class="col-sm-12 col-md-8">
                                                         <table>
                                                             <tr>
-                                                                <td class="property" style="width: 100px;">
+                                                                <td class="property" style="width: 55px;">
                                                                     Year
                                                                 </td>
                                                                 <td class="value">
@@ -146,8 +154,9 @@
                                                                 <td class="value">
                                                                     <div class="action-button" style="text-align: left">
                                                                        <span style=" display:none; "><%# Eval("carid")%></span>
-                                                                        <asp:LinkButton ID="Linkcarid" runat="server"  CssClass="btn btn-primary caredit" Text="Edit" CommandArgument='<%# Eval("postingID")%>' CommandName="EditCar"    />
-                                                                        <asp:LinkButton ID="lnkReviews" runat="server"  CssClass="btn btn-primary caredit" Text="Reviews" CommandArgument='<%# Eval("CaruniqueId")%>' CommandName="Reviews"    />
+                                                                        <asp:LinkButton ID="LinkButton1" runat="server"  CssClass="btn btn-primary caredit btn-ssm" Text="View"  CommandArgument='<%#Eval("carid") + ";" +Eval("postingid")%>' CommandName="Viewcar"  />
+                                                                        <asp:LinkButton ID="Linkcarid" runat="server"  CssClass="btn btn-primary caredit btn-ssm" Text="Edit" CommandArgument='<%# Eval("postingID")%>' CommandName="EditCar"    />
+                                                                        <asp:LinkButton ID="lnkReviews" runat="server"  CssClass="btn btn-primary caredit btn-ssm" Text="Reviews" CommandArgument='<%# Eval("CaruniqueId")%>' CommandName="Reviews"    />
                                                                     </div>
                                                                 </td>
                                                             </tr>

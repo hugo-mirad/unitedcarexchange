@@ -12,10 +12,11 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Net;
 using CarsBL.Transactions;
-using System.Net.Mail;
+using Stripe;
 
 public partial class pay : System.Web.UI.Page
 {
+    public static string appkey = System.Configuration.ConfigurationManager.AppSettings["StripeApiKey"].ToString().Trim();
     DropdownBL objdropdownBL = new DropdownBL();
     DataSet dsDropDown = new DataSet();
     BankDetailsBL objBankDetailsBL = new BankDetailsBL();
@@ -28,34 +29,7 @@ public partial class pay : System.Web.UI.Page
         {
 
 
-            // ------------------------------------------------------------
 
-            if (Session["PackageID"] != null && Session["PackgeName"] != null && Session["PackgePrice"] != null)
-            {
-                lblpackagename2.Text = Session["PackgeName"].ToString();
-                lblpckgprice.Text = Session["PackgePrice"].ToString();
-
-                lblSname.Text = Session["sName"].ToString();
-                lblSmail.Text = Session["sEmail"].ToString();
-                lblSphone.Text = Session["sPhone"].ToString();
-
-                lblSyear.Text = Session["SelYear"].ToString();
-                lblSmake.Text = Session["SelMake"].ToString();
-                lblSmodel.Text = Session["SelModel"].ToString();
-                lblSprice.Text = Session["SelPrice"].ToString();
-
-                //  lblSphotos.Text = Session["SelUploadedImg"].ToString() + "/" + Session["MaxPhotos"].ToString(); ;
-                lblSphotos.Text = Session["MaxPhotos"].ToString();
-
-            }
-            else
-            {
-                Session.RemoveAll();
-                Response.Redirect("SellRegi.aspx");
-            }
-
-
-            // if (Session["CarID"] != null)
             if (Session["CarID"] != null)
             {
                 DataSet dsYears = objBankDetailsBL.USP_GetNext12years();
@@ -71,11 +45,10 @@ public partial class pay : System.Web.UI.Page
             }
             else
             {
-                Session.RemoveAll();
-                Session["regRedirect"] = 1;
                 Response.Redirect("Default.aspx");
             }
         }
+       
     }
     private void showsaledetails()
     {
@@ -90,7 +63,7 @@ public partial class pay : System.Web.UI.Page
         Session["SelModel"] = dsCarDetailsInfo.Tables[0].Rows[0]["model"].ToString();
         DataSet dsImages = objdropdownBL.USP_GetImages(Convert.ToInt32(Session["CarID"].ToString()), Convert.ToInt32(Session["PackageID"].ToString()));
         Session["GetImages"] = dsImages;
-      
+
 
         if (dsImages.Tables[0].Rows[0]["Pic0"].ToString() != "0" && dsImages.Tables[0].Rows[0]["Pic0"].ToString() != "")
         {
@@ -302,11 +275,108 @@ public partial class pay : System.Web.UI.Page
             return false;
         }
     }
+
+
+    //Payment using stripe account
+    private void StripePayment()
+    {
+        string tx = "", invoice = "", amountre = "", pricere = "";
+        string ErrorString = "";
+        try
+        {
+
+            try
+            {
+                int chargetotal = 0;//Convert.ToInt32((3.33*Convert.ToInt32(days)*100));
+                //("x_exp_date", ExpMon.SelectedItem.Text + "/" + CCExpiresYear.SelectedItem.Text);
+                if (lblAdPrice2.Text == "")
+                {
+                    chargetotal = 0;
+                }
+                else
+                {
+                    double lblAdPrice21 = 0;
+                    lblAdPrice21 = Convert.ToDouble(lblAdPrice2.Text);
+                    if (lblAdPrice21 == 0)
+                    {
+                        lblAdPrice21 = 0;
+                    }
+                    else
+                    {
+                        double chargetotal1 = lblAdPrice21 * (Convert.ToInt32(100));
+                        chargetotal = Convert.ToInt32(chargetotal1);
+                    }
+                    // chargetotal = Convert.ToInt32((lblAdPrice2.Text)*100);
+                }
+                var mycharge = new StripeChargeCreateOptions();
+                mycharge.AmountInCents = chargetotal;
+                mycharge.Currency = "USD";
+                mycharge.CardAddressCity = CityTextBox.Text;
+                mycharge.CardAddressCountry = CountryTextBox.Text;
+                mycharge.CardAddressLine1 = AddressTextBox.Text;
+                mycharge.CardAddressLine2 = "";
+                mycharge.CardAddressState = ddlBillState.SelectedItem.Text;
+                mycharge.CardAddressZip = txtBillZip.Text;
+                mycharge.CardCvc = cvv.Text;
+                mycharge.CardExpirationMonth = ExpMon.SelectedItem.Text;
+                mycharge.CardExpirationYear = CCExpiresYear.SelectedItem.Text;
+                mycharge.CardName = FirstNameTextBox.Text + " " + LastNameTextBox.Text;
+                mycharge.CardNumber = txtCardNumber.Text;
+
+                string key = appkey;
+                var chargeservice = new StripeChargeService(key);
+                var response = chargeservice.Create(mycharge);
+
+
+                tx = response.Id.ToString();
+                invoice = response.Id.ToString();
+                amountre = response.AmountInCents.ToString();
+
+
+
+                if (response.Paid == true)
+                {
+                    //AuthNetCodeLabel.Text = ReturnValues[4].Trim(char.Parse("|")); // Returned Authorisation Code
+                    //AuthNetTransIDLabel.Text = ReturnValues[6].Trim(char.Parse("|")); // Returned Transaction ID
+
+                    Response.Redirect("PaymentSucces.aspx?NetCode=" + response.Id.Trim(char.Parse("|")) + "&tx=" + response.Id.Trim(char.Parse("|")) + "&amt=" + lblAdPrice2.Text + "&item_number=" + Session["PackageID"].ToString() + "");
+
+                    lblErr.Text = "Authorisation Code" + response.Id.Trim(char.Parse("|")) + "</br>TransID=" + response.Id.Trim(char.Parse("|")); // Returned Authorisation Code;
+                    mpealteruser.Show();
+
+                }
+                else
+                {
+                    // Error!
+                    ErrorString = response.FailureMessage;
+                    lblErr.Text = ErrorString;
+                    mpealteruser.Show();
+
+                }
+
+            }
+            catch (StripeException ex)
+            {
+
+                lblErr.Text = (ex.Message);
+                mpealteruser.Show();
+
+            }
+
+        }
+        catch (Exception ex)
+        {
+            //CustomValidator1.ErrorMessage = ex.Message;
+
+        }
+    }
+
     protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
     {
         args.IsValid = true;
-
-        AuthorizePayment();
+    
+        StripePayment();
+      
         //if (CustomValidator1.ErrorMessage.Length > 0)
         //{
         //    args.IsValid = false;
@@ -321,144 +391,7 @@ public partial class pay : System.Web.UI.Page
     protected void SubmitButton_Click(object sender, EventArgs e)
     {
         //dummy postback event authorize validation is done during this postback
-       // AuthorizePayment();
-
-        //Saving Credentials
-        SaveCardDetails();
-
-      
-    }
-
-    private void SaveCardDetails()
-    {
-        //Usp_Save_PaymenDetails1
-
-        int stateid = 0;
-        
-        try
-        {
-            stateid=Convert.ToInt32(ddlBillState.SelectedValue);
-        }catch{stateid=0;}
-        DataSet dsUserInfoDetails = objdropdownBL.Save_PaymenDetails1(txtCardNumber.Text,txtCardholderName.Text,ExpMon.SelectedValue+"/"+CCExpiresYear.SelectedValue,
-           cvv.Text, FirstNameTextBox.Text, LastNameTextBox.Text, AddressTextBox.Text, CityTextBox.Text, stateid,
-           txtBillZip.Text,txtBillPhone.Text,EmailTextBox.Text,Session["CarID"].ToString(),CardType.SelectedItem.ToString() );
-
-
-        int PostingID = Convert.ToInt32(Session["PostingID"].ToString());
-        int UserPackID = Convert.ToInt32(Session["RegUserPackID"].ToString());
-        int UID = Convert.ToInt32(Session["RegUSER_ID"].ToString());
-        bool bnew = objBankDetailsBL.USP_UpdateInfoForFreePackage(PostingID, UserPackID, UID);
-        string LoginPassword = Session["RegPassword"].ToString();
-        string LoginName = Session["RegUserName"].ToString();
-        SendRegisterMail(LoginName, LoginPassword);
-        SendRegisterMailInfo(LoginName, LoginPassword);
-        txtsuccs.Text = "<b>Registration Successful</b><br>Thank you for registering with MobiCarz. One of our customer representative will contact you shortly.";
-        System.Web.UI.ScriptManager.RegisterClientScriptBlock(Page, typeof(Page), "Script", "hidePop();", true);
-
-         mdlPaySucc.Show();
-    }
-
-    private void SendRegisterMail(string LoginName, string LoginPassword)
-    {
-        try
-        {
-            string UserDisName = Session["RegName"].ToString();
-            string UserLoginID = Session["RegLogUserID"].ToString();
-            clsMailFormats format = new clsMailFormats();
-            MailMessage msg = new MailMessage();
-            msg.From = new MailAddress(CommonVariable.FromInfoMail);
-            msg.To.Add(LoginName);
-            // msg.Bcc.Add(CommonVariable.ArchieveMail);
-            msg.Subject = "Registration details from MobiCarz for Car ID# " + Session["CarID"].ToString();
-            msg.IsBodyHtml = true;
-            string text = string.Empty;
-            text = format.SendRegistrationdetails(UserLoginID, LoginPassword, UserDisName, ref text);
-            msg.Body = text.ToString();
-            SmtpClient smtp = new SmtpClient();
-
-            //smtp.Host = "smtp.gmail.com";
-            //smtp.Port = 587;
-            //smtp.Credentials = new System.Net.NetworkCredential("padma@datumglobal.net", "");
-            //smtp.EnableSsl = true;
-            //smtp.Send(msg);
-            smtp.Host = "127.0.0.1";
-            smtp.Port = 25;
-            smtp.Send(msg);
-        }
-        catch (Exception ex)
-        {
-        }
-    }
-
-    private void SendRegisterMailInfo(string LoginName, string LoginPassword)
-    {
-        try
-        {
-            string UserDisName = Session["RegName"].ToString();
-            string UserLoginID = Session["RegLogUserID"].ToString();
-            clsMailFormats format = new clsMailFormats();
-
-            //Sending Mail//
-            MailMessage msg = new MailMessage();
-            msg.From = new MailAddress("padma@datumglobal.net");
-            msg.To.Add("padma@datumglobal.net");
-            msg.Subject = "Mobicarz Custome registered Information";
-            string EmailBody = DesignMail_Body();
-            msg.Body = EmailBody;
-            msg.IsBodyHtml = true;
-
-            SmtpClient smtp = new SmtpClient();
-            //smtp.Host = "smtp.gmail.com";
-            //smtp.Port = 587;
-            //smtp.Credentials = new System.Net.NetworkCredential("padma@datumglobal.net", "");
-            //smtp.EnableSsl = true;
-            //smtp.Send(msg);
-            smtp.Host = "127.0.0.1";
-            smtp.Port = 25;
-            smtp.Send(msg);
-
-
-
-        }
-        catch (Exception ex)
-        {
-        }
-    }
-
-    private string DesignMail_Body()
-    {
-        string Fname = "", Ph = "", Lname = "", Email = "", packageid = "", strTransaction = string.Empty;
-
-        try
-        {
-
-            Fname = Session["RegName"].ToString();
-            Ph = Session["RegPhoneNumber"].ToString();
-            Lname = Session["Lastname"].ToString();
-            Email = Session["sEmail"].ToString();
-            packageid = Session["PackgeName"].ToString() + " (" + Session["PackgePrice"].ToString() + ")";
-
-        }
-        catch { }
-        string message = "This is the Information Regarding Mobicarz Customer";
-
-        string Message1 = "Sincerely,<br>The MobiCarz Team<br>(888)465-6693";
-
-
-
-
-        strTransaction += " <table> <tr> <td style=\"width: 43%; vertical-align: top;\" class=\"form1\">  <h4> " + message + "</h4>";
-        strTransaction += " <tr><td>First Name:</td><td>" + Fname + "</td></tr>";
-        strTransaction += " <tr><td>Last Name:</td><td>" + Lname + "</td></tr>";
-        strTransaction += " <tr><td>Phone No.:</td><td>" + Ph + "</td></tr>";
-        strTransaction += " <tr><td>Email Id:</td><td>" + Email + "</td></tr>";
-        strTransaction += " <tr><td>Package:</td><td>" + packageid + "</td></tr>";
-        strTransaction += " <tr></tr>";
-        strTransaction += " <tr></tr>";
-        strTransaction += "<tr><td>" + Message1 + "</td> </tr>";
-        strTransaction += " <tr><td colspan=\"2\">&nbsp; </td> </tr></table> </td></tr></table>";
-
-        return strTransaction;
+        StripePayment();
 
     }
     private void fillYears(DataSet dsYears)
@@ -489,8 +422,25 @@ public partial class pay : System.Web.UI.Page
         {
         }
     }
-    public void btnsuccess_click(object sender, EventArgs e)
+
+    public void btnpa_click(object sender, EventArgs e)
     {
-        Response.Redirect("Default.aspx");
+        //if (rbtpay.SelectedIndex == 0)
+        //{
+        //    Session["PayType"] = "Stripe";
+
+        //}
+        //else
+        //{
+        //    Session["PayType"] = "Authorize";
+
+        //}
+
+        //if (Session["PayType"] == "Stripe")
+         
+        //else
+        //    AuthorizePayment();
+
+
     }
 }

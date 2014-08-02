@@ -72,15 +72,20 @@ public partial class FileUploads : System.Web.UI.Page
             {
                 k = Convert.ToInt32(Session["k"].ToString()) + 1;
             }
+
+
+
+            ////------------ Server in local test ----------------//
+
+
             string Filepath = "CarImages/" + Year + "/" + Make + "/" + Model + "/" + CarID + "/";
-
-           
-
-
-            //string FileNameFullPath = "http://images.mobicarz.com/CommonImages";
             string FileNameFullPath = @"C:/Inetpub/wwwroot/COMMONIMAGES/CarImages/" + Year + "/" + Make + "/" + Model + "/" + CarID;
 
-          
+            //string Filepath = "CarImages/" + Year + "/" + Make + "/" + Model + "/" + CarID + "/";
+            //string FileNameFullPath = Server.MapPath("CarImages/" + Year + "/" + Make + "/" + Model + "/" + CarID);
+            //////------------ Server in local test ----------------//
+
+
 
             //string ipaddress = "C:/Inetpub/vhosts/http://66.23.236.151/";
             //string a = ipaddress + Filepath;
@@ -114,6 +119,7 @@ public partial class FileUploads : System.Web.UI.Page
             uploads.SaveAs(FileNameSaveData);
            
             Bitmap oBitmap = default(Bitmap);
+
             oBitmap = new Bitmap(FileNameSaveData);
             Graphics oGraphic = default(Graphics);
 

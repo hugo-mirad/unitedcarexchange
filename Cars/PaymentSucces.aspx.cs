@@ -137,6 +137,12 @@ public partial class PaymentSucces : System.Web.UI.Page
                     int PostingID = Convert.ToInt32(Session["PostingID"].ToString());
                     int UserPackID = Convert.ToInt32(Session["RegUserPackID"].ToString());
                     bool bnew = objBankDetailsBL.UpdatePmntStatus(objPmntDetailsinfo, PackageID, UID, CarID, UserPackID, PostingID);
+                    try
+                    {
+                        //update barndname in sellertinto
+                        DataSet dst = objBankDetailsBL.Brandupdate1(UID);
+                    }
+                    catch { }
 
                 }
                 else
@@ -172,7 +178,12 @@ public partial class PaymentSucces : System.Web.UI.Page
                     int PostingID = Convert.ToInt32(Session["PostingID"].ToString());
                     int UserPackID = Convert.ToInt32(Session["RegUserPackID"].ToString());
                     bool bnew = objBankDetailsBL.UpdatePmntStatus(objPmntDetailsinfo, PackageID, UID, CarID, UserPackID, PostingID);
-
+                    try
+                    {
+                        //update barndname in sellertinto
+                        DataSet dst = objBankDetailsBL.Brandupdate1(UID);
+                    }
+                    catch { }
 
                 }
                 string LoginPassword = Session["RegPassword"].ToString();

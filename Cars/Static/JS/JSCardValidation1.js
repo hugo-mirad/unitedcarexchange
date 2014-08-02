@@ -255,8 +255,7 @@ return true if cardnumber pass the luhncheck and the expiry date is
 valid, else return false.
 \*************************************************************************/
 function checkCardNumber() {
-    debugger
-    alert('testing');
+   
     var argv = checkCardNumber.arguments;
     var argc = checkCardNumber.arguments.length;
     var cardnumber = (argc > 0) ? argv[0] : this.cardnumber;

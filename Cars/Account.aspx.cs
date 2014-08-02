@@ -40,8 +40,8 @@ public partial class Account : System.Web.UI.Page
                 hdnSubAlert.Value = "true";
                 GeneralFunc.SetPageDefaults(Page);
                 Session["CurrentPage"] = "Account";
-
-               
+                Session["Memebersincedate"] = null;
+                Session["k"] = 0;
 
 
                 Session["PageName"] = "";
@@ -92,6 +92,7 @@ public partial class Account : System.Web.UI.Page
                 {
                     DateTime dtAddDate = Convert.ToDateTime(dsUserInfoDetails1.Tables[0].Rows[0]["CreatedDate"].ToString());
                     lblUserMemberDate.Text = dtAddDate.ToString("MM/dd/yy");
+                    Session["Memebersincedate"] = dtAddDate.ToString("MM/dd/yy");
                 }
 
                 lblBusinessName.Text = dsUserInfoDetails1.Tables[0].Rows[0]["BusinessName"].ToString();
@@ -664,6 +665,25 @@ public partial class Account : System.Web.UI.Page
             throw ex;
         }
 
+        //View car Viewcar
+
+        try
+        {
+            if (e.CommandName == "Viewcar")
+            {
+               
+                string[] arg = new string[2];
+                arg = e.CommandArgument.ToString().Split(';');
+               
+                Session["caridhdn"] = arg[0];
+                Session["PostingID"] = arg[1];
+                Response.Redirect("CarDetails.aspx");
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
         //Reviews
 
         try

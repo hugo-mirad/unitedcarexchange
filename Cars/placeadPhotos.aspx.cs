@@ -217,20 +217,29 @@ public partial class placeadPhotos : System.Web.UI.Page
             {
                 if (objcarsInfo.Pic1 != Pic1)
                 {
+
+                    // @"C:/Inetpub/wwwroot/COMMONIMAGES/CarImages/
+
+
                     DataSet dsdata = objdropdownBL.GetPictureLocationByID1(Pic1);
-                    string FileNameSaveData1 = Server.MapPath(dsdata.Tables[0].Rows[0]["picturelocation"].ToString() + dsdata.Tables[0].Rows[0]["picturename"].ToString());
+                    string FileNameSaveData1 = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + dsdata.Tables[0].Rows[0]["picturelocation"].ToString() + dsdata.Tables[0].Rows[0]["picturename"].ToString();
+                  //   string FileNameSaveData12 = Server.MapPath(dsdata.Tables[0].Rows[0]["picturelocation"].ToString() + dsdata.Tables[0].Rows[0]["picturename"].ToString());
                     string FileNameSaveData = dsdata.Tables[0].Rows[0]["picturelocation"].ToString() + dsdata.Tables[0].Rows[0]["picturename"].ToString();
                     System.Web.UI.WebControls.Image Image1 = (System.Web.UI.WebControls.Image)form1.FindControl("Img1");
-                    Image1.ImageUrl = "~/" + FileNameSaveData;
+                   // Image1.ImageUrl = "~/" + FileNameSaveData;
+                    Image1.ImageUrl =  FileNameSaveData;
                     string SavePath = dsdata.Tables[0].Rows[0]["picturelocation"].ToString();
-                    string path = Server.MapPath(Image1.ImageUrl);
+                    //string path = Server.MapPath(Image1.ImageUrl);
+                    string path = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + Image1.ImageUrl;
                     //string path = Server.MapPath(ImageName.ImageUrl);
                     string SelModelName = Model.ToString();
                     SelModelName = SelModelName.Replace("/", "@");
                     SelModelName = SelModelName.Replace("&", "@");
                     SelModelName = SelModelName.Replace(" ", "-");
                     string FileNameThumb = Year + "_" + Make + "_" + SelModelName + "_" + CarID + "_Thumb.jpg";
-                    string FileNameFullThumb = Server.MapPath("~/" + dsdata.Tables[0].Rows[0]["picturelocation"].ToString());
+                   // string FileNameFullThumb = Server.MapPath("~/" + dsdata.Tables[0].Rows[0]["picturelocation"].ToString());
+                    string FileNameFullThumb = @"C:/Inetpub/wwwroot/COMMONIMAGES/" + dsdata.Tables[0].Rows[0]["picturelocation"].ToString();
+                     
                     System.Drawing.Image image = System.Drawing.Image.FromFile(path);
                     //int newwidthimg = 250;
                     //float AspectRatio = (float)image.Size.Width / (float)image.Size.Height;

@@ -33,6 +33,7 @@
     <script src="assets/js/jquery.js" type="text/javascript"></script>
 
     <script src="assets/js/jquery-migrate-1.2.1.js" type="text/javascript"></script>
+     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
     <script src="assets/js/jquery.ui.js" type="text/javascript"></script>
 
@@ -44,10 +45,25 @@
 
     <script type="text/javascript" src="js/jquery.dragsort-0.5.1.min.js"></script>
 
-    <script src="js/photoUpload.js" type="text/javascript"></script>
+ 
+
+
+
+     <!-- New Image Upload Scripts -->
+    <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+    <script src="NewUploadJS/jquery.fileupload-ui.js"></script>
+    <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+    <script src="NewUploadJS/jquery.iframe-transport.js"></script>
+    <!-- The basic File Upload plugin -->
+    <script src="NewUploadJS/jquery.fileupload.js"></script>
+
+    <script src="js/photoUploadNew.js" type="text/javascript"></script>
+
 
     <script type="text/javascript">
-
+        $(function () {
+            $('#spinner').show();
+        })
         var CARID;
         var PICID0;
         var UploadifyAuthCookie = '<% = Request.Cookies[FormsAuthentication.FormsCookieName] == null ? string.Empty : Request.Cookies[FormsAuthentication.FormsCookieName].Value %>';
@@ -179,16 +195,17 @@
                                     <asp:Button ID="Button2" runat="server" CssClass="btn btn-danger floatR" Text="Continue"
                                         Style="float: right; margin-right: 8px;" OnClick="btnSave_Click" />
                                         --%>
-                                                            <div id="fuFiles" style="width: 100%; margin-bottom: 10px;">
-                                                                <div class=" col-md-12  ">
-                                                                    <input id="file_upload" name="file_upload" type="file" multiple="true" class="btn btn-primary2 floatR MR10"
-                                                                        style="display: none;">
-                                                                </div>
-                                                                <div class="clear">
-                                                                </div>
-                                                                <div id="queue" style="width: 100%; margin-bottom: 10px;">
-                                                                </div>
-                                                            </div>
+                                                           <div class=" newFileUploadControler2" style="display: none">
+                                                                            <span class="btn btn-success fileinput-button">
+                                                                                <i class="glyphicon glyphicon-plus"></i>
+                                                                                <span>Select files...</span>
+                                                                                <!-- The file input field used as target for the file upload widget -->
+                                                                                <input id="fileupload" type="file" name="files[]" multiple="multiple"  >
+                                                                            </span>
+                                                                            <div id="progress2" class="progress">
+                                                                                <div class="progress-bar progress-bar-success"></div>
+                                                                            </div>
+                                                                        </div>
                                                             <%-- <input type="button" value="Add photos now" class="btn btn-danger floatR MR10" />--%>
                                                             <div class="clear">
                                                                 &nbsp;</div>

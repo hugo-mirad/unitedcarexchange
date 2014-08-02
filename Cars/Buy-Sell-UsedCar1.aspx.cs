@@ -626,9 +626,12 @@ public partial class SearchCarDetails : System.Web.UI.Page
 
                     //return;
                 }
+
                 else if (objCarInfo[0].AdStatus != "Active")
                 {
 
+                     soldcarid.Visible = false;
+                     soldcarid2.Attributes["class"] = "col-sm-12";
                     lblCarsoldStatus.Text = "This car is in " + objCarInfo[0].AdStatus + " status!";
                     mailsend.Visible = false;
                     //return;

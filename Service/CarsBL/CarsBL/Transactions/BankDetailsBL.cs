@@ -231,6 +231,27 @@ namespace CarsBL.Transactions
                 throw ex;
             }
         }
+
+        //Usp_Brandupdate
+        public DataSet Brandupdate1(int uid)
+        {
+            try
+            {
+                DataSet dsyears = new DataSet();
+                string spNameString = string.Empty;
+                Database dbDatabase = DatabaseFactory.CreateDatabase(Global.INSTANCE_NAME);
+                spNameString = "Usp_Brandupdate";
+                DbCommand dbCommand = null;
+                dbCommand = dbDatabase.GetStoredProcCommand(spNameString);
+                dbDatabase.AddInParameter(dbCommand, "@uid", DbType.Int32, uid);
+                dsyears = dbDatabase.ExecuteDataSet(dbCommand);
+                return dsyears;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 
 

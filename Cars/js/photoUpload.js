@@ -140,14 +140,14 @@ function productionPage(carDet) {
 
 
     //console.log($.browser.name); // || $.browser.name == 'Firefox' || $.browser.name == 'firefox'
-
+    //alert($.browser.name);
     if (($.browser.name == 'safari' || $.browser.name == 'Safari' ) && imgCount > 0) {
-            //console.log('safari');
+           // console.log('safari');
          // Upload Images HTML 
             
             
             var links = '<link href="_scripts/uploadHTML5/uploadifive.css" rel="stylesheet" type="text/css" />'
-                        + '<script src="_scripts/uploadHTML5/jquery.uploadifive.min.js" type="text/javascript"></script>';
+            links  += '<script src="_scripts/uploadHTML5/jquery.uploadifive.min.js" type="text/javascript"></script>';
             $('head').append(links);
 
 
@@ -161,8 +161,11 @@ function productionPage(carDet) {
                 'fileType': 'image',
                 'queueSizeLimit': imgCount,
                 //'simUploadLimit': 2,
-                'multi': true,
-                'width': 120,
+                'multi': false,
+                'width': 140,
+                'onFallback'   : function() {
+                    alert('Oops!  You have to use the non-HTML5 file uploader.');
+                },
                 'onError': function (a, b, c, d) {
                     if (d.status == 404)
                         alert("Could not find upload script. Use a path relative to: " + "<?= getcwd() ?>");
@@ -173,8 +176,8 @@ function productionPage(carDet) {
                     else
                         alert("error " + d.type + ": " + d.text);
                 },
-                'onQueueComplete': function (event, data) {
-                    location.reload();
+                'onQueueComplete': function (event) {                   
+                    window.location = window.location.pathname;
                 }
             });
         } else if (($.browser.name != 'safari' && $.browser.name != 'Safari') && imgCount > 0) {

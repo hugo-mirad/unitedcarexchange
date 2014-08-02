@@ -318,6 +318,7 @@ public partial class RegisterPlaceAd : System.Web.UI.Page
                 list5.Value = dsUserInfoDetails.Tables[0].Rows[0]["StateID"].ToString();
                 list5.Text = dsUserInfoDetails.Tables[0].Rows[0]["State_Code"].ToString();
                 ddlLocationState.SelectedIndex = ddlLocationState.Items.IndexOf(list5);
+                
             }
 
         }

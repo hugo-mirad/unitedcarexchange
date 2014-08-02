@@ -192,7 +192,7 @@
 					<div class="brand">
 						<div class="logo">
 							<a href="default.aspx">
-								<img src="assets/img/logo.png" alt="Carat HTML Template">
+								<img src="assets/img/logo.png" alt="MobiCarz">
 							</a>
 						</div><!-- /.logo -->
 
