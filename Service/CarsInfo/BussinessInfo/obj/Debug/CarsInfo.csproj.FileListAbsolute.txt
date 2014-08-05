@@ -14,3 +14,7 @@ C:\Users\padma\Desktop\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Service
 C:\Users\padma\Desktop\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Service\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.csprojResolveAssemblyReference.cache
 C:\Users\padma\Desktop\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Service\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.dll
 C:\Users\padma\Desktop\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Service\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.pdb
+D:\4.5V working sources\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Service\CarsInfo\BussinessInfo\bin\Debug\CarsInfo.pdb
+D:\4.5V working sources\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Service\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.csprojResolveAssemblyReference.cache
+D:\4.5V working sources\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Service\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.dll
+D:\4.5V working sources\UCE Live 09-04-2014\United-Car-Exchange-Jan082014\Service\CarsInfo\BussinessInfo\obj\Debug\CarsInfo.pdb
