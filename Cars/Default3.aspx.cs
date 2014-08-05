@@ -26,7 +26,7 @@ public partial class Default3 : System.Web.UI.Page
         SiteMapBL objSiteMap = new SiteMapBL();
         string sPath = string.Empty;
 
-        sPath = "XML/SiteMap.xml";
+        sPath = "XML/MobiSiteMap.xml";
 
         sPath = Server.MapPath(sPath);
 
@@ -60,7 +60,50 @@ public partial class Default3 : System.Web.UI.Page
         xmlDoc.Close();
 
     }
-    protected void btnStateWiseURL_Click(object sender, EventArgs e)
+    //protected void btnStateWiseURL_Click(object sender, EventArgs e)
+    //{
+
+    //    DataSet dsSiteMap = new DataSet();
+
+    //    SiteMapBL objSiteMap = new SiteMapBL();
+    //    string sPath = string.Empty;
+
+    //    sPath = "XML/SiteMap.xml";
+
+    //    sPath = Server.MapPath(sPath);
+
+    //    FileStream fs = new FileStream(sPath, FileMode.Open);
+
+
+    //    dsSiteMap.ReadXml(fs);
+
+    //    fs.Close();
+
+    //    DataSet SiteMapds = objSiteMap.XmlSiteMapbyCityState();
+
+    //    for (int k = 0; k < SiteMapds.Tables[0].Rows.Count; k++)
+    //    {
+
+    //        dsSiteMap.Tables[0].Rows.Add();
+
+         
+    //        string sUrl = "http://www.mobicarz.com/usedcars/" + SiteMapds.Tables[0].Rows[k]["YearofMake"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["Make"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["Model"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["city"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["statename"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["Caruniqueid"].ToString().Trim() + "";
+
+    //        //dsSiteMap.Tables[0].Rows[dsSiteMap.Tables["url"].Rows.Count - 1][0] = sUrl;
+    //        dsSiteMap.Tables[0].Rows[dsSiteMap.Tables["url"].Rows.Count - 1][0] = sUrl.Replace('&', '-');
+
+    //    }
+    //    StreamWriter xmlDoc = new StreamWriter((sPath), false);
+
+    //    dsSiteMap.WriteXml(xmlDoc);
+
+    //    xmlDoc.Close();
+
+
+    //}
+
+
+     protected void btnStateWiseURL_Click(object sender, EventArgs e)
     {
 
         DataSet dsSiteMap = new DataSet();
@@ -68,7 +111,7 @@ public partial class Default3 : System.Web.UI.Page
         SiteMapBL objSiteMap = new SiteMapBL();
         string sPath = string.Empty;
 
-        sPath = "XML/SiteMap.xml";
+        sPath = "XML/MobiStateCityURLs.xml";
 
         sPath = Server.MapPath(sPath);
 
@@ -86,8 +129,7 @@ public partial class Default3 : System.Web.UI.Page
 
             dsSiteMap.Tables[0].Rows.Add();
 
-         
-            string sUrl = "http://www.mobicarz.com/usedcars/" + SiteMapds.Tables[0].Rows[k]["YearofMake"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["Make"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["Model"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["city"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["statename"].ToString().Trim() + "-" + SiteMapds.Tables[0].Rows[k]["Caruniqueid"].ToString().Trim() + "";
+            string sUrl = "http://www.Mobicarz.com/SellUsedCars/" + SiteMapds.Tables[0].Rows[k]["state"].ToString() + "/" + SiteMapds.Tables[0].Rows[k]["city"].ToString().Replace("#", "");
 
             //dsSiteMap.Tables[0].Rows[dsSiteMap.Tables["url"].Rows.Count - 1][0] = sUrl;
             dsSiteMap.Tables[0].Rows[dsSiteMap.Tables["url"].Rows.Count - 1][0] = sUrl.Replace('&', '-');

@@ -1,13 +1,19 @@
-﻿using System;
+﻿using CarsBL.Transactions;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using CarsBL.Transactions;
 using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
 
-public partial class PromotionCars : System.Web.UI.Page
+public partial class Promotions : System.Web.UI.Page
 {
     int rowcount = 0;
     protected void Page_Load(object sender, EventArgs e)
@@ -62,7 +68,7 @@ public partial class PromotionCars : System.Web.UI.Page
                         lblState1.Text = Request.QueryString[1];
                         lblCity1.Text = Request.QueryString[0];
 
-                        lblState2.Text  = Request.QueryString[1];
+                        lblState2.Text = Request.QueryString[1];
                         lblCity2.Text = Request.QueryString[0];
 
                         Title = "Sell Used Cars in " + Request.QueryString[0] + ", " + Request.QueryString[1] + "";
@@ -149,10 +155,10 @@ public partial class PromotionCars : System.Web.UI.Page
 
             lnkTitle.ToolTip = "Buy " + obj[rowcount].YearOfMake.ToString() + " " + obj[rowcount].Make + " " + obj[rowcount].Model + " cars in " + Request.QueryString[0] + ", " + Request.QueryString[1] + " ";
 
-           //lnkTitle.PostBackUrl = "http://www.mobicarz.com/Buy-Sell-UsedCar/" + obj[rowcount].YearOfMake.ToString() + "-" + obj[rowcount].Make + '-' + obj[rowcount].Model.Replace("&", "-") + '-' + obj[rowcount].CarUniqueID;
+            //lnkTitle.PostBackUrl = "http://www.mobicarz.com/UsedCars/" + obj[rowcount].YearOfMake.ToString() + "-" + obj[rowcount].Make + '-' + obj[rowcount].Model.Replace("&", "-") + '-' + obj[rowcount].CarUniqueID;
 
-           lnbtnTitle.NavigateUrl= "http://www.mobicarz.com/Buy-Sell-UsedCar/" + obj[rowcount].YearOfMake.ToString() + "-" + obj[rowcount].Make + '-' + obj[rowcount].Model.Replace("&", "-") + '-' + obj[rowcount].CarUniqueID;           
-            
+            lnbtnTitle.NavigateUrl = "http://www.mobicarz.com/UsedCars/" + obj[rowcount].YearOfMake.ToString() + "-" + obj[rowcount].Make + '-' + obj[rowcount].Model.Replace("&", "-") + '-' + obj[rowcount].CarUniqueID;
+
 
 
             string StockUrl = string.Empty;
@@ -174,7 +180,7 @@ public partial class PromotionCars : System.Web.UI.Page
 
                 var path = obj[rowcount].PICLOC0.ToString() + "/" + obj[rowcount].PIC0.ToString();
                 path = path.Replace("//", "/");
-                StockUrl = "http://www.images.mobicarz.com/" + path;
+                StockUrl = "http://images.mobicarz.com/" + path;
             }
             Image imgSimliar = (Image)e.Item.FindControl("imgSimliar");
 

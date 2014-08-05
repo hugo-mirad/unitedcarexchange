@@ -70,79 +70,86 @@ public partial class SearchCarDetails : System.Web.UI.Page
             //string Name = Request.Cookies.Get("UserSettings").Values.Get("Name");
             //string Phone = Request.Cookies.Get("UserSettings").Values.Get("Phone");
 
+              string url = HttpContext.Current.Request.Url.AbsoluteUri;
+              if (url.Contains("a1"))
+              {
+                  Response.Redirect("errorpage.aspx");
+              }
+              else
+              {
+                  if (Make != null)
+                  {
 
-            if (Make != null)
-            {
+                      string[] strCarid = Make.Split('-');
+                      if (strCarid.Length >= 4)
+                          Hadd.Value = strCarid[3].ToString();
 
-                string[] strCarid = Make.Split('-');
-                if (strCarid.Length >= 4)
-                    Hadd.Value = strCarid[3].ToString();
+                      CarsService obj = new CarsService();
 
-                CarsService obj = new CarsService();
+                      List<CarsInfo.UsedCarsInfo> objCarInfo = new List<CarsInfo.UsedCarsInfo>();
 
-                List<CarsInfo.UsedCarsInfo> objCarInfo = new List<CarsInfo.UsedCarsInfo>();
+                      ServiceReference objServiceReference = new ServiceReference();
 
-                ServiceReference objServiceReference = new ServiceReference();
+                      ScriptReference objScriptReference = new ScriptReference();
 
-                ScriptReference objScriptReference = new ScriptReference();
+                      //objServiceReference.Path = "http://cars.hugomirad.com/CarsService.asmx";
 
-                //objServiceReference.Path = "http://cars.hugomirad.com/CarsService.asmx";
+                      //objScriptReference.Path = "http://cars.hugomirad.com/Static/JS/CarsJScriptNew.js";
 
-                //objScriptReference.Path = "http://cars.hugomirad.com/Static/JS/CarsJScriptNew.js";
+                      //objServiceReference.Path = "http://localhost:1460/Cars/CarsService.asmx";
 
-                //objServiceReference.Path = "http://localhost:1460/Cars/CarsService.asmx";
-
-                //objScriptReference.Path = "http://localhost:1460/Cars/Static/JS/CarsJScriptNew.js";
-
-
-                objServiceReference.Path = "../CarsService.asmx";
-
-                objScriptReference.Path = "../Static/Js/CarsJScriptNew.js";
-
-                scrptmgr.Services.Add(objServiceReference);
-                scrptmgr.Scripts.Add(objScriptReference);
-
-                if (p == 0)
-                {
-                    if (strCarid.Length > 1)
-                    {
-                        string sCarid = strCarid[strCarid.Length - 1];
-                        Session["carid"] = sCarid.ToString();
-
-                        if (GeneralFunc.IsNumeric(sCarid))
-                        {
-
-                            if (Request.Cookies.Get("UserSettings") == null)
-                            {
-                                // ClientScript.RegisterStartupScript(typeof(Page), "KyAUIDFCS", "<script language='javascript' type='text/javascript'>Subscribe();</script>");
-
-                            }
+                      //objScriptReference.Path = "http://localhost:1460/Cars/Static/JS/CarsJScriptNew.js";
 
 
-                            objCarInfo = obj.FindCarIDNew(sCarid);
+                      objServiceReference.Path = "../CarsService.asmx";
 
-                            FillCarDetails(objCarInfo, sCarid);
+                      objScriptReference.Path = "../Static/Js/CarsJScriptNew.js";
+
+                      scrptmgr.Services.Add(objServiceReference);
+                      scrptmgr.Scripts.Add(objScriptReference);
+
+                      if (p == 0)
+                      {
+                          if (strCarid.Length > 1)
+                          {
+                              string sCarid = strCarid[strCarid.Length - 1];
+                              Session["carid"] = sCarid.ToString();
+
+                              if (GeneralFunc.IsNumeric(sCarid))
+                              {
+
+                                  if (Request.Cookies.Get("UserSettings") == null)
+                                  {
+                                      // ClientScript.RegisterStartupScript(typeof(Page), "KyAUIDFCS", "<script language='javascript' type='text/javascript'>Subscribe();</script>");
+
+                                  }
 
 
-                            //Answer reviews
-                            try
-                            {
-                                string carids = Session["carid"].ToString();
-                                DataSet rptAnswerQuestions = new DataSet();
-                                rptAnswerQuestions = objCarFeatures.GetFinalAnswers(carids);
-                                Session["DeleteDiscus"] = rptAnswerQuestions;
-                                rptquestion.DataSource = rptAnswerQuestions;
-                                rptquestion.DataBind();
-                            }
-                            catch { }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                Response.Redirect("errorpage.aspx");
-            }
+                                  objCarInfo = obj.FindCarIDNew(sCarid);
+
+                                  FillCarDetails(objCarInfo, sCarid);
+
+
+                                  //Answer reviews
+                                  try
+                                  {
+                                      string carids = Session["carid"].ToString();
+                                      DataSet rptAnswerQuestions = new DataSet();
+                                      rptAnswerQuestions = objCarFeatures.GetFinalAnswers(carids);
+                                      Session["DeleteDiscus"] = rptAnswerQuestions;
+                                      rptquestion.DataSource = rptAnswerQuestions;
+                                      rptquestion.DataBind();
+                                  }
+                                  catch { }
+                              }
+                          }
+                      }
+                  }
+                  else
+                  {
+                      Response.Redirect("errorpage.aspx");
+                  }
+              }
         }
 
         string Make1 = Request.QueryString[Request.QueryString.Count - 1];

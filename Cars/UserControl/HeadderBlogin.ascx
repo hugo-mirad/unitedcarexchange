@@ -188,7 +188,7 @@
 					<div class="brand">
 						<div class="logo">
 							<a href="default.aspx">
-								<img src="assets/img/logo.png" alt="MobiCarz">
+								<img src="http://www.mobicarz.com/assets/img/logo.png" alt="MobiCarz">
 							</a>
 						</div><!-- /.logo -->
 
@@ -206,11 +206,11 @@ across the country using web, mobile & social media
 
 					<nav class="collapse navbar-collapse navbar-collapse" role="navigation">
 						<ul class="navigation">
-						<li runat="server" id="homeLi"><a href="default.aspx">Home</a></li>				
+						<li runat="server" id="homeLi"><a href="http://www.mobicarz.com/default.aspx">Home</a></li>				
 						
 						<li runat="server" id="usedCarsLi"><a href="javascript:void(0);">Buy A Car</a></li>
-                        <li runat="server" id="newCarsLi"><a href="SellRegi.aspx">Sell A Car</a></li>
-                         <li runat="server" id="Finaqnce"><a href="Finance.aspx">Finance</a></li>
+                        <li runat="server" id="newCarsLi"><a href="http://www.mobicarz.com/SellRegi.aspx">Sell A Car</a></li>
+                         <li runat="server" id="Finaqnce"><a href="http://www.mobicarz.com/Finance.aspx">Finance</a></li>
                         
                         
 						<%--<li class="menuparent has-regularmenu" runat="server" visible="false" id="sellLi" style="display:none;" > 
@@ -223,9 +223,9 @@ across the country using web, mobile & social media
 							</div>						
 						</li>	--%>					
 						<%--<li><a href="contact.html">Contact</a></li>--%>
-						<li runat="server" visible="false" id="accountLi"><a href="Account.aspx" >My Account</a></li>
-						<li runat="server" visible="false" id="reviewLi" style=" display:none; " ><a href="Reviews.aspx" >Reviews</a></li>
-						<li runat="server" visible="false" id="loginLi" ><a href="login.aspx"><i class='icon icon-normal-turn-off'></i>Login</a></li>
+						<li runat="server" visible="false" id="accountLi"><a href="http://www.mobicarz.com/Account.aspx" >My Account</a></li>
+						<li runat="server" visible="false" id="reviewLi" style=" display:none; " ><a href="http://www.mobicarz.com/Reviews.aspx" >Reviews</a></li>
+						<li runat="server" visible="false" id="loginLi" ><a href="http://www.mobicarz.com/login.aspx"><i class='icon icon-normal-turn-off'></i>Login</a></li>
 						<li runat="server" visible="false" id="logoutLi"><asp:LinkButton ID="lnkBtnLogout" runat="server" CssClass="login" Text="<i class='icon icon-normal-turn-off'></i> Logout" OnClick="lnkBtnLogout_Click"></asp:LinkButton></li>
 						
 						

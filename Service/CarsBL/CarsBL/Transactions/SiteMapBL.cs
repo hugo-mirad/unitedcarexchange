@@ -103,7 +103,7 @@ namespace CarsBL.Transactions
 
             //objUsedCars.Assign stored procedure name USP_GetXMLSiteMapMobi
 
-            spNameString = "[USP_GetXMLSiteMapMobi]";
+            spNameString = "[GetStateWiseURL]";
             DbCommand dbCommand = null;
 
             try
