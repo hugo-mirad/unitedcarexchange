@@ -24,10 +24,11 @@
     <link href="js/jslider/jquery.slider.min.css" rel="stylesheet" type="text/css" media="screen, projection" />
     <link rel="stylesheet" type="text/css" href="assets/css/carat.css" media="screen, projection">
     <!--[if IE]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>d
 <![endif]-->
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:100,400,700,400italic,700italic"
         rel="stylesheet" type="text/css" media="screen, projection">
+    <meta name="msvalidate.01" content="514BEABCB5C36021030F1EE2D5F4BABF" />
     <title>MobiCarz</title>
 
     <script src="assets/js/jquery.js"></script>

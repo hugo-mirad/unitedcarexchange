@@ -70,13 +70,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
             //string Name = Request.Cookies.Get("UserSettings").Values.Get("Name");
             //string Phone = Request.Cookies.Get("UserSettings").Values.Get("Phone");
 
-              string url = HttpContext.Current.Request.Url.AbsoluteUri;
-              if (url.Contains("a1"))
-              {
-                  Response.Redirect("errorpage.aspx");
-              }
-              else
-              {
+            
                   if (Make != null)
                   {
 
@@ -149,7 +143,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
                   {
                       Response.Redirect("errorpage.aspx");
                   }
-              }
+             
         }
 
         string Make1 = Request.QueryString[Request.QueryString.Count - 1];

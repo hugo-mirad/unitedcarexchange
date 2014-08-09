@@ -28,7 +28,7 @@ public partial class SearchCarDetails : System.Web.UI.Page
     int p = 0;
 
     int rowcount = 0;
-
+    string rawURL = HttpContext.Current.Request.RawUrl;
     VisitSiteLog vstlog = new VisitSiteLog();
     CarFeatures objCarFeatures = new CarFeatures();
     protected void Page_Load(object sender, EventArgs e)

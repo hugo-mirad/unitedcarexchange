@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" type="text/css" href="http://www.mobicarz.com/assets/css/bootstrap.min.css" media="screen, projection">
-    
+
     <link rel="stylesheet" type="text/css" href="http://www.mobicarz.com/libraries/pictopro-outline/pictopro-outline.css"
         media="screen, projection">
     <link rel="stylesheet" type="text/css" href="http://www.mobicarz.com/libraries/pictopro-normal/pictopro-normal.css"
@@ -29,39 +29,42 @@
         rel="stylesheet" type="text/css" media="screen, projection">
     <title>Packages</title>
 
-     <script src="http://www.mobicarz.com/assets/js/jquery.js"></script>
+    <script src="http://www.mobicarz.com/assets/js/jquery.js"></script>
 
     <style>
         .featuredCar {
             padding: 0px;
-            margin:0;
+            margin: 0;
             background: #fff;
-            
         }
+
             .featuredCar .thumbnail {
-                border-radius:2px;
+                border-radius: 2px;
                 box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
-                border:0;
-                padding:0;
+                border: 0;
+                padding: 0;
             }
+
                 .featuredCar .thumbnail img {
-                        width:100%;                        
+                    width: 100%;
                 }
-        .featuredCar .thumbnail .caption, .featuredCar .thumbnail .caption h3{
-            margin:0; text-align:center;
-            font-size:14px;
-            text-decoration:none;
-            color:#666;
-        }
-            .featuredCar .thumbnail .caption h3 .pr {
-                font-weight:bold;
-                display:block;
-            }
 
-            .featuredCar a:hover , .featuredCar a:hover .thumbnail .caption h3{
-                color:#232323;
-                text-decoration:none;
+                .featuredCar .thumbnail .caption, .featuredCar .thumbnail .caption h3 {
+                    margin: 0;
+                    text-align: center;
+                    font-size: 14px;
+                    text-decoration: none;
+                    color: #666;
+                }
 
+                    .featuredCar .thumbnail .caption h3 .pr {
+                        font-weight: bold;
+                        display: block;
+                    }
+
+            .featuredCar a:hover, .featuredCar a:hover .thumbnail .caption h3 {
+                color: #232323;
+                text-decoration: none;
             }
     </style>
 
@@ -142,43 +145,43 @@
                                     </div>
                                     <!-- /.page-header -->
                                     <div class="row">
-                                       
-                                           
 
 
 
-                                                        <!-- featured start -->
-                                                        <div class="featured">
-                                                            <asp:Repeater ID="rptrCarsbyState" runat="server" OnItemDataBound="rptrModels_ItemDataBound">
-                                                                <ItemTemplate>
-                                                                    <div class="list col-md-3 col-xs-12 col-sm-6">
-                                                                        <div class="featuredCar">
-                                                                            <!-- -->
-                                                                            <asp:HyperLink ID="lnbtnTitle" runat="server">
-                                                                                <div class="thumbnail">
-                                                                                    <asp:Image runat="server" CssClass="img-thumbnail" ID="imgSimliar"></asp:Image>
-                                                                               <div class="caption">
-                                                                                    <h3>
-                                                                                        <asp:Label ID="lnkTitle" runat="server" class="makeModel"></asp:Label>
-                                                                                        <asp:Label ID="lblprice" runat="server" class="price1 pr"></asp:Label>
-                                                                                    </h3>
 
-                                                                                </div>
-                                                                                     </div>
-                                                                                
-                                                                            </asp:HyperLink>
-                                                                            <!-- -->
 
-                                                                        </div>
+                                        <!-- featured start -->
+                                        <div class="featured">
+                                            <asp:Repeater ID="rptrCarsbyState" runat="server" OnItemDataBound="rptrModels_ItemDataBound">
+                                                <ItemTemplate>
+                                                    <div class="list col-md-3 col-xs-12 col-sm-6">
+                                                        <div class="featuredCar">
+                                                            <!-- -->
+                                                            <asp:HyperLink ID="lnbtnTitle" runat="server">
+                                                                <div class="thumbnail">
+                                                                    <asp:Image runat="server" CssClass="img-thumbnail" ID="imgSimliar"></asp:Image>
+                                                                    <div class="caption">
+                                                                        <h3>
+                                                                            <asp:Label ID="lnkTitle" runat="server" class="makeModel"></asp:Label>
+                                                                            <asp:Label ID="lblprice" runat="server" class="price1 pr"></asp:Label>
+                                                                        </h3>
+
                                                                     </div>
-                                                                </ItemTemplate>
-                                                            </asp:Repeater>
+                                                                </div>
+
+                                                            </asp:HyperLink>
+                                                            <!-- -->
+
                                                         </div>
-                                                        <!-- featured End -->
+                                                    </div>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                        </div>
+                                        <!-- featured End -->
 
 
-                                            <!-- /.testimonial -->
-                                      
+                                        <!-- /.testimonial -->
+
                                     </div>
                                     <!-- /.row -->
                                 </div>
@@ -196,11 +199,12 @@
 
 
                                                 <h3 class="h3">Best way to sell your used car in
-                                                           
-                                                    <asp:Label ID="lblState1" runat="server"></asp:Label>,
+                                                   
+                                                    <asp:Label ID="lblCity1" runat="server"></asp:Label>,
                                                             &nbsp;
-                                                           
-                                                    <asp:Label ID="lblCity1" runat="server"></asp:Label></h3>
+                                                        
+                                                    <asp:Label ID="lblState1" runat="server"></asp:Label>
+                                                </h3>
                                                 <p>
                                                     Are you looking to sell your used car in
                                
@@ -233,9 +237,6 @@
 
                                 </div>
                                 <!-- Dummy Content End   -->
-
-
-
                             </div>
                             <!-- /#main -->
                         </div>
@@ -291,7 +292,7 @@
 
         <script src="http://www.mobicarz.com/js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
 
-        
+
 
     </form>
 </body>

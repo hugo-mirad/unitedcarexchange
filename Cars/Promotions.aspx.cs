@@ -140,7 +140,7 @@ public partial class Promotions : System.Web.UI.Page
 
 
             lblprice.Text = "$" + (EmptyCheck(obj[0].Price.ToString()) == "" ? "0" : EmptyCheck(obj[0].Price.ToString()));
-
+          
 
             if (obj[rowcount].Title != "Emp")
             {
@@ -157,7 +157,7 @@ public partial class Promotions : System.Web.UI.Page
 
             //lnkTitle.PostBackUrl = "http://www.mobicarz.com/UsedCars/" + obj[rowcount].YearOfMake.ToString() + "-" + obj[rowcount].Make + '-' + obj[rowcount].Model.Replace("&", "-") + '-' + obj[rowcount].CarUniqueID;
 
-            lnbtnTitle.NavigateUrl = "http://www.mobicarz.com/UsedCars/" + obj[rowcount].YearOfMake.ToString() + "-" + obj[rowcount].Make + '-' + obj[rowcount].Model.Replace("&", "-") + '-' + obj[rowcount].CarUniqueID;
+            lnbtnTitle.NavigateUrl = "http://www.mobicarz.com/UsedCars/" + obj[rowcount].YearOfMake.ToString() + "-" + obj[rowcount].Make + '-' + obj[rowcount].Model.Replace("&", "-") + '-' + obj[rowcount].City + '-' + obj[rowcount].State + '-' + obj[rowcount].CarUniqueID;
 
 
 
@@ -186,7 +186,7 @@ public partial class Promotions : System.Web.UI.Page
 
             imgSimliar.ImageUrl = StockUrl;
 
-            imgSimliar.DescriptionUrl = "http://www.mobicarz.com/Buy-Sell-UsedCar/" + obj[rowcount].YearOfMake.ToString() + "-" + obj[rowcount].Make + '-' + obj[rowcount].Model.Replace("&", "-") + '-' + obj[rowcount].CarUniqueID;
+            imgSimliar.DescriptionUrl = "http://www.mobicarz.com/UsedCars/" + obj[rowcount].YearOfMake.ToString() + "-" + obj[rowcount].Make + '-' + obj[rowcount].Model.Replace("&", "-") + '-' + obj[rowcount].City + '-' + obj[rowcount].State + '-' + obj[rowcount].CarUniqueID;
 
             string m = string.Empty;
 
