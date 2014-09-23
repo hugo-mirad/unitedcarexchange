@@ -153,7 +153,7 @@
                                                                 <li>Popular Ads</li>
                                                                 <li>Email Promotions & Dealer Network Ads</li>
 
-                                                                <li style="border-bottom: none">Unlimited No-Cost Renewal Option</li>
+                                                                <li style="border-bottom: none">Unlimited Renewals (Run Till It Sells)</li>
                                                                 <li style="border-bottom: none">&nbsp;</li>
                                                                 <li style="border-bottom: none">&nbsp;</li>
                                                             </ul>
@@ -185,7 +185,7 @@
                                                                 <li>Ad traffic report </li>
                                                                 <li>Popular / Banner Ads</li>
                                                                 <li>Email Promotions & Dealer Network Ads</li>
-                                                                <li>Unlimited No-Cost Renewal Option</li>
+                                                                <li>Unlimited Renewals (Run Till It Sells)</li>
                                                                 <li>Expert Advice</li>
                                                                 <li>Premium Site Listings</li>
 

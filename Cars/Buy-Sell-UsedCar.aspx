@@ -135,7 +135,7 @@
                             </div>
                             <!-- /.label -->
                             <div class="value">
-                                <a href="mailto:example@example.com">info@mobicarz.com</a></div>
+                                <a href="mailto:info@mobicarz.com">info@mobicarz.com</a></div>
                             <!-- /.value -->
                         </div>
                         <!-- /.mail -->

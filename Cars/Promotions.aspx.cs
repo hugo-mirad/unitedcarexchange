@@ -155,9 +155,9 @@ public partial class Promotions : System.Web.UI.Page
 
             lnkTitle.ToolTip = "Buy " + obj[rowcount].YearOfMake.ToString() + " " + obj[rowcount].Make + " " + obj[rowcount].Model + " cars in " + Request.QueryString[0] + ", " + Request.QueryString[1] + " ";
 
-            //lnkTitle.PostBackUrl = "http://www.mobicarz.com/UsedCars/" + obj[rowcount].YearOfMake.ToString() + "-" + obj[rowcount].Make + '-' + obj[rowcount].Model.Replace("&", "-") + '-' + obj[rowcount].CarUniqueID;
+            //lnkTitle.PostBackUrl = "http://www.mobicarz.com/usedcars/" + obj[rowcount].YearOfMake.ToString() + "-" + obj[rowcount].Make + '-' + obj[rowcount].Model.Replace("&", "-") + '-' + obj[rowcount].CarUniqueID;
 
-            lnbtnTitle.NavigateUrl = "http://www.mobicarz.com/UsedCars/" + obj[rowcount].YearOfMake.ToString() + "-" + obj[rowcount].Make + '-' + obj[rowcount].Model.Replace("&", "-") + '-' + obj[rowcount].City + '-' + obj[rowcount].State + '-' + obj[rowcount].CarUniqueID;
+            lnbtnTitle.NavigateUrl = "http://www.mobicarz.com/usedcars/" + obj[rowcount].YearOfMake.ToString() + "-" + obj[rowcount].Make + '-' + obj[rowcount].Model.Replace("&", "-") + '-' + obj[rowcount].City + '-' + obj[rowcount].State + '-' + obj[rowcount].CarUniqueID;
 
 
 
@@ -186,7 +186,7 @@ public partial class Promotions : System.Web.UI.Page
 
             imgSimliar.ImageUrl = StockUrl;
 
-            imgSimliar.DescriptionUrl = "http://www.mobicarz.com/UsedCars/" + obj[rowcount].YearOfMake.ToString() + "-" + obj[rowcount].Make + '-' + obj[rowcount].Model.Replace("&", "-") + '-' + obj[rowcount].City + '-' + obj[rowcount].State + '-' + obj[rowcount].CarUniqueID;
+            imgSimliar.DescriptionUrl = "http://www.mobicarz.com/usedcars/" + obj[rowcount].YearOfMake.ToString() + "-" + obj[rowcount].Make + '-' + obj[rowcount].Model.Replace("&", "-") + '-' + obj[rowcount].City + '-' + obj[rowcount].State + '-' + obj[rowcount].CarUniqueID;
 
             string m = string.Empty;
 

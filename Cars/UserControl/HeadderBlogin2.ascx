@@ -227,7 +227,11 @@
 						<li runat="server" visible="false" id="loginLi" ><a href="login.aspx"><i class='icon icon-normal-turn-off'></i>Login</a></li>
 						<li runat="server" visible="false" id="logoutLi"><asp:LinkButton ID="lnkBtnLogout" runat="server" CssClass="login" Text="<i class='icon icon-normal-turn-off'></i> Logout" OnClick="lnkBtnLogout_Click"></asp:LinkButton></li>
 						
-						
+							<li style="background:none;">
+                            <a href="https://play.google.com/store/apps/details?id=com.mobi.mobicarz&hl=en" target="_blank" style="background: none;box-shadow: none;">
+<img src="http://ucecarfinder.unitedcarexchange.com/images/google_play_en.png" style="float: right; margin: 5px 0; height: 23px; width: auto;">
+</a>
+						</li>
 						
 						
 						</ul><!-- /.nav -->
@@ -264,7 +268,7 @@
                         </div>
                         <!-- /.label -->
                         <div class="value">
-                            <a href="mailto:example@example.com">info@mobicarz.com</a></div>
+                            <a href="mailto:info@mobicarz.com">info@mobicarz.com</a></div>
                         <!-- /.value -->
                     </div>
                     <!-- /.mail -->

@@ -73,7 +73,7 @@ public partial class SellRegi : System.Web.UI.Page
             Session["PackageID"] = 5;
             Session["PackgeName"] = "Premium";
             Session["PackgePrice"] = "$199.99";
-            Session["premium"] = "Ad Runs For 90 Days<br>20 Photos<br>15 + Multi Site Promotions<br>Mobile, Social & Web Listings<br>Ad Traffic Report<br>Popular Ads<br>Email Promotions & Dealer Network Ads<br>Unlimited No-Cost Renewal Option<br>";
+            Session["premium"] = "Ad Runs For 90 Days<br>20 Photos<br>15 + Multi Site Promotions<br>Mobile, Social & Web Listings<br>Ad Traffic Report<br>Popular Ads<br>Email Promotions & Dealer Network Ads<br>Unlimited Renewals (Run Till It Sells)<br>";
             if (Session[Constants.USER_ID] != null)
             {
                 mpeSuccessalert.Show();
@@ -94,7 +94,7 @@ public partial class SellRegi : System.Web.UI.Page
             Session["PackageID"] = 6;
             Session["PackgeName"] = "Deluxe";
             Session["PackgePrice"] = "$299.99";
-            Session["Deluxe"] = "Ad Runs For 90 Days<br>20 Photos<br>15 + Multi Site Promotions<br>Mobile, Social & Web Listings<br>Ad Traffic Report<br>Popular / Banner Ads<br>Email Promotions & Dealer Network Ads<br>Unlimited No-Cost Renewal Option<br>Expert Advice<br>Premium Site Listings";
+            Session["Deluxe"] = "Ad Runs For 90 Days<br>20 Photos<br>15 + Multi Site Promotions<br>Mobile, Social & Web Listings<br>Ad Traffic Report<br>Popular / Banner Ads<br>Email Promotions & Dealer Network Ads<br>Unlimited Renewals (Run Till It Sells)<br>Expert Advice<br>Premium Site Listings";
 
             if (Session[Constants.USER_ID] != null)
             {
